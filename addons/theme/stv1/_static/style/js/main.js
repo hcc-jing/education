@@ -118,11 +118,12 @@ function sayTo2()
 	}
 	var tomid =TOMID;
 	var tosusername =TOUSERNAME;
+	var toadminid =TOADMINID;
 	var op=$('#send_talkto option[value="'+tomid+'"]');
 	if(op && op.length>0){	
 		op.remove();
 	}
-	$("#send_talkto").append('<option value="'+tomid+'" uname="'+tosusername+'" selected=selected>'+tosusername+'</option>');
+	$("#send_talkto").append('<option value="'+tomid+'" uname="'+tosusername+'" adminid="'+toadminid+'" selected=selected>'+tosusername+'</option>');
 }
 
 function Change_talkto(){

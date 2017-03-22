@@ -66,7 +66,7 @@ class LiveAction extends Action
 			}
 		}
 		// echo '<pre>';
-		// print_r($chatarr);exit;
+		// print_r($user);exit;
 		//分配变量
 		$this->assign('gundong',$gundong);
 		$this->assign('user',$user);
@@ -137,13 +137,14 @@ class LiveAction extends Action
 		}
 
 		if(!$user && !$guser){
-			$user = $this->_user_model->where("login = '$_COOKIE[$login]' and roomid = '$roomid'")->find();
+			//$user = $this->_user_model->where("login = '$_COOKIE[$login]' and roomid = '$roomid'")->find();
+			$user = $this->_user_model-> field("{$tp}user.*,b.user_group_id")->join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.login = '$_COOKIE[$login]' and roomid = '$roomid'")->find(); 
     		if(!$user) {
     			$guser = $guest->where("username = '$_COOKIE[$login]' and roomid = '$roomid'")->find();
     		}
 		}
 		// echo "<pre>";
-		// print_r($user);exit;
+		// print_r($_COOKIE);exit;
 		//如果没有数据则生成游客身份
 		if(!$user && !$guser){
 			$pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
@@ -173,7 +174,7 @@ class LiveAction extends Action
 			//更新登录的ip
 			$data['ip'] = $thisip;
 			$this->_user_model->where("uid = '$user[uid]'")->save($data);
-
+			$_SESSION['gid']      = "";
 			$_SESSION['username'] = $user['uname'];
 			$_SESSION['mid']      = $user['uid'];
 			$_SESSION['roomid']   = $user['roomid'];
@@ -243,6 +244,14 @@ class LiveAction extends Action
 
 		//判断是否被禁言
 		if(!$user['is_say']){
+			echo json_encode("jinyan");
+			return false;
+		}
+
+		//查询是否被禁言
+		$is_shield = M ('shield') -> where("mid = '{$mid}' and adminid = '{$myadminid}'") -> find();
+		//判断是否还在禁言中
+		if($is_shield && $is_shield['expiretime'] > time()) {
 			echo json_encode("jinyan");
 			return false;
 		}
@@ -321,6 +330,114 @@ class LiveAction extends Action
 		echo json_encode($arr);
 	}
 
+	//处理数据函数
+	public function correlation()
+	{
+		//获取表前缀
+		$tp = C('DB_PREFIX');
+
+		//获取参数判断提交的动作
+		$action = isset($_GET['type']) ? $_GET['type'] : '';
+		//判断动作
+		switch ($action) {
+			//拉黑
+			case 'ipblack':
+				//根据提交的id查询用户的数据
+				$user = $this->_user_model -> field("{$tp}user.uid,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				if($user['user_group_id'] != 1 && $user['user_group_id'] != 2){
+					echo "false";
+					return false;
+				}
+				if($_POST['mid']){
+					//判断屏蔽的是否是游客
+					if($_POST['adminid'] == 14) {
+						//是
+						$u = M ('guest') -> field('ip') -> where("id = '{$_POST["mid"]}'") -> find();
+					}else {
+						//否,则查询会员数据
+						$u = $this->_user_model -> field('ip') -> where("uid = '{$_POST["mid"]}'") -> find();
+					}
+					//判断是否已经存在黑名单列表
+					$is_user = M ('ipblacklist') -> field('id') -> where("ip = '{$u["ip"]}' and mid = '{$_POST["mid"]}' and adminid = '{$_POST["adminid"]}'") -> find();
+					if($is_user) {
+						echo "true";
+						exit;
+					}
+					//构建数组
+					$arr['ip']        = $u['ip'];
+					$arr['opuid']     = $user['uid'];
+					$arr['mid']       = $_POST['mid'];
+					$arr['adminid']   = $_POST['adminid'];
+					$arr['mtime']     = time();
+					//创建数据
+					if(M ('ipblacklist') -> create($arr)) {
+						//插入数据
+						$id = M ('ipblacklist') -> add();
+					}
+
+				//	$res->ci_update(array('adminid'=>-1),array('mid'=>$_POST[mid]),'userlist');
+					echo "true";
+				}
+				break;
+			//屏蔽
+			case 'shield':
+				//查询用户数据
+				$user = $this->_user_model -> field("{$tp}user.uid,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				if($user['user_group_id'] != 1 && $user['user_group_id'] != 2){
+					echo "false";
+					return false;
+				}
+				//判断屏蔽时间
+				if($_POST['t'] == 1){
+					$expire = time() + 3600;//一分钟
+				}else if($_POST['t'] == 2){
+					$expire = time() + 86400;//一天
+				}else if($_POST['t'] == 3){
+					$expire = time() + 86400 * 7;//一个星期
+				}else if($_POST['t'] == 4){
+					$expire = time() + 86400 * 30;//一个月
+				}else{
+					echo "false";
+					return false;
+				}
+				//构建数据
+				$arr['mid']        = $_POST['mid'];//用户id
+				$arr['expiretime'] = $expire;//禁言时间
+				$arr['adminid']    = $_POST['adminid'];//用户组id
+				//判断是否存在数据
+				$is_good = M ('shield') -> field('id') -> where("mid = '{$_POST["mid"]}' and adminid = '{$_POST["adminid"]}'") -> find();
+				if($is_good) {
+					//存在数据则更新
+					$id = M ('shield') -> where("mid = '{$_POST["mid"]}' and adminid = '{$_POST["adminid"]}'") -> setField('expiretime', $expire);
+				}else {
+					//创建数据
+					if(M ('shield') -> create($arr)) {
+						$id = M ('shield') -> add();
+					}
+				}
+				echo "true";
+				break;
+			//删除聊天信息
+			case 'delchat':
+				//查询用户数据
+				$user = $this->_user_model -> field("{$tp}user.uid,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				if($user['user_group_id'] != 1 && $user['user_group_id'] != 2){
+					echo "false";
+					return false;
+				}
+				//删除数据
+				$id = $_POST['mid'];
+				// print_r($id);exit;
+				M ('chatlist') -> where("id = '$id'") -> delete();
+				echo json_encode(array('lid' => $id));
+				break;
+
+			default:
+				echo 'wrong request';
+				break;
+		}
+	}
+
 	//根据传入的id输出相应的信息
 	public function userinfo()
 	{
@@ -344,8 +461,9 @@ class LiveAction extends Action
 		//观看时间cookie设置
 		$mycooke = isset($_COOKIE['clearvideo']) ? $_COOKIE['clearvideo'] : "''";
 		//添加聊天信息的链接
-		$addchat = U ('home/Live/addchat');
-		$Private = U ('home/Live/private_chat');
+		$addchat     = U ('home/Live/addchat');
+		$Private     = U ('home/Live/private_chat');
+		$correlation = U ('home/Live/correlation');
 
 		//查询会员所对应的房间的配置信息
      	$peizhi = $this->_roomidArr_model->where("roomid = '{$user[roomid]}'")->find();
@@ -368,6 +486,7 @@ class LiveAction extends Action
 		var LOGIN_TIP       = 1;
 		var ADDCHAT         = '$addchat';
 		var Private_chat    = '$Private';
+		var CORRELATION     = '$correlation';
 		var THEME           = '$theme';
 		";
 	}

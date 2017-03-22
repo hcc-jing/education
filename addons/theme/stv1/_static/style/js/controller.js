@@ -398,7 +398,7 @@ function flush_client_list(client_list) {
     var imgurl = myurl+'/addons/theme/stv1/_static/style/level';
     $.each(client_list, function (k, v) {
         if(thisroom == v['room_id']) {
-          console.log(v);
+          //console.log(v);
           //  alert(JSON.stringify(v));
           if ($("#users_online li[uid='" + v['mid'] + "']").length > 0) {
               $("#users_online  li[uid='" + v['mid'] + "'] .u_l").html('(' + v['login_count'] + ')');
@@ -413,13 +413,13 @@ function flush_client_list(client_list) {
           if (ADMINID > 3 && $.trim($("#user_select.on").text()) == "在线主播" && v['mid'] != TUIJIANMID) {
               var userhide = 'style="display:none"';
           }
-          if (ADMINID == '1') {
+          if (ADMINID == '1' && MID != v['mid']) {
               var u_l     = '<span class="u_l">(' + v['login_count'] + ')</span>';
-              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
-          } else if (ADMINID == '2') {
+              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1天/</a><a href="javascript:void(0)" onclick="pingbi(3,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1周/</a><a href="javascript:void(0)" onclick="pingbi(4,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1个月</a>';
+          } else if (ADMINID == '2' && MID != v['mid']) {
               var u_l     = '';
-              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
-          } else if (ADMINID == '3') {
+              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1天/</a><a href="javascript:void(0)" onclick="pingbi(3,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1周/</a><a href="javascript:void(0)" onclick="pingbi(4,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1个月</a>';
+          } else if (ADMINID == '3' && MID != v['mid']) {
               var u_l     = '<span class="u_l">(' + v['login_count'] + ')</span>';
               var ban_str = '<a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
           } else {
@@ -427,7 +427,11 @@ function flush_client_list(client_list) {
               var ban_str = '';
           }
           if (v['mid'] == TUIJIANMID || v['tuijianmid'] == MID || v['adminid'] == 1 || ADMINID == 1) {
+            if(MID != v['mid']) {
               var sayto_str = '<a href="javascript:void(0)" class="talkto" onclick="sayTo(this)">对TA说</a>';
+            }else{
+              var sayto_str = '';
+            }
           } else {
               var sayto_str = '';
           }
@@ -454,6 +458,7 @@ function flush_client_list(client_list) {
 // 发言
 function say(data,fangjianid) {
   // $("#roomname").val("");
+  console.log(data);
     var myroom  = $("#mythisroom").val(); 
     var t       = $('#liaotianlist');
     var d       = new Date(parseInt(data.time) * 1000);
@@ -465,7 +470,7 @@ function say(data,fangjianid) {
         sh_str = '<a href="javascript:void(0)" rel="' + data.lid + '" onclick="liaotianShenhe(this)" class="lt_sh">审核</a>'
     }
     if (ADMINID == 3 || ADMINID == 1) {
-        sh_str += '<a href="javascript:void(0)"; rel="' + data.lid + '" onclick="liaotianDel(this)" class="lt_del">删除</a>   <a href="javascript:void(0)" rel="' + data.mid + '" onclick="getUserInfo(this)" class="lt_xq">详情信息</a>'
+        sh_str += '<a href="javascript:void(0)"; rel="' + data.lid + '" onclick="liaotianDel(this)" class="lt_del">删除</a>'
     }
     if ((ADMINID == 3 || ADMINID == 1) && data.shstatus == "1") {
         if ($(".lt_sh[rel='" + data.lid + "']").length > 0) {
@@ -484,17 +489,17 @@ function say(data,fangjianid) {
         }
         var redbagdiv = '';
         if (data.msgtype == 2) {
-            play('mp3/5103.mp3');
+            //play('mp3/5103.mp3');
             redbagdiv = "redbagdiv";
         }
-        var str = '<div class="liaotian" id="' + data.lid + '" aid="' + data.adminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase">  <a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.username + '"  onclick="User_Click(this)">' + data.username + '</a>' + To_str + sh_str + '</Span><div>' + data.content + '</div></div>  </div>';
+        var str = '<div class="liaotian" id="' + data.lid + '" aid="' + data.adminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase">  <a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.username + '" adminid="' + data.adminid + '" onclick="User_Click(this)">' + data.username + '</a>' + To_str + sh_str + '</Span><div>' + data.content + '</div></div>  </div>';
     } else {
         if (data.username == '交易提示') {
-            play('mp3/5103.mp3');
+            //play('mp3/5103.mp3');
             var click_str = 'onclick="$(\'#hdtx\').click()"';
             var str       = '<div class="liaotian "> <div class="liaotian_right fl m2"><span class="userbase "><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><a href="javascript:void)(0)" uid="8" uname="' + data.username + '" >' + data.username + ' </a></span>  <div ' + click_str + '>' + data.content + '</div></div>  </div>';
         } else {
-            play('mp3/5103.mp3');
+            //play('mp3/5103.mp3');
             var str = '<div class="liaotian "> <div class="liaotian_right fl m3"> <div >' + data.content + '</div></div>  </div>';
         }
     }
@@ -602,7 +607,7 @@ function getSiliaodata() {
                cache: false,
                success: function (msg) {//msg为返回的数据，在这里做数据绑定
                    $(".loading").hide();
-                   console.log(msg);
+                   //console.log(msg);
                    $('#Y_PriMes_Div .liaotian').remove();
                    if (msg instanceof Array) {
                        for (i in msg) {
@@ -614,16 +619,16 @@ function getSiliaodata() {
                }
            });
 }
-function pingbi(t) {
+function pingbi(t, mid, adminid) {
     if (!window.confirm("确认屏蔽此人？")) {
         return false;
     }
     if (ADMINID <= 3) {
         $.ajax({
-                   url: "action.php?type=pingbi",
+                   url: CORRELATION + "&type=shield",
                    type: "POST",
                    async: true,
-                   data: {mid: TOMID, t: t},
+                   data: {mid: mid, t: t, adminid: adminid},
                    //dataType: "json",
                    error: function () {
                        // alert('Error loading XML document');
@@ -640,32 +645,33 @@ function pingbi(t) {
         notice('您不具有此权限');
     }
 }
-function ipban() {
+function ipban(mid, adminid) {
     /*ws.send(JSON.stringify( {"type":"shenhe","tomid":TOMID,"username":'系统提示',"sh_content":'对不起，因为您多次违规操作使用融汇财经直播室，管理员已对您进行请出直播室处理！',"fid":FID} ) );
      return false;*/
-    if (!window.confirm("确认封掉此人IP？")) {
+    if (!window.confirm("确认封掉此人IP?")) {
         return false;
     }
+
     if (ADMINID <= 3) {
         $.ajax({
-                   url: "action.php?type=ipban",
+                   url: CORRELATION+"&type=ipblack",
                    type: "POST",
                    async: true,
-                   data: {mid: TOMID},
+                   data: {mid: mid, adminid: adminid},
                    //dataType: "json",
                    error: function () {
                        // alert('Error loading XML document');
                    },
                    success: function (data) {//如果调用php成功
                        if (data == "true") {
-                           notice("屏蔽成功");
-                           ws.send(JSON.stringify({
-                                                      "type": "shenhe",
-                                                      "tomid": TOMID,
-                                                      "username": '系统提示',
-                                                      "sh_content": TOUSERNAME + '，被封IP永久踢出直播室！',
-                                                      "fid": FID
-                                                  }));
+                          notice("屏蔽成功");
+                          ws.send(JSON.stringify({
+                              "type": "shenhe",
+                              "tomid": TOMID,
+                              "username": '系统提示',
+                              "sh_content": TOUSERNAME + '，被封IP永久踢出直播室！',
+                              "fid": FID
+                          }));
                        } else {
                            notice("屏蔽失败");
                        }
@@ -719,9 +725,9 @@ function liaotianShenhe(e) {
 }
 function liaotianDel(e) {
     $.ajax({
-               url: "action.php?type=deleteliaotian",
+               url: CORRELATION + "&type=delchat",
                type: "POST",
-               data: {lid: e.rel},
+               data: {mid: e.rel},
                timeout: 8000,
                dataType: "json",
                cache: false,

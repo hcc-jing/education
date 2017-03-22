@@ -237,14 +237,14 @@
         <div class="liaotiankuang">
             <div id="liaotianlist">            
                 <div class="load_more"><a href="javascript:void(0)" onclick="loadMore()">查看更多信息</a></div>
-                <?php if(is_array($chatarr)): ?><?php $i = 0;?><?php $__LIST__ = $chatarr?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = ($i % 2 )?><div class="liaotian " id="<?php echo ($vo["id"]); ?>" aid="">
+                <?php if(is_array($chatarr)): ?><?php $i = 0;?><?php $__LIST__ = $chatarr?><?php if( count($__LIST__)==0 ) : echo "" ; ?><?php else: ?><?php foreach($__LIST__ as $key=>$vo): ?><?php ++$i;?><?php $mod = ($i % 2 )?><div class="liaotian " id="<?php echo ($vo["id"]); ?>" aid="<?php if($vo["gid"] == 0): ?><?php echo ($vo["user_group_id"]); ?><?php else: ?><?php echo ($vo["usergroupid"]); ?><?php endif; ?>">
                         <div class="liaotian_right fl "> 
                             <span class="userbase"> <a href="javascript:void(0)" class="lt_time"><?php echo date("H:i:s",$vo['time']);?></a> 
                                     <img src="__THEME__/style/level/User<?php if($vo["gid"] == 0): ?><?php echo ($vo["user_group_id"]); ?><?php else: ?><?php echo ($vo["usergroupid"]); ?><?php endif; ?>.png">
-                                    <a href="javascript:void(0)" uid="<?php echo ($vo["mid"]); ?>" uname="<?php echo ($vo["uname"]); ?>" onclick="User_Click(this)"><?php echo ($vo["uname"]); ?></a>
+                                    <a href="javascript:void(0)" uid="<?php echo ($vo["mid"]); ?>" uname="<?php echo ($vo["uname"]); ?>" adminid="<?php if($vo["gid"] == 0): ?><?php echo ($vo["user_group_id"]); ?><?php else: ?><?php echo ($vo["usergroupid"]); ?><?php endif; ?>" onclick="User_Click(this)"><?php echo ($vo["uname"]); ?></a>
                                     <?php if($vo['tomid'] != 0): ?><a class="user_to">对</a><img src="__THEME__/style/level/User<?php echo ($vo["toadminid"]); ?>.png"/>
-                                        <a href="javascript:void(0)" uid="<?php echo ($vo["tomid"]); ?>" uname="<?php echo ($vo["touname"]); ?>" adminid="<?php echo ($vo["toadminid"]); ?>" onclick="User_Click(this)"><?php echo ($vo["touname"]); ?></a>
-                                        <?php if($user['user_group_id'] == 1): ?><a href="javascript:void(0)"; rel="<?php echo ($vo["id"]); ?>" onClick="liaotianDel(this)" class="lt_del">删除</a><?php endif; ?><?php endif; ?>
+                                        <a href="javascript:void(0)" uid="<?php echo ($vo["tomid"]); ?>" uname="<?php echo ($vo["touname"]); ?>" adminid="<?php echo ($vo["toadminid"]); ?>" onclick="User_Click(this)"><?php echo ($vo["touname"]); ?></a><?php endif; ?>
+                                    <?php if($user['user_group_id'] == 1): ?><a href="javascript:void(0)"; rel="<?php echo ($vo["id"]); ?>" onClick="liaotianDel(this)" class="lt_del">删除</a><?php endif; ?>
                             </span>                        
                             <div>
                                 <?php echo ($vo["content"]); ?>
@@ -433,7 +433,11 @@
 	  </div>
         <div id="ManageMenu">
             <div class="NormalMenu">
-                                            </div>
+                <?php if($user['user_group_id'] < 14): ?><a  href="javascript:void(0)" onClick="sayTo2()">对TA说</a><?php endif; ?>
+                <?php if(($user['user_group_id'] == 1) OR ($user['user_group_id'] == 2)): ?><a href="javascript:void(0)" onClick="ipban()">封IP</a> <a href="javascript:void(0)" onClick="pingbi(1)">屏蔽1小时</a> <a href="javascript:void(0)" onClick="pingbi(2)">屏蔽1天</a> <a href="javascript:void(0)" onClick="pingbi(3)">屏蔽1周</a> <a href="javascript:void(0)" onClick="pingbi(4)">屏蔽1个月</a>
+                <?php elseif($user['user_group_id'] == 3): ?>
+                    <a href="javascript:void(0)" onClick="pingbi(1)">屏蔽1小时</a> <a href="javascript:void(0)" onClick="pingbi(2)">屏蔽1天</a> <a href="javascript:void(0)" onClick="pingbi(3)">屏蔽1周</a> <a href="javascript:void(0)" onClick="pingbi(4)">屏蔽1个月</a><?php endif; ?>
+            </div>
         </div>
 </div>
     <div class="main_right">

@@ -243,17 +243,17 @@
             <div id="liaotianlist">            
                 <div class="load_more"><a href="javascript:void(0)" onclick="loadMore()">查看更多信息</a></div>
                 <volist name="chatarr" id="vo">
-                    <div class="liaotian " id="{$vo.id}" aid="">
+                    <div class="liaotian " id="{$vo.id}" aid="<if condition='$vo["gid"] eq 0'>{$vo.user_group_id}<else/>{$vo.usergroupid}</if>">
                         <div class="liaotian_right fl "> 
                             <span class="userbase"> <a href="javascript:void(0)" class="lt_time">{:date("H:i:s",$vo['time'])}</a> 
                                     <img src="__THEME__/style/level/User<if condition='$vo["gid"] eq 0'>{$vo.user_group_id}<else/>{$vo.usergroupid}</if>.png">
-                                    <a href="javascript:void(0)" uid="{$vo.mid}" uname="{$vo.uname}" onclick="User_Click(this)">{$vo.uname}</a>
+                                    <a href="javascript:void(0)" uid="{$vo.mid}" uname="{$vo.uname}" adminid="<if condition='$vo["gid"] eq 0'>{$vo.user_group_id}<else/>{$vo.usergroupid}</if>" onclick="User_Click(this)">{$vo.uname}</a>
                                     <if condition="$vo['tomid'] neq 0">
                                         <a class="user_to">对</a><img src="__THEME__/style/level/User{$vo.toadminid}.png"/>
-                                        <a href="javascript:void(0)" uid="{$vo.tomid}" uname="{$vo.touname}" adminid="{$vo.toadminid}" onclick="User_Click(this)">{$vo.touname}</a>
-                                        <if condition="$user['user_group_id'] eq 1">
-                                            <a href="javascript:void(0)"; rel="{$vo.id}" onClick="liaotianDel(this)" class="lt_del">删除</a>
-                                        </if>
+                                        <a href="javascript:void(0)" uid="{$vo.tomid}" uname="{$vo.touname}" adminid="{$vo.toadminid}" onclick="User_Click(this)">{$vo.touname}</a>                                        
+                                    </if>
+                                    <if condition="$user['user_group_id'] eq 1">
+                                        <a href="javascript:void(0)"; rel="{$vo.id}" onClick="liaotianDel(this)" class="lt_del">删除</a>
                                     </if>
                             </span>                        
                             <div>
@@ -360,7 +360,15 @@
 	  </div>
         <div id="ManageMenu">
             <div class="NormalMenu">
-                                            </div>
+                <if condition="$user['user_group_id'] lt 14">
+                    <a  href="javascript:void(0)" onClick="sayTo2()">对TA说</a>
+                </if>
+                <if condition="($user['user_group_id'] eq 1) OR ($user['user_group_id'] eq 2)">
+                    <a href="javascript:void(0)" onClick="ipban()">封IP</a> <a href="javascript:void(0)" onClick="pingbi(1)">屏蔽1小时</a> <a href="javascript:void(0)" onClick="pingbi(2)">屏蔽1天</a> <a href="javascript:void(0)" onClick="pingbi(3)">屏蔽1周</a> <a href="javascript:void(0)" onClick="pingbi(4)">屏蔽1个月</a>
+                <elseif condition="$user['user_group_id'] eq 3"/>
+                    <a href="javascript:void(0)" onClick="pingbi(1)">屏蔽1小时</a> <a href="javascript:void(0)" onClick="pingbi(2)">屏蔽1天</a> <a href="javascript:void(0)" onClick="pingbi(3)">屏蔽1周</a> <a href="javascript:void(0)" onClick="pingbi(4)">屏蔽1个月</a>
+                </if>
+            </div>
         </div>
 </div>
     <div class="main_right">
