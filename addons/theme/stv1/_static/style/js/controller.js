@@ -42,9 +42,6 @@ $(function () {
         var viewH     = $(this).height();        
         var contentH  = $(this).scrollHeight;//内容高度
         var scrollTop = $(this).scrollTop();
-        console.log(viewH);
-        console.log(contentH);
-        console.log(scrollTop);
         if (viewH >= scrollTop) {
             $(".load_more").show('fast')
         } else {
@@ -144,11 +141,9 @@ function init() {
         }
     };
     // 当有消息时根据消息类型显示不同信息
-    ws.onmessage = function (e) {
-        
+    ws.onmessage = function (e) {      
         var data = JSON.parse(e.data);
         var fangjianid = $("#mythisroom").val();
-        //console.log(data);
         switch (data.type) {
             // 服务端ping客户端
             case 'ping':
@@ -398,7 +393,6 @@ function flush_client_list(client_list) {
     var imgurl = myurl+'/addons/theme/stv1/_static/style/level';
     $.each(client_list, function (k, v) {
         if(thisroom == v['room_id']) {
-          //console.log(v);
           //  alert(JSON.stringify(v));
           if ($("#users_online li[uid='" + v['mid'] + "']").length > 0) {
               $("#users_online  li[uid='" + v['mid'] + "'] .u_l").html('(' + v['login_count'] + ')');
@@ -415,10 +409,10 @@ function flush_client_list(client_list) {
           }
           if (ADMINID == '1' && MID != v['mid']) {
               var u_l     = '<span class="u_l">(' + v['login_count'] + ')</span>';
-              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1天/</a><a href="javascript:void(0)" onclick="pingbi(3,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1周/</a><a href="javascript:void(0)" onclick="pingbi(4,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1个月</a>';
+              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban()">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
           } else if (ADMINID == '2' && MID != v['mid']) {
               var u_l     = '';
-              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban(\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1天/</a><a href="javascript:void(0)" onclick="pingbi(3,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1周/</a><a href="javascript:void(0)" onclick="pingbi(4,\'' + v['mid'] + '\',\'' + v['adminid'] + '\')">1个月</a>';
+              var ban_str = '<a href="javascript:void(0)" class="ipban" onclick="ipban()">封IP</a><a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
           } else if (ADMINID == '3' && MID != v['mid']) {
               var u_l     = '<span class="u_l">(' + v['login_count'] + ')</span>';
               var ban_str = '<a class="pingbi">屏蔽</><a href="javascript:void(0)" onclick="pingbi(1)">1小时/</a> <a href="javascript:void(0)"  onclick="pingbi(2)">1天/</a><a href="javascript:void(0)" onclick="pingbi(3)">1周/</a><a href="javascript:void(0)" onclick="pingbi(4)">1个月</a>';
@@ -458,7 +452,6 @@ function flush_client_list(client_list) {
 // 发言
 function say(data,fangjianid) {
   // $("#roomname").val("");
-  console.log(data);
     var myroom  = $("#mythisroom").val(); 
     var t       = $('#liaotianlist');
     var d       = new Date(parseInt(data.time) * 1000);
@@ -517,8 +510,9 @@ function say(data,fangjianid) {
         t.animate({scrollTop: t[0].scrollHeight}, 1000);
     }
     if (data.quanping) {
-        $('.quanping').append('<div>' + data.content.replace(/<[^>]+>/g, "") + '</div>');
-        init_screen()
+        var screenstr = '<div>' + data.content.replace(/<[^>]+>/g, "") + '</div>';
+        $('.quanping').append(screenstr);
+        init_screen();
     }
 }
 function siliao(data) {
@@ -570,6 +564,7 @@ function fayanLimit() {
         WAIT = FAYAN_LIMIT;
     }
 }
+
 function notice(content) {
     $("#qtip-growl-container").qtip({
                                         content: {text: content, title: "提示"},
@@ -619,10 +614,12 @@ function getSiliaodata() {
                }
            });
 }
-function pingbi(t, mid, adminid) {
+function pingbi(t) {
     if (!window.confirm("确认屏蔽此人？")) {
         return false;
     }
+    var mid     = TOMID;
+    var adminid = TOADMINID;
     if (ADMINID <= 3) {
         $.ajax({
                    url: CORRELATION + "&type=shield",
@@ -645,12 +642,14 @@ function pingbi(t, mid, adminid) {
         notice('您不具有此权限');
     }
 }
-function ipban(mid, adminid) {
+function ipban() {
     /*ws.send(JSON.stringify( {"type":"shenhe","tomid":TOMID,"username":'系统提示',"sh_content":'对不起，因为您多次违规操作使用融汇财经直播室，管理员已对您进行请出直播室处理！',"fid":FID} ) );
      return false;*/
     if (!window.confirm("确认封掉此人IP?")) {
         return false;
     }
+    var mid     = TOMID;
+    var adminid = TOADMINID;
 
     if (ADMINID <= 3) {
         $.ajax({
@@ -681,6 +680,7 @@ function ipban(mid, adminid) {
         notice('您不具有此权限');
     }
 }
+
 function liaotianShenhe(e) {
     $.ajax({
                url: "action.php?type=updateliaotian",
@@ -798,19 +798,19 @@ function loadMore() {
     $(".load_more a").addClass('wait');
     $(".load_more a").text('');
     var lid = $("#liaotianlist .liaotian[id!='']:first").attr('id');
-    $.get("action.php?type=loadmore&lid=" + lid, function (msg, status) {
+    $.get(CORRELATION + "&type=loadmore&lid=" + lid, function (msg, status) {
         if (msg != 'false') {
             for (i in msg) {
                 data = msg[i];
                 if (data.tomid && data.tomid != "null" && data.tomid != "undefined" && data.tomid != "0") {
-                    var To_str = '<a class="user_to">对</a><img src="images/level/User' + data.toadminid + '.png"/><a href="javascript:void)(0)" uid="' + data.tomid + '" uname="' + data.tousername + '"  onclick="User_Click(this)">' + data.tousername + '</a>';
+                    var To_str = '<a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.toadminid + '.png"/><a href="javascript:void)(0)" uid="' + data.tomid + '" uname="' + data.touname + '" adminid="' + data.toadminid + '"  onclick="User_Click(this)">' + data.touname + '</a>';
                 } else {
                     var To_str = '';
                 }
                 var d         = new Date(parseInt(data.time) * 1000);
                 var shijian   = formatDate(d);
                 var redbagdiv = data.msgtype == 2 ? 'redbagdiv' : '';
-                var str       = '<div class="liaotian" id="' + data.lid + '" aid="' + data.adminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase"><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="images/level/User' + data.adminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.username + '"  onclick="User_Click(this)">' + data.username + '</a>' + To_str + '</span><div>' + data.content + '</div></div>  </div>';
+                var str       = '<div class="liaotian" id="' + data.id + '" aid="' + data.myadminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase"><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.myadminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.uname + '" adminid="' + data.myadminid + '"  onclick="User_Click(this)">' + data.uname + '</a>' + To_str + '</span><div>' + data.content + '</div></div>  </div>';
                 $('#liaotianlist').prepend(str);
             }
             $(".load_more a").removeClass('wait');
@@ -818,7 +818,8 @@ function loadMore() {
             $('#liaotianlist').prepend(load_more);
             $('#liaotianlist').scrollTop($("#liaotianlist .liaotian[id='" + lid + "']").offset().top);
         } else {
-            //alert('加载失败');
+            $(".load_more a").removeClass('wait');
+            $(".load_more a").text('查看更多信息');
         }
     }, 'json');
 }
@@ -841,7 +842,7 @@ function sendRedbag() {
     var rolename = $("#role_select").val();
     var roleaid  = $("#role_select option:selected").attr('aid');
     $.ajax({
-               url: "action.php?type=sendredbag",
+               url: CORRELATION + "&type=sendredbag",
                type: "POST",
                async: true,
                data: {num: _num, total: _total},
@@ -853,6 +854,7 @@ function sendRedbag() {
                        ws.send(JSON.stringify({
                                                   "type": "say",
                                                   "lid": data.lid,
+                                                  "fid": data.fid,
                                                   "content": data.content,
                                                   "shstatus": data.shstatus,
                                                   "msgtype": data.msgtype,
@@ -877,7 +879,7 @@ function sendRedbag() {
 function getRedbag(e) {
     var redbag = $(e).attr('rel');
     $.ajax({
-               url: "action.php?type=getredbag",
+               url: CORRELATION + "&type=getredbag",
                type: "POST",
                async: true,
                data: {redbag: redbag},
@@ -905,7 +907,7 @@ function getRedbag(e) {
 }
 function getRedbagInfo(redbag) {
     $.ajax({
-               url: "action.php?type=getredbaginfo",
+               url: CORRELATION + "&type=getredbaginfo",
                type: "POST",
                async: true,
                data: {redbag: redbag},
@@ -916,15 +918,16 @@ function getRedbagInfo(redbag) {
                    if (typeof(data) == "object") {
                        var redbag   = data.redbag;
                        var get_list = data.get_list;
-                       $("#redbag_info ._avatar").html('<img src="/images/level/User' + redbag.adminid + '.png"/>');
+                       console.log(get_list);
+                       $("#redbag_info ._avatar").html('<img src="' + THEME + '/style/level/User' + redbag.user_group_id + '.png"/>');
                        $("#redbag_info h1").html("已领取" + get_list.length + "/" + redbag.num + "个");
                        $("#redbag_info ._info ._info_total").html('共 ￥' + redbag.total);
-                       $("#redbag_info ._info ._info_from").html('来自 ' + redbag.username);
+                       $("#redbag_info ._info ._info_from").html('来自 ' + redbag.uname);
                        $("#redbag_info table").html('')
                        for (i in get_list) {
                            var d       = new Date(parseInt(get_list[i].time) * 1000);
                            var shijian = formatDate(d);
-                           var tr_str  = '<tr> <td style="width:15%"><img src="/images/level/User' + get_list[i].adminid + '.png"></td><td><span>' + get_list[i].username + '</span><p>' + shijian + '</p></td> <td style="width:30%">￥' + get_list[i].count + '</td> </tr>';
+                           var tr_str  = '<tr> <td style="width:15%"><img src="' + THEME + '/style/level/User' + get_list[i].user_group_id + '.png"></td><td><span>' + get_list[i].uname + '</span><p>' + shijian + '</p></td> <td style="width:30%">￥' + get_list[i].count + '</td> </tr>';
                            $("#redbag_info table").append(tr_str)
                        }
                        $("#redbag_info_btn").click();

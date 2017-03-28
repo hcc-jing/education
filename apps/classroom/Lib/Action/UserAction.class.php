@@ -36,7 +36,6 @@ class UserAction extends CommonAction{
     }
     //用户账户管理
     public function account(){
-
         $this->assign('userLearnc', D('ZyLearnc')->getUser($this->mid));
 
         //选择模版
@@ -47,6 +46,7 @@ class UserAction extends CommonAction{
         if(method_exists($this, $method)){
             $this->$method();
         }
+        //print_r($method);exit;
         $this->assign('tab', $tab);
         $this->display('account/'.$tpls[$tab]);
     }

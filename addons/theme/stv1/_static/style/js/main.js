@@ -4,10 +4,10 @@ function PubClear()
 {
 	$('#liaotianlist').html('');
 	if(ADMINID==1 || ADMINID==2 ){
-		if(!window.confirm("是否清空所有人的屏"))
-		{
-		 return false;
-		}
+		// if(!window.confirm("是否清空所有人的屏"))
+		// {
+		//  return false;
+		// }
 		ws.send(JSON.stringify({"type":"pubclear","pubclear":true}));
 	}
 }

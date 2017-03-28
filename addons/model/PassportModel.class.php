@@ -322,7 +322,7 @@ class PassportModel {
 	 * @return void
 	 */
 	public function logoutLocal() {
-		unset($_SESSION['mid'],$_SESSION['SITE_KEY'],$_SESSION['is_teacher']); // 注销session
+		unset($_SESSION['mid'],$_SESSION['SITE_KEY'],$_SESSION['is_teacher'],$_COOKIE['el_login']); // 注销session
 		cookie('TSV3_LOGGED_USER', NULL);	// 注销cookie
 		//UC同步退出
 		if(UC_SYNC){

@@ -36,14 +36,16 @@ class LiveAction extends Action
 		// }
 		//js变量值
 		// echo '<pre>';
-		// print_r($_COOKIE);exit;
+		// print_r($_SESSION);exit;
 		
 		//初始化房间信息
 		$user = $this->initializationRoom();
 
 		//用户的id
-		$userinfo = $user['uid'] ? array('_'=>$user['uid']) : array('__'=>$user['id']);
-		$gundong = "\$(\".bar_gundong\").toggle(function(){\$(this).removeAttr('checked');},function(){\$(this).attr('checked',true);});";
+		$userinfo  = $user['uid'] ? array('_'=>$user['uid']) : array('__'=>$user['id']);
+		$gundong   = "\$(\".bar_gundong\").toggle(function(){\$(this).removeAttr('checked');},function(){\$(this).attr('checked',true);});";
+		//走马灯
+		$allscreen = "\$(\".bar_quanping\").toggle(function(){\$(this).attr('checked',true);},function(){\$(this).removeAttr('checked');});";
 		//换肤的值
 		$bg_img = isset($_COOKIE['bg_img']) ? $_COOKIE['bg_img'] : 'http://www.educationonline.com/addons/theme/stv1/_static/style/bj.jpg';
 		//换肤图片
@@ -56,7 +58,7 @@ class LiveAction extends Action
 		//判断房间号
 		$chatarr  = array();
 		$roomid   = isset($_GET['roomid']) ? $_GET['roomid'] : '';
-		$chatinfo = M ('chatlist') -> field("id,mid,gid") -> where ("roomid = '{$roomid}' and private_chat = 0") -> limit(20) -> order("id desc") -> select();
+		$chatinfo = M ('chatlist') -> field("id,mid,gid") -> where ("roomid = '{$roomid}' and private_chat = 0") -> limit(25) -> order("id desc") -> select();
 		$chatinfo = array_reverse($chatinfo);
 		foreach($chatinfo as $val) {
 			if($val['gid']){
@@ -65,15 +67,21 @@ class LiveAction extends Action
 				$chatarr[] = M ('chatlist') -> field("{$tp}chatlist.*,b.user_group_id") ->join ("left join {$tp}user_group_link as b on {$tp}chatlist.mid = b.uid") -> where ("{$tp}chatlist.id = {$val['id']}") -> find();
 			}
 		}
-		// echo '<pre>';
-		// print_r($user);exit;
+
+		if($user['uid']) {
+			//查询学分币
+			$userLearnc = M('ZyLearncoin') -> where ("uid = '{$user["uid"]}'") -> find();
+			$this->assign('userLearnc', $userLearnc);
+		}
 		//分配变量
 		$this->assign('gundong',$gundong);
+		$this->assign('allscreen',$allscreen);
 		$this->assign('user',$user);
 		$this->assign('chatarr',$chatarr);
 		$this->assign('skin',$skin);
 		$this->assign('userinfo',$userinfo);
 		$this->assign('bg_img',$bg_img);
+
 		//print_r($tp);exit;
 		$this->display();
 	}
@@ -180,8 +188,8 @@ class LiveAction extends Action
 			$_SESSION['roomid']   = $user['roomid'];
 		}
 
-		$username = $user['login'] ? $user['login'] : $guser['username'];
-		cookie('login', $username, time()+8640000);
+		// $username = $user['login'] ? $user['login'] : $guser['username'];
+		// cookie('login', $username, time()+8640000);
 
 		$user = $user ? $user : $guser;
 		return $user;
@@ -335,6 +343,7 @@ class LiveAction extends Action
 	{
 		//获取表前缀
 		$tp = C('DB_PREFIX');
+		$theme = THEME_PUBLIC_URL;
 
 		//获取参数判断提交的动作
 		$action = isset($_GET['type']) ? $_GET['type'] : '';
@@ -431,7 +440,185 @@ class LiveAction extends Action
 				M ('chatlist') -> where("id = '$id'") -> delete();
 				echo json_encode(array('lid' => $id));
 				break;
+			//加载更多消息
+			case 'loadmore':
+				//获取提交的参数
+				$lid = $_GET['lid'];
+				if($lid){
+					$sql_p = "id < '$lid'";
+				}
+				$chatinfo = M ('chatlist') -> where ($sql_p) -> order("id desc") -> limit(20) -> select();
 
+				if($chatinfo){
+					echo json_encode($chatinfo);
+				}else{
+					echo json_encode("false");
+				}
+				break;
+			//发送红包
+			case 'sendredbag':
+				$num   = $_POST['num'];//红包个数
+				$total = $_POST['total'];//红包金额
+				//查询用户的详细信息
+				$userinfo = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.roomid,b.user_group_id,c.balance") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> join("left join {$tp}zy_learncoin as c on {$tp}user.uid = c.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				//判断金额以及权限
+				if($userinfo['balance'] <= 0 || $userinfo['balance'] < $total){
+					echo json_encode("invalidate_total");
+					exit();
+				}else if($total*100 < $num){
+					echo json_encode("invalidate_num");
+					exit();
+				}else {
+					//更新用户的钱包
+					$data['balance'] = $userinfo['balance'] - $total;
+					M ('zy_learncoin') -> where("{$tp}zy_learncoin.uid = '{$_SESSION["mid"]}'") -> save($data);
+					//要插入的数据
+					$send_arr=array(
+						'uid'=>$_SESSION['mid'],
+						'num'=>$num,
+						'total'=>$total,
+						'num_balance'=>$num,
+						'total_balance'=>$total,
+						'time'=>time(),
+					);
+					//插入红包记录
+					if(M ('redbaglist') -> create($send_arr)) {
+						$s_r_id = M ('redbaglist') -> add();
+					}
+
+					$liaotian_arr=array(
+						'mid'      => (($userinfo['user_group_id']<=3) && $_POST['roleid'])?$_POST['roleid']:$userinfo['uid'],
+						'uname'    => (($userinfo['user_group_id']<=3) && $_POST['rolename'])?$_POST['rolename']:$userinfo['uname'],
+						'content'  => '<img rel="'.$s_r_id.'"  src="'. $theme .'/style/images/redbag_open.png" style="width:186px;float:left;cursor:pointer" onclick="getRedbag(this)"/>',
+						'time'     => time(),
+						'msgtype'  => '2',
+						'myadminid'=> $userinfo['user_group_id'],
+						'roomid'   => $userinfo['roomid'],
+					);
+					//插入红包聊天记录
+					if(M ('chatlist') -> create($liaotian_arr)) {
+						$chatid = M ('chatlist') -> add();
+					}
+					//要返回的信息
+					$arr=array(
+						'lid'      =>$chatid,
+						'fid'      =>$userinfo['roomid'],
+						'content'  =>$liaotian_arr['content'],
+						'yue'      =>$userinfo['balance'] - $total,
+						'shstatus' =>1,
+						'msgtype'  =>2
+					);
+					//返回json数据
+					echo json_encode($arr);
+
+					$consume_arr=array(
+						'uid'=>(($userinfo['user_group_id']<=3) && $_POST['roleid'])?$_POST['roleid']:$userinfo['uid'],
+						'count'=>$total,
+						'jid'=>'',
+						'time'=>time(),
+						'beizhu'=>'送红包',
+					);
+					//插入红包总记录
+					if(M ('comsumelist') -> create($consume_arr)) {
+						$comid = M ('comsumelist') -> add();
+					}
+
+				}
+				break;
+			//获取红包
+			case 'getredbag':
+				//查询用户的详细信息
+				$userinfo = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.roomid,b.user_group_id,c.balance") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> join("left join {$tp}zy_learncoin as c on {$tp}user.uid = c.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				$s_r_id   = $_POST['redbag']; //红包id
+				//查询红包的信息
+				$redbag   = M ('redbaglist') -> where("s_r_id = '{$s_r_id}'") -> find(); 
+				//判断是否是游客
+				if ($_SESSION['gid']) {
+					echo json_encode('invalidateadminid');
+					exit();
+				}
+
+				if(!$redbag || !$userinfo ){//红包不存在
+					echo json_encode('false');
+					exit();
+				}else {
+					//查询红包是否已经领过
+					if (M ('getredbaglist') -> where("s_r_id = '{$s_r_id}' and uid = '{$userinfo["uid"]}'") -> find()) {
+						echo json_encode('hasgot');
+						exit();
+					}
+
+					$num           = $redbag['num']; //红包个数
+					$total         = $redbag['total'];//红包金额
+					$num_balance   = $redbag['num_balance'];//剩余个数
+					$total_balance = $redbag['total_balance'];//剩余个数
+					if(!$num_balance){//红包完了
+						echo json_encode('false');
+						exit();
+					}
+					if($num_balance == 1){
+						$count = $total_balance;
+						//更新红包状态为已领完
+						M ('redbaglist') -> where("s_r_id = '{$s_r_id}'") -> save(array('status' => '1'));
+					}else{
+						//获取随机红包金额
+						$count = mt_rand(1,$total_balance*100-$num_balance + 1)/100;
+					}
+
+					$arr=array(
+						's_r_id'=> $s_r_id,
+						'uid'   => $userinfo['uid'],
+						'count' => $count,
+						'time'  => time(),
+					);
+
+					if(M ('getredbaglist') -> create($arr)) {
+						$getid = M ('getredbaglist') -> add();
+					}
+					//红包剩余金额
+					$total_balance = $total_balance - $count;
+					$data['total_balance'] = $total_balance;
+					$data['num_balance']   = $num_balance - 1;
+					M ('redbaglist') -> where("s_r_id = '{$s_r_id}'") -> save($data);
+
+					//获取红包发起者的姓名
+					$sender   = $this->_user_model-> field('uname') -> where("uid = '{$redbag["uid"]}'") -> find();
+					$money    = $userinfo['balance'] + $count;//金钱余额
+					M ('zy_learncoin') -> where("uid = '{$userinfo["uid"]}'") -> save(array('balance' => $money));//更新金钱
+
+					//要返回的数据
+					$returnarr = array(
+						'count'=> $count,
+						'yue'  => $money,
+						'content'=>'<img src="'. $theme .'/style/images/redbag_small.png" style="float:left;margin-right:10px;height:32px"/>'.$userinfo['uname'].' 领取了 '.$sender['uname'].' 的红包',
+					);	
+					//返回数据
+					echo json_encode($returnarr);
+				}
+
+				break;
+			case 'getredbaginfo':
+				//查询用户的详细信息
+				$userinfo   = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.roomid,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				$s_r_id     = $_POST['redbag']; //红包id
+				//查找红包的信息
+				$redbaginfo = M ('redbaglist') -> field("{$tp}redbaglist.*,a.uname,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}redbaglist.uid = b.uid") -> join("left join {$tp}user as a on {$tp}redbaglist.uid = a.uid") -> where("{$tp}redbaglist.s_r_id = '{$s_r_id}'") -> find();
+				
+				if(!$redbaginfo || !$userinfo ){//红包不存在
+					echo json_encode('false');
+					exit();
+				}else {
+					//获取红包列表信息
+					$red_list = M ('getredbaglist') -> field("{$tp}getredbaglist.*,a.uname,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}getredbaglist.uid = b.uid") -> join("left join {$tp}user as a on {$tp}getredbaglist.uid = a.uid") -> where ("{$tp}getredbaglist.s_r_id = '{$s_r_id}'") -> select();
+					$arr      = array(
+						'redbag'  =>$redbaginfo,
+						'get_list'=>$red_list,
+					);
+					//print_r($red_list);
+					echo json_encode($arr);
+				}
+	
+				break;
 			default:
 				echo 'wrong request';
 				break;
@@ -464,6 +651,7 @@ class LiveAction extends Action
 		$addchat     = U ('home/Live/addchat');
 		$Private     = U ('home/Live/private_chat');
 		$correlation = U ('home/Live/correlation');
+		$site_url    = SITE_URL;
 
 		//查询会员所对应的房间的配置信息
      	$peizhi = $this->_roomidArr_model->where("roomid = '{$user[roomid]}'")->find();
@@ -485,6 +673,7 @@ class LiveAction extends Action
 		var LOGIN_SWITCH    = 1;
 		var LOGIN_TIP       = 1;
 		var ADDCHAT         = '$addchat';
+		var _ROOT_          = '$site_url';
 		var Private_chat    = '$Private';
 		var CORRELATION     = '$correlation';
 		var THEME           = '$theme';
