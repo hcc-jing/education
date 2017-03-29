@@ -36,7 +36,6 @@ class HomeAction extends AdministratorAction {
 	{
 		// 插入统计数据
 		$gradeInfo = model('System')->upgrade();
-
 		$statistics = array();
 
 		/**
@@ -105,7 +104,7 @@ class HomeAction extends AdministratorAction {
 
         // 开发团队
         $statistics[L('PUBLIC_DEV_TEAM')] = array(
-        	L('PUBLIC_COPYRIGHT') => '<a href="http://www.seition.com" target="_blank">'.L('PUBLIC_COMPANY').'</a>',
+        	L('PUBLIC_COPYRIGHT') => '<a href="http://www.szmsdkt.com" target="_blank">'.L('PUBLIC_COMPANY').'</a>',
         );
 
         $this->assign('statistics', $statistics);

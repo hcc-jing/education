@@ -23,4 +23,9 @@ class StudioRoomModel extends Model {
 			'_autoinc' => true,
 			'_pk' => 'id' 
 	);
+
+	protected $_validate = array(     
+		array('roomname','require','房间名称必须！'), //默认情况下用正则进行验证     
+		array('roomname','','房间名称已经存在！',0,'unique',1), // 在新增的时候验证name字段是否唯一      
+	);
 }

@@ -40,6 +40,7 @@ GROUP BY uid   ORDER BY count DESC LIMIT 6");
      * 问答首页方法
      */
     public function index(){
+
         $wdtype=intval($_GET['wdtype']);
         //查询条件
         $map=array(

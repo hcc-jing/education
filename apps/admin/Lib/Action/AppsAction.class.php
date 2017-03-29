@@ -68,7 +68,6 @@ class AppsAction extends AdministratorAction
 
 		$this->pageButton[] = array('title'=>L('PUBLIC_OPEN'),'onclick'=>"admin.setAppStatus('', 1)");
 		$this->pageButton[] = array('title'=>L('PUBLIC_CLOSE'),'onclick'=>"admin.setAppStatus('', 0)");
-		
 		$this->_listpk = 'app_id';
 		$this->displayList($listData);
 	}

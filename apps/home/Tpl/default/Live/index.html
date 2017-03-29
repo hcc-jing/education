@@ -308,7 +308,7 @@
                     <li onmouseout="$(&#39;#flowers_list&#39;).hide()" onmouseover="$(&#39;#flowers_list&#39;).show()" style="position:relative"><a href="javascript:void(0)" class="bar_flower">送鲜花<span>
                         </span></a>
                         <ul id="flowers_list" class="FlowerBox">
-                                                                <li> <a class="mm" href="javascript:void(0)" title="传奇" onclick="SendFlower(&#39;3023&#39;)">送给：
+                                    <li> <a class="mm" href="javascript:void(0)" title="传奇" onclick="SendFlower(&#39;3023&#39;)">送给：
                                             传奇                                        </a><br>
                                     </li>
                                                                     <li> <a class="mm" href="javascript:void(0)" title="QQ用户原点" onclick="SendFlower(&#39;3498&#39;)">送给：
@@ -323,7 +323,7 @@
                                                                     <li> <a class="mm" href="javascript:void(0)" title="QQ用户泰山" onclick="SendFlower(&#39;4825&#39;)">送给：
                                             QQ用户泰山                                        </a><br>
                                     </li>
-                                                        </ul>
+                        </ul>
                     </li>
                     <li>
                         <a href="/#redbag_choice" class=" showdiv bar_redbag">抢红包<span>￥{$userLearnc['balance']}</span></a>
@@ -339,7 +339,7 @@
                 <input type="hidden" id="mythisroom" value="{$user['roomid']}">
                 <!-- <input type="hidden" id="roomname" value="总房间"> -->
                 <div class="xialatiao ">
-                <if condition="($user['user_group_id'] lt 3) OR ($user['user_group_id'] eq 3)">
+                <if condition="($user[user_group_id] eq 1) OR ($user[user_group_id] eq 2) OR ($user[user_group_id] eq 3)">
                         <select id="role_select">
                             <option value="{$user['uname']}" aid="{$user['user_group_id']}" uid="{$user['uid']}">我</option>
                         </select>

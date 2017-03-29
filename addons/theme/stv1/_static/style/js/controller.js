@@ -485,7 +485,14 @@ function say(data,fangjianid) {
             //play('mp3/5103.mp3');
             redbagdiv = "redbagdiv";
         }
-        var str = '<div class="liaotian" id="' + data.lid + '" aid="' + data.adminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase">  <a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.username + '" adminid="' + data.adminid + '" onclick="User_Click(this)">' + data.username + '</a>' + To_str + sh_str + '</Span><div>' + data.content + '</div></div>  </div>';
+
+        if(fangjianid == 'done') {
+          var saycontent = data.content2;
+        }else {
+          var saycontent = data.content;
+        }
+
+        var str = '<div class="liaotian" id="' + data.lid + '" aid="' + data.adminid + '"><div class="liaotian_right fl ' + redbagdiv + '"><Span class="userbase">  <a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png"><a href="javascript:void)(0)" uid="' + data.mid + '" uname="' + data.username + '" adminid="' + data.adminid + '" onclick="User_Click(this)">' + data.username + '</a>' + To_str + sh_str + '</Span><div>' + saycontent + '</div></div>  </div>';
     } else {
         if (data.username == '交易提示') {
             //play('mp3/5103.mp3');

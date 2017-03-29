@@ -34,13 +34,12 @@ class LiveAction extends Action
 		// 	$this->error("请先登录!");
 		// 	U('index/Index/index','',true);
 		// }
-		//js变量值
-		// echo '<pre>';
-		// print_r($_SESSION);exit;
+		//js变量值		
 		
 		//初始化房间信息
 		$user = $this->initializationRoom();
-
+		// echo '<pre>';
+		// print_r($user);exit;
 		//用户的id
 		$userinfo  = $user['uid'] ? array('_'=>$user['uid']) : array('__'=>$user['id']);
 		$gundong   = "\$(\".bar_gundong\").toggle(function(){\$(this).removeAttr('checked');},function(){\$(this).attr('checked',true);});";
@@ -131,10 +130,10 @@ class LiveAction extends Action
 		}
 
 		//判断是否需要密码
-		// if($_GET['pwd'] != $peizhi['password']) {
-		// 	$this->redirect('home/Live/showPassword',array('roomid'=>$roomid));
-		// 	exit;
-		// }
+		if($_GET['pwd'] != $peizhi['password']) {
+			$this->redirect('home/Live/showPassword',array('roomid'=>$roomid));
+			exit;
+		}
 
 		//判断是否存在登录情况
 		$login = $tp.'login';
@@ -156,9 +155,9 @@ class LiveAction extends Action
 		//如果没有数据则生成游客身份
 		if(!$user && !$guser){
 			$pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
-		 		for($i = 0; $i < 4; $i ++) {
-		        	$returnStr .= $pattern {mt_rand ( 0, 61 )};
-				} //生成php随机数
+		 	for($i = 0; $i < 4; $i ++) {
+		        $returnStr .= $pattern {mt_rand ( 0, 61 )};
+			} //生成php随机数
 			$arr=array(
 			'uname'       => "游客".$returnStr,
 			'usergroupid'    => 14,

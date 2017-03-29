@@ -5,18 +5,17 @@
  * @version chuyouyun2.0
  */
 tsload(APPS_PATH.'/admin/Lib/Action/AdministratorAction.class.php');
-class AdminAction extends AdministratorAction
+class MemberAction extends AdministratorAction
 {
 	/**
 	 * 初始化，
 	 */
 	public function _initialize() {
-		$this->pageTitle['index']  = '直播间列表';
-		$this->pageTitle['create'] = '创建直播间';
-		$this->pageTitle['update'] = '修改直播间';
+		$this->pageTitle['index']  = '会员列表';
+		$this->pageTitle['update'] = '修改会员信息';
 		
-		$this->pageTab[] = array('title'=>'直播间列表','tabHash'=>'index','url'=>U('live/Admin/index'));
-		$this->pageTab[] = array('title'=>'创建直播间','tabHash'=>'create','url'=>U('live/Admin/create'));
+		$this->pageTab[] = array('title'=>'会员列表','tabHash'=>'index','url'=>U('live/Admin/index'));
+		$this->pageTab[] = array('title'=>'修改会员信息','tabHash'=>'create','url'=>U('live/Admin/create'));
 		parent::_initialize();
 	}
 	
@@ -111,80 +110,6 @@ class AdminAction extends AdministratorAction
 		} else {
 			$this->error('删除失败');
 		}
-	}
-	
-	//关闭直播间
-	public function close(){
-		$roomid = t($_REQUEST['roomid']);
-		$url    = C('API_URL').'room/close?';
-		$param  = 'roomid='.$roomid.'&userid='.C('USER_ID');
-		$hash   = md5( $param.'&time='.time().'&salt='.C('API_KEY') );
-		$url    = $url.$param.'&time='.time().'&hash='.$hash;
-		$res = $this->getDataByUrl($url);
-		if($res['result'] == 'OK') {
-			$this->success('关闭成功');
-		} else {
-			$this->error('关闭失败');
-		}
-	}
-	
-	//直播间信息
-	private function roomInfo($roomid){
-		$roominfo = array();
-		$roominfo['room'] = M ('studioroom') -> where("id = '{$roomid}'") ->find();
-
-		return $roominfo;
-	}
-	
-	//直播列表信息（带分页）
-	public function info(){
-		$roomid = t($_REQUEST['roomid']);
-		$url    = C('API_URL').'live/info?';
-		$param  = 'roomid='.$roomid.'&userid='.C('USER_ID');
-		$hash   = md5( $param.'&time='.time().'&salt='.C('API_KEY') );
-		$url    = $url.$param.'&time='.time().'&hash='.$hash;
-		$list   = $this->getDataByUrl($url);
-		$this->assign('list',$list);
-		$this->assign('type','info');
-		$this->display('list');
-	}
-	
-	//直播间连接数统计
-	public function connections(){
-	
-	}
-	
-	//获取直播间代码
-	public function getCode(){
-		$roomid = t($_REQUEST['roomid']);
-		$url    = C('API_URL').'room/code?';
-		$param  = 'roomid='.$roomid.'&userid='.C('USER_ID');
-		$hash   = md5( $param.'&time='.time().'&salt='.C('API_KEY') );
-		$url    = $url.$param.'&time='.time().'&hash='.$hash;
-		$list   = $this->getDataByUrl($url);
-		$this->assign('list',$list);
-		$this->assign('type','code');
-		$this->display('list');
-	}
-	
-	//获取直播间内用户登录、退出行为统计
-	public function useraction(){
-	
-	}
-	
-	//直播间模板信息
-	public function templateInfo(){
-		$url    = C('API_URL').'viewtemplate/info?';
-		$param  = 'userid='.C('USER_ID');;
-		$hash   = md5( $param.'&time='.time().'&salt='.C('API_KEY') );
-		$url    = $url.$param.'&time='.time().'&hash='.$hash;
-		$list = $this->getDataByUrl($url);
-		dump($list);exit;
-	}
-	
-	//根据url读取文本
-	private function getDataByUrl($url , $type = true){
-		return json_decode(file_get_contents($url) , $type);
 	}
 
 }

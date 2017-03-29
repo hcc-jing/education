@@ -41,6 +41,7 @@ class UserGroupAction extends AdministratorAction
 
         $this->_listpk = 'user_group_id';
         $this->allSelected = false;
+
         $this->displayList($list);
 	}
 

@@ -120,7 +120,9 @@ $menu = array(
 			
 		'live' => array(
 				'直播系统' => array(
-				'直播间管理' => U('live/Admin/index'),
+				'直播间管理'       => U('live/Admin/index'),
+				'直播间会员管理'   => U('live/Member/index'),
+				'直播间客服管理'   => U('live/Service/index'),
 				),
 		),
 
