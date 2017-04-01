@@ -26,11 +26,31 @@ class MemberAction extends AdministratorAction
 		//获取表前缀
 		$tp = C('DB_PREFIX');
 		$_REQUEST['tabHash'] = 'index';
-		$this->pageKeyList = array('uid','uname','phone','is_del','roomid','is_say','balance','DOACTION');
-		$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> findPage();
-		//$arr['data'] = $list; 
-		// echo '<pre>';
-		// print_r($list);exit;
+		$this->pageKeyList = array('uid','uname','phone','is_del','roomname','is_say','balance','DOACTION');
+		// 搜索选项的key值
+		$this->searchKey = array('uid','uname','roomid');
+		$this->pageButton[] = array('title'=>'搜索会员','onclick'=>"admin.fold('search_form')");
+		
+		//判断是否搜索
+		if($_REQUEST['dosearch']) {
+			$uname    = t($_REQUEST['uname']);
+			$roomid   = t($_REQUEST['roomid']);
+			$list     = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> where("{$tp}user.uname = '{$uname}' and {$tp}user.roomid = '{$roomid}'") -> findPage();
+			if($list['count']) {
+				// $list['data'][0] = $info;
+			}else {
+				$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> findPage();
+			}
+		}else {
+			$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> findPage();
+		}
+
+		//查询所有房间的信息
+		$allroom = M ('studioroom') -> field('roomid,roomname') ->select();
+		foreach($allroom as $key => $val) {
+			$this->opt['roomid'][$val['roomid']] = $val['roomname'];
+		}
+
 		foreach($list['data'] as &$val){
 			//会员列表地址
 			$val['is_del']     = ($val['is_del'] == 0) ? '未禁用' : '禁用';
@@ -38,8 +58,9 @@ class MemberAction extends AdministratorAction
 			$val['DOACTION']   = '<a href="'.U('live/Member/update',array('uid'=>$val['uid'])).'">编辑</a> | ';
 			$val['DOACTION']   .= '<a href="'.U('live/Member/deteleUser',array('uid'=>$val['uid'])).'" onclick="return confirm(\'确认删除该会员吗?\');">删除</a>';
 		}
+
 		// echo '<pre>';
-		// print_r($arr);exit;
+		// print_r($list);exit;
 		$this->displayList($list);
 	}
 	
@@ -75,11 +96,17 @@ class MemberAction extends AdministratorAction
 			}
 		} else {
 			$_REQUEST['tabHash'] = 'update';
+
+			$uid    = t($_REQUEST['uid']);
+			//查询所有房间的信息
+			$allroom = M ('studioroom') -> field('roomid,roomname') -> select();
 			$this->pageKeyList = array('uid','uname','phone','is_del','roomid','is_say','balance');
 			$this->opt['is_del']          = array('1'=>'不禁用','0'=>'禁用'); //
 			$this->opt['is_say']     = array('1'=>'不禁言','0'=>'禁言'); //发言限制
-			
-			$uid    = t($_REQUEST['uid']);
+			//$this->opt['roomid'][0]     = $myroom['rooname']; //房间号
+			foreach($allroom as $key => $val) {
+				$this->opt['roomid'][$val['roomid']] = $val['roomname'];
+			}
 			$list   = $this->memberInfo($uid);
 			$this->savePostUrl = U('live/Member/update');
 			//print_r($list);exit;

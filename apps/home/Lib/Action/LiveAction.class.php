@@ -39,7 +39,7 @@ class LiveAction extends Action
 		//初始化房间信息
 		$user = $this->initializationRoom();
 		// echo '<pre>';
-		// print_r($user);exit;
+		// print_r($_SESSION);exit;
 		//用户的id
 		$userinfo  = $user['uid'] ? array('_'=>$user['uid']) : array('__'=>$user['id']);
 		$gundong   = "\$(\".bar_gundong\").toggle(function(){\$(this).removeAttr('checked');},function(){\$(this).attr('checked',true);});";
@@ -61,11 +61,17 @@ class LiveAction extends Action
 		$chatinfo = array_reverse($chatinfo);
 		foreach($chatinfo as $val) {
 			if($val['gid']){
-				$chatarr[] = M ('chatlist') -> field("{$tp}chatlist.*,b.id,b.usergroupid") ->join ("left join {$tp}guest as b on {$tp}chatlist.mid = b.id") -> where ("{$tp}chatlist.id = {$val['id']}") -> find();
+				$chatarr[] = M ('chatlist') -> field("{$tp}chatlist.*,b.usergroupid") ->join ("left join {$tp}guest as b on {$tp}chatlist.mid = b.id") -> where ("{$tp}chatlist.id = {$val['id']}") -> find();
 			}else {
 				$chatarr[] = M ('chatlist') -> field("{$tp}chatlist.*,b.user_group_id") ->join ("left join {$tp}user_group_link as b on {$tp}chatlist.mid = b.uid") -> where ("{$tp}chatlist.id = {$val['id']}") -> find();
 			}
 		}
+		// echo '<pre>';
+		// print_r($chatarr);exit;
+		//查询房间配置信息
+		$peizhi = $this->_roomidArr_model->where("roomid = '{$roomid}'")->find();
+		//查询教师资料
+		$teather = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,a.user_group_id") -> join("{$tp}user_group_link as a on {$tp}user.uid = a.uid") -> where("a.user_group_id = 3") -> select();
 
 		if($user['uid']) {
 			//查询学分币
@@ -80,6 +86,8 @@ class LiveAction extends Action
 		$this->assign('skin',$skin);
 		$this->assign('userinfo',$userinfo);
 		$this->assign('bg_img',$bg_img);
+		$this->assign('peizhi',$peizhi);
+		$this->assign('teather',$teather);
 
 		//print_r($tp);exit;
 		$this->display();
@@ -363,20 +371,21 @@ class LiveAction extends Action
 						$u = M ('guest') -> field('ip') -> where("id = '{$_POST["mid"]}'") -> find();
 					}else {
 						//否,则查询会员数据
-						$u = $this->_user_model -> field('ip') -> where("uid = '{$_POST["mid"]}'") -> find();
+						$u = $this->_user_model -> field('reg_ip') -> where("uid = '{$_POST["mid"]}'") -> find();
 					}
 					//判断是否已经存在黑名单列表
-					$is_user = M ('ipblacklist') -> field('id') -> where("ip = '{$u["ip"]}' and mid = '{$_POST["mid"]}' and adminid = '{$_POST["adminid"]}'") -> find();
+					//$is_user = M ('ipblacklist') -> field('id') -> where("ip = '{$u["ip"]}' and mid = '{$_POST["mid"]}' and adminid = '{$_POST["adminid"]}'") -> find();
 					if($is_user) {
 						echo "true";
 						exit;
 					}
 					//构建数组
-					$arr['ip']        = $u['ip'];
+					$arr['ip']        = $u['reg_ip'];
 					$arr['opuid']     = $user['uid'];
 					$arr['mid']       = $_POST['mid'];
 					$arr['adminid']   = $_POST['adminid'];
 					$arr['mtime']     = time();
+					
 					//创建数据
 					if(M ('ipblacklist') -> create($arr)) {
 						//插入数据
@@ -618,6 +627,61 @@ class LiveAction extends Action
 				}
 	
 				break;
+			case 'addflower':
+				//判断是游客还是会员
+				$mid    = t($_REQUEST['mid']);
+				if($_SESSION['gid']) {
+					//游客
+					$id = M ('guest') -> where("id='{$mid}'") -> setInc('flowers'); //鲜花+1
+				}else {
+					//会员
+					$id = M ('user') -> query("update {$tp}user set flowers = flowers+1 where uid = '{$mid}'"); //鲜花+1
+				}
+				
+				if($id) {
+					echo 'success';
+				}
+				break;
+			case 'sendflower':
+				//查询用户的详细信息
+				$mid    = t($_REQUEST['jid']);
+
+				if($mid == $_SESSION['mid'] && $_SESSION['gid'] == '') {
+					echo json_encode('bad');
+					exit;
+				}
+				$userinfo   = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.roomid,{$tp}user.flowers") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+				if($userinfo['flowers'] <= 0){
+					echo json_encode("false");
+				}else{
+					M ('user') -> query("update {$tp}user set flowers = flowers+1 where uid = '{$mid}'"); //鲜花+1
+					M ('user') -> query("update {$tp}user set flowers = flowers-1 where uid = '{$userinfo["uid"]}'"); //鲜花-1
+					//查询当前用户信息
+					$thisuser = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.flowers") -> where("{$tp}user.uid = '{$_SESSION[mid]}'") -> find();
+					//查询教师的信息
+					$teather         = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.flowers") -> where("{$tp}user.uid = '{$mid}'") -> find();
+					$data['num']     = $flowers = $teather['flowers'];
+					$data['roomid']  = $userinfo['roomid'];
+					$data['flowers'] = $thisuser['flowers'];
+					$data['content'] = $userinfo['uname'].'  给  '.$teather['uname'].'   送了一朵花  <img src="'. $theme .'/style/images/flower.png" style="width:32px;float:right;margin-left:10px"/>';
+					
+
+					echo json_encode($data);
+					$data=array(
+						'uid'=>$_SESSION['mid'],
+						'count'=>1,
+						'jid'=>$mid,
+						'flowers'=>$thisuser['flowers'],
+						'time'=>time(),
+						'beizhu'=>'送花',
+					);
+
+					if($info = M('comsumelist') -> create($data)) {
+						$cid = M('comsumelist') -> add($info);
+					}
+				}
+
+				break;
 			default:
 				echo 'wrong request';
 				break;
@@ -651,6 +715,7 @@ class LiveAction extends Action
 		$Private     = U ('home/Live/private_chat');
 		$correlation = U ('home/Live/correlation');
 		$site_url    = SITE_URL;
+		$flowers     = ($user['flowers'] == 0) ? '' : $user['flowers'];
 
 		//查询会员所对应的房间的配置信息
      	$peizhi = $this->_roomidArr_model->where("roomid = '{$user[roomid]}'")->find();
@@ -666,7 +731,7 @@ class LiveAction extends Action
 		var TOUSERNAME      = '';
 		var COOKIE          = $mycooke;
 		var FAYAN_LIMIT     = '$peizhi[speak_interval]';
-		var Flower_NUM      = '';
+		var Flower_NUM      = '$flowers';
 		var VIEWSTATUS      = '$peizhi[viewstatus]';
 		var VIEWTIME        = '$peizhi[viewtime]';
 		var LOGIN_SWITCH    = 1;

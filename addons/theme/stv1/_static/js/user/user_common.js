@@ -255,6 +255,21 @@ function oTopics_a(oTopics)
   
  	});
  }
+
+ //直播间退出登录
+ function logout2(){
+ 	var url = U('home/Passport/logout');
+ 	var roomid = $('#mythisroom').val(); 	
+ 	var arr = new Array;
+ 		arr[0] = 'roomid='+roomid;
+
+ 	$.post(url, {}, function(res){
+ 		if(res == 1){
+ 			window.location.href = U('home/Live/index',arr);
+ 		}
+  
+ 	});
+ }
  //错误的消息函数 
 function errorInfo(obj,msg,type)
 {

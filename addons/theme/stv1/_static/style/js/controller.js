@@ -15,6 +15,7 @@ $(function () {
         }
     } else {
         setInterval(addFlower, 60 * 20 * 1000);
+        //setInterval(addFlower, 60 * 20);
     }
     $(".zaixian_tit a").click(function () {
         $(".zaixian_tit a").removeClass("on");
@@ -476,7 +477,7 @@ function say(data,fangjianid) {
     }
     if (data.username != '交易提示' && data.username != '系统提示') {
         if (data.tomid && data.tomid != "null" && data.tomid != "undefined" && data.tomid != "0") {
-            var To_str = '<a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.togid + '.png"/><a href="javascript:void)(0)" uid="' + data.tomid + '" uname="' + data.tousername + '"  onclick="User_Click(this)">' + data.tousername + '</a>';
+            var To_str = '<a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.togid + '.png"/><a href="javascript:void)(0)" uid="' + data.tomid + '" uname="' + data.tousername + '" adminid="' + data.togid + '"  onclick="User_Click(this)">' + data.tousername + '</a>';
         } else {
             var To_str = '';
         }
@@ -500,6 +501,7 @@ function say(data,fangjianid) {
             var str       = '<div class="liaotian "> <div class="liaotian_right fl m2"><span class="userbase "><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><a href="javascript:void)(0)" uid="8" uname="' + data.username + '" >' + data.username + ' </a></span>  <div ' + click_str + '>' + data.content + '</div></div>  </div>';
         } else {
             //play('mp3/5103.mp3');
+
             var str = '<div class="liaotian "> <div class="liaotian_right fl m3"> <div >' + data.content + '</div></div>  </div>';
         }
     }
@@ -752,12 +754,13 @@ function liaotianDel(e) {
            });
 }
 function SendFlower(jid) {
+
     if (!Flower_NUM) {
-        notice('对不起，您没有足够的红包');
+        notice('对不起，您没有足够的鲜花');
         return false;
     }
     $.ajax({
-               url: "action.php?type=sendflower",
+               url: CORRELATION+"&type=sendflower",
                type: "POST",
                async: true,
                data: {jid: jid},
@@ -766,12 +769,14 @@ function SendFlower(jid) {
                    // alert('Error loading XML document');
                },
                success: function (data) {//如果调用php成功
-                   if (data != "false") {
+                   if(data == 'bad') {
+                       notice("自己不能给自己送花");
+                   }else if (data != "false") {
                        notice("送花成功");
                        $('.FlowerNum span').html(data.num);
                        Flower_NUM--;
-                       $(".bar_flower  span").html(Flower_NUM);
-                       ws.send(JSON.stringify({"type": "sendflower", "sh_content": data.content}));
+                       $(".bar_flower  span").html(data.flowers);
+                       ws.send(JSON.stringify({"type": "sendflower", "sh_content": data.content,roomid:data.roomid}));
                    } else {
                        notice("您已经没有花了");
                    }
@@ -790,7 +795,7 @@ function GetFlower() {
 function addFlower() {
     Flower_NUM++;
     $(".bar_flower span").html(Flower_NUM);
-    $.get("action.php?type=addflower&mid=" + MID, function (data, status) {
+    $.get(CORRELATION+"&type=addflower&mid=" + MID, function (data, status) {
     });
 }
 function setTeacherId(mid) {
@@ -878,7 +883,7 @@ function sendRedbag() {
                        notice("单个红包金额最少为1");
                    } else {
                        notice("对不起，您的账户余额不足");
-                       $("#redbag_pay_btn").click();
+                       //$("#redbag_pay_btn").click();
                    }
                }
            });

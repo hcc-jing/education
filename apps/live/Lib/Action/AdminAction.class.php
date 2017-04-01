@@ -74,12 +74,11 @@ class AdminAction extends AdministratorAction
 	public function update(){
 		if( isset($_POST) ) {
 			$roomid = t($_REQUEST['roomid']);
-			if(M ('studioroom') -> create()) {
-				$id = M ('studioroom') -> where("roomid = '{$roomid}'") -> save();
+			if($data = M ('studioroom') -> create($_POST, 2)) {
+				$id = M ('studioroom') -> where("roomid = '{$roomid}'") -> save($data);
 			}else {
 				$this->error(M ('studioroom') -> getError());
 			}
-
 			if($id) {
 				$this->assign( 'jumpUrl', U('live/Admin/index') );
 				$this->success('修改成功');

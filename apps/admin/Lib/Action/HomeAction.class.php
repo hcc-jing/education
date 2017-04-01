@@ -151,6 +151,8 @@ class HomeAction extends AdministratorAction {
 
 		$list = model('Online')->getStatsList($where);
 		$this->assign($list);
+		// echo '<pre>';
+		// print_r($list);exit;
 		$this->display();
 	}
 
