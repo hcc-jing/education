@@ -129,6 +129,8 @@ admin.BankCardEdit = function(_id,action,title,type){
    }	
 };
 
+
+
 //处理笔记
 admin.mzNoteEdit = function(_id,action,title,type){
 	var id = ("undefined"== typeof(_id)|| _id=='') ? admin.getChecked() : _id;

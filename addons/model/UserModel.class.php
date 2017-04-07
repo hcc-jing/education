@@ -51,6 +51,7 @@ class UserModel extends Model {
 			39 => 'profession',
 			40 => 'roomid',
 			41 => 'is_say',
+			42 => 'flowers',
 			'_autoinc' => true,
 			'_pk' => 'uid' 
 	);

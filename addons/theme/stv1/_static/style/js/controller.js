@@ -1,5 +1,5 @@
 $(function () {
-    init();
+    initw();
     $(".liaotian_right div").dblclick(function () {
         $.fancybox($(this).html(), {
             scrolling: "no",
@@ -92,7 +92,7 @@ function print_r(theObj) {
     }
     return retStr;
 }
-function init() {
+function initw() {
     //ws = new WebSocket("ws://118.244.214.62:8852");
     ws = new WebSocket("ws://127.0.0.1:8181");
     //var ws = io.connect('ws://127.0.0.1:8855');
@@ -385,16 +385,18 @@ function addliaotian() {
 // 刷新用户列表框
 function flush_client_list(client_list) {
     //alert(client_list);
+    //console.log(client_list);
     if (!client_list) {
         return false;
     }
     var thisroom = $('#mythisroom').val();
-
+    
     var myurl = window.location.host;
     var imgurl = myurl+'/addons/theme/stv1/_static/style/level';
     $.each(client_list, function (k, v) {
         if(thisroom == v['room_id']) {
           //  alert(JSON.stringify(v));
+
           if ($("#users_online li[uid='" + v['mid'] + "']").length > 0) {
               $("#users_online  li[uid='" + v['mid'] + "'] .u_l").html('(' + v['login_count'] + ')');
               return true;
@@ -441,6 +443,7 @@ function flush_client_list(client_list) {
               });
           }
         }
+
         if (!hasInsert) {
             $("#users_online").append(str);
         }

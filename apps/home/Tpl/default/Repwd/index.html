@@ -10,7 +10,7 @@ function changeverify(){
 	var date = new Date();
     var ttime = date.getTime();
     var url = "__ROOT__/public/captcha.php";
-    $('#verifyimg').attr('src',url+'?'+ttime);
+    $('#verifyimgs').attr('src',url+'?'+ttime);
     
 };
 
@@ -31,7 +31,7 @@ function changeverify(){
       <li>
         <label>验&nbsp;证&nbsp;码:</label>
         <input  type="text" id="repcode"  placeholder="请输入右侧验证码"  />
-        <div class="yam"><img class="width108" id="verifyimg" onclick="changeverify()" title="点击刷新" src="__ROOT__/public/captcha.php"></a></div>
+        <div class="yam"><img class="width108" id="verifyimgs" onclick="changeverify()" title="点击刷新" src="__ROOT__/public/captcha.php"></a></div>
         <p class="p" id="repmsgcode"></p>
       </li>
       

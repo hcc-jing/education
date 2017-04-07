@@ -39,12 +39,12 @@ class MemberAction extends AdministratorAction
 			if($list['count']) {
 				// $list['data'][0] = $info;
 			}else {
-				$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> findPage();
+				$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> where("{$tp}user.uid != 1") -> findPage();
 			}
 		}else {
-			$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> findPage();
+			$list = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.phone,{$tp}user.is_del,{$tp}user.roomid,{$tp}user.is_say,a.balance,b.roomname") -> join ("{$tp}zy_learncoin as a on {$tp}user.uid = a.uid") -> join("{$tp}studioroom as b on {$tp}user.roomid = b.roomid") -> where("{$tp}user.uid != 1") -> findPage();
 		}
-
+		
 		//查询所有房间的信息
 		$allroom = M ('studioroom') -> field('roomid,roomname') ->select();
 		foreach($allroom as $key => $val) {
@@ -56,7 +56,7 @@ class MemberAction extends AdministratorAction
 			$val['is_del']     = ($val['is_del'] == 0) ? '未禁用' : '禁用';
 			$val['is_say']     = ($val['is_say'] == 0) ? '禁言' : '未禁言';
 			$val['DOACTION']   = '<a href="'.U('live/Member/update',array('uid'=>$val['uid'])).'">编辑</a> | ';
-			$val['DOACTION']   .= '<a href="'.U('live/Member/deteleUser',array('uid'=>$val['uid'])).'" onclick="return confirm(\'确认删除该会员吗?\');">删除</a>';
+			$val['DOACTION']   .= '<a href="javascript:;" onclick="admin.trueDelUser(\''.$val['uid'].'\')">删除</a>';
 		}
 
 		// echo '<pre>';

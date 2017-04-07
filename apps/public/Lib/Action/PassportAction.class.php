@@ -443,18 +443,24 @@ class PassportAction extends CommonAction
     	}
     	$rnum=rand(1000,9999);
         $cont="您本次获取的验证码为".$rnum."请在页面指定处填写，请勿随意告知其他任何人！如非本人操作，请忽略此信息！";
-    	$sendres=model('Sms')->send($phone,$cont);
-    	if($sendres){
-    		//将验证码存入session
-    		$_SESSION['phoneverify']=$rnum;
-    		//将号码存入session
-    		$_SESSION['getverphone']=$phone;
-    		$nowtime+=60;
-    		$_SESSION['verifytime']=$nowtime;
-    		$this->mzSuccess("发送成功，请注意查收！");
-    	}else{
-    		$this->mzError(model('Sms')->getError());
-    	}
+        $_SESSION['phoneverify']=$rnum;
+    	//将号码存入session
+    	$_SESSION['getverphone']=$phone;
+    	$nowtime+=60;
+    	$_SESSION['verifytime']=$nowtime;
+    	$this->mzSuccess("发送成功，请注意查收！".$rnum);
+    	//$sendres=model('Sms')->send($phone,$cont);
+    	// if($sendres){
+    	// 	//将验证码存入session
+    	// 	$_SESSION['phoneverify']=$rnum;
+    	// 	//将号码存入session
+    	// 	$_SESSION['getverphone']=$phone;
+    	// 	$nowtime+=60;
+    	// 	$_SESSION['verifytime']=$nowtime;
+    	// 	$this->mzSuccess("发送成功，请注意查收！");
+    	// }else{
+    	// 	$this->mzError(model('Sms')->getError());
+    	// }
     	
     }
     //手机注册下一步
@@ -473,9 +479,13 @@ class PassportAction extends CommonAction
      * 异步注册
      */
     public function ajaxReg(){
+    	//查找房间，。默认为第一个房间号
+    	$rooms = M('studioroom') -> order('id asc') -> limit(1) ->find(); 
+
     	$phone=$_POST['phone'];
-		$email = t($_POST['email']);
-		$uname = t($_POST['uname']);
+		$email  = t($_POST['email']);
+		$uname  = t($_POST['uname']);
+		$roomid = (isset($_POST['roomid'])&&$_POST['roomid']!='undefined'&&$_POST['roomid']!=''&&$_POST['roomid']!='null') ? t($_POST['roomid']) : $rooms['roomid'];
 		$sex = 1 == $_POST['sex'] ? 1 : 2;
 		$password = trim($_POST['password']);
 		$profession=t($_POST['profession']);
@@ -512,7 +522,8 @@ class PassportAction extends CommonAction
 			$this->mzError("对不起，密码长度不正确");
 		}
 		$login_salt = rand(11111, 99999);
-		$map['uname'] = $uname;
+		$map['uname']  = $uname;
+		$map['roomid'] = $roomid;
 		$map['sex'] = $sex;
 		$map['profession']=$profession;
 		$map['intro']=$intro;
@@ -564,9 +575,9 @@ class PassportAction extends CommonAction
 			        if($type==2){
 						$email=$phone;
 					}
-
-					D('Passport')->loginLocal($email,$password);
 					
+					D('Passport')->loginLocal($email,$password);
+
 					$this->mzSuccess('恭喜您，注册成功');
 
 
@@ -590,6 +601,7 @@ class PassportAction extends CommonAction
         $login 		= addslashes($_POST['log_username']);
         $password 	= trim($_POST['log_pwd']);
         $remember	= intval($_POST['login_remember']);
+
         $result 	= $this->passport->loginLocal($login,$password,$remember);
         if(!$result){
           $this->mzError($this->passport->getError());

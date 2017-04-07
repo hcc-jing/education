@@ -221,6 +221,7 @@ function setUserInfo(){
 		}
 		
 		var udata;
+		var roomid = $('#mythisroom').val();
 		if(type==1){
 			udata="&email="+user;
 		}else{
@@ -230,14 +231,14 @@ function setUserInfo(){
 			async:false,
 	        type: "POST",
 	        url:REG_ADDRESS,
-	        data:"uname="+uname+"&sex="+sex+"&password="+password+"&profession="+profession+"&intro="+intro+udata+"&city_names="+city_names+"&city_ids="+city_ids+"&type="+type+"&verify="+verify,
+	        data:"uname="+uname+"&roomid="+roomid+"&sex="+sex+"&password="+password+"&profession="+profession+"&intro="+intro+udata+"&city_names="+city_names+"&city_ids="+city_ids+"&type="+type+"&verify="+verify,
 	        dataType:"json",
 	        success:function(data){
 	            if(data.status=='0'){
 	            	 notes(data.info,'failure');	
 	            	 return;
 	            }else{
-                    notes("恭喜您，注册成功!",'success');
+                    notes(data.info,'success');
                     location.reload();
 	            }
 	           
@@ -275,6 +276,7 @@ function setUserInfo(){
 	
 	
 }
+
 /**
  * 用户头像设置
  */
@@ -380,7 +382,6 @@ var onstatus;
  */
 function reg_login(){
     var count = $("#transparent");
-
     if(count.length > 0){
         var cssStu = $("#transparent");
         if(cssStu.css("display") == "block"){
@@ -398,6 +399,7 @@ function reg_login(){
             url:REG_LOGIN,
             dataType:"json",
             success:function(data){
+            	
                 $("body").prepend(data);
             }
         });

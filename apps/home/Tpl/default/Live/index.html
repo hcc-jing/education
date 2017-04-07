@@ -2,9 +2,9 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
     <neq name='_title' value=''>
-        {$_title} - {$site.site_name}
+        {$peizhi['roomname']} - {$site.site_name}
     <else />
-        {$site.site_name} - {$site.site_slogan}
+        {$peizhi['roomname']} - {$site.site_slogan}
     </neq>
     </title>
     <meta content="<neq name= '_keywords' value=''>{$_keywords}<else />{$site.site_header_keywords}</neq>" name="keywords">
@@ -23,6 +23,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <!--<base href="/">--><base href=".">
     <link rel="shortcut icon" href="__THEME__/style/favicon.ico" type="image/x-icon">
+    <!-- 站点css -->
+    <link href="__THEME__/css/css.php?t=css&f=base.css,common.css,index.css,logincss.css,media.css,style.css,wenda.css&v=20151012.css" rel="stylesheet" type="text/css" />
+    <link href="__THEME__/js/tbox/box.css?20110820" rel="stylesheet" type="text/css" />
   
     <link href="__THEME__/style/css/css.css" type="text/css" rel="stylesheet">
     <link href="__THEME__/style/css/media.css" rel="stylesheet" type="text/css">
@@ -33,6 +36,7 @@
     <script type="text/javascript" src="{:U('home/Live/userinfo',$userinfo)}" media="all"></script>
     <script type="text/javascript" src="__THEME__/style/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="__THEME__/js/user/user_common.js"></script>
+    <script type="text/javascript" src="__THEME__/js/user/user.js"></script>
 
     <!--socoket start-->
     <script type="text/javascript" src="__THEME__/style/js/swfobject.js"></script>
@@ -48,6 +52,30 @@
     <script src="__THEME__/style/js/rotate.js"></script>
     <script src="__THEME__/style/js/slide.js"></script>
     <script>
+    //全局变量
+    var SITE_URL  = _ROOT_;
+    var UPLOAD_URL= _ROOT_+'/data/upload';
+    var THEME_URL = _ROOT_+'/addons/theme/stv1/_static';
+    var APPNAME   = 'home';
+    var UID       = '0';
+    var initNums  =  '140';
+    var SYS_VERSION = '20151012';
+    // var _ROOT_    = 'http://www.educationonline.com';
+    // Js语言变量
+    var LANG = new Array();
+    //注册登录模板
+    var REG_LOGIN=_ROOT_+"/index.php?app=public&mod=Passport&act=regLogin";
+    //邮箱验证地址
+    var CLICK_EMIL=_ROOT_+"/index.php?app=public&mod=Passport&act=clickEmail";
+    //异步注册地址
+    var REG_ADDRESS=_ROOT_+"/index.php?app=public&mod=Passport&act=ajaxReg";
+    //异步登录
+    var LOGIN_ADDRESS=_ROOT_+"/index.php?app=public&mod=Passport&act=ajaxLogin";
+    //退出登录
+    var LOGINOUT_ADDRESS=_ROOT_+"/index.php?app=public&mod=Passport&act=logout";
+    </script>
+
+    <script>
 
         $(document).ready(function(){
 
@@ -55,8 +83,8 @@
             $('.iframe').fancybox({'width':'75%','height':'75%','centerOnScroll':true});
             $('.ajax').fancybox({'width':770,'height':430,'centerOnScroll':true});
             $("#kcb").fancybox({'centerOnScroll':true,'onStart':function(){initKecheng()},'showCloseButton':false});
-            $("#login").fancybox({'centerOnScroll':true,'onStart':function(){$('.shipinchuangkou').html('')},'onClosed':function(){loadVideo()}});
-            $("#register").fancybox({'centerOnScroll':true,'onStart':function(){$('.shipinchuangkou').html('')},'onClosed':function(){loadVideo()}});
+            // $("#login").fancybox({'centerOnScroll':true,'onStart':function(){$('.shipinchuangkou').html('')},'onClosed':function(){loadVideo()}});
+            // $("#register").fancybox({'centerOnScroll':true,'onStart':function(){$('.shipinchuangkou').html('')},'onClosed':function(){loadVideo()}});
             $("#ts").fancybox({'centerOnScroll':true});
             $("#ms").fancybox({'centerOnScroll':true});
             $('.teacher').fancybox({'width':920,'height':600,'padding':0,'centerOnScroll':true});
@@ -89,6 +117,9 @@
 </head>
 
 <body>
+<php>if(($_SESSION['gid'])){</php>
+    <include file="__THEME__/reg_login" />
+<php>}</php>
 <div id="skin">
             <img src="{$bg_img}">
     </div>
@@ -144,13 +175,9 @@
     <img style="margin-top:5px;" src="image/Connect_logo_6.png" width="50" height="16" alt=""></a></span> -->
                 <!-- <span><a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&amp;client_id=101381107&amp;redirect_uri=http%3a%2f%2fdxjjyxbd.com%2freturnResult.php%3fact%3dQQ%26fid%3d1001&amp;state=mytest&amp;scope=get_user_info" class="guest_ico">
     <img style="margin-top:5px;" src="__THEME__/style/Connect_logo_6.png" width="50" height="16" alt=""></a></span> -->
-            <span id="log_span"><a class="log on_log" href="#login_form" id="login">会员登录</a></span> <span id="reg_span"><a class="reg on_reg" href="/#register_form" id="register">加入我们</a></span>
+            <span id="log_span"><a class="log on_log" href="javascript:;" onclick="reg_login()" id="login">会员登录</a></span> <span id="reg_span"><a class="reg on_reg" href="javascript:;" onclick="reg_login()" id="register">加入我们</a></span>
                 <span class="links"><a class="showdiv" href="http://www.zhibo.net/#tcontent">联系我们</a></span>
-                    <a href="javascript:void(0)" class="shortcut ajax" style="color: #fff;
-  height: 46px;
-  line-height: 46px;
-  padding: 0 13px 0px 10px;background: #e03f27;  font-size: 20px;
-  color: #ff0;" onclick="$(&#39;#register&#39;).click()">免费注册</a>
+                    <!-- <a href="javascript:void(0)" class="shortcut ajax" style="color: #fff;height: 46px;line-height: 46px;padding: 0 13px 0px 0px;background:03f27;  font-size: 20px;color: #ff0;" onclick="reg_login()">免费注册</a> -->
   </div>
     </if>
 </div>
@@ -581,12 +608,7 @@
     <script>
         Middle_Height();
     </script>
-<div style="display:none">
-    <!-- JiaThis Button BEGIN -->
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-<!-- JiaThis Button END --></div>
+<a class="bshareDiv" href="http://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#uuid=&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#F90&amp;text=分享到"></script>
 
 </body></html>
 <script>

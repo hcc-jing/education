@@ -46,7 +46,7 @@ class LiveAction extends Action
 		//走马灯
 		$allscreen = "\$(\".bar_quanping\").toggle(function(){\$(this).attr('checked',true);},function(){\$(this).removeAttr('checked');});";
 		//换肤的值
-		$bg_img = isset($_COOKIE['bg_img']) ? $_COOKIE['bg_img'] : 'http://www.educationonline.com/addons/theme/stv1/_static/style/bj.jpg';
+		$bg_img = isset($_COOKIE['bg_img']) ? $_COOKIE['bg_img'] : THEME_PUBLIC_URL.'/style/bj.jpg';
 		//换肤图片
 		$skin = '';
 		for($i=2;$i<25;$i++) {
@@ -81,13 +81,13 @@ class LiveAction extends Action
 		//分配变量
 		$this->assign('gundong',$gundong);
 		$this->assign('allscreen',$allscreen);
-		$this->assign('user',$user);
-		$this->assign('chatarr',$chatarr);
-		$this->assign('skin',$skin);
+		$this->assign('user',$user); //用户信息
+		$this->assign('chatarr',$chatarr); //聊天记录
+		$this->assign('skin',$skin); //皮肤信息
 		$this->assign('userinfo',$userinfo);
-		$this->assign('bg_img',$bg_img);
-		$this->assign('peizhi',$peizhi);
-		$this->assign('teather',$teather);
+		$this->assign('bg_img',$bg_img); //背景图片
+		$this->assign('peizhi',$peizhi); //房间配置信息
+		$this->assign('teather',$teather); //老师信息
 
 		//print_r($tp);exit;
 		$this->display();
@@ -111,7 +111,7 @@ class LiveAction extends Action
 
 		//判断当前房间id是否准确
 		if(!in_array($roomid, $roomidArr)){
-			echo "string";
+			// echo "string";
 			$this->redirect('home/Live/index',array('roomid'=>$roomidArr[0]));
 			exit;
 		}
@@ -158,8 +158,7 @@ class LiveAction extends Action
     			$guser = $guest->where("username = '$_COOKIE[$login]' and roomid = '$roomid'")->find();
     		}
 		}
-		// echo "<pre>";
-		// print_r($_COOKIE);exit;
+		
 		//如果没有数据则生成游客身份
 		if(!$user && !$guser){
 			$pattern = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ';
@@ -189,11 +188,13 @@ class LiveAction extends Action
 			//更新登录的ip
 			$data['ip'] = $thisip;
 			$this->_user_model->where("uid = '$user[uid]'")->save($data);
-			$_SESSION['gid']      = "";
+			unset($_SESSION['gid']);
 			$_SESSION['username'] = $user['uname'];
 			$_SESSION['mid']      = $user['uid'];
 			$_SESSION['roomid']   = $user['roomid'];
 		}
+		// echo "<pre>";
+		// print_r($_SESSION);exit;
 
 		// $username = $user['login'] ? $user['login'] : $guser['username'];
 		// cookie('login', $username, time()+8640000);
@@ -688,25 +689,39 @@ class LiveAction extends Action
 		}
 	}
 
+	//跳转函数,判断会员所在的直播间，如果没有默认使用第一个
+	public function locationTOroom()
+	{
+		//房间信息
+		$rooms = M('studioroom') -> order('id asc') -> limit(1) ->find(); 
+		$uid = $_SESSION['mid'];
+		$roominfo = model('User')->where("uid = ".$uid)->getField('roomid');
+		$roomid = $roominfo ? $roominfo : $rooms['roomid'];
+		$url = U('home/Live/index',array('roomid'=>$roomid));
+		echo "<script>window.location.href='$url'</script>";
+	}
+
 	//根据传入的id输出相应的信息
 	public function userinfo()
 	{
+		//获取表前缀
+		$tp = C('DB_PREFIX');
 		$guest =  M ('guest');
 		//获取静态目录
 		$theme = THEME_PUBLIC_URL;
 		if(isset($_GET['_'])) {
 			//查询是否是会员
-			$user = $this->_user_model->getUserInfo($_GET['_']);
+			$user  = $this -> _user_model -> field("{$tp}user.uid,{$tp}user.uname,{$tp}user.roomid,{$tp}user.flowers,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}user.uid = b.uid") -> where("{$tp}user.uid = '{$_GET[_]}'") -> find();
 		}else if(isset($_GET['__'])) {
 			//如果不是会员，则查询游客列表
 			$user = $guest->where("id = '{$_GET["__"]}'")->find();
 		}
 		
 		// echo '<pre>';
-		// print_r($user);exit;
+		// print_r($this->_user_model->getLastSql());exit;
 
 		//组别信息
-		$groupid = $user['user_group'][0]['user_group_id'] ? $user['user_group'][0]['user_group_id'] : $user['usergroupid'];
+		$groupid = $user['user_group_id'] ? $user['user_group_id'] : $user['usergroupid'];
 		$uid = $user['uid'] ? $user['uid'] : $user['id'];
 		//观看时间cookie设置
 		$mycooke = isset($_COOKIE['clearvideo']) ? $_COOKIE['clearvideo'] : "''";

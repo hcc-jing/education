@@ -297,8 +297,10 @@ class PassportModel {
 			model('Credit')->setUserCredit($uid,'user_login');
 		}
 		// 注册session
-		$_SESSION['mid'] = intval($uid);
-		$_SESSION['gid'] = "";
+		$roominfo = model('User')->where("uid = ".$uid)->getField('roomid');
+		$_SESSION['mid']    = intval($uid);
+		unset($_SESSION['gid']);
+		$_SESSION['roomid'] = $roominfo;
 		$_SESSION['SITE_KEY']=getSiteKey();
 		$inviterInfo = model('User')->getUserInfo($uid);
 		$map['ip'] = get_client_ip();
@@ -322,7 +324,7 @@ class PassportModel {
 	 * @return void
 	 */
 	public function logoutLocal() {
-		unset($_SESSION['mid'],$_SESSION['SITE_KEY'],$_SESSION['is_teacher'],$_COOKIE['el_login']); // 注销session
+		unset($_SESSION['mid'],$_SESSION['roomid'],$_SESSION['username'],$_SESSION['SITE_KEY'],$_SESSION['is_teacher'],$_COOKIE['el_login']); // 注销session
 		cookie('TSV3_LOGGED_USER', NULL);	// 注销cookie
 		//UC同步退出
 		if(UC_SYNC){
