@@ -618,7 +618,7 @@ class LiveAction extends Action
 					exit();
 				}else {
 					//获取红包列表信息
-					$red_list = M ('getredbaglist') -> field("{$tp}getredbaglist.*,a.uname,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}getredbaglist.uid = b.uid") -> join("left join {$tp}user as a on {$tp}getredbaglist.uid = a.uid") -> where ("{$tp}getredbaglist.s_r_id = '{$s_r_id}'") -> select();
+					$red_list = M ('getredbaglist') -> field("{$tp}getredbaglist.*,a.uname,b.user_group_id") -> join("left join {$tp}user_group_link as b on {$tp}getredbaglist.uid = b.uid") -> join("left join {$tp}user as a on {$tp}getredbaglist.uid = a.uid") -> where ("{$tp}getredbaglist.s_r_id = '{$s_r_id}' and b.user_group_id != 3") -> select();
 					$arr      = array(
 						'redbag'  =>$redbaginfo,
 						'get_list'=>$red_list,

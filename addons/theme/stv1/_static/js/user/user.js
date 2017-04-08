@@ -513,6 +513,8 @@ function checkWendaSearch(){
 function logSub(){
    var log_username=$.trim($("#log_username").val());
    var log_pwd=$.trim($("#log_pwd").val());
+   var roomid = $('#mythisroom').val();
+   roomid = roomid == 'undefined' ? '' : roomid;
    if(log_username=="" || log_username.length<2){
 	   notes('对不起，账号格式不正确!','failure');
        return;
@@ -527,7 +529,7 @@ function logSub(){
     $.ajax({
         type: "POST",
         url:LOGIN_ADDRESS,
-        data:"log_username="+$.trim($("#log_username").val())+"&log_pwd="+ $.trim($("#log_pwd").val()),
+        data:"log_username="+$.trim($("#log_username").val())+"&roomid="+roomid+"&log_pwd="+ $.trim($("#log_pwd").val()),
         dataType:"json",
         success:function(data){
             if(data.status=='0'){

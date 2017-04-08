@@ -189,7 +189,8 @@ function initw() {
             // 私聊
             case 'siliao': //{"type":"say","from_client_id":xxx,"to_client_id":"all/client_id","content":"xxx","time":"xxx"}
                 //alert(data);
-                siliao(data);
+                siliao2(data);
+                //console.log(data);
                 break;
             case 'pubclear':
                 $('#liaotianlist').html('');
@@ -338,7 +339,12 @@ function addliaotian() {
                             "tomid": data.tomid,
                             "tousername": data.tousername,
                             "toadminid": data.toadminid,
+                            "lid": data.lid,
+                            "fid":roorid,
+                            "togid":togid,
+                            "quanping": quanping,
                             "content": data.content,
+                            "shstatus": data.shstatus,
                             "roleid": roleid,
                             "rolename": rolename,
                             "roleaid": roleaid
@@ -531,8 +537,10 @@ function siliao(data) {
     $(".loading").hide()
     var t       = $('#liaotianlist');
     //alert("cccccc");
+
     tomid       = TOMID;
     tousername  = TOUSERNAME;
+
     var d       = new Date(parseInt(data.time) * 1000);
     var shijian = formatDate(d);
     if (data.mid == tomid || data.tomid == tomid) {
@@ -549,6 +557,49 @@ function siliao(data) {
                 //  sayTo();
                 var str    = '<li tabid="" class="l-selected" style="cursor: pointer;" uid="' + TOMID + '" uname="' + TOUSERNAME + '" > <a style="line-height:31px;" onclick="UBase_Click2(this);sayTo();">' + TOUSERNAME + '</a> <div class="l-tab-links-item-left"></div><div class="l-tab-links-item-right"></div> <div class="l-tab-links-item-close" onclick="RemovePrivatePerson(this)"></div></li>';
                 var c_str  = ' <div class="liaotian"> <div class="liaotian_right fl "><span class="userbase"><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.myadminid + '.png">  <a href="javascript:void(0)" >' + data.uname + ' </a><a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.toadminid + '.png"><a href="javascript:void)(0)" >' + data.touname + ' </a></span>  <div>' + data.content + '</div>  </div>';
+                $("#Y_PriMes_Div ").append(c_str);
+            } else {
+                var str = '<li tabid="" class="" style="cursor: pointer;" uid="' + uid + '" uname="' + uname + '" onclick="$(this).addClass(\'l-selected\');"> <a style="line-height:31px;color:red" onclick="UBase_Click2(this);sayTo();">' + uname + '</a> <div class="l-tab-links-item-left"></div><div class="l-tab-links-item-right"></div> <div class="l-tab-links-item-close" onclick="RemovePrivatePerson(this)"></div></li>';
+            }
+            $(".l-tab-links ul").append(str);
+        } else {
+            hassiliao.find('a').css("color", "red");
+        }
+    }
+    if ($(".whisper").is(":hidden")) {
+        $(".whisper").show();
+    }
+    if ($("#Y_PriMes_Div .liaotian").length > 30) {
+        $("#Y_PriMes_Div .liaotian:lt(1)").remove();
+    }
+    $("#Y_PriMes_Div ").animate({scrollTop: $("#Y_PriMes_Div ")[0].scrollHeight}, 100);
+}
+//及时私聊
+function siliao2(data) {
+    $(".loading").hide()
+    var t       = $('#liaotianlist');
+    //alert("cccccc");
+
+    tomid       = TOMID;
+    tousername  = TOUSERNAME;
+    
+    var d       = new Date(parseInt(data.time) * 1000);
+    var shijian = formatDate(d);
+    if (data.mid == tomid || data.tomid == tomid) {
+        var str = ' <div class="liaotian"> <div class="liaotian_right fl "><span class="userbase"><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png"> <a href="javascript:void(0)" >' + data.username + ' </a><a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.togid + '.png"><a href="javascript:void)(0)" >' + data.tousername + ' </a></span>  <div> ' + data.content + '</div>  </div> ';
+        $("#Y_PriMes_Div ").append(str);
+    } else {
+        var uid       = (MID == data.tomid) ? data.mid : data.tomid;
+        var uname     = (USERNAME == data.tousername) ? data.username : data.tousername;
+        var hassiliao = $(".l-tab-links ul li[uid='" + uid + "']");
+        if (hassiliao.length == 0) {
+            if ($(".l-tab-links ul li").length == 0) {//no body
+                TOMID      = uid;
+                TOUSERNAME = uname;
+                TOADMINID  = data.togid;
+                //  sayTo();
+                var str    = '<li tabid="" class="l-selected" style="cursor: pointer;" uid="' + TOMID + '" uname="' + TOUSERNAME + '" > <a style="line-height:31px;" onclick="UBase_Click2(this);sayTo();">' + TOUSERNAME + '</a> <div class="l-tab-links-item-left"></div><div class="l-tab-links-item-right"></div> <div class="l-tab-links-item-close" onclick="RemovePrivatePerson(this)"></div></li>';
+                var c_str  = ' <div class="liaotian"> <div class="liaotian_right fl "><span class="userbase"><a href="javascript:void(0)" class="lt_time">' + shijian + '</a><img src="' + THEME + '/style/level/User' + data.adminid + '.png">  <a href="javascript:void(0)" >' + data.username + ' </a><a class="user_to">对</a><img src="' + THEME + '/style/level/User' + data.togid + '.png"><a href="javascript:void)(0)" >' + data.tousername + ' </a></span>  <div>' + data.content + '</div>  </div>';
                 $("#Y_PriMes_Div ").append(c_str);
             } else {
                 var str = '<li tabid="" class="" style="cursor: pointer;" uid="' + uid + '" uname="' + uname + '" onclick="$(this).addClass(\'l-selected\');"> <a style="line-height:31px;color:red" onclick="UBase_Click2(this);sayTo();">' + uname + '</a> <div class="l-tab-links-item-left"></div><div class="l-tab-links-item-right"></div> <div class="l-tab-links-item-close" onclick="RemovePrivatePerson(this)"></div></li>';

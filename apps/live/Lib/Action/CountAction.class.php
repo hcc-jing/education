@@ -17,6 +17,7 @@ class CountAction extends AdministratorAction
 		$this->pageTitle['Illegal']   = '违规发言';
 		$this->pageTitle['ipblack']   = '黑名单';
 		$this->pageTitle['shield']    = '禁言名单';
+		$this->pageTitle['setEmpty']    = '清空聊天信息';
 		
 		$this->pageTab[] = array('title'=>'聊天记录','tabHash'=>'index','url'=>U('live/Count/index'));
 		$this->pageTab[] = array('title'=>'红包统计','tabHash'=>'redbag','url'=>U('live/Count/redbag'));
@@ -24,6 +25,7 @@ class CountAction extends AdministratorAction
 		$this->pageTab[] = array('title'=>'违规发言','tabHash'=>'Illegal','url'=>U('live/Count/Illegal'));
 		$this->pageTab[] = array('title'=>'黑名单','tabHash'=>'ipblack','url'=>U('live/Count/ipblack'));
 		$this->pageTab[] = array('title'=>'禁言名单','tabHash'=>'shield','url'=>U('live/Count/shield'));
+		$this->pageTab[] = array('title'=>'清空聊天信息','tabHash'=>'setEmpty','url'=>U('live/Count/setEmpty'));
 		parent::_initialize();
 	}
 	
@@ -182,15 +184,14 @@ class CountAction extends AdministratorAction
 		$_REQUEST['tabHash'] = 'ipblack';
 		$this->pageKeyList = array('id','uname','ip','makename','mtime','DOACTION');
 		// 搜索选项的key值
-		$this->searchKey = array('id','uname','roomid');
+		$this->searchKey = array('uname');
 		$this->pageButton[] = array('title'=>'搜索黑名单信息','onclick'=>"admin.fold('search_form')");
-		$this->pageButton[] = array('title'=>'删除黑名单信息','onclick'=>"admin.SenInfoEdit('','delSeninfo','删除','黑名单信息')");
+		$this->pageButton[] = array('title'=>'删除黑名单信息','onclick'=>"admin.BlackInfoEdit('','delBlackinfo','删除','黑名单信息')");
 		
 		//判断是否搜索
 		if($_REQUEST['dosearch']) {
 			$uname    = t($_REQUEST['uname']);
-			$roomid   = t($_REQUEST['roomid']);
-			$list     = M ('chatlist_sen') -> field("{$tp}chatlist_sen.*,a.roomname") -> join ("{$tp}studioroom as a on {$tp}chatlist_sen.roomid = a.roomid") -> where("{$tp}chatlist_sen.uname = '{$uname}' and {$tp}chatlist_sen.roomid = '{$roomid}'") -> findPage(50);
+			$list     = M ('ipblacklist') -> field("{$tp}ipblacklist.*,a.uname") -> join ("{$tp}user as a on {$tp}ipblacklist.mid = a.uid") -> where("a.uname = '{$uname}'") -> findPage();
 			if($list['count']) {
 				// $list['data'][0] = $info;
 			}else {
@@ -219,8 +220,54 @@ class CountAction extends AdministratorAction
 		// print_r($list);exit;
 		$this->displayList($list);
 	}
-	
 
+	//禁言信息列表（带分页）
+	public function shield(){
+		//获取表前缀
+		$tp = C('DB_PREFIX');
+		$_REQUEST['tabHash'] = 'shield';
+		$this->pageKeyList = array('id','uname','roomname','mtime','DOACTION');
+		//删除信息
+		$this->pageButton[] = array('title'=>'删除屏蔽信息','onclick'=>"admin.ShieldInfoEdit('','delShieldinfo','删除','屏蔽信息')");
+		//查询屏蔽信息
+		$list = M ('shield') -> findPage();
+
+		//查询所有房间的信息
+		$allroom = M ('studioroom') -> field('roomid,roomname') ->select();
+		foreach($allroom as $key => $val) {
+			$this->opt['roomid'][$val['roomid']] = $val['roomname'];
+		}
+
+		foreach($list['data'] as &$val){
+			//客服列表
+			if($val['adminid'] != 14) {
+				$makeu  =  M ('user') -> field("{$tp}user.uname,a.roomname") -> join("{$tp}studioroom as a on {$tp}user.roomid = a.roomid") -> where("{$tp}user.uid = '{$val["mid"]}'") -> find();
+			}else {
+				$makeu  =  M ('guest') -> field("{$tp}guest.uname,a.roomname") -> join("{$tp}studioroom as a on {$tp}guest.roomid = a.roomid") -> where("{$tp}guest.id = '{$val["mid"]}'") -> find();
+			}
+			
+			$val['mtime']       = date("Y-m-d H:i:s",$val['expiretime']);
+			$val['uname']       = $makeu['uname'];
+			$val['roomname']     = $makeu['roomname'];
+			$val['DOACTION']   .= '<a href="'.U('live/Count/deteleS',array('id'=>$val['id'])).'">删除</a>';
+		}
+
+		// echo '<pre>';
+		// print_r(M ('guest')->getLastSql());exit;
+		// print_r($list);exit;
+		$this->displayList($list);
+	}
+	
+	//清空聊天信息
+	public function setEmpty()
+	{
+		if(M ('chatlist') ->where('1')-> delete() ){
+			$this->assign( 'jumpUrl', U('live/Count/index') );
+			$this->success('删除成功');
+		} else {
+			$this->error('删除失败');
+		}
+	}
 	//删除聊天信息
 	public function deteleC()
 	{
@@ -228,6 +275,32 @@ class CountAction extends AdministratorAction
 
 		if(M ('chatlist') -> delete($cusid) ){
 			$this->assign( 'jumpUrl', U('live/Count/index') );
+			$this->success('删除成功');
+		} else {
+			$this->error('删除失败');
+		}
+	}
+
+	//删除屏蔽信息
+	public function deteleS()
+	{
+		$cusid = t($_REQUEST['id']);
+
+		if(M ('shield') -> delete($cusid) ){
+			$this->assign( 'jumpUrl', U('live/Count/shield') );
+			$this->success('删除成功');
+		} else {
+			$this->error('删除失败');
+		}
+	}
+
+	//删除黑名单信息
+	public function deteleBlack()
+	{
+		$cusid = t($_REQUEST['id']);
+
+		if(M ('ipblacklist') -> delete($cusid) ){
+			$this->assign( 'jumpUrl', U('live/Count/ipblack'));
 			$this->success('删除成功');
 		} else {
 			$this->error('删除失败');
@@ -264,10 +337,44 @@ class CountAction extends AdministratorAction
 		echo json_encode($return);exit();
 	}
 
+	//批量删除屏蔽信息
+	public function delShieldinfo()
+	{
+		$return =  $this->doDeleteShield($_POST['id']);
+		
+		if($return['status'] == 1){
+			$return['data'] = L('PUBLIC_DELETE_SUCCESS');
+		}elseif($return['status'] === false){
+			$return['data'] = L('PUBLIC_DELETE_FAIL');
+		}elseif($return['status'] == 100003){
+			$return['data'] = '请选择要删除的内容';
+		}else{
+			$return['data'] = '操作错误';	
+		}
+		echo json_encode($return);exit();
+	}
+
 	//批量删除聊天信息
 	public function delSeninfo()
 	{
 		$return =  $this->doDeleteSen($_POST['id']);
+		
+		if($return['status'] == 1){
+			$return['data'] = L('PUBLIC_DELETE_SUCCESS');
+		}elseif($return['status'] === false){
+			$return['data'] = L('PUBLIC_DELETE_FAIL');
+		}elseif($return['status'] == 100003){
+			$return['data'] = '请选择要删除的内容';
+		}else{
+			$return['data'] = '操作错误';	
+		}
+		echo json_encode($return);exit();
+	}
+
+	//批量黑名单信息
+	public function delBlackinfo()
+	{
+		$return =  $this->doDeleteBlack($_POST['id']);
 		
 		if($return['status'] == 1){
 			$return['data'] = L('PUBLIC_DELETE_SUCCESS');
@@ -296,6 +403,48 @@ class CountAction extends AdministratorAction
         }
 
         $i = M('chatlist')->where(array('id'=>array('in',(string)$id)))->delete();
+        if($i === false){
+            return false;
+        }else{
+            return array('status'=>1);
+        }
+    }
+
+    /**
+     * 屏蔽信息批量操作
+     * @param integer|array $id 屏蔽信息,可以是单个也可以是多个
+     * @return array 操作状态【1:删除成功;100003:要删除的ID不合法;false:删除失败】
+     */
+    private function doDeleteShield($id){
+        if(is_array($id)){
+            $id = implode(',',$id);
+        }
+        if(!trim($id)){
+            return array('status'=>100003);
+        }
+
+        $i = M('shield')->where(array('id'=>array('in',(string)$id)))->delete();
+        if($i === false){
+            return false;
+        }else{
+            return array('status'=>1);
+        }
+    }
+
+    /**
+     * 黑名单信息批量操作
+     * @param integer|array $id 黑名单信息,可以是单个也可以是多个
+     * @return array 操作状态【1:删除成功;100003:要删除的ID不合法;false:删除失败】
+     */
+    private function doDeleteBlack($id){
+        if(is_array($id)){
+            $id = implode(',',$id);
+        }
+        if(!trim($id)){
+            return array('status'=>100003);
+        }
+
+        $i = M('ipblacklist')->where(array('id'=>array('in',(string)$id)))->delete();
         if($i === false){
             return false;
         }else{
