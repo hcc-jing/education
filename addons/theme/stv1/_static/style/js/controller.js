@@ -438,7 +438,7 @@ function flush_client_list(client_list) {
           } else {
               var sayto_str = '';
           }
-          var str = '<li uid="' + v['mid'] + '" uname="' + v['client_name'] + '" adminid="' + v['adminid'] + '"  tuijianmid="' + v['tuijianmid'] + '" onclick="UBase_Click(this)" ' + userhide + '>  <a href="javascript:void(0)">' + v['client_name'] + u_l + '</a> <span><img src="http://'+imgurl+'/User' + v['adminid'] + '.png"></span> <p>' + sayto_str + ban_str + '</p></li>';
+          var str = '<li uid="' + v['mid'] + '" uname="' + v['client_name'] + '" adminid="' + v['adminid'] + '"  tuijianmid="' + v['tuijianmid'] + '" onclick="UBase_Click(this)" ' + userhide + '>  <a class="who" href="javascript:void(0)">' + v['client_name'] + u_l + '</a> <span><img src="http://'+imgurl+'/User' + v['adminid'] + '.png"></span> <p>' + sayto_str + ban_str + '</p></li>';
           if ($("#users_online  li").length > 0) {
               $("#users_online  li").each(function () {
                   if (parseInt($(this).attr('adminid')) > parseInt(v['adminid'])) {
@@ -576,10 +576,11 @@ function siliao(data) {
 }
 //及时私聊
 function siliao2(data) {
-    $(".loading").hide()
+    $(".loading").hide();
     var t       = $('#liaotianlist');
     //alert("cccccc");
-
+    var who = $("#users_online  li[uid='" + data['mid'] + "']");
+    
     tomid       = TOMID;
     tousername  = TOUSERNAME;
     
@@ -610,7 +611,11 @@ function siliao2(data) {
         }
     }
     if ($(".whisper").is(":hidden")) {
-        $(".whisper").show();
+        //$(".whisper").show();
+        //判断接收人
+        if(MID == data.tomid) {
+          who.find('a.who').css("color", "red");
+        }
     }
     if ($("#Y_PriMes_Div .liaotian").length > 30) {
         $("#Y_PriMes_Div .liaotian:lt(1)").remove();

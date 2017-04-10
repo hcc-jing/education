@@ -78,6 +78,12 @@ function sayTo()
 	}
 	var tomid =TOMID;
 	var tosusername =TOUSERNAME;
+
+	//查找父级li
+	var who = $("#users_online  li[uid='" + tomid + "']");
+	//查找子级元素A
+	who.find('a.who').css("color", "#fff");
+
 	var adminid =$(".User_List li[uid='"+TOMID+"']").attr('adminid');
 	var op=$('#send_talkto option[value="'+tomid+'"]');
 	if(op && op.length>0){	

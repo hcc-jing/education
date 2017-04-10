@@ -701,6 +701,34 @@ class LiveAction extends Action
 		echo "<script>window.location.href='$url'</script>";
 	}
 
+	//网站保存到桌面
+	public function durlThis()
+	{
+		$roomid   = t($_REQUEST['roomid']);
+		//查找房间的配置信息
+		$roominfo = model('studioroom') -> field('roomname') -> where("roomid = '{$roomid}'") -> find();
+		$url_file='';
+		if( isset($roominfo['roomname']) && $roominfo['roomname'] != "" ){
+			$url_file = str_replace(" ","-",$roominfo['roomname']);
+		}else{
+			$url_file = "直播室";
+		}
+
+		$url = U ('home/Live/index',array('roomid'=>$roomid));
+
+		$shortcut = '[InternetShortcut]
+		URL='.$url.'
+		IconIndex=137
+		IconFile=@%SystemRoot%\system32\shell32.dll
+		IDList=
+		[{000214A0-0000-0000-C000-000000000046}]
+		Prop3=19,2
+		';
+		header('Content-type: application/octet-stream');
+		header('Content-Disposition: attachment; filename='.$url_file.'.url;');
+		echo $shortcut;
+	}
+
 	//根据传入的id输出相应的信息
 	public function userinfo()
 	{

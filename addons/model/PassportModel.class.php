@@ -207,7 +207,7 @@ class PassportModel {
      * @param boolean $getinfo 返回会员信息 新增,默认false
      * @return boolean 是否登录成功
      */
-    public function loginLocal($login, $password = null, $is_remember_me = false, $getinfo = false) {
+    public function loginLocal($login, $password = null, $roomid = null, $is_remember_me = false, $getinfo = false) {
         $res = false;
         if(UC_SYNC){
             $res = $this->ucLogin($login, $password, $is_remember_me);
@@ -227,7 +227,7 @@ class PassportModel {
             $user['oauth_token_secret']=$token['oauth_token_secret'];
             return $user;
         }else{
-            return $user['uid']>0 ? $this->_recordLogin($user['uid'], $is_remember_me) : false;
+            return $user['uid']>0 ? $this->_recordLogin($user['uid'], $roomid, $is_remember_me) : false;
         }
     }
 	/**
@@ -271,8 +271,16 @@ class PassportModel {
 	 * @param boolean $is_remember_me 是否记录登录状态，默认为false
 	 * @return boolean 操作是否成功
 	 */
-	private function _recordLogin($uid, $is_remember_me = false) {
-
+	private function _recordLogin($uid, $roomid = null, $is_remember_me = false) {
+		//查询房间号是否正确
+		if($roomid) {
+			$userinfo = model('User') -> field('uid') -> where("uid = '$uid' and roomid = '$roomid'") ->find();
+			if(!$userinfo) {
+				//return model('User')->getLastSql();
+				return "roomid is wrong";
+			}
+		}
+		
 		// 注册cookie
 		if(!$this->getCookieUid() && $is_remember_me ) {
 			$expire = 3600 * 24 * 15;

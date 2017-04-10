@@ -537,6 +537,9 @@ function logSub(){
                 $("#logSub").css("disabled","false");
                 notes(data.info,'failure');
                 return;
+            }else if(data.status == '1' &&　data.info == '房间号不对,请确认房间!') {
+            	notes(data.info,'failure');
+                location.reload();
             }else{
                 notes(data.info,'success');
                 location.reload();

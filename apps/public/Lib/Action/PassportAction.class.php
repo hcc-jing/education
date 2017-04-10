@@ -601,11 +601,16 @@ class PassportAction extends CommonAction
         $login 		= addslashes($_POST['log_username']);
         $password 	= trim($_POST['log_pwd']);
         $remember	= intval($_POST['login_remember']);
+        $roomid	    = trim($_POST['roomid']);
 
-        $result 	= $this->passport->loginLocal($login,$password,$remember);
+        $result 	= $this->passport->loginLocal($login,$password,$roomid,$remember);
+        //print_r($result);exit;
         if(!$result){
           $this->mzError($this->passport->getError());
            exit;
+        }else if($result === 'roomid is wrong'){
+        	$this->mzSuccess("房间号不对,请确认房间!");
+        	exit;
         }else{
          $this->mzSuccess("恭喜，登录成功！");
          exit;

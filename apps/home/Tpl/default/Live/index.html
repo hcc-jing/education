@@ -128,7 +128,7 @@
         <object type="application/x-shockwave-flash" data="__THEME__/style/sound.swf" width="1" height="1" id="sound" style="visibility: visible;"><param name="wmode" value="transparent"></object>
         <div class="logo fl"><a href="javascript:;"><img src="__THEME__/style/logoll_1001.png"></a></div>
         <div class="baocun fl">
-        <a href="http://www.zhibo.net/durl.php?fid=1001" class="shortcut" target="_blank" style="background: url(__THEME__/style/images/header-icon.png) no-repeat 10px -6px; padding-left:50px;" id="durl">保存到桌面</a>
+        <a href="{:U('home/Live/durlThis',array('roomid'=>$user['roomid']))}" class="shortcut" target="_blank" style="background: url(__THEME__/style/images/header-icon.png) no-repeat 10px -6px; padding-left:50px;" id="durl">保存到桌面</a>
         
            
            
@@ -243,7 +243,7 @@
                                         <a class="user_to">对</a><img src="__THEME__/style/level/User{$vo.toadminid}.png"/>
                                         <a href="javascript:void(0)" uid="{$vo.tomid}" uname="{$vo.touname}" adminid="{$vo.toadminid}" onclick="User_Click(this)">{$vo.touname}</a>                                        
                                     </if>
-                                    <if condition="$user['user_group_id'] eq 1">
+                                    <if condition="($user['user_group_id'] eq 1) OR ($user['user_group_id'] eq 3)">
                                         <a href="javascript:void(0)"; rel="{$vo.id}" onClick="liaotianDel(this)" class="lt_del">删除</a>
                                     </if>
                             </span>                        
@@ -525,6 +525,10 @@
 <link href="__THEME__/style/css/ligerui-common.css" type="text/css" rel="stylesheet">
 <link href="__THEME__/style/css/ligerui-all.css" rel="stylesheet">
 
+<!-- 统计代码-->
+<eq name='site.site_online_count' value='1'>
+<script src="{:SITE_URL}/online_check.php?uid={$user.uid}&uname={$user.uname}&mod={:MODULE_NAME}&app={:APP_NAME}&act={:ACTION_NAME}&action=trace"></script>
+</eq>
 
 <div class="whisper" id="whisperContainer" style="top: 69px; left: 399px; display: none;">
 

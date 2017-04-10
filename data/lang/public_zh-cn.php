@@ -486,7 +486,7 @@ return array(
 'PUBLIC_TRANSFER_USER'=>'将用户转移至下面的部门下',
 'PUBLIC_SELECT_USERGROUP'=>'请选择用户组',
 'PUBLIC_HELLO'=>'您好',
-'PUBLIC_WELCOME'=>'欢迎使用Eduline-互联网在线教育系统',
+'PUBLIC_WELCOME'=>'欢迎使用名师大课堂-互联网在线教育系统',
 'PUBLIC_FOLD_TIPS'=>'提示：点击标题可以折叠栏目',
 'PUBLIC_USER＿INFORMATION'=>'用户信息',
 'PUBLIC_TOTAL_REGISTERED_USERS'=>'总注册用户',
