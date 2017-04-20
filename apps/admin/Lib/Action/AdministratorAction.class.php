@@ -372,9 +372,10 @@ class AdministratorAction extends Action {
         }
         if ( $key == 'admin_Config:attach' ){
         	$exts = explode( ',' , $_POST['attach_allow_extension'] );
-        	$objext = array('gif','png','jpeg','zip','rar','doc','xls','ppt','docx','xlsx','pptx','pdf','jpg');
+        	$objext = array('gif','png','jpeg','zip','rar','doc','xls','ppt','docx','xlsx','pptx','pdf','jpg','flv','avi','mp4','rmvb');
         	$_POST['attach_allow_extension'] = implode( ',' , array_intersect($exts, $objext) );
         } 
+        //print_r($_POST['attach_allow_extension']);exit;
         $result = model('Xdata')->put($key,$_POST);
         LogRecord('admin_config', 'editDetail', array('name'=>$title, 'k1'=>L('PUBLIC_ADMIN_EDIT_EDTAIL_PEIZHI')), true);       // 保存修改编辑详细数据
 

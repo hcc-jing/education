@@ -29,17 +29,10 @@ class LiveAction extends Action
 	public function index()
 	{
 		//表前缀
-		$tp = C('DB_PREFIX');
-		// if(!(model('Passport')->isLogged())){
-		// 	$this->error("请先登录!");
-		// 	U('index/Index/index','',true);
-		// }
-		//js变量值		
-		
+		$tp = C('DB_PREFIX');	
+		$site_url    = SITE_URL; //网站根目录
 		//初始化房间信息
 		$user = $this->initializationRoom();
-		// echo '<pre>';
-		// print_r($_SESSION);exit;
 		//用户的id
 		$userinfo  = $user['uid'] ? array('_'=>$user['uid']) : array('__'=>$user['id']);
 		$gundong   = "\$(\".bar_gundong\").toggle(function(){\$(this).removeAttr('checked');},function(){\$(this).attr('checked',true);});";
@@ -66,10 +59,17 @@ class LiveAction extends Action
 				$chatarr[] = M ('chatlist') -> field("{$tp}chatlist.*,b.user_group_id") ->join ("left join {$tp}user_group_link as b on {$tp}chatlist.mid = b.uid") -> where ("{$tp}chatlist.id = {$val['id']}") -> find();
 			}
 		}
-		// echo '<pre>';
-		// print_r($chatarr);exit;
+		
 		//查询房间配置信息
 		$peizhi = $this->_roomidArr_model->where("roomid = '{$roomid}'")->find();
+		//判断直播方式
+		$videourl = '';
+		if($peizhi['studio_type'] == 1) {
+			$video = M ('videolist') -> field('video_url') -> where ("id = '{$peizhi['vid']}'") -> find();
+			$videourl = $site_url.$video['video_url'];
+		}
+		// echo '<pre>';
+		// print_r($peizhi['studio_type']);exit;
 		//查询教师资料
 		$teather = M ('user') -> field("{$tp}user.uid,{$tp}user.uname,a.user_group_id") -> join("{$tp}user_group_link as a on {$tp}user.uid = a.uid") -> where("a.user_group_id = 3") -> select();
 
@@ -88,6 +88,7 @@ class LiveAction extends Action
 		$this->assign('bg_img',$bg_img); //背景图片
 		$this->assign('peizhi',$peizhi); //房间配置信息
 		$this->assign('teather',$teather); //老师信息
+		$this->assign('videourl',$videourl); //视频地址
 
 		//print_r($tp);exit;
 		$this->display();
@@ -100,6 +101,7 @@ class LiveAction extends Action
 		//获取表前缀
 		$tp = C('DB_PREFIX');
 
+
 		//获取静态目录
 		$theme = THEME_PUBLIC_URL;
 	    $guest =  M ('guest');
@@ -108,6 +110,10 @@ class LiveAction extends Action
 		$roomid = isset($_GET['roomid']) ? $_GET['roomid'] : '';
 		//查询所有房间的id
 		$roomidArr = $this->livemodel->getroom();
+
+		//定义初始化登录页面
+		$login_url = U ('home/Live/index',array('roomid'=>$roomid));
+		define('LOGIN_URL', $login_url);
 
 		//判断当前房间id是否准确
 		if(!in_array($roomid, $roomidArr)){
@@ -247,7 +253,11 @@ class LiveAction extends Action
 		
 		//查询房间配置信息
 		$roomconfig = $this->_roomidArr_model->where("roomid = '{$roomid}'")->find();
-
+		//查询房间是否能发言
+		if(!$roomconfig['is_say']) {
+			echo json_encode("not_say");
+			return false;
+		}
 		//发言时间差
 		$timediff = time() - $_SESSION['saytime'];
 		if($user['usergroupid'] == 14 && $timediff < $roomconfig['speak_interval']){

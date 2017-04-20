@@ -20,6 +20,9 @@ class StudioRoomModel extends Model {
 			9  => 'viewstatus',
 			10 => 'is_guest',
 			11 => 'sensitive_words',
+			12 => 'is_say',
+			13 => 'studio_type',
+			14 => 'attach_id',
 			'_autoinc' => true,
 			'_pk' => 'id' 
 	);

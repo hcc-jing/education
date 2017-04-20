@@ -129,7 +129,6 @@ class ServiceAction extends AdministratorAction
 		} else {
 			$_REQUEST['tabHash'] = 'update';
 
-			$id    = t($_REQUEST['id']);
 			//查询所有房间的信息
 			$allroom = M ('studioroom') -> field('roomid,roomname') ->select();
 			$this->pageKeyList = array('title','code','roomid',);

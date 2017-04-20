@@ -60,10 +60,12 @@ class AdminAction extends AdministratorAction
 			}
 		} else {
 			$_REQUEST['tabHash'] = 'create';
-			$this->pageKeyList = array('roomid','roomname','password','room_ak','yy_number','speak_interval','onoff','viewtime','viewstatus','is_guest','sensitive_words');
+			$this->pageKeyList = array('roomid','roomname','password','room_ak','yy_number','vid','speak_interval','onoff','viewtime','viewstatus','is_guest','sensitive_words','is_say','studio_type');
 			$this->opt['onoff']          = array('1'=>'开启','0'=>'不开启'); //房间权限
 			$this->opt['viewstatus']     = array('1'=>'不限制','0'=>'限制'); //观看权限
 			$this->opt['is_guest']       = array('1'=>'不可以','0'=>'可以'); //游客权限
+			$this->opt['is_say']         = array('1'=>'不可以','0'=>'可以'); //能否发言
+			$this->opt['studio_type']    = array('1'=>'录像回放','0'=>'YY直播'); //直播方式
 			$this->savePostUrl = U('live/Admin/create');
 			$this->displayConfig();
 		}
@@ -79,6 +81,7 @@ class AdminAction extends AdministratorAction
 			}else {
 				$this->error(M ('studioroom') -> getError());
 			}
+
 			if($id) {
 				$this->assign( 'jumpUrl', U('live/Admin/index') );
 				$this->success('修改成功');
@@ -87,10 +90,18 @@ class AdminAction extends AdministratorAction
 			}
 		} else {
 			$_REQUEST['tabHash'] = 'create';
-			$this->pageKeyList = array('roomid','roomname','password','room_ak','yy_number','speak_interval','onoff','viewtime','viewstatus','is_guest','sensitive_words');
+			//查找所有视频信息
+			$videoinfo = M ('videolist') -> select();
+			foreach($videoinfo as $key => $val) {
+				$this->opt['vid'][$val['id']] = $val['videoname'];
+			}
+
+			$this->pageKeyList = array('roomid','roomname','password','room_ak','yy_number','vid','speak_interval','onoff','viewtime','viewstatus','is_guest','sensitive_words','is_say','studio_type');
 			$this->opt['onoff']          = array('1'=>'开启','0'=>'不开启'); //房间权限
 			$this->opt['viewstatus']     = array('1'=>'不限制','0'=>'限制'); //观看权限
 			$this->opt['is_guest']       = array('1'=>'不可以','0'=>'可以'); //游客权限
+			$this->opt['is_say']         = array('1'=>'不可以','0'=>'可以'); //能否发言
+			$this->opt['studio_type']    = array('1'=>'录像回放','0'=>'YY直播'); //直播方式
 			
 			$roomid = t($_REQUEST['roomid']);
 			$list   = $this->roomInfo($roomid);

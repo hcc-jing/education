@@ -105,7 +105,7 @@ class AdminVideoAction extends AdministratorAction
 		$post = $_POST;
 		if(empty($post['video_title'])) exit(json_encode(array('status'=>'0','info'=>"课程标题不能为空")));
 		if(empty($post['video_intro'])) exit(json_encode(array('status'=>'0','info'=>"课程简介不能为空")));
-		if(empty($post['v_price'])) exit(json_encode(array('status'=>'0','info'=>"课程价格不能为空")));
+		// if(empty($post['v_price'])) exit(json_encode(array('status'=>'0','info'=>"课程价格不能为空")));
 		if(empty($post['video_tag'])) exit(json_encode(array('status'=>'0','info'=>"课程标签不能为空")));
 		if(empty($post['cover_ids'])) exit(json_encode(array('status'=>'0','info'=>"课程封面不能为空")));
 		//如果上传到七牛服务器
@@ -149,7 +149,9 @@ class AdminVideoAction extends AdministratorAction
 		$data['endtime'] 			 = $post['endtime'] ? strtotime($post['endtime']) : 0; //限时结束时间
 		$data['limit_discount'] 	 = isset($post['is_tlimit']) && ($post['limit_discount'] <= 1 && $post['limit_discount'] >= 0) ? $post['limit_discount'] : 1; //限时折扣
 		$data['teacher_id']          = intval($_POST['trid']);//获取讲师
-		$data['video_address']       = $video_address;//正确的视频地址
+		if($video_address) {
+			$data['video_address']       = $video_address;//正确的视频地址
+		}		
 		$data['cover'] 			 	 = intval($post['cover_ids']); //封面
 		$data['videofile_ids'] 		 = isset($post['videofile_ids']) ? intval($post['videofile_ids']) : 0; //课件id
 		$data['is_best']      		 = isset($post['is_best']) ? intval($post['best_recommend']) : 0; //编辑精选

@@ -199,6 +199,74 @@ class PassportModel {
 		}
 	}
 
+	/**
+	 * 注册成后自动登录函数
+	 * @param string $login 登录名
+	 * @param string $password 密码
+	 * @param string $roomid 房间id
+	 */
+	public function regAuto($login, $password, $roomid)
+	{
+		//查找用户资料
+		if($this->isValidEmail($login)){
+			$map = "(login = '{$login}' or email='{$login}') AND is_del=0";
+		}elseif($this->isValidPhone($login)){
+			$map = "(login = '{$login}' or phone='{$login}') AND is_del=0";
+		}else{
+			$map = "(login = '{$login}' or uname='{$login}') AND is_del=0";
+		}
+		$user = model('User')->where($map)->find();
+		$uid  = $user['uid'];
+		//插入登录记录
+		$logData['uid'] = $uid;
+		$logData['ip'] = get_client_ip();
+		$logData['ctime'] = time();
+		D('')->table(C('DB_PREFIX').'login_logs')->add($logData);
+
+		// 注册cookie
+		if(!$this->getCookieUid()) {
+			$expire = 3600 * 24 * 15;
+			cookie('TSV3_LOGGED_USER', $this->jiami(C('SECURE_CODE').".{$uid}"), $expire);
+		}
+
+		// 记住活跃时间
+		cookie('TSV3_ACTIVE_TIME',time() + 60 * 30);
+		cookie('login_error_time', null);
+		// 更新登录时间
+		model('User')->setField('last_login_time', $_SERVER['REQUEST_TIME'], 'uid='.$uid );
+
+		// 记录登录日志，首次登录判断
+		empty($this->rel) && $this->rel	= D('')->table(C('DB_PREFIX').'login_record')->where("uid = ".$uid)->getField('login_record_id');
+
+		$credit_map['uid'] = $uid;
+		$credit_map['ctime'] = array('EGT', strtotime(date('Y-m-d', time())));
+		$firstTime = D('')->table(C('DB_PREFIX').'login_record')->where($credit_map)->count();
+		if ($firstTime == 0) {
+			//添加积分
+			model('Credit')->setUserCredit($uid,'user_login');
+		}
+		// 注册session
+		$roominfo = model('User')->where("uid = ".$uid)->getField('roomid');
+		$roominfo = $roomid ? $roomid : $roominfo;
+		$_SESSION['mid']    = intval($uid);
+		unset($_SESSION['gid']);
+		$_SESSION['roomid'] = $roominfo;
+		$_SESSION['SITE_KEY']=getSiteKey();
+		$inviterInfo = model('User')->getUserInfo($uid);
+		$map['ip'] = get_client_ip();
+		$map['ctime'] = time();
+		$map['locktime'] = 0;
+
+		$this->success = '登录成功，努力加载中。。';
+
+		if($this->rel) {
+			D('')->table(C('DB_PREFIX').'login_record')->where("uid = ".$uid)->save($map);
+		} else {
+			$map['uid'] = $uid;
+			D('')->table(C('DB_PREFIX').'login_record')->add($map);
+		}		
+	}
+
     /**
      * 使用本地帐号登录（密码为null时不参与验证）
      * @param string $login 登录名称，邮箱或用户名
@@ -306,6 +374,7 @@ class PassportModel {
 		}
 		// 注册session
 		$roominfo = model('User')->where("uid = ".$uid)->getField('roomid');
+		$roominfo = $roomid ? $roomid : $roominfo;
 		$_SESSION['mid']    = intval($uid);
 		unset($_SESSION['gid']);
 		$_SESSION['roomid'] = $roominfo;

@@ -124,6 +124,7 @@ $menu = array(
 				'直播间会员管理'   => U('live/Member/index'),
 				'直播间客服管理'   => U('live/Service/index'),
 				'直播间数据统计'   => U('live/Count/index'),
+				'直播间视频'   => U('live/Video/index'),
 				),
 		),
 

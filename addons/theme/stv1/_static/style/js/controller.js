@@ -381,6 +381,8 @@ function addliaotian() {
                        $("#ts").click();
                    } else if (data == 'jinyan') {
                        notice('对不起，您所在的用户组不允许发言');
+                   }else if(data == 'not_say') {
+                       notice('对不起，当前房间不允许发言');
                    }
                }
            });

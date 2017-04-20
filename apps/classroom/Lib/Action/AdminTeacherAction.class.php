@@ -118,7 +118,8 @@ class AdminTeacherAction extends AdministratorAction{
 				'title',
 		        'head_id'
 		);
-          if($id){
+        //print_r($this->notEmpty);exit;
+        if($id){
 			$this->savePostUrl = U ( 'classroom/AdminTeacher/doAddTeacher','type=save&id='.$id);
 			$zyTeacher = D('ZyTeacher')->where( 'id=' .$id )->find ();
             if(empty($zyTeacher['uid'])){
@@ -157,6 +158,7 @@ class AdminTeacherAction extends AdministratorAction{
         'teach_way'=>t($_POST['teach_way']),
         'uid'=>intval($_POST['uid'])
     	);
+        //print_r($_POST);exit;
         //数据验证
     	if(!$map ['name']){
 			$this->error('讲师姓名不能为空!');

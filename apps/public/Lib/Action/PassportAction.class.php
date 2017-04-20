@@ -576,7 +576,8 @@ class PassportAction extends CommonAction
 						$email=$phone;
 					}
 					
-					D('Passport')->loginLocal($email,$password);
+					D('Passport')->loginLocal($email,$password,$roomid);
+					//D('Passport')->regAuto($email,$password,$roomid);
 
 					$this->mzSuccess('恭喜您，注册成功');
 
@@ -602,7 +603,9 @@ class PassportAction extends CommonAction
         $password 	= trim($_POST['log_pwd']);
         $remember	= intval($_POST['login_remember']);
         $roomid	    = trim($_POST['roomid']);
-
+        if($roomid == 'undefined' || $roomid == '') {
+        	$roomid = '';
+        }
         $result 	= $this->passport->loginLocal($login,$password,$roomid,$remember);
         //print_r($result);exit;
         if(!$result){

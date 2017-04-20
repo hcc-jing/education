@@ -102,7 +102,10 @@ class TeacherAction extends CommonAction{
     public function view(){
         $id   = intval($_GET['id']);
         $data = $this->teacher->getTeacherInfo($id);
+        //查询用户性别信息
+        $sexinfo = M ('user') -> field('sex') -> where ("uid = '{$data["uid"]}'") -> find();
         $data["teacher_schedule"] = explode(",",$data["teacher_schedule"]);
+        $data['sex'] = $sexinfo['sex'] ? $sexinfo['sex'] : '';
         //教师课程
         $teacher_course=M("zy_teacher_course")->where("course_teacher=".$data['uid'])->findALL();
         $data["course_count"] = count($teacher_course);

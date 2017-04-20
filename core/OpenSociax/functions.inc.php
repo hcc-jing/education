@@ -1153,7 +1153,6 @@ function CheckPermission($load = '', $action = '', $group = ''){
     if(!empty($group)){
         return $Permission->group($group)->check($action);
     }
-
     return $Permission->check($action);
 }
 /**

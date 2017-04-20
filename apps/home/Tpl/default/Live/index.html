@@ -376,7 +376,8 @@
                     </span> </p>
             </div>
             <span class="addnum">+1</span> </div>
-                <script type="text/javascript">
+            <if condition="$peizhi['studio_type'] eq 0">
+            <script type="text/javascript">
                 var sid="{$peizhi['yy_number']}";
                 var yid='794738882';
                 var w=window.innerWidth? window.innerWidth:document.body.clientWidth;
@@ -391,10 +392,33 @@
                     var video_html = '<p style="margin-top:350px;">对不起，您的观看时间已到，请联系客服后继续观看</p>';
                 }
             </script>
+            <else />
+            <script type="text/javascript" src="__THEME__/style/js/swfobject.js"></script>
+            <script type="text/javascript">
+                function xianshishipin(){
+                    var so = new SWFObject("__THEME__/style/js/player.swf","ply","100%","100%","9","#000000");
+                    var shipininfo = "{$videourl}";
+                    so.addParam("allowfullscreen","true");
+                    so.addParam("allowscriptaccess","always");
+                    so.addParam("wmode","transparent");
+                    so.addParam("windowlessVideo","1");
+                    so.addParam("quality","high");
+                    so.addParam("salign","lt");
+                    so.addVariable("JcScpFile","__THEME__/style/js/CuSunV4set.xml");
+                    so.addVariable("JcScpVideoPath",shipininfo); //视频地址
+                    so.addVariable("JcScpSharetitle","");
+                    so.write("CuPlayer");
+                }
+            </script>
+            </if>
             <script type="text/javascript">
 
             function loadVideo(){
-                $('.shipinchuangkou').html(video_html);  
+                <if condition="$peizhi['studio_type'] eq 0">
+                    $('.shipinchuangkou').html(video_html);
+                <else />
+                    xianshishipin();
+                </if>
             }
             loadVideo();
         </script>

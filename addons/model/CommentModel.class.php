@@ -160,6 +160,7 @@ class CommentModel extends Model {
         }else{
             $add['is_audit'] = 1;
         }
+
         if($res = $this->add($add)) {
         	//锁定发布
         	lockSubmit();
@@ -181,7 +182,7 @@ class CommentModel extends Model {
         	// 被评论内容的“评论统计数”加1，同时可检测出app，table，row_id的有效性
             $pk = D($add['table'])->getPk();
             $where = "`{$pk}`={$add['row_id']}";
-            D($add['table'])->setInc('comment_count', $where);
+            D($add['table'])->setInc('replycount', $where);
             //兼容旧版本app
             D($add['table'])->setInc('commentCount', $where);
             D($add['table'])->setInc('comment_all_count', $where);
@@ -225,7 +226,7 @@ class CommentModel extends Model {
 			    }
         	}
         }
-
+        //print_r($this->getLastSql());exit;
         $this->error = $res ? L('PUBLIC_CONCENT_IS_OK') : L('PUBLIC_CONCENT_IS_ERROR');         // 评论成功，评论失败
 
         return $res;

@@ -176,12 +176,13 @@ class UploadFile
     * +----------------------------------------------------------
      */
     public function upload($savePath ='')
-    {
-		mkdir($savePath,0777,true);
+    {     
+        mkdir($savePath,0777,true);  
         //如果不指定保存文件名，则由系统默认
         if(empty($savePath)) {
             $savePath = $this->savePath;
         }
+        
         // 检查上传目录
         if(!is_dir($savePath)) {
             // 检查目录是否编码后的
@@ -206,7 +207,6 @@ class UploadFile
         // 获取上传的文件信息
         // 对$_FILES数组信息处理
         $files	 =	 $this->dealFiles($_FILES);
-        
         foreach($files as $key => $file) {
             $isUpload   = true;
             
@@ -244,6 +244,7 @@ class UploadFile
                 $isUpload   = true;
             }
         }
+
         if($isUpload) {
             $this->uploadFileInfo = $fileInfo;
             return true;

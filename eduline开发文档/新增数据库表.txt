@@ -1,4 +1,4 @@
-el_chatlist 聊天信息记录表
+﻿el_chatlist 聊天信息记录表
 el_chatlist_sen 敏感信息记录表
 el_comsumelist 红包鲜花记录表
 el_guest 游客表
@@ -8,3 +8,5 @@ el_redbaglist 红包记录表
 el_shield 屏蔽表
 el_studioroom 房间表
 el_getredbaglist 得到红包记录表
+el_videolist  视频列表
+el_comment  评论数据表

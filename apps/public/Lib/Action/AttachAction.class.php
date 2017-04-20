@@ -184,6 +184,7 @@ class AttachAction extends Action{
 		$options['allow_exts']	=	t(jiemi($_REQUEST['exts']));
 		$options['allow_size']	=	t(jiemi($_REQUEST['size']));
 		$jiamiData = jiemi(t($_REQUEST['token']));
+		//print_r($jiamiData);exit;
 		list($options['allow_exts'], $options['need_review'], $fid) = explode("||", $jiamiData);
 		$options['limit']       =   intval(jiemi($_REQUEST['limit']));
 		$options['now_pageCount'] = intval($_REQUEST['now_pageCount']);

@@ -126,7 +126,7 @@ class AttachModel extends Model {
 		if(empty($system_default['attach_path_rule']) || empty($system_default['attach_max_size']) || empty($system_default['attach_allow_extension'])) {
 			$system_default['attach_path_rule'] = 'Y/md/H/';
 			$system_default['attach_max_size'] = '2'; 		// 默认2M
-			$system_default['attach_allow_extension'] = 'jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf';
+			$system_default['attach_allow_extension'] = 'jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf,flv,avi,mp4';
 			model('Xdata')->put('admin_Config:attach', $system_default);
 		}
 
@@ -142,13 +142,14 @@ class AttachModel extends Model {
 		$default_options = array();
 		$default_options['custom_path']	= date($system_default['attach_path_rule']);					// 应用定义的上传目录规则：'Y/md/H/'
 		$default_options['max_size'] = floatval($system_default['attach_max_size']) * 1024 * 1024;		// 单位: 兆
-		$default_options['allow_exts'] = $system_default['attach_allow_extension']; 					// 'jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf'
+		$default_options['allow_exts'] = $system_default['attach_allow_extension']; 					// 'jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf,flv,avi,mp4'
 		$default_options['save_path'] =	UPLOAD_PATH.'/'.$default_options['custom_path'];
 		$default_options['save_name'] =	''; //指定保存的附件名.默认系统自动生成
 		$default_options['save_to_db'] = true;
 
 		// 定制化设这，覆盖默认设置
 		$options = is_array($input_options) ? array_merge($default_options,$input_options) : $default_options;
+		
 		//云图片
         if($data['upload_type']=='image'){
             $cloud = model('CloudImage');
