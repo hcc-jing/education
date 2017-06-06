@@ -26,7 +26,7 @@ class AdminCategoryAction extends AdministratorAction
         $this->pageTab[] = array('title'=>'考试分类管理','tabHash'=>'index','url'=>U('exam/AdminCategory/index'));
         $this->pageTab[] = array('title'=>'试卷分类管理','tabHash'=>'paper','url'=>U('exam/AdminCategory/paper'));
         $this->pageTab[] = array('title'=>'试题分类管理','tabHash'=>'question','url'=>U('exam/AdminCategory/question'));
-        $this->pageTab[] = array('title'=>'试题答案类型管理','tabHash'=>'option','url'=>U('exam/AdminCategory/option'));
+        $this->pageTab[] = array('title'=>'试题类型管理','tabHash'=>'option','url'=>U('exam/AdminCategory/option'));
         $this->pageTab[] = array('title'=>'添加分类','tabHash'=>'addCategory','url'=>U('exam/AdminCategory/addCategory'));
     }
     /**
@@ -36,7 +36,7 @@ class AdminCategoryAction extends AdministratorAction
         $this->pageTitle['index'] = '考试管理列表';
         $this->pageTitle['question'] = '题库分类管理';
         $this->pageTitle['paper'] = '试卷分类管理';
-        $this->pageTitle['option'] = '试题答案类型管理';
+        $this->pageTitle['option'] = '试题类型管理';
     }
 	//考试分类列表
 	public function index(){

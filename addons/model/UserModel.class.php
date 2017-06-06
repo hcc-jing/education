@@ -1040,6 +1040,52 @@ class UserModel extends Model {
 		
 		return $list;
 	}
+
+	/**
+	 * * 用于搜索引擎 **
+	 */
+	/**
+	 * 搜索讲师
+	 * 
+	 * @param string $key
+	 *        	关键字
+	 * @return array 用户列表数据
+	 */
+	public function searchTeacher($key = '') {
+		//查找老师的数据
+		$data = M ('zy_teacher') -> where ("name like '%{$key}%'") -> find();
+		if($data) {
+			//获取用户的头像
+			$data['face'] = getUserFace($data['uid']);
+			$data['uid'] = $data['id'];
+		}
+		$list['data'][] = $data;
+		return $list;
+	}
+
+	/**
+	 * * 用于搜索引擎 **
+	 */
+	/**
+	 * 搜索讲师
+	 * 
+	 * @param string $id
+	 *        	讲师id
+	 * @return array 用户列表数据
+	 */
+	public function searchTeachers($id) {
+		//查找老师的数据
+		$data = M ('zy_teacher') -> where ("id = '{$id}'") -> find();
+		if($data) {
+			//获取用户的头像
+			$data['face'] = getUserFace($data['uid']);
+			$userinfo = $this->getUserInfo($data['uid']);
+			$data['uid'] = $data['id'];
+			$data['space_url'] = $userinfo['space_url'];
+		}
+		$list = $data;
+		return $list;
+	}
 	
 	/**
 	 * 根据标示符(uid或uname或email或domain)获取用户信息

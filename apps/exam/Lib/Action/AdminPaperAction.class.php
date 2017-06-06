@@ -55,7 +55,7 @@ class AdminPaperAction extends AdministratorAction
 		$data['paper_name']= $post['paper_name'];
 		$data['paper_describe']= $post['paper_describe'];
 		$data['paper_category']= $post['paper_category'];
-		$data['paper_type']= $post['paper_type'];
+		$data['paper_type']= $post['paper_type'];		
 		$question_type= $post['question_type'];
 		if($post['paper_id']){
 			$data['paper_update_date'] = time();
@@ -85,6 +85,7 @@ class AdminPaperAction extends AdministratorAction
 		$paper_id=intval($_GET["paper_id"]);
 		$paper_info=M("ExPaper")->getPaperInfo($paper_id);
 		$question_list=M("ExQuestion")->QuestionList();
+		//print_r($paper_id);exit;
 		$paper_question=M("ExQuestion")->getPaperQuestion($paper_id);
 		$this->assign('paper_info',$paper_info);
 		$this->assign('question_list',$question_list);
@@ -97,8 +98,10 @@ class AdminPaperAction extends AdministratorAction
     	$paper_question=explode(",",$_POST["paper_question"]);
     	$item=M("ex_paper_content")->where("paper_content_paperid=".$id)->field("paper_content_item")->order("paper_content_item desc")->find();
     	$num=$item ? $item["paper_content_item"] : 0 ;
-    	$score=0;
-    	$count=0;
+    	//查找试卷的数据
+    	$paperinfo = M("ex_paper")->where("paper_id=".$id)->field("paper_point,paper_question_count")->find();
+    	$score=$paperinfo['paper_point'];
+    	$count=$paperinfo['paper_question_count'];
     	$data['paper_content_admin']=$this->uid;
         $data['paper_content_update_date']=time();
         $data['paper_content_insert_date']=time();

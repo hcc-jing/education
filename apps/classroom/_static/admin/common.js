@@ -38,9 +38,47 @@ admin.delTeacher=function(_id,action){
     },'json');
 }
 
+/**
+ * 删除课程
+ * @param _id
+ * @param action
+ * @returns {boolean}
+ */
+admin.delCourse=function(_id,action){
+
+    var id = ("undefined"== typeof(_id)|| _id=='') ? admin.getChecked() : _id;
+    if(id==''){
+        ui.error("课程id不能为null");
+        return false;
+    }
+    if(!confirm("是否确认删除此课程？")){
+        return false;
+    }
+    $.post(U('classroom/AdminTeacher/'+action),{ids:id},function(msg){
+        admin.ajaxReload(msg);
+    },'json');
+}
+
 admin.delTeacherAll=function(action){
 
     var ids=admin.getChecked();
+    ids = ("undefined"== typeof(ids)|| ids=='') ? admin.getChecked() : ids;
+    if(ids==''){
+        ui.error("讲师id不能为null");
+        return false;
+    }
+    if(!confirm("是否确认？")){
+        return false;
+    }
+    $.post(U('classroom/AdminTeacher/'+action),{ids:ids},function(msg){
+        admin.ajaxReload(msg);
+    },'json');
+}
+//批量删除课程
+admin.delCourseAll=function(action){
+
+    var ids=admin.getChecked();
+
     ids = ("undefined"== typeof(ids)|| ids=='') ? admin.getChecked() : ids;
     if(ids==''){
         ui.error("讲师id不能为null");

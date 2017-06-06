@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2017-03-18 17:26:17
+Date: 2017-05-20 17:11:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -36,7 +36,7 @@ CREATE TABLE `el_ad` (
 -- ----------------------------
 -- Records of el_ad
 -- ----------------------------
-INSERT INTO `el_ad` VALUES ('1', '首页轮播', '15', '1', '0', '1403768981', '1458207010', '0', '3', 'a:3:{i:0;a:2:{s:6:\"banner\";s:3:\"177\";s:9:\"bannerurl\";s:50:\"/index.php?app=classroom&mod=Album&act=view&id=163\";}i:1;a:2:{s:6:\"banner\";s:3:\"392\";s:9:\"bannerurl\";s:50:\"/index.php?app=classroom&mod=Video&act=view&id=271\";}i:2;a:2:{s:6:\"banner\";s:3:\"393\";s:9:\"bannerurl\";s:50:\"/index.php?app=classroom&mod=Album&act=view&id=162\";}}');
+INSERT INTO `el_ad` VALUES ('1', '首页轮播', '15', '1', '0', '1403768981', '1494574814', '0', '3', 'a:3:{i:0;a:2:{s:6:\"banner\";s:3:\"443\";s:9:\"bannerurl\";s:16:\"/app/album/index\";}i:1;a:2:{s:6:\"banner\";s:3:\"444\";s:9:\"bannerurl\";s:16:\"/app/video/index\";}i:2;a:2:{s:6:\"banner\";s:3:\"446\";s:9:\"bannerurl\";s:16:\"/app/topic/index\";}}');
 INSERT INTO `el_ad` VALUES ('3', '活动广告位', '16', '1', '0', '1403768981', '1441683189', '0', '3', 'a:2:{i:0;a:2:{s:6:\"banner\";s:4:\"3471\";s:9:\"bannerurl\";s:10:\"/index.php\";}i:1;a:2:{s:6:\"banner\";s:4:\"3472\";s:9:\"bannerurl\";s:0:\"\";}}');
 
 -- ----------------------------
@@ -121,6 +121,13 @@ CREATE TABLE `el_app_tag` (
 -- ----------------------------
 -- Records of el_app_tag
 -- ----------------------------
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_video', '293', '168');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_video', '294', '169');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_album', '172', '170');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_video', '295', '171');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_video', '1', '172');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_video', '2', '173');
+INSERT INTO `el_app_tag` VALUES ('classroom', 'zy_album', '1', '174');
 
 -- ----------------------------
 -- Table structure for `el_area`
@@ -3715,11 +3722,45 @@ CREATE TABLE `el_attach` (
   `height` int(11) DEFAULT '0' COMMENT '图片高度',
   PRIMARY KEY (`attach_id`),
   KEY `userId` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=397 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=455 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_attach
 -- ----------------------------
+INSERT INTO `el_attach` VALUES ('399', '', '', '0', 'ad_image', '1', '1491813942', 'banner1.jpg', 'image/jpeg', '65378', 'jpg', 'cfe9d761ccfe388e0fb574dc7b28345b', '0', '1', '2017/0410/16/', '58eb463609470.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('400', '', '', '0', 'ad_image', '1', '1491813945', 'banner2.jpg', 'image/jpeg', '72947', 'jpg', 'bb6380a3b8949723653275e52fcd411b', '0', '1', '2017/0410/16/', '58eb4639081b0.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('401', '', '', '0', 'ad_image', '1', '1491815779', 'banner3.jpg', 'image/jpeg', '70025', 'jpg', '58bc94c4a2a5921d540bcdd74e7a53d9', '0', '1', '2017/0410/17/', '58eb4d63319c0.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('402', '', '', '0', '', '1', '1492224428', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0415/10/', '58f189abf1272.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('403', '', '', '0', '', '1', '1492224640', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0415/10/', '58f18a8078647.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('404', '', '', '0', '', '1', '1492421033', '05.flv', 'application/octet-stream', '12103812', 'flv', 'd3615a15eae4774b08d9b7800fd5af9b', '0', '1', '2017/0417/17/', '58f489a984858.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('405', '', '', '0', '', '1', '1492421056', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0417/17/', '58f489c08b35d.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('406', '', '', '0', 'feed_image', '1', '1492421154', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0417/17/', '58f48a2253014.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('407', '', '', '0', '', '1', '1492421280', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0417/17/', '58f48aa09eb89.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('408', '', '', '0', 'feed_image', '2', '1492421943', '111.jpg', 'image/jpeg', '16946', 'jpg', '1088979798e935fff626dc295c21f2f7', '0', '1', '2017/0417/17/', '58f48d37cad3d.jpg', '0', '0', '353', '220');
+INSERT INTO `el_attach` VALUES ('409', '', '', '0', 'feed_image', '1', '1492422044', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0417/17/', '58f48d9c2386f.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('410', '', '', '0', '', '1', '1492422310', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0417/17/', '58f48ea6b268e.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('411', '', '', '0', '', '1', '1492422316', '01.flv', 'application/octet-stream', '12441016', 'flv', 'b4da7a5b6c7c447dd7138992b1636946', '0', '1', '2017/0417/17/', '58f48eabeb1fa.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('412', '', '', '0', 'ad_image', '1', '1492484211', 'banner1.jpg', 'image/jpeg', '104101', 'jpg', '606a375053691e7bcf565e83214e81e6', '0', '1', '2017/0418/10/', '58f580737ef19.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('413', '', '', '0', 'ad_image', '1', '1492484215', 'banner2.jpg', 'image/jpeg', '115243', 'jpg', 'b3eb898d2bc0555befacadb690d1993d', '0', '1', '2017/0418/10/', '58f5807791aaf.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('414', '', '', '0', 'ad_image', '1', '1492484218', 'banner3.jpg', 'image/jpeg', '116463', 'jpg', '9e65a82e37c4c62a85515121b58c10fa', '0', '1', '2017/0418/10/', '58f5807a86ccf.jpg', '0', '0', '1200', '434');
+INSERT INTO `el_attach` VALUES ('415', '', '', '0', '', '1', '1492484442', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0418/11/', '58f5815a33f68.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('416', '', '', '0', '', '1', '1492484447', '02.flv', 'application/octet-stream', '12857433', 'flv', 'e613f820836b6f538be7cf1fb1b36084', '0', '1', '2017/0418/11/', '58f5815f724f5.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('417', '', '', '0', 'feed_image', '1', '1492485742', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0418/11/', '58f5866e54065.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('418', '', '', '0', '', '1', '1492487269', '141111_4c19bc7fd588e.jpg', 'image/jpeg', '97864', 'jpg', '4580f264ee6188c0e18bf9dd82780fcb', '0', '1', '2017/0418/11/', '58f58c65cc36f.jpg', '0', '0', '400', '605');
+INSERT INTO `el_attach` VALUES ('441', '', '', '0', '', '1', '1492588419', '02.flv', 'application/octet-stream', '12857433', 'flv', 'e613f820836b6f538be7cf1fb1b36084', '0', '1', '2017/0419/15/', '58f717834fe92.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('442', '', '', '0', 'group_logo', '3', '1492594029', '111.jpg', 'image/jpeg', '16946', 'jpg', '1088979798e935fff626dc295c21f2f7', '0', '1', '2017/0419/17/', '58f72d6d06e7d.jpg', '0', '0', '353', '220');
+INSERT INTO `el_attach` VALUES ('443', '', '', '0', 'ad_image', '1', '1494574719', 'banner-sp.jpg', 'image/jpeg', '181811', 'jpg', '78be006a2128fd5766c6b82d06bc2b5e', '0', '0', '2017/0512/15/', '5915667f1143b.jpg', '0', '0', '1920', '392');
+INSERT INTO `el_attach` VALUES ('444', '', '', '0', 'ad_image', '1', '1494574722', 'i_b_special2.png', 'image/png', '42523', 'png', '37966afb5dc313c3e7491470890ee66a', '0', '0', '2017/0512/15/', '591566826b1d7.png', '0', '0', '1920', '392');
+INSERT INTO `el_attach` VALUES ('445', '', '', '0', 'ad_image', '1', '1494574726', 'joinvip.jpg', 'image/jpeg', '101854', 'jpg', '1a9b202512ee4525a82a2dada3a6c835', '0', '0', '2017/0512/15/', '591566865433d.jpg', '0', '0', '1920', '393');
+INSERT INTO `el_attach` VALUES ('446', '', '', '0', 'ad_image', '1', '1494574810', 'joinvip.jpg', 'image/jpeg', '101978', 'jpg', '03dd5404787997e1998516f836e1d2f3', '0', '0', '2017/0512/15/', '591566dac7b9a.jpg', '0', '0', '1920', '393');
+INSERT INTO `el_attach` VALUES ('447', '', '', '0', 'feed_image', '1', '1494577014', 'timg.jpg', 'image/jpeg', '35192', 'jpg', '0ed22d662c91f8d2e21813e3ab528ec8', '0', '0', '2017/0512/16/', '59156f761ebb0.jpg', '0', '0', '550', '353');
+INSERT INTO `el_attach` VALUES ('448', '', '', '0', '', '1', '1494647104', 'timg (1).jpg', 'image/jpeg', '176901', 'jpg', '7c01ae54e76a339bbfe22b9f6cc3fe8b', '0', '0', '2017/0513/11/', '59168140a040c.jpg', '0', '0', '1008', '1376');
+INSERT INTO `el_attach` VALUES ('449', '', '', '0', '', '1', '1494647132', '01.flv', 'application/octet-stream', '35532091', 'flv', 'c653ba2966f3959d5d73bcf816c5cab8', '0', '0', '2017/0513/11/', '5916815c60cb1.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('450', '', '', '0', '', '1', '1494647257', 'timg (1).jpg', 'image/jpeg', '176901', 'jpg', '7c01ae54e76a339bbfe22b9f6cc3fe8b', '0', '0', '2017/0513/11/', '591681d9d4573.jpg', '0', '0', '1008', '1376');
+INSERT INTO `el_attach` VALUES ('451', '', '', '0', '', '1', '1494647265', '01.flv', 'application/octet-stream', '35532091', 'flv', 'c653ba2966f3959d5d73bcf816c5cab8', '0', '0', '2017/0513/11/', '591681e13383f.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('452', '', '', '0', '', '1', '1494652095', 'timg (1).jpg', 'image/jpeg', '176901', 'jpg', '7c01ae54e76a339bbfe22b9f6cc3fe8b', '0', '0', '2017/0513/13/', '591694bf5ba9c.jpg', '0', '0', '1008', '1376');
+INSERT INTO `el_attach` VALUES ('453', '', '', '0', '', '1', '1494652107', '02.flv', 'application/octet-stream', '42768665', 'flv', '2271625e5935f811870e956ca0910f2a', '0', '0', '2017/0513/13/', '591694ca464b4.flv', '0', '0', '0', '0');
+INSERT INTO `el_attach` VALUES ('454', '', '', '0', 'feed_image', '1', '1494652315', 'timg (1).jpg', 'image/jpeg', '176901', 'jpg', '7c01ae54e76a339bbfe22b9f6cc3fe8b', '0', '0', '2017/0513/13/', '5916959bca5df.jpg', '0', '0', '1008', '1376');
 
 -- ----------------------------
 -- Table structure for `el_chatlist`
@@ -3735,11 +3776,40 @@ CREATE TABLE `el_chatlist` (
   `time` int(11) DEFAULT NULL COMMENT '时间',
   `private_chat` char(1) DEFAULT '0' COMMENT '是否是私聊(0:否;1:是)',
   `roomid` char(10) DEFAULT NULL COMMENT '房间id',
+  `gid` int(10) DEFAULT NULL COMMENT '游客用户组id',
+  `toadminid` int(10) DEFAULT NULL COMMENT '对象的用户组id',
+  `myadminid` int(10) DEFAULT NULL COMMENT '发言者用户组id',
+  `msgtype` char(1) DEFAULT '1' COMMENT '1:聊天信息,2:红包信息',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='聊天信息表';
 
 -- ----------------------------
 -- Records of el_chatlist
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `el_chatlist_sen`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_chatlist_sen`;
+CREATE TABLE `el_chatlist_sen` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `mid` int(10) DEFAULT NULL COMMENT '发言者的id',
+  `uname` varchar(200) DEFAULT NULL COMMENT '用户名',
+  `tomid` int(10) DEFAULT NULL COMMENT '私聊的对象id',
+  `touname` varchar(200) DEFAULT NULL COMMENT '私聊对象的名字',
+  `content` text NOT NULL COMMENT '聊天内容',
+  `time` int(11) DEFAULT NULL COMMENT '时间',
+  `private_chat` char(1) DEFAULT '0' COMMENT '是否是私聊(0:否;1:是)',
+  `roomid` char(10) DEFAULT NULL COMMENT '房间id',
+  `chat_id` int(10) DEFAULT NULL COMMENT '敏感信息在聊天信息里的id',
+  `gid` int(10) DEFAULT NULL COMMENT '游客用户组id',
+  `toadminid` int(10) DEFAULT NULL COMMENT '对象的用户组id',
+  `myadminid` int(10) DEFAULT NULL COMMENT '发言者用户组id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='敏感信息表';
+
+-- ----------------------------
+-- Records of el_chatlist_sen
 -- ----------------------------
 
 -- ----------------------------
@@ -3758,6 +3828,64 @@ CREATE TABLE `el_check_info` (
 -- ----------------------------
 INSERT INTO `el_check_info` VALUES ('1', '1', '1', '1488945489');
 INSERT INTO `el_check_info` VALUES ('1', '1', '2', '1489642716');
+INSERT INTO `el_check_info` VALUES ('1', '1', '3', '1491816091');
+INSERT INTO `el_check_info` VALUES ('2', '1', '1', '1491816658');
+INSERT INTO `el_check_info` VALUES ('1', '1', '4', '1492153914');
+INSERT INTO `el_check_info` VALUES ('1', '2', '5', '1492222975');
+INSERT INTO `el_check_info` VALUES ('1', '1', '6', '1492591446');
+INSERT INTO `el_check_info` VALUES ('3', '1', '1', '1492592570');
+INSERT INTO `el_check_info` VALUES ('1', '2', '7', '1492658193');
+INSERT INTO `el_check_info` VALUES ('3', '1', '2', '1493954959');
+
+-- ----------------------------
+-- Table structure for `el_comment`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_comment`;
+CREATE TABLE `el_comment` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键，评论编号 自增长字段',
+  `app` char(15) NOT NULL COMMENT '所属应用',
+  `table` char(15) NOT NULL COMMENT '被评论的内容所存储的表',
+  `row_id` int(11) NOT NULL COMMENT '应用进行评论的内容的编号',
+  `app_uid` int(11) NOT NULL COMMENT '应用内进行评论的内容的作者的编号',
+  `uid` int(11) NOT NULL COMMENT '评论者编号',
+  `content` text NOT NULL COMMENT '评论内容',
+  `to_comment_id` int(11) NOT NULL COMMENT '被回复的评论的编号',
+  `to_uid` int(11) NOT NULL COMMENT '被回复的评论的作者的编号',
+  `data` text NOT NULL COMMENT '所评论的内容的相关参数（序列化存储）',
+  `ctime` int(11) NOT NULL COMMENT '评论发布的时间',
+  `is_del` tinyint(1) NOT NULL COMMENT '标记删除（0：没删除，1：已删除）',
+  `client_type` tinyint(2) NOT NULL COMMENT '客户端类型，0：网站；1：手机网页版；2：android；3：iphone',
+  `is_audit` tinyint(1) DEFAULT '1' COMMENT '是否已审核 0-未审核 1-已审核 默认值：1',
+  `storey` int(11) DEFAULT NULL COMMENT '评论绝对楼层',
+  `app_detail_url` varchar(100) DEFAULT NULL COMMENT '链接',
+  `app_detail_summary` varchar(255) DEFAULT NULL COMMENT '概要',
+  PRIMARY KEY (`comment_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='评论表（记录用户评论数据）';
+
+-- ----------------------------
+-- Records of el_comment
+-- ----------------------------
+INSERT INTO `el_comment` VALUES ('1', 'public', 'group_topic', '108', '0', '1', '阿诗丹顿店', '0', '0', 'N;', '1492669989', '0', '0', '1', null, null, null);
+INSERT INTO `el_comment` VALUES ('2', 'public', 'group_topic', '108', '0', '3', '回复@管理员 ：hahahah', '1', '1', 'N;', '1492670040', '0', '0', '1', null, null, null);
+INSERT INTO `el_comment` VALUES ('3', 'public', 'group_topic', '108', '0', '1', '顶顶顶顶', '0', '0', 'N;', '1492670690', '0', '0', '1', null, null, null);
+
+-- ----------------------------
+-- Table structure for `el_comsumelist`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_comsumelist`;
+CREATE TABLE `el_comsumelist` (
+  `cid` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uid` int(10) DEFAULT NULL COMMENT '用户id',
+  `count` decimal(12,2) DEFAULT NULL COMMENT '数量',
+  `jid` int(10) DEFAULT NULL COMMENT '教师id',
+  `time` int(11) DEFAULT NULL COMMENT '时间',
+  `beizhu` varchar(200) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`cid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='红包总记录表';
+
+-- ----------------------------
+-- Records of el_comsumelist
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `el_credit_setting`
@@ -3807,13 +3935,17 @@ CREATE TABLE `el_credit_user` (
   `experience` int(11) DEFAULT NULL COMMENT '经验总值',
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=630 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=680 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_credit_user
 -- ----------------------------
-INSERT INTO `el_credit_user` VALUES ('628', '1', '10', '0');
-INSERT INTO `el_credit_user` VALUES ('629', '38', null, null);
+INSERT INTO `el_credit_user` VALUES ('628', '1', '45', '0');
+INSERT INTO `el_credit_user` VALUES ('630', '39', null, null);
+INSERT INTO `el_credit_user` VALUES ('631', '40', null, null);
+INSERT INTO `el_credit_user` VALUES ('637', '46', null, null);
+INSERT INTO `el_credit_user` VALUES ('678', '2', '5', '0');
+INSERT INTO `el_credit_user` VALUES ('679', '3', '10', '0');
 
 -- ----------------------------
 -- Table structure for `el_denounce`
@@ -3878,7 +4010,7 @@ CREATE TABLE `el_event` (
   `optsId` int(11) NOT NULL DEFAULT '0' COMMENT '投票选项，关联el_event_opts',
   `feed_id` int(11) NOT NULL DEFAULT '0' COMMENT '微博ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_event
@@ -3899,7 +4031,7 @@ CREATE TABLE `el_event_opts` (
   `isHot` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否热门',
   `rTime` int(11) DEFAULT NULL COMMENT '最后回复时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_event_opts
@@ -3920,7 +4052,7 @@ CREATE TABLE `el_event_photo` (
   `cTime` int(11) DEFAULT NULL COMMENT '创建时间',
   `commentCount` int(11) NOT NULL DEFAULT '0' COMMENT '评论次数',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_event_photo
@@ -3934,7 +4066,7 @@ CREATE TABLE `el_event_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL COMMENT '类型名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_event_type
@@ -3953,7 +4085,7 @@ CREATE TABLE `el_event_user` (
   `status` tinyint(1) NOT NULL DEFAULT '1',
   `cTime` int(11) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_event_user
@@ -4005,7 +4137,7 @@ CREATE TABLE `el_ex_exam` (
   `exam_insert_date` varchar(100) DEFAULT NULL COMMENT '试题添加时间',
   `exam_is_del` int(11) DEFAULT '0' COMMENT '是否在回收站中(1代表是)',
   PRIMARY KEY (`exam_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_exam
@@ -4022,7 +4154,7 @@ CREATE TABLE `el_ex_exam_category` (
   `exam_category_update_date` varchar(100) DEFAULT NULL COMMENT '最后一次更新时间',
   `exam_category_insert_date` varchar(100) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`exam_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_exam_category
@@ -4037,7 +4169,7 @@ CREATE TABLE `el_ex_exam_paper` (
   `exam_paper_exam` int(11) DEFAULT NULL COMMENT '考试信息ID',
   `exam_paper_paper` int(11) DEFAULT NULL COMMENT '试卷ID',
   PRIMARY KEY (`exam_paper_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_exam_paper
@@ -4054,7 +4186,7 @@ CREATE TABLE `el_ex_option` (
   `option_content` text NOT NULL COMMENT '选项文本描述',
   `is_right` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否是正确答案【1是，0否】',
   PRIMARY KEY (`option_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='试题答案选项表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='试题答案选项表';
 
 -- ----------------------------
 -- Records of el_ex_option
@@ -4078,7 +4210,7 @@ CREATE TABLE `el_ex_paper` (
   `paper_update_date` varchar(100) DEFAULT NULL COMMENT '最后一次修改时间',
   `paper_insert_date` varchar(100) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`paper_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_paper
@@ -4095,7 +4227,7 @@ CREATE TABLE `el_ex_paper_category` (
   `paper_category_update_date` varchar(100) DEFAULT NULL COMMENT '最后一次更新时间',
   `paper_category_insert_date` varchar(100) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`paper_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_paper_category
@@ -4115,7 +4247,7 @@ CREATE TABLE `el_ex_paper_content` (
   `paper_content_update_date` varchar(100) DEFAULT NULL COMMENT '最后一次修改时间',
   `paper_content_insert_date` varchar(100) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`paper_content_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_paper_content
@@ -4133,7 +4265,7 @@ CREATE TABLE `el_ex_paper_question_type` (
   `paper_question_title` varchar(200) DEFAULT NULL COMMENT '题型名称',
   `paper_question_type_postion` tinyint(4) DEFAULT NULL COMMENT '题型展示顺序,值越小越先输出',
   PRIMARY KEY (`paper_question_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_paper_question_type
@@ -4157,7 +4289,7 @@ CREATE TABLE `el_ex_question` (
   `question_insert_date` varchar(100) DEFAULT NULL COMMENT '创建时间',
   `question_is_del` int(11) DEFAULT '0' COMMENT '是否在回收站(1代表在回收站)',
   PRIMARY KEY (`question_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_question
@@ -4174,7 +4306,7 @@ CREATE TABLE `el_ex_question_category` (
   `question_category_update_date` varchar(100) NOT NULL,
   `question_category_insert_date` varchar(100) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`question_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_question_category
@@ -4191,7 +4323,7 @@ CREATE TABLE `el_ex_question_type` (
   `question_type_update_date` varchar(200) NOT NULL,
   `question_type_insert_date` varchar(200) NOT NULL,
   PRIMARY KEY (`question_type_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_question_type
@@ -4210,7 +4342,7 @@ CREATE TABLE `el_ex_user_answer` (
   `user_exam_time` tinyint(4) DEFAULT NULL COMMENT '考试次数',
   `user_question_answer` varchar(200) DEFAULT NULL COMMENT '用户答案',
   PRIMARY KEY (`user_answer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_user_answer
@@ -4233,7 +4365,7 @@ CREATE TABLE `el_ex_user_exam` (
   `user_error_count` tinyint(4) DEFAULT NULL COMMENT '错误个数',
   `user_exam_is_del` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_exam_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_ex_user_exam
@@ -4250,10 +4382,27 @@ CREATE TABLE `el_find_password` (
   `code` varchar(255) CHARACTER SET latin1 NOT NULL COMMENT '改密字符串',
   `is_used` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否已使用',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=155 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=158 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_find_password
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `el_getredbaglist`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_getredbaglist`;
+CREATE TABLE `el_getredbaglist` (
+  `g_r_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `s_r_id` int(11) DEFAULT NULL COMMENT '红包id',
+  `uid` int(10) DEFAULT NULL COMMENT '用户id',
+  `count` decimal(12,2) DEFAULT NULL COMMENT '领取金额',
+  `time` int(11) DEFAULT NULL COMMENT '领取时间',
+  PRIMARY KEY (`g_r_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='红包领取表';
+
+-- ----------------------------
+-- Records of el_getredbaglist
 -- ----------------------------
 
 -- ----------------------------
@@ -4295,11 +4444,12 @@ CREATE TABLE `el_group` (
   `isrecom` tinyint(1) NOT NULL DEFAULT '0',
   `is_del` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group
 -- ----------------------------
+INSERT INTO `el_group` VALUES ('19', '3', '园岭中学初一数学', '园岭中学初一数学', '2017/0419/17/58f72d6d06e7d.jpg', '园岭中学初一数学', '72', '72', '2', '1', 'close', '1', '0', '0', '1', '1', '0', '0', '3', '3', '0', '0', '0', '0', '0', '0', '1', '0', '1492594029', '0', '1', '0', '1');
 
 -- ----------------------------
 -- Table structure for `el_group_atme`
@@ -4360,11 +4510,14 @@ CREATE TABLE `el_group_category` (
   `pid` mediumint(5) NOT NULL DEFAULT '0',
   `module` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_category
 -- ----------------------------
+INSERT INTO `el_group_category` VALUES ('71', '初一语文', '1', '0', '');
+INSERT INTO `el_group_category` VALUES ('72', '初一数学', '1', '0', '');
+INSERT INTO `el_group_category` VALUES ('73', '初一英语', '1', '0', '');
 
 -- ----------------------------
 -- Table structure for `el_group_comment`
@@ -4420,11 +4573,12 @@ CREATE TABLE `el_group_feed` (
   PRIMARY KEY (`feed_id`),
   KEY `is_del` (`is_del`,`publish_time`),
   KEY `uid` (`uid`,`is_del`,`publish_time`)
-) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_feed
 -- ----------------------------
+INSERT INTO `el_group_feed` VALUES ('108', '19', '3', 'post', 'group', 'group_feed', '0', '1492594176', '0', '0', '0', '0', '0', '0', '1');
 
 -- ----------------------------
 -- Table structure for `el_group_feed_data`
@@ -4443,6 +4597,7 @@ CREATE TABLE `el_group_feed_data` (
 -- ----------------------------
 -- Records of el_group_feed_data
 -- ----------------------------
+INSERT INTO `el_group_feed_data` VALUES ('108', 'a:15:{s:7:\"content\";s:159:\"我发布了一个群组帖子“今天是个好日子今天是个好日子”,详情请点击[SITE_URL]/index.php?app=group&mod=Topic&act=topic&tid=108&gid=19\";s:4:\"body\";s:159:\"我发布了一个群组帖子“今天是个好日子今天是个好日子”,详情请点击[SITE_URL]/index.php?app=group&mod=Topic&act=topic&tid=108&gid=19\";s:4:\"from\";i:0;s:3:\"gid\";i:19;s:3:\"uid\";i:3;s:3:\"app\";s:5:\"group\";s:4:\"type\";s:4:\"post\";s:10:\"app_row_id\";s:0:\"\";s:13:\"app_row_table\";s:10:\"group_feed\";s:12:\"publish_time\";i:1492594176;s:12:\"repost_count\";i:0;s:13:\"comment_count\";i:0;s:6:\"is_del\";i:0;s:9:\"is_repost\";i:0;s:8:\"is_audit\";i:1;}', '127.0.0.1', '我发布了一个群组帖子“今天是个好日子今天是个好日子”,详情请点击[SITE_URL]/index.php?app=group&mod=Topic&act=topic&tid=108&gid=19', null);
 
 -- ----------------------------
 -- Table structure for `el_group_invite_verify`
@@ -4472,11 +4627,12 @@ CREATE TABLE `el_group_log` (
   `content` text NOT NULL,
   `ctime` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=138 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_log
 -- ----------------------------
+INSERT INTO `el_group_log` VALUES ('137', '19', '3', 'member', '<a event-node=\"face_card\" uid=\"3\" href=\"http://www.educationonline.com/app/userShow/3\" class=\"fn\" target=\"_blank\">@hejing</a>&nbsp;<img title=\"正常用户\" src=\"http://www.educationonline.com/addons/theme/stv1/_static/image/usergroup/v_02.png\" class=\"space-group-icon\" /> 将用户 <a event-node=\"face_card\" uid=\"1\" href=\"http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1\" class=\"fn\" target=\"_blank\">@管理员</a>&nbsp;<img title=\"管理员\" src=\"http://www.educationonline.com/addons/theme/stv1/_static/image/usergroup/v_05.png\" class=\"space-group-icon\" />批准成为会员 ', '1492594140');
 
 -- ----------------------------
 -- Table structure for `el_group_member`
@@ -4495,7 +4651,7 @@ CREATE TABLE `el_group_member` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `gid` (`gid`,`uid`),
   KEY `mid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_member
@@ -4550,11 +4706,12 @@ CREATE TABLE `el_group_post` (
   `attach` text,
   PRIMARY KEY (`id`),
   KEY `gid` (`gid`,`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_post
 -- ----------------------------
+INSERT INTO `el_group_post` VALUES ('108', '19', '3', '108', '今天是个好日子今天是个好日子', '127.0.0.1', '1', '1492594176', '0', '0', '1', null);
 
 -- ----------------------------
 -- Table structure for `el_group_tag`
@@ -4597,11 +4754,12 @@ CREATE TABLE `el_group_topic` (
   PRIMARY KEY (`id`),
   KEY `gid` (`gid`),
   KEY `gid_2` (`gid`,`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_group_topic
 -- ----------------------------
+INSERT INTO `el_group_topic` VALUES ('108', '19', '3', 'hejing', '今天是个好日子今天是个好日子', '0', '18', '3', '0', '0', '0', '1492594176', '1492670691', '0', '0', '0', '1', '');
 
 -- ----------------------------
 -- Table structure for `el_group_topic_category`
@@ -4666,13 +4824,45 @@ CREATE TABLE `el_guest` (
   `roomid` char(10) DEFAULT NULL COMMENT '直播间id',
   `ip` varchar(20) DEFAULT NULL COMMENT 'ip地址',
   `is_say` char(1) DEFAULT '1' COMMENT '是否能发言(0:否;1:是)',
+  `flowers` int(10) DEFAULT '0' COMMENT '鲜花数量',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='游客记录表';
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='游客记录表';
 
 -- ----------------------------
 -- Records of el_guest
 -- ----------------------------
-INSERT INTO `el_guest` VALUES ('3', '游客utOs', '14', '1489809279', '1489809279', '8E3FF7150F', '127.0.0.1', '1');
+INSERT INTO `el_guest` VALUES ('1', '游客aqAO', '14', '1491808400', '1491808400', '8E3FF7150F', '183.11.28.37', '1', '0');
+INSERT INTO `el_guest` VALUES ('2', '游客VASU', '14', '1491810827', '1491810827', '8E3FF7150F', '183.11.28.37', '1', '0');
+INSERT INTO `el_guest` VALUES ('3', '游客FTJS', '14', '1491811122', '1491811122', '8E3FF7150F', '183.11.28.37', '1', '0');
+INSERT INTO `el_guest` VALUES ('4', '游客ktGM', '14', '1491811178', '1491811178', '8E3FF7150F', '183.11.28.37', '1', '0');
+INSERT INTO `el_guest` VALUES ('5', '游客uAci', '14', '1491813041', '1491813041', '8E3FF7150F', '183.11.28.37', '1', '0');
+INSERT INTO `el_guest` VALUES ('6', '游客RoTC', '14', '1491813941', '1491813941', '8E3FF7150F', '203.246.82.104', '1', '0');
+INSERT INTO `el_guest` VALUES ('7', '游客H5UA', '14', '1491814193', '1491814193', '8E3FF7150F', '113.108.80.160', '1', '0');
+INSERT INTO `el_guest` VALUES ('8', '游客4pt7', '14', '1491814193', '1491814193', '8E3FF7150F', '183.60.1.237', '1', '0');
+INSERT INTO `el_guest` VALUES ('9', '游客mGDz', '14', '1491814196', '1491814196', '8E3FF7150F', '183.60.1.237', '1', '0');
+INSERT INTO `el_guest` VALUES ('10', '游客3XgY', '14', '1491837570', '1491837570', '8E3FF7150F', '123.66.35.33', '1', '0');
+INSERT INTO `el_guest` VALUES ('11', '游客tMSS', '14', '1491875082', '1491875082', '8E3FF7150F', '113.104.247.133', '1', '0');
+INSERT INTO `el_guest` VALUES ('12', '游客hQpQ', '14', '1491878697', '1491878697', '8E3FF7150F', '123.66.35.56', '1', '0');
+INSERT INTO `el_guest` VALUES ('13', '游客x04N', '14', '1491890847', '1491890847', '76D47BEC30', '113.104.247.133', '1', '0');
+INSERT INTO `el_guest` VALUES ('14', '游客DFFu', '14', '1491893985', '1491893985', '8E3FF7150F', '113.104.247.133', '1', '0');
+INSERT INTO `el_guest` VALUES ('15', '游客17S5', '14', '1491899946', '1491899946', '8E3FF7150F', '210.21.221.13', '1', '0');
+INSERT INTO `el_guest` VALUES ('16', '游客2Glv', '14', '1491899968', '1491899968', '8E3FF7150F', '111.206.36.144', '1', '0');
+INSERT INTO `el_guest` VALUES ('17', '游客eXyA', '14', '1491915641', '1491915641', '8E3FF7150F', '123.66.35.56', '1', '0');
+INSERT INTO `el_guest` VALUES ('18', '游客oMKm', '14', '1491971460', '1491971460', '8E3FF7150F', '113.89.237.223', '1', '0');
+INSERT INTO `el_guest` VALUES ('19', '游客z3bC', '14', '1491976161', '1491976161', '8E3FF7150F', '42.156.251.194', '1', '0');
+INSERT INTO `el_guest` VALUES ('20', '游客kdpe', '14', '1491976162', '1491976162', '8E3FF7150F', '42.156.251.194', '1', '0');
+INSERT INTO `el_guest` VALUES ('21', '游客7HzH', '14', '1491978467', '1491978467', '8E3FF7150F', '42.156.251.206', '1', '0');
+INSERT INTO `el_guest` VALUES ('22', '游客DQcj', '14', '1491978468', '1491978468', '8E3FF7150F', '42.156.251.206', '1', '0');
+INSERT INTO `el_guest` VALUES ('23', '游客laKq', '14', '1492134080', '1492134080', '8E3FF7150F', '183.11.28.7', '1', '0');
+INSERT INTO `el_guest` VALUES ('24', '游客Fpdm', '14', '1492155901', '1492155901', '8E3FF7150F', '183.11.28.7', '1', '0');
+INSERT INTO `el_guest` VALUES ('25', '游客2PNQ', '14', '1492159170', '1492159170', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('26', '游客LKsa', '14', '1492221404', '1492221404', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('27', '游客cikt', '14', '1492225295', '1492225295', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('28', '游客SWtu', '14', '1492421442', '1492421442', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('29', '游客Fw04', '14', '1492573945', '1492573945', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('30', '游客0Pug', '14', '1493881994', '1493881994', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('31', '游客VNfU', '14', '1493954560', '1493954560', '8E3FF7150F', '127.0.0.1', '1', '0');
+INSERT INTO `el_guest` VALUES ('32', '游客JVj4', '14', '1494571394', '1494571394', '8E3FF7150F', '127.0.0.1', '1', '0');
 
 -- ----------------------------
 -- Table structure for `el_invite_code`
@@ -4702,8 +4892,11 @@ CREATE TABLE `el_invite_code` (
 DROP TABLE IF EXISTS `el_ipblacklist`;
 CREATE TABLE `el_ipblacklist` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `mid` int(10) DEFAULT NULL COMMENT '被禁言用户的id',
   `ip` varchar(50) DEFAULT NULL COMMENT 'ip地址',
+  `opuid` varchar(50) DEFAULT NULL COMMENT '管理员id',
   `mtime` int(11) DEFAULT NULL COMMENT '时间',
+  `adminid` int(10) DEFAULT NULL COMMENT '被禁言用户的用户组id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='ip黑名单表';
 
@@ -6249,7 +6442,7 @@ CREATE TABLE `el_login_logs` (
   `ip` varchar(15) DEFAULT NULL COMMENT '登录IP',
   `ctime` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`login_logs_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7369 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7510 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_login_logs
@@ -6264,10 +6457,44 @@ INSERT INTO `el_login_logs` VALUES ('7361', '1', '127.0.0.1', '1489396672');
 INSERT INTO `el_login_logs` VALUES ('7362', '1', '127.0.0.1', '1489455960');
 INSERT INTO `el_login_logs` VALUES ('7363', '1', '127.0.0.1', '1489542995');
 INSERT INTO `el_login_logs` VALUES ('7364', '1', '127.0.0.1', '1489626723');
-INSERT INTO `el_login_logs` VALUES ('7365', '38', '127.0.0.1', '1489656759');
 INSERT INTO `el_login_logs` VALUES ('7366', '1', '127.0.0.1', '1489800368');
-INSERT INTO `el_login_logs` VALUES ('7367', '38', '127.0.0.1', '1489803180');
 INSERT INTO `el_login_logs` VALUES ('7368', '1', '127.0.0.1', '1489826641');
+INSERT INTO `el_login_logs` VALUES ('7380', '1', '127.0.0.1', '1490690710');
+INSERT INTO `el_login_logs` VALUES ('7381', '39', '127.0.0.1', '1490691533');
+INSERT INTO `el_login_logs` VALUES ('7382', '39', '127.0.0.1', '1490691863');
+INSERT INTO `el_login_logs` VALUES ('7387', '1', '127.0.0.1', '1490838036');
+INSERT INTO `el_login_logs` VALUES ('7457', '1', '127.0.0.1', '1491621137');
+INSERT INTO `el_login_logs` VALUES ('7475', '1', '127.0.0.1', '1491802620');
+INSERT INTO `el_login_logs` VALUES ('7480', '1', '127.0.0.1', '1491805184');
+INSERT INTO `el_login_logs` VALUES ('7481', '1', '183.11.28.37', '1491807844');
+INSERT INTO `el_login_logs` VALUES ('7482', '2', '183.11.28.37', '1491809851');
+INSERT INTO `el_login_logs` VALUES ('7483', '2', '183.11.28.37', '1491810836');
+INSERT INTO `el_login_logs` VALUES ('7484', '1', '183.11.28.37', '1491811141');
+INSERT INTO `el_login_logs` VALUES ('7485', '2', '183.11.28.37', '1491816571');
+INSERT INTO `el_login_logs` VALUES ('7486', '1', '183.11.28.7', '1492134499');
+INSERT INTO `el_login_logs` VALUES ('7487', '1', '127.0.0.1', '1492158896');
+INSERT INTO `el_login_logs` VALUES ('7488', '1', '127.0.0.1', '1492221680');
+INSERT INTO `el_login_logs` VALUES ('7489', '1', '127.0.0.1', '1492223077');
+INSERT INTO `el_login_logs` VALUES ('7490', '1', '127.0.0.1', '1492223096');
+INSERT INTO `el_login_logs` VALUES ('7491', '1', '127.0.0.1', '1492412354');
+INSERT INTO `el_login_logs` VALUES ('7492', '2', '127.0.0.1', '1492421400');
+INSERT INTO `el_login_logs` VALUES ('7493', '2', '127.0.0.1', '1492421903');
+INSERT INTO `el_login_logs` VALUES ('7494', '1', '127.0.0.1', '1492479142');
+INSERT INTO `el_login_logs` VALUES ('7495', '3', '127.0.0.1', '1492492644');
+INSERT INTO `el_login_logs` VALUES ('7496', '2', '127.0.0.1', '1492505389');
+INSERT INTO `el_login_logs` VALUES ('7497', '1', '127.0.0.1', '1492508986');
+INSERT INTO `el_login_logs` VALUES ('7498', '1', '127.0.0.1', '1492565306');
+INSERT INTO `el_login_logs` VALUES ('7499', '3', '127.0.0.1', '1492592401');
+INSERT INTO `el_login_logs` VALUES ('7500', '1', '127.0.0.1', '1492652041');
+INSERT INTO `el_login_logs` VALUES ('7501', '3', '127.0.0.1', '1492653205');
+INSERT INTO `el_login_logs` VALUES ('7502', '3', '127.0.0.1', '1492657805');
+INSERT INTO `el_login_logs` VALUES ('7503', '1', '127.0.0.1', '1492665476');
+INSERT INTO `el_login_logs` VALUES ('7504', '3', '127.0.0.1', '1492665669');
+INSERT INTO `el_login_logs` VALUES ('7505', '1', '127.0.0.1', '1492750906');
+INSERT INTO `el_login_logs` VALUES ('7506', '3', '127.0.0.1', '1493954678');
+INSERT INTO `el_login_logs` VALUES ('7507', '1', '127.0.0.1', '1494573849');
+INSERT INTO `el_login_logs` VALUES ('7508', '1', '127.0.0.1', '1494639364');
+INSERT INTO `el_login_logs` VALUES ('7509', '1', '127.0.0.1', '1494812489');
 
 -- ----------------------------
 -- Table structure for `el_login_record`
@@ -6281,13 +6508,15 @@ CREATE TABLE `el_login_record` (
   `ctime` int(11) DEFAULT NULL COMMENT '时间',
   `locktime` int(11) NOT NULL COMMENT '账号锁定截至日期',
   PRIMARY KEY (`login_record_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=141 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_login_record
 -- ----------------------------
-INSERT INTO `el_login_record` VALUES ('91', '1', '127.0.0.1', null, '1489826641', '0');
-INSERT INTO `el_login_record` VALUES ('92', '38', '127.0.0.1', null, '1489803180', '0');
+INSERT INTO `el_login_record` VALUES ('91', '1', '127.0.0.1', null, '1494812489', '0');
+INSERT INTO `el_login_record` VALUES ('93', '39', '127.0.0.1', null, '1490691863', '0');
+INSERT INTO `el_login_record` VALUES ('139', '2', '127.0.0.1', null, '1492505389', '0');
+INSERT INTO `el_login_record` VALUES ('140', '3', '127.0.0.1', null, '1493954678', '0');
 
 -- ----------------------------
 -- Table structure for `el_medal`
@@ -6340,7 +6569,7 @@ CREATE TABLE `el_message_content` (
   PRIMARY KEY (`message_id`),
   KEY `list_id` (`list_id`,`is_del`,`mtime`),
   KEY `list_id_2` (`list_id`,`mtime`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_message_content
@@ -6363,7 +6592,7 @@ CREATE TABLE `el_message_list` (
   KEY `type` (`type`),
   KEY `min_max` (`min_max`),
   KEY `from_uid` (`from_uid`,`mtime`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_message_list
@@ -6409,7 +6638,7 @@ CREATE TABLE `el_navi` (
   `order_sort` int(11) DEFAULT NULL COMMENT '应用排序 默认255',
   PRIMARY KEY (`navi_id`),
   KEY `status_postion` (`status`,`position`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_navi
@@ -6424,11 +6653,10 @@ INSERT INTO `el_navi` VALUES ('11', '课程', 'Video', '{website}/app/video/inde
 INSERT INTO `el_navi` VALUES ('12', '讲师', 'Teacher', '{website}/app/teacher/index', '_self', '1', '0', '1', '0', '0', '4');
 INSERT INTO `el_navi` VALUES ('13', '问答', 'wenda', '{website}/app/wenda/index', '_self', '1', '0', '1', '0', '0', '5');
 INSERT INTO `el_navi` VALUES ('14', '小组', 'group', '{website}/app/group/index', '_self', '1', '0', '1', '0', '0', '6');
-INSERT INTO `el_navi` VALUES ('17', '更多', 'more', 'javascript:;', '_self', '1', '0', '1', '0', '0', '9');
-INSERT INTO `el_navi` VALUES ('18', '考试系统', 'exam', '/index.php?app=exam', '_self', '1', '0', '1', '0', '17', '1');
-INSERT INTO `el_navi` VALUES ('19', '资讯', 'Topic', '/app/topic/index', '_self', '1', '0', '1', '0', '17', '4');
-INSERT INTO `el_navi` VALUES ('20', '活动', 'event', '/app/event', '_self', '1', '0', '1', '0', '17', '3');
-INSERT INTO `el_navi` VALUES ('21', '直播', 'live', '/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '_blank', '1', '0', '1', '0', '17', '2');
+INSERT INTO `el_navi` VALUES ('17', '考试系统', 'exam', '/index.php?app=exam', '_self', '1', '0', '1', '0', '0', '9');
+INSERT INTO `el_navi` VALUES ('22', '直播', 'live', '/index.php?app=home&mod=Live&act=locationTOroom', '_self', '1', '0', '1', '0', '0', '10');
+INSERT INTO `el_navi` VALUES ('23', '活动', 'event', '/app/event', '_self', '1', '0', '1', '0', '0', '11');
+INSERT INTO `el_navi` VALUES ('24', '资讯', 'Topic', '/app/topic/index', '_self', '1', '0', '1', '0', '0', '12');
 
 -- ----------------------------
 -- Table structure for `el_notify_email`
@@ -6446,7 +6674,7 @@ CREATE TABLE `el_notify_email` (
   `ctime` int(11) NOT NULL COMMENT '添加时间',
   `sendtime` int(11) NOT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1981 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1985 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_notify_email
@@ -6467,7 +6695,7 @@ CREATE TABLE `el_notify_message` (
   `is_read` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否已读【1是，0否】',
   PRIMARY KEY (`id`),
   KEY `uid_read` (`uid`,`is_read`)
-) ENGINE=MyISAM AUTO_INCREMENT=2573 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_notify_message
@@ -6521,13 +6749,38 @@ CREATE TABLE `el_online` (
   KEY `active_time` (`activeTime`),
   KEY `uid_ip` (`uid`,`ip`),
   KEY `uid_activeTime` (`uid`,`activeTime`)
-) ENGINE=MyISAM AUTO_INCREMENT=5170 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_online
 -- ----------------------------
-INSERT INTO `el_online` VALUES ('5168', '0', 'guest', 'classroom', '127.0.0.1', 'Google', '1489805290');
-INSERT INTO `el_online` VALUES ('5169', '1', '管理员', 'classroom', '127.0.0.1', 'Google', '1489800390');
+INSERT INTO `el_online` VALUES ('2', '0', 'guest', 'classroom', '127.0.0.1', 'Google', '1495261678');
+INSERT INTO `el_online` VALUES ('4', '0', 'guest', 'classroom', '183.11.28.37', 'Google', '1491814391');
+INSERT INTO `el_online` VALUES ('5', '1', '管理员', 'classroom', '127.0.0.1', 'Google', '1494819276');
+INSERT INTO `el_online` VALUES ('6', '2', 'lalala', 'classroom', '127.0.0.1', 'Google', '1492507920');
+INSERT INTO `el_online` VALUES ('7', '0', 'guest', 'classroom', '203.246.82.104', 'other', '1491877034');
+INSERT INTO `el_online` VALUES ('8', '0', 'guest', 'classroom', '175.223.27.162', 'other', '1491814463');
+INSERT INTO `el_online` VALUES ('9', '0', 'guest', 'classroom', '223.104.63.41', 'other', '1491814506');
+INSERT INTO `el_online` VALUES ('10', '0', 'guest', 'classroom', '210.21.221.14', 'Google', '1491905384');
+INSERT INTO `el_online` VALUES ('11', '0', 'guest', 'classroom', '117.136.40.198', 'other', '1491826754');
+INSERT INTO `el_online` VALUES ('12', '0', 'guest', 'classroom', '123.66.35.33', 'Google', '1491837529');
+INSERT INTO `el_online` VALUES ('13', '0', 'guest', 'classroom', '113.104.247.133', 'Google', '1491893978');
+INSERT INTO `el_online` VALUES ('14', '0', 'guest', 'classroom', '123.66.35.56', 'Google', '1491961335');
+INSERT INTO `el_online` VALUES ('15', '0', 'guest', 'classroom', '210.21.221.13', 'Google', '1492157689');
+INSERT INTO `el_online` VALUES ('16', '0', 'guest', 'classroom', '111.206.36.140', 'Firefox', '1491899887');
+INSERT INTO `el_online` VALUES ('17', '0', 'guest', 'classroom', '111.206.36.16', 'Firefox', '1491919829');
+INSERT INTO `el_online` VALUES ('18', '0', '游客2Glv', 'home', '111.206.36.12', 'Firefox', '1491899969');
+INSERT INTO `el_online` VALUES ('19', '0', 'guest', 'classroom', '117.185.27.115', 'Google', '1491909834');
+INSERT INTO `el_online` VALUES ('20', '0', 'guest', 'classroom', '113.89.237.223', 'Google', '1491973107');
+INSERT INTO `el_online` VALUES ('21', '0', '游客kdpe', 'home', '42.156.251.194', 'Google', '1491976163');
+INSERT INTO `el_online` VALUES ('22', '0', '游客DQcj', 'home', '42.156.251.206', 'Google', '1491978469');
+INSERT INTO `el_online` VALUES ('23', '0', 'guest', 'classroom', '14.197.99.130', 'Google', '1492012559');
+INSERT INTO `el_online` VALUES ('24', '0', 'guest', 'classroom', '123.66.35.59', 'Google', '1492055694');
+INSERT INTO `el_online` VALUES ('25', '0', 'guest', 'classroom', '112.90.87.78', 'Google', '1492078308');
+INSERT INTO `el_online` VALUES ('26', '0', 'guest', 'classroom', '140.207.185.107', 'Google', '1492078317');
+INSERT INTO `el_online` VALUES ('27', '0', 'guest', 'classroom', '183.11.28.7', 'Google', '1492155902');
+INSERT INTO `el_online` VALUES ('28', '0', 'guest', 'classroom', '116.22.135.236', 'Google', '1492141123');
+INSERT INTO `el_online` VALUES ('29', '3', 'hejing', 'classroom', '127.0.0.1', 'Google', '1493956006');
 
 -- ----------------------------
 -- Table structure for `el_online_logs`
@@ -6547,22 +6800,543 @@ CREATE TABLE `el_online_logs` (
   `ext` varchar(20) NOT NULL COMMENT '扩展字段',
   `statsed` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否已经统计过',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=923 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_online_logs
 -- ----------------------------
-INSERT INTO `el_online_logs` VALUES ('1', '2017-03-17', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('2', '2017-03-17', '0', 'guest', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('3', '2017-03-17', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('4', '2017-03-17', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('5', '2017-03-17', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('6', '2017-03-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('7', '2017-03-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('8', '2017-03-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
-INSERT INTO `el_online_logs` VALUES ('9', '2017-03-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Firefox', '', '0');
-INSERT INTO `el_online_logs` VALUES ('10', '2017-03-18', '38', 'hejing', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Firefox', '', '0');
-INSERT INTO `el_online_logs` VALUES ('11', '2017-03-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('722', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('721', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('720', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('719', '2017-04-21', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('718', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('717', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('716', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('715', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('714', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('713', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('712', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('711', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('710', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('708', '2017-04-20', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('709', '2017-04-21', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('707', '2017-04-20', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('706', '2017-04-20', '3', 'hejing', 'wenda/Index/index', 'http://www.educationonline.com/app/wenda/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('705', '2017-04-20', '3', 'hejing', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('703', '2017-04-20', '3', 'hejing', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('704', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('702', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('701', '2017-04-20', '1', '管理员', 'public/Message/detail', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=detail&id=16&type=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('700', '2017-04-20', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('699', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('698', '2017-04-20', '3', 'hejing', 'public/Message/comment', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=comment', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('697', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('693', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('692', '2017-04-20', '1', '管理员', 'public/Message/detail', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=detail&id=16&type=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('691', '2017-04-20', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('690', '2017-04-20', '3', 'hejing', 'public/Message/detail', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=detail&id=16&type=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('689', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('688', '2017-04-20', '3', 'hejing', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('687', '2017-04-20', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('686', '2017-04-20', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('685', '2017-04-20', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('684', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('683', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('682', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('681', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('680', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('679', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('678', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('677', '2017-04-20', '1', '管理员', 'public/Message/comment', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=comment', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('676', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('675', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('674', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('673', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('671', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('670', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('669', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('668', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('667', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('666', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('665', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('664', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('662', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('661', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('660', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('659', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('658', '2017-04-20', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('657', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('656', '2017-04-20', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('654', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('653', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('652', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('651', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('650', '2017-04-20', '1', '管理员', 'classroom/Video/merge', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=merge', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('649', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19&cid=my', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('648', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('647', '2017-04-20', '1', '管理员', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('646', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('645', '2017-04-20', '1', '管理员', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('644', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('643', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('642', '2017-04-20', '1', '管理员', 'classroom/Topic/index', 'http://www.educationonline.com/app/topic/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('641', '2017-04-20', '1', '管理员', 'event/Index/index', 'http://www.educationonline.com/app/event', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('639', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('637', '2017-04-20', '1', '管理员', 'group/Log/index', 'http://www.educationonline.com/index.php?app=group&mod=Log&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('633', '2017-04-20', '1', '管理员', 'group/Member/index', 'http://www.educationonline.com/index.php?app=group&mod=Member&act=index&uid=1&type=join', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('632', '2017-04-20', '1', '管理员', 'group/SomeOne/index', 'http://www.educationonline.com/index.php?app=group&mod=SomeOne&act=index&uid=1&type=following', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('631', '2017-04-20', '1', '管理员', 'group/SomeOne/index', 'http://www.educationonline.com/index.php?app=group&mod=SomeOne&act=index&uid=1&type=join', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('629', '2017-04-20', '1', '管理员', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('628', '2017-04-20', '1', '管理员', 'group/SomeOne/index', 'http://www.educationonline.com/index.php?app=group&mod=SomeOne&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('627', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('626', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('625', '2017-04-20', '1', '管理员', 'group/SomeOne/index', 'http://www.educationonline.com/index.php?app=group&mod=SomeOne&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('624', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('623', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('621', '2017-04-20', '1', '管理员', 'group/Member/index', 'http://www.educationonline.com/index.php?app=group&mod=Member&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('620', '2017-04-20', '1', '管理员', 'group/Member/index', 'http://www.educationonline.com/index.php?app=group&mod=Member&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('619', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('618', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('617', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('615', '2017-04-20', '1', '管理员', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('614', '2017-04-20', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('612', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('613', '2017-04-20', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('611', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('610', '2017-04-20', '1', '管理员', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('609', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('608', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('607', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('606', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('605', '2017-04-20', '3', 'hejing', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('604', '2017-04-20', '3', 'hejing', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('603', '2017-04-20', '3', 'hejing', 'group/Manage/membermanage', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=membermanage&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('602', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('601', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19&cid=0&order=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('600', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19&cid=0', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('598', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('597', '2017-04-20', '3', 'hejing', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add&fid=72', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('596', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('595', '2017-04-20', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('594', '2017-04-20', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('593', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('592', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('591', '2017-04-20', '1', '管理员', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('590', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19&cid=my', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('589', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('588', '2017-04-20', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('587', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('586', '2017-04-20', '3', 'hejing', 'group/Manage/membermanage', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=membermanage&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('585', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('584', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('583', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('582', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('581', '2017-04-20', '3', 'hejing', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add&fid=72', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('580', '2017-04-20', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('579', '2017-04-20', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('578', '2017-04-20', '0', 'guest', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('577', '2017-04-20', '0', 'guest', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('576', '2017-04-20', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('575', '2017-04-20', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('574', '2017-04-20', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('573', '2017-04-20', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('570', '2017-04-19', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('568', '2017-04-19', '3', 'hejing', 'group/Topic/add', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=add&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('564', '2017-04-19', '3', 'hejing', 'group/Manage/membermanage', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=membermanage&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('563', '2017-04-19', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('562', '2017-04-19', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('561', '2017-04-19', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('560', '2017-04-19', '3', 'hejing', 'public/Message/detail', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=detail&id=16&type=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('559', '2017-04-19', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('558', '2017-04-19', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('557', '2017-04-19', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('556', '2017-04-19', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('555', '2017-04-19', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('554', '2017-04-19', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('553', '2017-04-19', '3', 'hejing', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add&fid=71', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('552', '2017-04-19', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('551', '2017-04-19', '1', '管理员', 'classroom/UserShow/wenda', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=wenda&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('550', '2017-04-19', '1', '管理员', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&type=follower&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('549', '2017-04-19', '1', '管理员', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&type=follower&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('548', '2017-04-19', '1', '管理员', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('547', '2017-04-19', '1', '管理员', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('546', '2017-04-19', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('545', '2017-04-19', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('543', '2017-04-19', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('542', '2017-04-19', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('541', '2017-04-19', '3', 'hejing', 'classroom/UserShow/note', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=note&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('540', '2017-04-19', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('539', '2017-04-19', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('538', '2017-04-19', '3', 'hejing', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('537', '2017-04-19', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('536', '2017-04-19', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('535', '2017-04-19', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('534', '2017-04-19', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('533', '2017-04-19', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('532', '2017-04-19', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('531', '2017-04-19', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('530', '2017-04-19', '3', 'hejing', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('529', '2017-04-19', '3', 'hejing', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('528', '2017-04-19', '3', 'hejing', 'wenda/Index/index', 'http://www.educationonline.com/app/wenda/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('527', '2017-04-19', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('526', '2017-04-19', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('525', '2017-04-19', '1', '管理员', 'classroom/Home/album', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=album', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('524', '2017-04-19', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('523', '2017-04-19', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('522', '2017-04-19', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('521', '2017-04-19', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('520', '2017-04-19', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('519', '2017-04-19', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('518', '2017-04-19', '3', 'hejing', 'public/Message/comment', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=comment', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('517', '2017-04-19', '3', 'hejing', 'public/Message/notify', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=notify', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('516', '2017-04-19', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('515', '2017-04-19', '3', 'hejing', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('514', '2017-04-19', '3', 'hejing', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add&fid=71', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('513', '2017-04-19', '3', 'hejing', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('512', '2017-04-19', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('511', '2017-04-19', '1', '管理员', 'group/Index/add', 'http://www.educationonline.com/index.php?app=group&mod=Index&act=add&fid=71', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('510', '2017-04-19', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('509', '2017-04-19', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('508', '2017-04-19', '1', '管理员', 'classroom/Home/note', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=note', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('507', '2017-04-19', '1', '管理员', 'classroom/Home/wenda', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=wenda', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('506', '2017-04-19', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('505', '2017-04-19', '1', '管理员', 'public/Message/comment', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=comment', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('504', '2017-04-19', '1', '管理员', 'public/Message/notify', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=notify', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('503', '2017-04-19', '1', '管理员', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('502', '2017-04-19', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('501', '2017-04-19', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('500', '2017-04-19', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('499', '2017-04-19', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('498', '2017-04-19', '1', '管理员', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('497', '2017-04-19', '1', '管理员', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('496', '2017-04-19', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('495', '2017-04-19', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('494', '2017-04-19', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('493', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('492', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('491', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('490', '2017-04-19', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('489', '2017-04-19', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('487', '2017-04-19', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('488', '2017-04-19', '1', '管理员', 'classroom/Limit/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Limit&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('486', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('485', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('484', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('483', '2017-04-19', '0', '游客Fw04', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('482', '2017-04-19', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('480', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('481', '2017-04-19', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('479', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('478', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('477', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('476', '2017-04-18', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('475', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('474', '2017-04-18', '2', 'hahaha', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('473', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('472', '2017-04-18', '2', 'hahaha', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=295', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('471', '2017-04-18', '2', 'hahaha', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=295', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('470', '2017-04-18', '2', 'hahaha', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('469', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('468', '2017-04-18', '2', 'hahaha', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('467', '2017-04-18', '2', 'hahaha', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('466', '2017-04-18', '2', 'hahaha', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('465', '2017-04-18', '2', 'lalala', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('464', '2017-04-18', '2', 'lalala', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('463', '2017-04-18', '2', 'lalala', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('462', '2017-04-18', '2', 'lalala', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('461', '2017-04-18', '2', 'lalala', 'public/Message/notify', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=notify', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('460', '2017-04-18', '2', 'lalala', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('458', '2017-04-18', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('457', '2017-04-18', '3', 'hejing', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('456', '2017-04-18', '3', 'hejing', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('455', '2017-04-18', '3', 'hejing', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=295', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('391', '2017-04-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('392', '2017-04-18', '0', 'guest', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('393', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('394', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('395', '2017-04-18', '1', '管理员', 'public/Message/notify', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=notify', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('396', '2017-04-18', '1', '管理员', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('397', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('398', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('399', '2017-04-18', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('400', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('401', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('402', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('403', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('404', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('405', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('406', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('407', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('408', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('409', '2017-04-18', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=293', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('410', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('411', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('412', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('413', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('414', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('415', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('416', '2017-04-18', '1', '管理员', 'classroom/Limit/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Limit&act=index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('417', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('418', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('419', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('420', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('421', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('422', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('423', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('424', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('425', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('426', '2017-04-18', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=294', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('427', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('428', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('429', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=172', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('430', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('431', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('432', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('433', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('434', '2017-04-18', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('435', '2017-04-18', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=172', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('436', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('437', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('438', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('439', '2017-04-18', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('440', '2017-04-18', '1', '管理员', 'wenda/Index/index', 'http://www.educationonline.com/app/wenda/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('441', '2017-04-18', '1', '管理员', 'wenda/Index/index', 'http://www.educationonline.com/index.php?app=wenda&mod=Index&act=index&wdtype=1', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('442', '2017-04-18', '1', '管理员', 'wenda/Index/addWenda', 'http://www.educationonline.com/index.php?app=wenda&mod=Index&act=addWenda', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('443', '2017-04-18', '0', 'guest', 'wenda/Index/addWenda', 'http://www.educationonline.com/index.php?app=wenda&mod=Index&act=addWenda', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('444', '2017-04-18', '0', 'guest', 'wenda/Index/addWenda', 'http://www.educationonline.com/index.php?app=wenda&mod=Index&act=addWenda', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('445', '2017-04-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('446', '2017-04-18', '0', 'guest', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=172', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('447', '2017-04-18', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('448', '2017-04-18', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=2', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('449', '2017-04-18', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('450', '2017-04-18', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('451', '2017-04-18', '0', 'guest', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=172', '1', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('452', '2017-04-18', '3', 'hejing', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('453', '2017-04-18', '3', 'hejing', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=295', '0', '0', '127.0.0.1', 'Google', '', '1');
+INSERT INTO `el_online_logs` VALUES ('454', '2017-04-18', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('696', '2017-04-20', '3', 'hejing', 'public/Message/index', 'http://www.educationonline.com/index.php?app=public&mod=Message&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('695', '2017-04-20', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/app/userShow/1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('694', '2017-04-20', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/app/userShow/1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('672', '2017-04-20', '3', 'hejing', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('663', '2017-04-20', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('655', '2017-04-20', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('640', '2017-04-20', '1', '管理员', 'group/Invite/index', 'http://www.educationonline.com/index.php?app=group&mod=Invite&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('638', '2017-04-20', '1', '管理员', 'group/Log/index', 'http://www.educationonline.com/index.php?app=group&mod=Log&act=index&gid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('636', '2017-04-20', '1', '管理员', 'group/Log/index', 'http://www.educationonline.com/index.php?app=group&mod=Log&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('635', '2017-04-20', '1', '管理员', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('634', '2017-04-20', '1', '管理员', 'group/Member/index', 'http://www.educationonline.com/index.php?app=group&mod=Member&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('630', '2017-04-20', '1', '管理员', 'group/SomeOne/index', 'http://www.educationonline.com/index.php?app=group&mod=SomeOne&act=index&uid=1&type=manage', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('622', '2017-04-20', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('616', '2017-04-20', '1', '管理员', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('599', '2017-04-20', '3', 'hejing', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('572', '2017-04-19', '1', '管理员', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('571', '2017-04-19', '1', '管理员', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('569', '2017-04-19', '3', 'hejing', 'group/Topic/topic', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=topic&gid=19&tid=108', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('567', '2017-04-19', '3', 'hejing', 'group/Manage/index', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=index&gid=19', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('566', '2017-04-19', '3', 'hejing', 'group/Manage/membermanage', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=membermanage&gid=19&type=apply', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('565', '2017-04-19', '3', 'hejing', 'group/Manage/membermanage', 'http://www.educationonline.com/index.php?app=group&mod=Manage&act=membermanage&gid=19&type=apply', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('544', '2017-04-19', '3', 'hejing', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('459', '2017-04-18', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('723', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('724', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('725', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('726', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('727', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('728', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=2', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('729', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('730', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('731', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('732', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('733', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('734', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('735', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=2', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('736', '2017-04-21', '1', '管理员', 'exam/UserExam/exam_info', 'http://www.educationonline.com/index.php?app=exam&mod=UserExam&act=exam_info&exam_id=2&paper_id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('737', '2017-04-21', '1', '管理员', 'exam/UserExam/exam_info', 'http://www.educationonline.com/index.php?app=exam&mod=UserExam&act=exam_info&exam_id=2&paper_id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('738', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('739', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('740', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('741', '2017-04-21', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Index&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('742', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('743', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('744', '2017-04-21', '1', '管理员', 'exam/Index/exam', 'http://www.educationonline.com/index.php?app=exam&mod=Index&act=exam&id=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('745', '2017-04-21', '1', '管理员', 'exam/UserExam/exam_info', 'http://www.educationonline.com/index.php?app=exam&mod=UserExam&act=exam_info&exam_id=3&paper_id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('746', '2017-04-21', '1', '管理员', 'exam/UserExam/exam_info', 'http://www.educationonline.com/index.php?app=exam&mod=UserExam&act=exam_info&exam_id=3&paper_id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('747', '2017-04-21', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('748', '2017-05-04', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('749', '2017-05-04', '0', 'guest', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('750', '2017-05-04', '0', '游客0Pug', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('751', '2017-05-04', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('752', '2017-05-04', '0', 'guest', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('753', '2017-05-04', '0', 'guest', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('754', '2017-05-05', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('755', '2017-05-05', '0', 'guest', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('756', '2017-05-05', '0', 'guest', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('757', '2017-05-05', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('758', '2017-05-05', '0', 'guest', 'wenda/Index/index', 'http://www.educationonline.com/app/wenda/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('759', '2017-05-05', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('760', '2017-05-05', '0', 'guest', 'group/Topic/index', 'http://www.educationonline.com/index.php?app=group&mod=Topic&act=index&gid=19', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('761', '2017-05-05', '0', 'guest', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('762', '2017-05-05', '0', '游客VNfU', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('763', '2017-05-05', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('764', '2017-05-05', '0', 'guest', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('765', '2017-05-05', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('766', '2017-05-05', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('767', '2017-05-05', '0', 'guest', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('768', '2017-05-05', '0', 'guest', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('769', '2017-05-05', '3', 'hejing', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=171', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('770', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('771', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('772', '2017-05-05', '3', 'hejing', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('773', '2017-05-05', '3', 'hejing', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('774', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('775', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('776', '2017-05-05', '3', 'hejing', 'classroom/UserShow/wenda', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=wenda&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('777', '2017-05-05', '3', 'hejing', 'classroom/UserShow/note', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=note&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('778', '2017-05-05', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('779', '2017-05-05', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&type=follower&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('780', '2017-05-05', '3', 'hejing', 'classroom/UserShow/note', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=note&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('781', '2017-05-05', '3', 'hejing', 'classroom/UserShow/wenda', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=wenda&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('782', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('783', '2017-05-05', '3', 'hejing', 'classroom/UserShow/wenda', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=wenda&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('784', '2017-05-05', '3', 'hejing', 'classroom/UserShow/note', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=note&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('785', '2017-05-05', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('786', '2017-05-05', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&type=follower&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('787', '2017-05-05', '3', 'hejing', 'classroom/UserShow/fans', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=fans&type=following&uid=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('788', '2017-05-05', '3', 'hejing', 'classroom/UserShow/index', 'http://www.educationonline.com/index.php?app=classroom&mod=UserShow&act=index&uid=3', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('789', '2017-05-05', '3', 'hejing', 'classroom/Home/video', 'http://www.educationonline.com/index.php?app=classroom&mod=Home&act=video', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('790', '2017-05-05', '3', 'hejing', 'classroom/User/setInfo', 'http://www.educationonline.com/index.php?app=classroom&mod=User&act=setInfo', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('791', '2017-05-05', '3', 'hejing', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('792', '2017-05-05', '3', 'hejing', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('793', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('794', '2017-05-12', '0', 'guest', 'classroom/Topic/index', 'http://www.educationonline.com/app/topic/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('795', '2017-05-12', '0', '游客JVj4', 'home/Live/index', 'http://www.educationonline.com/index.php?app=home&mod=Live&act=index&roomid=8E3FF7150F', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('796', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('797', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('798', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('799', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('800', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('801', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('802', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('803', '2017-05-12', '0', 'guest', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('804', '2017-05-12', '0', 'guest', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('805', '2017-05-12', '0', 'guest', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('806', '2017-05-12', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('807', '2017-05-12', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('808', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('809', '2017-05-12', '0', 'guest', 'classroom/Search/index', 'http://www.educationonline.com/?app=classroom&mod=Search&act=index&searchkey=dd', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('810', '2017-05-12', '0', 'guest', 'classroom/Search/index', 'http://www.educationonline.com/?app=classroom&mod=Search&act=index&searchkey=dd', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('811', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('812', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('813', '2017-05-12', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('814', '2017-05-12', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('815', '2017-05-12', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('816', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('817', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('818', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('819', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('820', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('821', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('822', '2017-05-12', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('823', '2017-05-12', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('824', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('825', '2017-05-12', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('826', '2017-05-12', '1', '管理员', 'classroom/Limit/index', 'http://www.educationonline.com/index.php?app=classroom&mod=Limit&act=index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('827', '2017-05-12', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('828', '2017-05-12', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('829', '2017-05-12', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('830', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('831', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('832', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('833', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('834', '2017-05-12', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('835', '2017-05-12', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('836', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('837', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('838', '2017-05-12', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('839', '2017-05-12', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('840', '2017-05-12', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('841', '2017-05-13', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('842', '2017-05-13', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('843', '2017-05-13', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('844', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('845', '2017-05-13', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('846', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('847', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('848', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('849', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('850', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('851', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('852', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('853', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('854', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('855', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('856', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('857', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('858', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('859', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('860', '2017-05-13', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('861', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('862', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('863', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('864', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('865', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('866', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('867', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('868', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('869', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('870', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('871', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('872', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=2', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('873', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=2', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('874', '2017-05-13', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('875', '2017-05-13', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('876', '2017-05-13', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('877', '2017-05-13', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('878', '2017-05-13', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('879', '2017-05-13', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('880', '2017-05-13', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('881', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('882', '2017-05-13', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('883', '2017-05-13', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('884', '2017-05-13', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('885', '2017-05-13', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('886', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('887', '2017-05-13', '1', '管理员', 'classroom/Video/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Video&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('888', '2017-05-13', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('889', '2017-05-13', '1', '管理员', 'classroom/Album/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Album&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('890', '2017-05-13', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('891', '2017-05-13', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('892', '2017-05-15', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('893', '2017-05-15', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('894', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('895', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('896', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('897', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('898', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('899', '2017-05-15', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('900', '2017-05-15', '1', '管理员', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('901', '2017-05-15', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('902', '2017-05-15', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('903', '2017-05-15', '1', '管理员', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('904', '2017-05-15', '1', '管理员', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('905', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('906', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('907', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('908', '2017-05-15', '1', '管理员', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('909', '2017-05-15', '1', '管理员', 'classroom/Index/index', 'http://www.educationonline.com/', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('910', '2017-05-15', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('911', '2017-05-15', '1', '管理员', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('912', '2017-05-15', '1', '管理员', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '0', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('913', '2017-05-20', '0', 'guest', 'classroom/Index/index', 'http://www.educationonline.com/', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('914', '2017-05-20', '0', 'guest', 'classroom/Album/index', 'http://www.educationonline.com/app/album/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('915', '2017-05-20', '0', 'guest', 'classroom/Video/index', 'http://www.educationonline.com/app/video/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('916', '2017-05-20', '0', 'guest', 'classroom/Teacher/index', 'http://www.educationonline.com/app/teacher/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('917', '2017-05-20', '0', 'guest', 'classroom/Teacher/view', 'http://www.educationonline.com/index.php?app=classroom&mod=Teacher&act=view&id=1', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('918', '2017-05-20', '0', 'guest', 'wenda/Index/index', 'http://www.educationonline.com/app/wenda/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('919', '2017-05-20', '0', 'guest', 'group/Index/index', 'http://www.educationonline.com/app/group/index', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('920', '2017-05-20', '0', 'guest', 'exam/Index/index', 'http://www.educationonline.com/index.php?app=exam', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('921', '2017-05-20', '0', 'guest', 'event/Index/index', 'http://www.educationonline.com/app/event', '1', '0', '127.0.0.1', 'Google', '', '0');
+INSERT INTO `el_online_logs` VALUES ('922', '2017-05-20', '0', 'guest', 'classroom/Topic/index', 'http://www.educationonline.com/app/topic/index', '1', '0', '127.0.0.1', 'Google', '', '0');
 
 -- ----------------------------
 -- Table structure for `el_online_stats`
@@ -6580,7 +7354,7 @@ CREATE TABLE `el_online_stats` (
   `most_online` int(11) NOT NULL COMMENT '最大在线人数',
   PRIMARY KEY (`id`),
   KEY `day` (`day`)
-) ENGINE=MyISAM AUTO_INCREMENT=582 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=607 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_online_stats
@@ -6593,6 +7367,31 @@ INSERT INTO `el_online_stats` VALUES ('578', '2017-03-13', '1', '0', '1', '0', '
 INSERT INTO `el_online_stats` VALUES ('579', '2017-03-14', '1', '0', '8', '0', '0', null, '0');
 INSERT INTO `el_online_stats` VALUES ('580', '2017-03-15', '1', '3', '4', '1', '1', '1489553590', '2');
 INSERT INTO `el_online_stats` VALUES ('581', '2017-03-16', '1', '0', '19', '1', '0', '1489632254', '1');
+INSERT INTO `el_online_stats` VALUES ('582', '2017-03-17', '0', '5', '5', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('583', '2017-03-18', '2', '4', '6', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('584', '2017-03-20', '1', '2', '4', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('585', '2017-03-21', '1', '1', '2', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('586', '2017-03-22', '1', '2', '4', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('587', '2017-03-23', '1', '7', '21', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('588', '2017-03-24', '1', '2', '4', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('589', '2017-03-27', '1', '2', '3', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('590', '2017-03-28', '3', '3', '15', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('591', '2017-03-29', '1', '1', '22', '0', '0', '1490751466', '1');
+INSERT INTO `el_online_stats` VALUES ('592', '2017-03-30', '2', '3', '10', '2', '1', '1490853914', '2');
+INSERT INTO `el_online_stats` VALUES ('593', '2017-03-31', '2', '3', '11', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('594', '2017-04-01', '1', '3', '13', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('595', '2017-04-05', '2', '51', '66', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('596', '2017-04-06', '2', '25', '28', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('597', '2017-04-07', '1', '3', '47', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('598', '2017-04-08', '2', '5', '16', '1', '0', '1491638345', '1');
+INSERT INTO `el_online_stats` VALUES ('599', '2017-04-10', '2', '99', '169', '0', '0', '1491800671', '1');
+INSERT INTO `el_online_stats` VALUES ('600', '2017-04-11', '0', '48', '48', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('601', '2017-04-12', '0', '51', '51', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('602', '2017-04-13', '0', '7', '7', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('603', '2017-04-14', '1', '9', '23', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('604', '2017-04-15', '1', '26', '52', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('605', '2017-04-17', '2', '8', '22', '0', '0', null, '0');
+INSERT INTO `el_online_stats` VALUES ('606', '2017-04-18', '2', '7', '64', '0', '0', '1492499034', '1');
 
 -- ----------------------------
 -- Table structure for `el_permission_group`
@@ -6689,7 +7488,7 @@ CREATE TABLE `el_prepwd` (
   `code` int(11) NOT NULL COMMENT '验证码',
   `stime` int(11) NOT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_prepwd
@@ -6705,12 +7504,31 @@ CREATE TABLE `el_qqlist` (
   `code` varchar(20) DEFAULT NULL COMMENT 'QQ号码',
   `roomid` char(10) DEFAULT NULL COMMENT '房间号id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='QQ列表';
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='QQ列表';
 
 -- ----------------------------
 -- Records of el_qqlist
 -- ----------------------------
-INSERT INTO `el_qqlist` VALUES ('1', '客服QQ', '1736334504', '8E3FF7150F');
+
+-- ----------------------------
+-- Table structure for `el_redbaglist`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_redbaglist`;
+CREATE TABLE `el_redbaglist` (
+  `s_r_id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `uid` int(10) DEFAULT NULL COMMENT '用户id',
+  `num` int(11) DEFAULT NULL COMMENT '红包个数',
+  `total` decimal(12,2) DEFAULT NULL COMMENT '红包金额',
+  `num_balance` int(11) DEFAULT NULL COMMENT '红包剩余个数',
+  `total_balance` decimal(12,2) DEFAULT NULL COMMENT '红包剩余金额',
+  `time` int(11) DEFAULT NULL COMMENT '时间',
+  `status` char(1) DEFAULT '0' COMMENT '状态',
+  PRIMARY KEY (`s_r_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='红包利率表';
+
+-- ----------------------------
+-- Records of el_redbaglist
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `el_resphone_code`
@@ -6722,7 +7540,7 @@ CREATE TABLE `el_resphone_code` (
   `code` varchar(255) NOT NULL COMMENT '验证码',
   `stime` int(11) NOT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_resphone_code
@@ -6822,6 +7640,22 @@ CREATE TABLE `el_search_select` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `el_shield`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_shield`;
+CREATE TABLE `el_shield` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `expiretime` int(11) DEFAULT NULL COMMENT '禁言时间',
+  `mid` int(10) DEFAULT NULL COMMENT '被禁言的id',
+  `adminid` int(10) DEFAULT NULL COMMENT '被禁言的用户组',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='禁言表';
+
+-- ----------------------------
+-- Records of el_shield
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `el_single`
 -- ----------------------------
 DROP TABLE IF EXISTS `el_single`;
@@ -6834,7 +7668,7 @@ CREATE TABLE `el_single` (
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序【值越大越靠前】',
   `is_del` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否删除【1是，0否】',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_single
@@ -6850,7 +7684,7 @@ CREATE TABLE `el_single_category` (
   `pid` int(11) NOT NULL DEFAULT '0' COMMENT '父级ID',
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序值【值越小越靠前】',
   PRIMARY KEY (`single_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_single_category
@@ -6873,14 +7707,17 @@ CREATE TABLE `el_studioroom` (
   `viewstatus` char(1) DEFAULT '0' COMMENT '是否限制观看(0:限制;1:不限制)',
   `is_guest` char(1) DEFAULT '0' COMMENT '游客是否能进入(0:可以;1:不可以)',
   `sensitive_words` varchar(255) DEFAULT NULL COMMENT '敏感词',
+  `is_say` char(1) DEFAULT '0' COMMENT '能否发言(0:可以;1:不可以)',
+  `studio_type` char(1) DEFAULT '0' COMMENT '直播方式(0:YY直播;1:播放录像)',
+  `vid` int(10) DEFAULT NULL COMMENT '视频id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='直播室';
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='直播室';
 
 -- ----------------------------
 -- Records of el_studioroom
 -- ----------------------------
-INSERT INTO `el_studioroom` VALUES ('1', '8E3FF7150F', '直播室一', '', '直播室一', '26316703', '10', '1', '1', '0', '0', '尼玛|他妈的');
-INSERT INTO `el_studioroom` VALUES ('2', '76D47BEC30', '直播室二', null, '直播室二', '26316703', '10', '1', '10', '0', '0', '尼玛|他妈的');
+INSERT INTO `el_studioroom` VALUES ('1', '8E3FF7150F', '直播室一', '', '直播室一', '26316703', '10', '1', '10', '0', '0', '尼玛|他妈的', '0', '0', '7');
+INSERT INTO `el_studioroom` VALUES ('2', '76D47BEC30', '直播室二', null, '直播室二', '26316703', '10', '1', '10', '0', '0', '尼玛|他妈的', '0', '0', null);
 
 -- ----------------------------
 -- Table structure for `el_system_config`
@@ -6894,7 +7731,7 @@ CREATE TABLE `el_system_config` (
   `mtime` timestamp NULL DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `list_key` (`list`,`key`)
-) ENGINE=MyISAM AUTO_INCREMENT=7053 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7122 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_system_config
@@ -6902,7 +7739,7 @@ CREATE TABLE `el_system_config` (
 INSERT INTO `el_system_config` VALUES ('810', 'searchPageKey', 'S_admin_Home_logs', 'a:5:{s:3:\"key\";a:5:{s:5:\"uname\";s:5:\"uname\";s:8:\"app_name\";s:8:\"app_name\";s:5:\"ctime\";s:5:\"ctime\";s:7:\"isAdmin\";s:7:\"isAdmin\";s:7:\"keyword\";s:7:\"keyword\";}s:8:\"key_name\";a:5:{s:5:\"uname\";s:12:\"用户帐号\";s:8:\"app_name\";s:12:\"操作详情\";s:5:\"ctime\";s:12:\"时间范围\";s:7:\"isAdmin\";s:12:\"日志类型\";s:7:\"keyword\";s:15:\"查询关键字\";}s:8:\"key_type\";a:5:{s:5:\"uname\";s:4:\"text\";s:8:\"app_name\";s:6:\"select\";s:5:\"ctime\";s:4:\"date\";s:7:\"isAdmin\";s:8:\"checkbox\";s:7:\"keyword\";s:4:\"text\";}s:9:\"key_tishi\";a:5:{s:5:\"uname\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:7:\"isAdmin\";s:0:\"\";s:7:\"keyword\";s:0:\"\";}s:14:\"key_javascript\";a:5:{s:5:\"uname\";s:0:\"\";s:8:\"app_name\";s:27:\"admin.selectLog(this.value)\";s:5:\"ctime\";s:0:\"\";s:7:\"isAdmin\";s:0:\"\";s:7:\"keyword\";s:0:\"\";}}', '2012-07-03 11:44:51');
 INSERT INTO `el_system_config` VALUES ('2406', 'pageKey', 'admin_Config_invite', 'a:6:{s:3:\"key\";a:3:{s:14:\"send_email_num\";s:14:\"send_email_num\";s:13:\"send_link_num\";s:13:\"send_link_num\";s:12:\"apply_credit\";s:12:\"apply_credit\";}s:8:\"key_name\";a:3:{s:14:\"send_email_num\";s:21:\"邮件邀请码数量\";s:13:\"send_link_num\";s:21:\"链接邀请码数量\";s:12:\"apply_credit\";s:27:\"申请邀请码扣除积分\";}s:8:\"key_type\";a:3:{s:14:\"send_email_num\";s:4:\"text\";s:13:\"send_link_num\";s:4:\"text\";s:12:\"apply_credit\";s:4:\"text\";}s:11:\"key_default\";a:3:{s:14:\"send_email_num\";s:0:\"\";s:13:\"send_link_num\";s:0:\"\";s:12:\"apply_credit\";s:0:\"\";}s:9:\"key_tishi\";a:3:{s:14:\"send_email_num\";s:0:\"\";s:13:\"send_link_num\";s:0:\"\";s:12:\"apply_credit\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:14:\"send_email_num\";s:0:\"\";s:13:\"send_link_num\";s:0:\"\";s:12:\"apply_credit\";s:0:\"\";}}', '2012-12-21 15:10:26');
 INSERT INTO `el_system_config` VALUES ('4709', 'pageKey', 'admin_Config_email', 'a:6:{s:3:\"key\";a:9:{s:14:\"email_sendtype\";s:14:\"email_sendtype\";s:10:\"email_host\";s:10:\"email_host\";s:9:\"email_ssl\";s:9:\"email_ssl\";s:10:\"email_port\";s:10:\"email_port\";s:13:\"email_account\";s:13:\"email_account\";s:14:\"email_password\";s:14:\"email_password\";s:17:\"email_sender_name\";s:17:\"email_sender_name\";s:18:\"email_sender_email\";s:18:\"email_sender_email\";s:10:\"email_test\";s:10:\"email_test\";}s:8:\"key_name\";a:9:{s:14:\"email_sendtype\";s:18:\"邮件发送方式\";s:10:\"email_host\";s:10:\"SMTP地址\";s:9:\"email_ssl\";s:21:\"是否启用SSL连接\";s:10:\"email_port\";s:6:\"端口\";s:13:\"email_account\";s:12:\"邮箱地址\";s:14:\"email_password\";s:12:\"邮箱密码\";s:17:\"email_sender_name\";s:15:\"发送者姓名\";s:18:\"email_sender_email\";s:15:\"发送者邮箱\";s:10:\"email_test\";s:12:\"测试邮件\";}s:8:\"key_type\";a:9:{s:14:\"email_sendtype\";s:6:\"select\";s:10:\"email_host\";s:4:\"text\";s:9:\"email_ssl\";s:5:\"radio\";s:10:\"email_port\";s:4:\"text\";s:13:\"email_account\";s:4:\"text\";s:14:\"email_password\";s:4:\"text\";s:17:\"email_sender_name\";s:4:\"text\";s:18:\"email_sender_email\";s:4:\"text\";s:10:\"email_test\";s:4:\"text\";}s:11:\"key_default\";a:9:{s:14:\"email_sendtype\";s:4:\"smtp\";s:10:\"email_host\";s:12:\"smtp.163.com\";s:9:\"email_ssl\";s:1:\"0\";s:10:\"email_port\";s:2:\"25\";s:13:\"email_account\";s:18:\"_12345678_@163.com\";s:14:\"email_password\";s:8:\"uwycitfk\";s:17:\"email_sender_name\";s:10:\"SociaxTeam\";s:18:\"email_sender_email\";s:21:\"sociax@zhishisoft.com\";s:10:\"email_test\";s:0:\"\";}s:9:\"key_tishi\";a:9:{s:14:\"email_sendtype\";s:0:\"\";s:10:\"email_host\";s:61:\"发送邮箱的smtp地址。如: smtp.gmail.com或smtp.qq.com\";s:9:\"email_ssl\";s:88:\"此选项需要服务器环境支持SSL（如果使用Gmail或QQ邮箱，请选择是）\";s:10:\"email_port\";s:135:\"smtp的端口。默认为25。具体请参看各STMP服务商的设置说明 （如果使用Gmail或QQ邮箱，请将端口设为465）\";s:13:\"email_account\";s:54:\"邮箱地址请输入完整地址email@email.com格式\";s:14:\"email_password\";s:12:\"邮箱密码\";s:17:\"email_sender_name\";s:33:\"邮件中显示的发送者姓名\";s:18:\"email_sender_email\";s:33:\"邮件中显示的发送者邮箱\";s:10:\"email_test\";s:53:\"<a onclick=\"admin.testEmail()\">点击测试邮件</a>\";}s:14:\"key_javascript\";a:9:{s:14:\"email_sendtype\";s:0:\"\";s:10:\"email_host\";s:0:\"\";s:9:\"email_ssl\";s:0:\"\";s:10:\"email_port\";s:0:\"\";s:13:\"email_account\";s:0:\"\";s:14:\"email_password\";s:0:\"\";s:17:\"email_sender_name\";s:0:\"\";s:18:\"email_sender_email\";s:0:\"\";s:10:\"email_test\";s:0:\"\";}}', '2013-03-11 14:40:02');
-INSERT INTO `el_system_config` VALUES ('4249', 'pageKey', 'admin_Config_attach', 'a:6:{s:3:\"key\";a:3:{s:16:\"attach_path_rule\";s:16:\"attach_path_rule\";s:15:\"attach_max_size\";s:15:\"attach_max_size\";s:22:\"attach_allow_extension\";s:22:\"attach_allow_extension\";}s:8:\"key_name\";a:3:{s:16:\"attach_path_rule\";s:12:\"目录规则\";s:15:\"attach_max_size\";s:15:\"最大允许值\";s:22:\"attach_allow_extension\";s:15:\"扩展名限定\";}s:8:\"key_type\";a:3:{s:16:\"attach_path_rule\";s:4:\"text\";s:15:\"attach_max_size\";s:4:\"text\";s:22:\"attach_allow_extension\";s:10:\"stringText\";}s:11:\"key_default\";a:3:{s:16:\"attach_path_rule\";s:7:\"Y/md/H/\";s:15:\"attach_max_size\";s:1:\"2\";s:22:\"attach_allow_extension\";s:59:\"jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf\";}s:9:\"key_tishi\";a:3:{s:16:\"attach_path_rule\";s:21:\"注：不建议修改\";s:15:\"attach_max_size\";s:56:\"单位：兆(M) 允许使用小数点。如：0.5或2等\";s:22:\"attach_allow_extension\";s:55:\"按回车添加，多个输入后用英文逗号,分割\";}s:14:\"key_javascript\";a:3:{s:16:\"attach_path_rule\";s:0:\"\";s:15:\"attach_max_size\";s:0:\"\";s:22:\"attach_allow_extension\";s:0:\"\";}}', '2013-02-28 17:30:57');
+INSERT INTO `el_system_config` VALUES ('7096', 'pageKey', 'admin_Config_attach', 'a:6:{s:3:\"key\";a:3:{s:16:\"attach_path_rule\";s:16:\"attach_path_rule\";s:15:\"attach_max_size\";s:15:\"attach_max_size\";s:22:\"attach_allow_extension\";s:22:\"attach_allow_extension\";}s:8:\"key_name\";a:3:{s:16:\"attach_path_rule\";s:12:\"目录规则\";s:15:\"attach_max_size\";s:15:\"最大允许值\";s:22:\"attach_allow_extension\";s:15:\"扩展名限定\";}s:8:\"key_type\";a:3:{s:16:\"attach_path_rule\";s:4:\"text\";s:15:\"attach_max_size\";s:4:\"text\";s:22:\"attach_allow_extension\";s:10:\"stringText\";}s:11:\"key_default\";a:3:{s:16:\"attach_path_rule\";s:7:\"Y/md/H/\";s:15:\"attach_max_size\";s:1:\"2\";s:22:\"attach_allow_extension\";s:76:\"jpg,gif,png,jpeg,bmp,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf,flv,mp4,avi,rmvb\";}s:9:\"key_tishi\";a:3:{s:16:\"attach_path_rule\";s:21:\"注：不建议修改\";s:15:\"attach_max_size\";s:56:\"单位：兆(M) 允许使用小数点。如：0.5或2等\";s:22:\"attach_allow_extension\";s:55:\"按回车添加，多个输入后用英文逗号,分割\";}s:14:\"key_javascript\";a:3:{s:16:\"attach_path_rule\";s:0:\"\";s:15:\"attach_max_size\";s:0:\"\";s:22:\"attach_allow_extension\";s:0:\"\";}}', '2017-04-17 16:27:33');
 INSERT INTO `el_system_config` VALUES ('1345', 'searchPageKey', 'S_admin_Home_tag', 'a:5:{s:3:\"key\";a:2:{s:4:\"name\";s:4:\"name\";s:5:\"table\";s:5:\"table\";}s:8:\"key_name\";a:2:{s:4:\"name\";s:9:\"标签名\";s:5:\"table\";s:12:\"标签类型\";}s:8:\"key_type\";a:2:{s:4:\"name\";s:4:\"text\";s:5:\"table\";s:6:\"select\";}s:9:\"key_tishi\";a:2:{s:4:\"name\";s:0:\"\";s:5:\"table\";s:0:\"\";}s:14:\"key_javascript\";a:2:{s:4:\"name\";s:0:\"\";s:5:\"table\";s:0:\"\";}}', '2012-07-23 16:23:54');
 INSERT INTO `el_system_config` VALUES ('1516', 'pageKey', 'admin_Home_addFeedbackType', 'a:6:{s:3:\"key\";a:2:{s:7:\"type_id\";s:7:\"type_id\";s:9:\"type_name\";s:9:\"type_name\";}s:8:\"key_name\";a:2:{s:7:\"type_id\";s:0:\"\";s:9:\"type_name\";s:12:\"反馈类型\";}s:8:\"key_type\";a:2:{s:7:\"type_id\";s:6:\"hidden\";s:9:\"type_name\";s:4:\"text\";}s:11:\"key_default\";a:2:{s:7:\"type_id\";s:0:\"\";s:9:\"type_name\";s:0:\"\";}s:9:\"key_tishi\";a:2:{s:7:\"type_id\";s:0:\"\";s:9:\"type_name\";s:0:\"\";}s:14:\"key_javascript\";a:2:{s:7:\"type_id\";s:0:\"\";s:9:\"type_name\";s:0:\"\";}}', '2012-07-25 09:28:24');
 INSERT INTO `el_system_config` VALUES ('1683', 'searchPageKey', 'S_admin_User_online', 'a:5:{s:3:\"key\";a:6:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"email\";s:5:\"email\";s:3:\"sex\";s:3:\"sex\";s:10:\"user_group\";s:10:\"user_group\";s:5:\"ctime\";s:5:\"ctime\";}s:8:\"key_name\";a:6:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:12:\"用户昵称\";s:5:\"email\";s:5:\"Email\";s:3:\"sex\";s:6:\"性别\";s:10:\"user_group\";s:9:\"用户组\";s:5:\"ctime\";s:12:\"注册时间\";}s:8:\"key_type\";a:6:{s:3:\"uid\";s:4:\"text\";s:5:\"uname\";s:4:\"text\";s:5:\"email\";s:4:\"text\";s:3:\"sex\";s:5:\"radio\";s:10:\"user_group\";s:6:\"select\";s:5:\"ctime\";s:4:\"date\";}s:9:\"key_tishi\";a:6:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}s:14:\"key_javascript\";a:6:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}}', '2012-08-17 01:07:44');
@@ -6925,7 +7762,7 @@ INSERT INTO `el_system_config` VALUES ('652', 'pageKey', 'admin_Apps_install', '
 INSERT INTO `el_system_config` VALUES ('6517', 'pageKey', 'admin_Apps_preinstall', 'a:6:{s:3:\"key\";a:19:{s:6:\"app_id\";s:6:\"app_id\";s:8:\"app_name\";s:8:\"app_name\";s:9:\"app_alias\";s:9:\"app_alias\";s:9:\"app_entry\";s:9:\"app_entry\";s:11:\"description\";s:11:\"description\";s:6:\"status\";s:6:\"status\";s:9:\"host_type\";s:9:\"host_type\";s:8:\"icon_url\";s:8:\"icon_url\";s:14:\"large_icon_url\";s:14:\"large_icon_url\";s:11:\"admin_entry\";s:11:\"admin_entry\";s:16:\"statistics_entry\";s:16:\"statistics_entry\";s:12:\"company_name\";s:12:\"company_name\";s:13:\"display_order\";s:13:\"display_order\";s:7:\"version\";s:7:\"version\";s:7:\"api_key\";s:7:\"api_key\";s:10:\"secure_key\";s:10:\"secure_key\";s:13:\"add_front_top\";s:13:\"add_front_top\";s:17:\"add_front_applist\";s:17:\"add_front_applist\";s:9:\"add_tonav\";s:9:\"add_tonav\";}s:8:\"key_name\";a:19:{s:6:\"app_id\";s:8:\"应用ID\";s:8:\"app_name\";s:15:\"应用英文名\";s:9:\"app_alias\";s:12:\"应用名称\";s:9:\"app_entry\";s:12:\"前台入口\";s:11:\"description\";s:12:\"应用描述\";s:6:\"status\";s:12:\"应用状态\";s:9:\"host_type\";s:12:\"托管类别\";s:8:\"icon_url\";s:12:\"图标地址\";s:14:\"large_icon_url\";s:15:\"大图标地址\";s:11:\"admin_entry\";s:12:\"后台入口\";s:16:\"statistics_entry\";s:12:\"统计入口\";s:12:\"company_name\";s:12:\"公司名称\";s:13:\"display_order\";s:6:\"排序\";s:7:\"version\";s:6:\"版本\";s:7:\"api_key\";s:7:\"API_KEY\";s:10:\"secure_key\";s:10:\"SECURE_KEY\";s:13:\"add_front_top\";s:24:\"添加到前台应用框\";s:17:\"add_front_applist\";s:27:\"添加到前台应用列表\";s:9:\"add_tonav\";s:15:\"添加到导航\";}s:8:\"key_type\";a:19:{s:6:\"app_id\";s:6:\"hidden\";s:8:\"app_name\";s:6:\"hidden\";s:9:\"app_alias\";s:4:\"text\";s:9:\"app_entry\";s:6:\"hidden\";s:11:\"description\";s:8:\"textarea\";s:6:\"status\";s:5:\"radio\";s:9:\"host_type\";s:6:\"hidden\";s:8:\"icon_url\";s:6:\"hidden\";s:14:\"large_icon_url\";s:6:\"hidden\";s:11:\"admin_entry\";s:6:\"hidden\";s:16:\"statistics_entry\";s:6:\"hidden\";s:12:\"company_name\";s:4:\"text\";s:13:\"display_order\";s:6:\"hidden\";s:7:\"version\";s:4:\"text\";s:7:\"api_key\";s:6:\"hidden\";s:10:\"secure_key\";s:6:\"hidden\";s:13:\"add_front_top\";s:5:\"radio\";s:17:\"add_front_applist\";s:5:\"radio\";s:9:\"add_tonav\";s:5:\"radio\";}s:11:\"key_default\";a:19:{s:6:\"app_id\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:9:\"app_alias\";s:0:\"\";s:9:\"app_entry\";s:0:\"\";s:11:\"description\";s:0:\"\";s:6:\"status\";s:1:\"1\";s:9:\"host_type\";s:0:\"\";s:8:\"icon_url\";s:0:\"\";s:14:\"large_icon_url\";s:0:\"\";s:11:\"admin_entry\";s:0:\"\";s:16:\"statistics_entry\";s:0:\"\";s:12:\"company_name\";s:12:\"智士软件\";s:13:\"display_order\";s:0:\"\";s:7:\"version\";s:0:\"\";s:7:\"api_key\";s:0:\"\";s:10:\"secure_key\";s:0:\"\";s:13:\"add_front_top\";s:1:\"1\";s:17:\"add_front_applist\";s:1:\"1\";s:9:\"add_tonav\";s:1:\"1\";}s:9:\"key_tishi\";a:19:{s:6:\"app_id\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:9:\"app_alias\";s:39:\"前台展示的应用名称（必填）\";s:9:\"app_entry\";s:0:\"\";s:11:\"description\";s:27:\"前台展示的应用简介\";s:6:\"status\";s:0:\"\";s:9:\"host_type\";s:0:\"\";s:8:\"icon_url\";s:0:\"\";s:14:\"large_icon_url\";s:0:\"\";s:11:\"admin_entry\";s:0:\"\";s:16:\"statistics_entry\";s:0:\"\";s:12:\"company_name\";s:0:\"\";s:13:\"display_order\";s:0:\"\";s:7:\"version\";s:0:\"\";s:7:\"api_key\";s:0:\"\";s:10:\"secure_key\";s:0:\"\";s:13:\"add_front_top\";s:0:\"\";s:17:\"add_front_applist\";s:0:\"\";s:9:\"add_tonav\";s:0:\"\";}s:14:\"key_javascript\";a:19:{s:6:\"app_id\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:9:\"app_alias\";s:0:\"\";s:9:\"app_entry\";s:0:\"\";s:11:\"description\";s:0:\"\";s:6:\"status\";s:0:\"\";s:9:\"host_type\";s:0:\"\";s:8:\"icon_url\";s:0:\"\";s:14:\"large_icon_url\";s:0:\"\";s:11:\"admin_entry\";s:0:\"\";s:16:\"statistics_entry\";s:0:\"\";s:12:\"company_name\";s:0:\"\";s:13:\"display_order\";s:0:\"\";s:7:\"version\";s:0:\"\";s:7:\"api_key\";s:0:\"\";s:10:\"secure_key\";s:0:\"\";s:13:\"add_front_top\";s:0:\"\";s:17:\"add_front_applist\";s:0:\"\";s:9:\"add_tonav\";s:0:\"\";}}', '2013-05-10 13:49:36');
 INSERT INTO `el_system_config` VALUES ('7012', 'pageKey', 'admin_Config_nav', 'a:4:{s:3:\"key\";a:12:{s:7:\"navi_id\";s:7:\"navi_id\";s:9:\"navi_name\";s:9:\"navi_name\";s:8:\"app_name\";s:8:\"app_name\";s:3:\"url\";s:3:\"url\";s:6:\"target\";s:6:\"target\";s:6:\"status\";s:6:\"status\";s:8:\"position\";s:8:\"position\";s:5:\"guest\";s:5:\"guest\";s:11:\"is_app_navi\";s:11:\"is_app_navi\";s:9:\"parent_id\";s:9:\"parent_id\";s:10:\"order_sort\";s:10:\"order_sort\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:12:{s:7:\"navi_id\";s:8:\"导航ID\";s:9:\"navi_name\";s:12:\"导航名称\";s:8:\"app_name\";s:12:\"英文名称\";s:3:\"url\";s:12:\"链接地址\";s:6:\"target\";s:12:\"打开方式\";s:6:\"status\";s:6:\"状态\";s:8:\"position\";s:12:\"导航位置\";s:5:\"guest\";s:12:\"游客可见\";s:11:\"is_app_navi\";s:18:\"应用内部导航\";s:9:\"parent_id\";s:9:\"父导航\";s:10:\"order_sort\";s:12:\"应用排序\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:12:{s:7:\"navi_id\";s:1:\"0\";s:9:\"navi_name\";s:1:\"0\";s:8:\"app_name\";s:1:\"0\";s:3:\"url\";s:1:\"0\";s:6:\"target\";s:1:\"0\";s:6:\"status\";s:1:\"0\";s:8:\"position\";s:1:\"0\";s:5:\"guest\";s:1:\"1\";s:11:\"is_app_navi\";s:1:\"1\";s:9:\"parent_id\";s:1:\"1\";s:10:\"order_sort\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:12:{s:7:\"navi_id\";s:0:\"\";s:9:\"navi_name\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:3:\"url\";s:0:\"\";s:6:\"target\";s:0:\"\";s:6:\"status\";s:0:\"\";s:8:\"position\";s:0:\"\";s:5:\"guest\";s:0:\"\";s:11:\"is_app_navi\";s:0:\"\";s:9:\"parent_id\";s:0:\"\";s:10:\"order_sort\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2015-12-22 14:41:11');
 INSERT INTO `el_system_config` VALUES ('7048', 'pageKey', 'admin_Config_site', 'a:6:{s:3:\"key\";a:22:{s:11:\"site_closed\";s:11:\"site_closed\";s:9:\"site_name\";s:9:\"site_name\";s:11:\"site_slogan\";s:11:\"site_slogan\";s:20:\"site_header_keywords\";s:20:\"site_header_keywords\";s:23:\"site_header_description\";s:23:\"site_header_description\";s:12:\"site_company\";s:12:\"site_company\";s:11:\"site_footer\";s:11:\"site_footer\";s:14:\"site_logo_head\";s:14:\"site_logo_head\";s:14:\"site_logo_foot\";s:14:\"site_logo_foot\";s:7:\"site_qq\";s:7:\"site_qq\";s:11:\"site_qrcode\";s:11:\"site_qrcode\";s:18:\"site_closed_reason\";s:18:\"site_closed_reason\";s:10:\"sys_domain\";s:10:\"sys_domain\";s:12:\"sys_nickname\";s:12:\"sys_nickname\";s:7:\"sys_tel\";s:7:\"sys_tel\";s:9:\"sys_email\";s:9:\"sys_email\";s:9:\"home_page\";s:9:\"home_page\";s:15:\"site_theme_name\";s:15:\"site_theme_name\";s:11:\"sys_version\";s:11:\"sys_version\";s:17:\"site_online_count\";s:17:\"site_online_count\";s:15:\"site_rewrite_on\";s:15:\"site_rewrite_on\";s:19:\"site_analytics_code\";s:19:\"site_analytics_code\";}s:8:\"key_name\";a:22:{s:11:\"site_closed\";s:12:\"站点状态\";s:9:\"site_name\";s:12:\"站点名称\";s:11:\"site_slogan\";s:12:\"站点口号\";s:20:\"site_header_keywords\";s:24:\"页面头信息关键字\";s:23:\"site_header_description\";s:21:\"页面头信息描述\";s:12:\"site_company\";s:12:\"公司名称\";s:11:\"site_footer\";s:12:\"版权信息\";s:14:\"site_logo_head\";s:10:\"头部logo\";s:14:\"site_logo_foot\";s:10:\"底部logo\";s:7:\"site_qq\";s:14:\"站点客服qq\";s:11:\"site_qrcode\";s:15:\"站点二维码\";s:18:\"site_closed_reason\";s:18:\"站点关闭理由\";s:10:\"sys_domain\";s:18:\"站点预留域名\";s:12:\"sys_nickname\";s:18:\"站点预留昵称\";s:7:\"sys_tel\";s:12:\"客服电话\";s:9:\"sys_email\";s:12:\"客服邮箱\";s:9:\"home_page\";s:12:\"默认首页\";s:15:\"site_theme_name\";s:15:\"站点风格包\";s:11:\"sys_version\";s:8:\"JS版本\";s:17:\"site_online_count\";s:12:\"站点统计\";s:15:\"site_rewrite_on\";s:15:\"伪静态开关\";s:19:\"site_analytics_code\";s:21:\"第三方统计代码\";}s:8:\"key_type\";a:22:{s:11:\"site_closed\";s:5:\"radio\";s:9:\"site_name\";s:4:\"text\";s:11:\"site_slogan\";s:4:\"text\";s:20:\"site_header_keywords\";s:4:\"text\";s:23:\"site_header_description\";s:8:\"textarea\";s:12:\"site_company\";s:6:\"hidden\";s:11:\"site_footer\";s:8:\"textarea\";s:14:\"site_logo_head\";s:5:\"image\";s:14:\"site_logo_foot\";s:5:\"image\";s:7:\"site_qq\";s:4:\"text\";s:11:\"site_qrcode\";s:5:\"image\";s:18:\"site_closed_reason\";s:8:\"textarea\";s:10:\"sys_domain\";s:10:\"stringText\";s:12:\"sys_nickname\";s:10:\"stringText\";s:7:\"sys_tel\";s:4:\"text\";s:9:\"sys_email\";s:4:\"text\";s:9:\"home_page\";s:6:\"select\";s:15:\"site_theme_name\";s:6:\"select\";s:11:\"sys_version\";s:4:\"text\";s:17:\"site_online_count\";s:5:\"radio\";s:15:\"site_rewrite_on\";s:5:\"radio\";s:19:\"site_analytics_code\";s:8:\"textarea\";}s:11:\"key_default\";a:22:{s:11:\"site_closed\";s:1:\"1\";s:9:\"site_name\";s:0:\"\";s:11:\"site_slogan\";s:0:\"\";s:20:\"site_header_keywords\";s:0:\"\";s:23:\"site_header_description\";s:0:\"\";s:12:\"site_company\";s:0:\"\";s:11:\"site_footer\";s:42:\"Copyright 2016 Eduline All Rights Reserved\";s:14:\"site_logo_head\";s:0:\"\";s:14:\"site_logo_foot\";s:0:\"\";s:7:\"site_qq\";s:0:\"\";s:11:\"site_qrcode\";s:0:\"\";s:18:\"site_closed_reason\";s:30:\"抱歉，本站暂停访问。\";s:10:\"sys_domain\";s:0:\"\";s:12:\"sys_nickname\";s:0:\"\";s:7:\"sys_tel\";s:0:\"\";s:9:\"sys_email\";s:0:\"\";s:9:\"home_page\";s:0:\"\";s:15:\"site_theme_name\";s:0:\"\";s:11:\"sys_version\";s:0:\"\";s:17:\"site_online_count\";s:1:\"0\";s:15:\"site_rewrite_on\";s:1:\"0\";s:19:\"site_analytics_code\";s:0:\"\";}s:9:\"key_tishi\";a:22:{s:11:\"site_closed\";s:0:\"\";s:9:\"site_name\";s:0:\"\";s:11:\"site_slogan\";s:44:\"会显示在默认登录页、默认title中\";s:20:\"site_header_keywords\";s:0:\"\";s:23:\"site_header_description\";s:0:\"\";s:12:\"site_company\";s:0:\"\";s:11:\"site_footer\";s:46:\"如:Copyright 2016 Eduline All Rights Reserved\";s:14:\"site_logo_head\";s:0:\"\";s:14:\"site_logo_foot\";s:0:\"\";s:7:\"site_qq\";s:0:\"\";s:11:\"site_qrcode\";s:0:\"\";s:18:\"site_closed_reason\";s:0:\"\";s:10:\"sys_domain\";s:55:\"按回车添加，多个输入后用英文逗号,分割\";s:12:\"sys_nickname\";s:55:\"按回车添加，多个输入后用英文逗号,分割\";s:7:\"sys_tel\";s:0:\"\";s:9:\"sys_email\";s:0:\"\";s:9:\"home_page\";s:0:\"\";s:15:\"site_theme_name\";s:0:\"\";s:11:\"sys_version\";s:89:\"JS、CSS等静态文件修改后，可以修改此版本号，刷新用户浏览器缓存\";s:17:\"site_online_count\";s:0:\"\";s:15:\"site_rewrite_on\";s:76:\"请拷贝URLRewrite目录下文件到根目录，根据Web服务器来配置\";s:19:\"site_analytics_code\";s:0:\"\";}s:14:\"key_javascript\";a:22:{s:11:\"site_closed\";s:28:\"admin.siteConfig(this.value)\";s:9:\"site_name\";s:0:\"\";s:11:\"site_slogan\";s:0:\"\";s:20:\"site_header_keywords\";s:0:\"\";s:23:\"site_header_description\";s:0:\"\";s:12:\"site_company\";s:0:\"\";s:11:\"site_footer\";s:0:\"\";s:14:\"site_logo_head\";s:0:\"\";s:14:\"site_logo_foot\";s:0:\"\";s:7:\"site_qq\";s:0:\"\";s:11:\"site_qrcode\";s:0:\"\";s:18:\"site_closed_reason\";s:0:\"\";s:10:\"sys_domain\";s:0:\"\";s:12:\"sys_nickname\";s:0:\"\";s:7:\"sys_tel\";s:0:\"\";s:9:\"sys_email\";s:0:\"\";s:9:\"home_page\";s:0:\"\";s:15:\"site_theme_name\";s:0:\"\";s:11:\"sys_version\";s:0:\"\";s:17:\"site_online_count\";s:0:\"\";s:15:\"site_rewrite_on\";s:0:\"\";s:19:\"site_analytics_code\";s:0:\"\";}}', '2016-03-16 18:02:03');
-INSERT INTO `el_system_config` VALUES ('6989', 'pageKey', 'live_Admin_index', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:4:\"name\";s:4:\"name\";s:15:\"templateTypeTxt\";s:15:\"templateTypeTxt\";s:7:\"barrage\";s:7:\"barrage\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:8:\"直播ID\";s:4:\"name\";s:6:\"名称\";s:15:\"templateTypeTxt\";s:6:\"模板\";s:7:\"barrage\";s:6:\"弹幕\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:4:\"name\";s:1:\"0\";s:15:\"templateTypeTxt\";s:1:\"0\";s:7:\"barrage\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:15:\"templateTypeTxt\";s:0:\"\";s:7:\"barrage\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2015-08-12 18:17:50');
+INSERT INTO `el_system_config` VALUES ('7053', 'pageKey', 'live_Admin_index', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:8:\"roomname\";s:8:\"roomname\";s:9:\"studiourl\";s:9:\"studiourl\";s:8:\"password\";s:8:\"password\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:8:\"直播ID\";s:8:\"roomname\";s:15:\"直播间名称\";s:9:\"studiourl\";s:15:\"直播间地址\";s:8:\"password\";s:15:\"直播间密码\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:9:\"studiourl\";s:1:\"0\";s:8:\"password\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:9:\"studiourl\";s:0:\"\";s:8:\"password\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-03-29 10:56:58');
 INSERT INTO `el_system_config` VALUES ('4252', 'pageKey', 'admin_Config_register', 'a:6:{s:3:\"key\";a:16:{s:13:\"register_type\";s:13:\"register_type\";s:12:\"email_suffix\";s:12:\"email_suffix\";s:7:\"captcha\";s:7:\"captcha\";s:14:\"register_audit\";s:14:\"register_audit\";s:11:\"need_active\";s:11:\"need_active\";s:10:\"photo_open\";s:10:\"photo_open\";s:10:\"need_photo\";s:10:\"need_photo\";s:8:\"tag_open\";s:8:\"tag_open\";s:7:\"tag_num\";s:7:\"tag_num\";s:15:\"interester_open\";s:15:\"interester_open\";s:15:\"interester_rule\";s:15:\"interester_rule\";s:20:\"interester_recommend\";s:20:\"interester_recommend\";s:14:\"default_follow\";s:14:\"default_follow\";s:11:\"each_follow\";s:11:\"each_follow\";s:18:\"default_user_group\";s:18:\"default_user_group\";s:13:\"welcome_email\";s:13:\"welcome_email\";}s:8:\"key_name\";a:16:{s:13:\"register_type\";s:12:\"注册方式\";s:12:\"email_suffix\";s:12:\"邮箱后缀\";s:7:\"captcha\";s:15:\"注册验证码\";s:14:\"register_audit\";s:12:\"需要审核\";s:11:\"need_active\";s:12:\"需要激活\";s:10:\"photo_open\";s:18:\"上传头像步骤\";s:10:\"need_photo\";s:18:\"强制上传头像\";s:8:\"tag_open\";s:24:\"设置个人标签步骤\";s:7:\"tag_num\";s:24:\"允许设置标签数量\";s:15:\"interester_open\";s:27:\"关注感兴趣的人步骤\";s:15:\"interester_rule\";s:12:\"推荐规则\";s:20:\"interester_recommend\";s:18:\"推荐关注用户\";s:14:\"default_follow\";s:18:\"默认关注用户\";s:11:\"each_follow\";s:18:\"双向关注用户\";s:18:\"default_user_group\";s:15:\"默认用户组\";s:13:\"welcome_email\";s:18:\"发送欢迎邮件\";}s:8:\"key_type\";a:16:{s:13:\"register_type\";s:5:\"radio\";s:12:\"email_suffix\";s:10:\"stringText\";s:7:\"captcha\";s:6:\"hidden\";s:14:\"register_audit\";s:5:\"radio\";s:11:\"need_active\";s:5:\"radio\";s:10:\"photo_open\";s:5:\"radio\";s:10:\"need_photo\";s:5:\"radio\";s:8:\"tag_open\";s:5:\"radio\";s:7:\"tag_num\";s:4:\"text\";s:15:\"interester_open\";s:5:\"radio\";s:15:\"interester_rule\";s:8:\"checkbox\";s:20:\"interester_recommend\";s:4:\"user\";s:14:\"default_follow\";s:4:\"user\";s:11:\"each_follow\";s:4:\"user\";s:18:\"default_user_group\";s:8:\"checkbox\";s:13:\"welcome_email\";s:5:\"radio\";}s:11:\"key_default\";a:16:{s:13:\"register_type\";s:4:\"open\";s:12:\"email_suffix\";s:0:\"\";s:7:\"captcha\";s:0:\"\";s:14:\"register_audit\";s:0:\"\";s:11:\"need_active\";s:0:\"\";s:10:\"photo_open\";s:0:\"\";s:10:\"need_photo\";s:0:\"\";s:8:\"tag_open\";s:0:\"\";s:7:\"tag_num\";s:0:\"\";s:15:\"interester_open\";s:0:\"\";s:15:\"interester_rule\";s:0:\"\";s:20:\"interester_recommend\";s:0:\"\";s:14:\"default_follow\";s:0:\"\";s:11:\"each_follow\";s:0:\"\";s:18:\"default_user_group\";s:0:\"\";s:13:\"welcome_email\";s:0:\"\";}s:9:\"key_tishi\";a:16:{s:13:\"register_type\";s:0:\"\";s:12:\"email_suffix\";s:129:\"只允许以上后缀的邮箱注册站点。按回车添加，多个输入后用英文逗号,分割，如“@qq.com,@sina.com”\";s:7:\"captcha\";s:0:\"\";s:14:\"register_audit\";s:0:\"\";s:11:\"need_active\";s:0:\"\";s:10:\"photo_open\";s:0:\"\";s:10:\"need_photo\";s:0:\"\";s:8:\"tag_open\";s:0:\"\";s:7:\"tag_num\";s:0:\"\";s:15:\"interester_open\";s:0:\"\";s:15:\"interester_rule\";s:0:\"\";s:20:\"interester_recommend\";s:0:\"\";s:14:\"default_follow\";s:0:\"\";s:11:\"each_follow\";s:0:\"\";s:18:\"default_user_group\";s:0:\"\";s:13:\"welcome_email\";s:0:\"\";}s:14:\"key_javascript\";a:16:{s:13:\"register_type\";s:0:\"\";s:12:\"email_suffix\";s:0:\"\";s:7:\"captcha\";s:0:\"\";s:14:\"register_audit\";s:0:\"\";s:11:\"need_active\";s:0:\"\";s:10:\"photo_open\";s:0:\"\";s:10:\"need_photo\";s:0:\"\";s:8:\"tag_open\";s:0:\"\";s:7:\"tag_num\";s:0:\"\";s:15:\"interester_open\";s:0:\"\";s:15:\"interester_rule\";s:0:\"\";s:20:\"interester_recommend\";s:0:\"\";s:14:\"default_follow\";s:0:\"\";s:11:\"each_follow\";s:0:\"\";s:18:\"default_user_group\";s:0:\"\";s:13:\"welcome_email\";s:0:\"\";}}', '2013-02-28 17:33:52');
 INSERT INTO `el_system_config` VALUES ('1073', 'pageKey', 'admin_Config_announcement', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:3:\"uid\";s:3:\"uid\";s:4:\"sort\";s:4:\"sort\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:2:\"ID\";s:5:\"title\";s:12:\"公告标题\";s:3:\"uid\";s:9:\"发布者\";s:4:\"sort\";s:6:\"排序\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:5:\"title\";s:1:\"0\";s:3:\"uid\";s:1:\"0\";s:4:\"sort\";s:1:\"1\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:4:\"sort\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2012-07-13 13:50:15');
 INSERT INTO `el_system_config` VALUES ('137', 'pageKey', 'admin_Config_addannoun', 'a:6:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:7:\"content\";s:7:\"content\";s:6:\"attach\";s:6:\"attach\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:2:\"ID\";s:5:\"title\";s:12:\"公告标题\";s:7:\"content\";s:12:\"公告内容\";s:6:\"attach\";s:6:\"附件\";}s:8:\"key_type\";a:4:{s:2:\"id\";s:6:\"hidden\";s:5:\"title\";s:4:\"text\";s:7:\"content\";s:8:\"textarea\";s:6:\"attach\";s:4:\"file\";}s:11:\"key_default\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"content\";s:0:\"\";s:6:\"attach\";s:0:\"\";}s:9:\"key_tishi\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"content\";s:0:\"\";s:6:\"attach\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"content\";s:0:\"\";s:6:\"attach\";s:0:\"\";}}', '2012-04-12 17:39:54');
@@ -6945,7 +7782,7 @@ INSERT INTO `el_system_config` VALUES ('6587', 'pageKey', 'admin_Content_feed', 
 INSERT INTO `el_system_config` VALUES ('159', 'searchPageKey', 'S_admin_Content_comment', 'a:5:{s:3:\"key\";a:3:{s:10:\"comment_id\";s:10:\"comment_id\";s:3:\"uid\";s:3:\"uid\";s:7:\"app_uid\";s:7:\"app_uid\";}s:8:\"key_name\";a:3:{s:10:\"comment_id\";s:8:\"评论ID\";s:3:\"uid\";s:11:\"评论者ID\";s:7:\"app_uid\";s:8:\"作者ID\";}s:8:\"key_type\";a:3:{s:10:\"comment_id\";s:4:\"text\";s:3:\"uid\";s:4:\"text\";s:7:\"app_uid\";s:4:\"text\";}s:9:\"key_tishi\";a:3:{s:10:\"comment_id\";s:35:\"多个id之间用英文的\",\"隔开\";s:3:\"uid\";s:35:\"多个id之间用英文的\",\"隔开\";s:7:\"app_uid\";s:35:\"多个id之间用英文的\",\"隔开\";}s:14:\"key_javascript\";a:3:{s:10:\"comment_id\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:7:\"app_uid\";s:0:\"\";}}', '2012-04-14 06:56:52');
 INSERT INTO `el_system_config` VALUES ('569', 'pageKey', 'admin_Content_comment', 'a:4:{s:3:\"key\";a:8:{s:10:\"comment_id\";s:10:\"comment_id\";s:3:\"uid\";s:3:\"uid\";s:7:\"app_uid\";s:7:\"app_uid\";s:11:\"source_type\";s:11:\"source_type\";s:7:\"content\";s:7:\"content\";s:5:\"ctime\";s:5:\"ctime\";s:11:\"client_type\";s:11:\"client_type\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:8:{s:10:\"comment_id\";s:8:\"评论ID\";s:3:\"uid\";s:9:\"评论者\";s:7:\"app_uid\";s:12:\"资源作者\";s:11:\"source_type\";s:12:\"资源类型\";s:7:\"content\";s:12:\"评论内容\";s:5:\"ctime\";s:12:\"评论时间\";s:11:\"client_type\";s:12:\"来源类型\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:8:{s:10:\"comment_id\";s:1:\"0\";s:3:\"uid\";s:1:\"0\";s:7:\"app_uid\";s:1:\"0\";s:11:\"source_type\";s:1:\"0\";s:7:\"content\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";s:11:\"client_type\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:8:{s:10:\"comment_id\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:7:\"app_uid\";s:0:\"\";s:11:\"source_type\";s:0:\"\";s:7:\"content\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:11:\"client_type\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2012-06-01 18:51:50');
 INSERT INTO `el_system_config` VALUES ('7027', 'searchPageKey', 'S_admin_User_index', 'a:5:{s:3:\"key\";a:7:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"email\";s:5:\"email\";s:3:\"sex\";s:3:\"sex\";s:10:\"user_group\";s:10:\"user_group\";s:13:\"user_category\";s:13:\"user_category\";s:5:\"ctime\";s:5:\"ctime\";}s:8:\"key_name\";a:7:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:5:\"email\";s:5:\"Email\";s:3:\"sex\";s:6:\"性别\";s:10:\"user_group\";s:9:\"用户组\";s:13:\"user_category\";s:6:\"标签\";s:5:\"ctime\";s:12:\"注册时间\";}s:8:\"key_type\";a:7:{s:3:\"uid\";s:6:\"select\";s:5:\"uname\";s:4:\"user\";s:5:\"email\";s:4:\"text\";s:3:\"sex\";s:5:\"radio\";s:10:\"user_group\";s:6:\"select\";s:13:\"user_category\";s:6:\"select\";s:5:\"ctime\";s:4:\"date\";}s:9:\"key_tishi\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:6:\"钟尚\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:1:\"0\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}s:14:\"key_javascript\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}}', '2016-01-10 05:47:15');
-INSERT INTO `el_system_config` VALUES ('1681', 'pageKey', 'admin_User_index', 'a:4:{s:3:\"key\";a:10:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:10:\"user_group\";s:10:\"user_group\";s:8:\"location\";s:8:\"location\";s:8:\"is_audit\";s:8:\"is_audit\";s:9:\"is_active\";s:9:\"is_active\";s:7:\"is_init\";s:7:\"is_init\";s:5:\"ctime\";s:5:\"ctime\";s:6:\"reg_ip\";s:6:\"reg_ip\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:10:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:10:\"user_group\";s:9:\"用户组\";s:8:\"location\";s:6:\"地区\";s:8:\"is_audit\";s:12:\"是否审核\";s:9:\"is_active\";s:12:\"是否激活\";s:7:\"is_init\";s:15:\"是否初始化\";s:5:\"ctime\";s:12:\"注册时间\";s:6:\"reg_ip\";s:8:\"注册IP\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:10:{s:3:\"uid\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:10:\"user_group\";s:1:\"0\";s:8:\"location\";s:1:\"0\";s:8:\"is_audit\";s:1:\"0\";s:9:\"is_active\";s:1:\"0\";s:7:\"is_init\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";s:6:\"reg_ip\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:10:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:8:\"location\";s:0:\"\";s:8:\"is_audit\";s:0:\"\";s:9:\"is_active\";s:0:\"\";s:7:\"is_init\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:6:\"reg_ip\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2012-08-16 00:20:52');
+INSERT INTO `el_system_config` VALUES ('7060', 'pageKey', 'admin_User_index', 'a:4:{s:3:\"key\";a:10:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:10:\"user_group\";s:10:\"user_group\";s:8:\"location\";s:8:\"location\";s:8:\"is_audit\";s:8:\"is_audit\";s:9:\"is_active\";s:9:\"is_active\";s:7:\"is_init\";s:7:\"is_init\";s:5:\"ctime\";s:5:\"ctime\";s:6:\"reg_ip\";s:6:\"reg_ip\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:10:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:10:\"user_group\";s:9:\"用户组\";s:8:\"location\";s:6:\"地区\";s:8:\"is_audit\";s:12:\"是否审核\";s:9:\"is_active\";s:12:\"是否激活\";s:7:\"is_init\";s:15:\"是否初始化\";s:5:\"ctime\";s:12:\"注册时间\";s:6:\"reg_ip\";s:8:\"注册IP\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:10:{s:3:\"uid\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:10:\"user_group\";s:1:\"0\";s:8:\"location\";s:1:\"0\";s:8:\"is_audit\";s:1:\"0\";s:9:\"is_active\";s:1:\"0\";s:7:\"is_init\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";s:6:\"reg_ip\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:10:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:8:\"location\";s:0:\"\";s:8:\"is_audit\";s:0:\"\";s:9:\"is_active\";s:0:\"\";s:7:\"is_init\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:6:\"reg_ip\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-03-29 15:04:39');
 INSERT INTO `el_system_config` VALUES ('1682', 'pageKey', 'admin_User_online', 'a:4:{s:3:\"key\";a:6:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:10:\"user_group\";s:10:\"user_group\";s:8:\"location\";s:8:\"location\";s:5:\"ctime\";s:5:\"ctime\";s:17:\"last_operating_ip\";s:17:\"last_operating_ip\";}s:8:\"key_name\";a:6:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:12:\"用户昵称\";s:10:\"user_group\";s:9:\"用户组\";s:8:\"location\";s:6:\"地区\";s:5:\"ctime\";s:12:\"注册时间\";s:17:\"last_operating_ip\";s:14:\"最后操作IP\";}s:10:\"key_hidden\";a:6:{s:3:\"uid\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:10:\"user_group\";s:1:\"0\";s:8:\"location\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";s:17:\"last_operating_ip\";s:1:\"0\";}s:14:\"key_javascript\";a:6:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:8:\"location\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:17:\"last_operating_ip\";s:0:\"\";}}', '2012-08-17 01:06:38');
 INSERT INTO `el_system_config` VALUES ('4883', 'searchPageKey', 'S_admin_User_pending', 'a:5:{s:3:\"key\";a:7:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"email\";s:5:\"email\";s:3:\"sex\";s:3:\"sex\";s:10:\"user_group\";s:10:\"user_group\";s:13:\"user_category\";s:13:\"user_category\";s:5:\"ctime\";s:5:\"ctime\";}s:8:\"key_name\";a:7:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:5:\"email\";s:5:\"Email\";s:3:\"sex\";s:6:\"性别\";s:10:\"user_group\";s:9:\"用户组\";s:13:\"user_category\";s:12:\"用户标签\";s:5:\"ctime\";s:12:\"注册时间\";}s:8:\"key_type\";a:7:{s:3:\"uid\";s:4:\"text\";s:5:\"uname\";s:4:\"text\";s:5:\"email\";s:4:\"text\";s:3:\"sex\";s:5:\"radio\";s:10:\"user_group\";s:6:\"hidden\";s:13:\"user_category\";s:6:\"select\";s:5:\"ctime\";s:4:\"date\";}s:9:\"key_tishi\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}s:14:\"key_javascript\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}}', '2013-03-12 16:47:19');
 INSERT INTO `el_system_config` VALUES ('1680', 'pageKey', 'admin_User_pending', 'a:4:{s:3:\"key\";a:6:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:8:\"location\";s:8:\"location\";s:5:\"ctime\";s:5:\"ctime\";s:6:\"reg_ip\";s:6:\"reg_ip\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:6:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:8:\"location\";s:6:\"地区\";s:5:\"ctime\";s:12:\"注册时间\";s:6:\"reg_ip\";s:8:\"注册IP\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:6:{s:3:\"uid\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:8:\"location\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";s:6:\"reg_ip\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:6:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:8:\"location\";s:0:\"\";s:5:\"ctime\";s:0:\"\";s:6:\"reg_ip\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2012-08-16 00:20:44');
@@ -7173,7 +8010,7 @@ INSERT INTO `el_system_config` VALUES ('6919', 'pageKey', 'wenda_Admin_index', '
 INSERT INTO `el_system_config` VALUES ('7019', 'pageKey', 'classroom_AdminTeacher_index', 'a:4:{s:3:\"key\";a:7:{s:2:\"id\";s:2:\"id\";s:3:\"uid\";s:3:\"uid\";s:4:\"name\";s:4:\"name\";s:4:\"face\";s:4:\"face\";s:5:\"title\";s:5:\"title\";s:4:\"inro\";s:4:\"inro\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:7:{s:2:\"id\";s:8:\"讲师id\";s:3:\"uid\";s:8:\"用户id\";s:4:\"name\";s:12:\"讲师名称\";s:4:\"face\";s:6:\"头像\";s:5:\"title\";s:12:\"讲师职称\";s:4:\"inro\";s:12:\"讲师介绍\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:7:{s:2:\"id\";s:1:\"0\";s:3:\"uid\";s:1:\"0\";s:4:\"name\";s:1:\"0\";s:4:\"face\";s:1:\"0\";s:5:\"title\";s:1:\"0\";s:4:\"inro\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:7:{s:2:\"id\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:4:\"name\";s:0:\"\";s:4:\"face\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"inro\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2016-01-04 16:48:10');
 INSERT INTO `el_system_config` VALUES ('6904', 'searchPageKey', 'S_Wenda_Admin_index', 'a:5:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:3:\"uid\";s:3:\"uid\";s:4:\"type\";s:4:\"type\";s:8:\"wd_title\";s:8:\"wd_title\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:8:\"问答id\";s:3:\"uid\";s:9:\"用户名\";s:4:\"type\";s:12:\"问答类型\";s:8:\"wd_title\";s:12:\"问答标题\";}s:8:\"key_type\";a:4:{s:2:\"id\";s:4:\"text\";s:3:\"uid\";s:4:\"user\";s:4:\"type\";s:5:\"radio\";s:8:\"wd_title\";s:4:\"text\";}s:9:\"key_tishi\";a:4:{s:2:\"id\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:4:\"type\";s:0:\"\";s:8:\"wd_title\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:3:\"uid\";s:0:\"\";s:4:\"type\";s:0:\"\";s:8:\"wd_title\";s:0:\"\";}}', '2014-10-16 22:38:33');
 INSERT INTO `el_system_config` VALUES ('6907', 'searchPageKey', 'S_classroom_AdminTeacher_index', 'a:5:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:4:\"name\";s:4:\"name\";s:5:\"title\";s:5:\"title\";s:4:\"inro\";s:4:\"inro\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:8:\"讲师id\";s:4:\"name\";s:12:\"讲师名称\";s:5:\"title\";s:12:\"讲师职称\";s:4:\"inro\";s:12:\"讲师介绍\";}s:8:\"key_type\";a:4:{s:2:\"id\";s:4:\"text\";s:4:\"name\";s:4:\"text\";s:5:\"title\";s:4:\"text\";s:4:\"inro\";s:4:\"text\";}s:9:\"key_tishi\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"inro\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"inro\";s:0:\"\";}}', '2014-10-18 11:26:01');
-INSERT INTO `el_system_config` VALUES ('7021', 'pageKey', 'classroom_AdminTeacher_addTeacher', 'a:6:{s:3:\"key\";a:11:{s:3:\"uid\";s:3:\"uid\";s:4:\"name\";s:4:\"name\";s:5:\"title\";s:5:\"title\";s:7:\"head_id\";s:7:\"head_id\";s:11:\"teacher_age\";s:11:\"teacher_age\";s:11:\"high_school\";s:11:\"high_school\";s:15:\"graduate_school\";s:15:\"graduate_school\";s:5:\"label\";s:5:\"label\";s:9:\"teach_way\";s:9:\"teach_way\";s:4:\"inro\";s:4:\"inro\";s:16:\"teach_evaluation\";s:16:\"teach_evaluation\";}s:8:\"key_name\";a:11:{s:3:\"uid\";s:12:\"用户名称\";s:4:\"name\";s:12:\"讲师名称\";s:5:\"title\";s:12:\"讲师职称\";s:7:\"head_id\";s:12:\"讲师照片\";s:11:\"teacher_age\";s:6:\"教龄\";s:11:\"high_school\";s:12:\"最高学历\";s:15:\"graduate_school\";s:12:\"毕业院校\";s:5:\"label\";s:6:\"标签\";s:9:\"teach_way\";s:12:\"授课方式\";s:4:\"inro\";s:12:\"讲师简介\";s:16:\"teach_evaluation\";s:12:\"教学特点\";}s:8:\"key_type\";a:11:{s:3:\"uid\";s:7:\"oneUser\";s:4:\"name\";s:4:\"text\";s:5:\"title\";s:4:\"text\";s:7:\"head_id\";s:5:\"image\";s:11:\"teacher_age\";s:4:\"text\";s:11:\"high_school\";s:4:\"text\";s:15:\"graduate_school\";s:4:\"text\";s:5:\"label\";s:4:\"text\";s:9:\"teach_way\";s:4:\"text\";s:4:\"inro\";s:8:\"textarea\";s:16:\"teach_evaluation\";s:4:\"text\";}s:11:\"key_default\";a:11:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"head_id\";s:0:\"\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:4:\"inro\";s:0:\"\";s:16:\"teach_evaluation\";s:0:\"\";}s:9:\"key_tishi\";a:11:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:24:\"请输入讲师的名称\";s:5:\"title\";s:24:\"请输入讲师的职称\";s:7:\"head_id\";s:24:\"请选择讲师的照片\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:4:\"inro\";s:24:\"请输入讲师的简介\";s:16:\"teach_evaluation\";s:0:\"\";}s:14:\"key_javascript\";a:11:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"head_id\";s:0:\"\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:4:\"inro\";s:0:\"\";s:16:\"teach_evaluation\";s:0:\"\";}}', '2016-01-04 16:50:52');
+INSERT INTO `el_system_config` VALUES ('7107', 'pageKey', 'classroom_AdminTeacher_addTeacher', 'a:6:{s:3:\"key\";a:12:{s:3:\"uid\";s:3:\"uid\";s:4:\"name\";s:4:\"name\";s:5:\"title\";s:5:\"title\";s:7:\"head_id\";s:7:\"head_id\";s:11:\"teacher_age\";s:11:\"teacher_age\";s:11:\"high_school\";s:11:\"high_school\";s:15:\"graduate_school\";s:15:\"graduate_school\";s:5:\"label\";s:5:\"label\";s:9:\"teach_way\";s:9:\"teach_way\";s:11:\"Teach_areas\";s:11:\"Teach_areas\";s:4:\"inro\";s:4:\"inro\";s:16:\"teach_evaluation\";s:16:\"teach_evaluation\";}s:8:\"key_name\";a:12:{s:3:\"uid\";s:12:\"用户名称\";s:4:\"name\";s:12:\"讲师名称\";s:5:\"title\";s:12:\"讲师职称\";s:7:\"head_id\";s:12:\"讲师照片\";s:11:\"teacher_age\";s:6:\"教龄\";s:11:\"high_school\";s:12:\"最高学历\";s:15:\"graduate_school\";s:12:\"毕业院校\";s:5:\"label\";s:6:\"标签\";s:9:\"teach_way\";s:12:\"授课方式\";s:11:\"Teach_areas\";s:12:\"授课地区\";s:4:\"inro\";s:12:\"讲师简介\";s:16:\"teach_evaluation\";s:12:\"教学特点\";}s:8:\"key_type\";a:12:{s:3:\"uid\";s:7:\"oneUser\";s:4:\"name\";s:4:\"text\";s:5:\"title\";s:4:\"text\";s:7:\"head_id\";s:5:\"image\";s:11:\"teacher_age\";s:4:\"text\";s:11:\"high_school\";s:4:\"text\";s:15:\"graduate_school\";s:4:\"text\";s:5:\"label\";s:4:\"text\";s:9:\"teach_way\";s:6:\"select\";s:11:\"Teach_areas\";s:4:\"text\";s:4:\"inro\";s:8:\"textarea\";s:16:\"teach_evaluation\";s:4:\"text\";}s:11:\"key_default\";a:12:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"head_id\";s:0:\"\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:11:\"Teach_areas\";s:0:\"\";s:4:\"inro\";s:0:\"\";s:16:\"teach_evaluation\";s:0:\"\";}s:9:\"key_tishi\";a:12:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:24:\"请输入讲师的名称\";s:5:\"title\";s:24:\"请输入讲师的职称\";s:7:\"head_id\";s:24:\"请选择讲师的照片\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:11:\"Teach_areas\";s:0:\"\";s:4:\"inro\";s:24:\"请输入讲师的简介\";s:16:\"teach_evaluation\";s:0:\"\";}s:14:\"key_javascript\";a:12:{s:3:\"uid\";s:0:\"\";s:4:\"name\";s:0:\"\";s:5:\"title\";s:0:\"\";s:7:\"head_id\";s:0:\"\";s:11:\"teacher_age\";s:0:\"\";s:11:\"high_school\";s:0:\"\";s:15:\"graduate_school\";s:0:\"\";s:5:\"label\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:11:\"Teach_areas\";s:0:\"\";s:4:\"inro\";s:0:\"\";s:16:\"teach_evaluation\";s:0:\"\";}}', '2017-05-13 09:58:45');
 INSERT INTO `el_system_config` VALUES ('6947', 'pageKey', 'admin_Config_sms', 'a:6:{s:3:\"key\";a:2:{s:7:\"sms_uid\";s:7:\"sms_uid\";s:7:\"sms_pwd\";s:7:\"sms_pwd\";}s:8:\"key_name\";a:2:{s:7:\"sms_uid\";s:9:\"用户uid\";s:7:\"sms_pwd\";s:12:\"用户密码\";}s:8:\"key_type\";a:2:{s:7:\"sms_uid\";s:4:\"text\";s:7:\"sms_pwd\";s:4:\"text\";}s:11:\"key_default\";a:2:{s:7:\"sms_uid\";s:0:\"\";s:7:\"sms_pwd\";s:0:\"\";}s:9:\"key_tishi\";a:2:{s:7:\"sms_uid\";s:0:\"\";s:7:\"sms_pwd\";s:0:\"\";}s:14:\"key_javascript\";a:2:{s:7:\"sms_uid\";s:0:\"\";s:7:\"sms_pwd\";s:0:\"\";}}', '2015-01-26 14:10:39');
 INSERT INTO `el_system_config` VALUES ('6944', 'pageKey', 'classroom_AdminConfig_other', 'a:6:{s:3:\"key\";a:4:{s:15:\"qiniu_AccessKey\";s:15:\"qiniu_AccessKey\";s:15:\"qiniu_SecretKey\";s:15:\"qiniu_SecretKey\";s:12:\"qiniu_Domain\";s:12:\"qiniu_Domain\";s:12:\"qiniu_Bucket\";s:12:\"qiniu_Bucket\";}s:8:\"key_name\";a:4:{s:15:\"qiniu_AccessKey\";s:15:\"七牛AccessKey\";s:15:\"qiniu_SecretKey\";s:15:\"七牛SecretKey\";s:12:\"qiniu_Domain\";s:12:\"七牛域名\";s:12:\"qiniu_Bucket\";s:12:\"空间名称\";}s:8:\"key_type\";a:4:{s:15:\"qiniu_AccessKey\";s:4:\"text\";s:15:\"qiniu_SecretKey\";s:4:\"text\";s:12:\"qiniu_Domain\";s:4:\"text\";s:12:\"qiniu_Bucket\";s:4:\"text\";}s:11:\"key_default\";a:4:{s:15:\"qiniu_AccessKey\";s:0:\"\";s:15:\"qiniu_SecretKey\";s:0:\"\";s:12:\"qiniu_Domain\";s:0:\"\";s:12:\"qiniu_Bucket\";s:0:\"\";}s:9:\"key_tishi\";a:4:{s:15:\"qiniu_AccessKey\";s:0:\"\";s:15:\"qiniu_SecretKey\";s:0:\"\";s:12:\"qiniu_Domain\";s:46:\"请输入七牛提供的域名，不加http://\";s:12:\"qiniu_Bucket\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:15:\"qiniu_AccessKey\";s:0:\"\";s:15:\"qiniu_SecretKey\";s:0:\"\";s:12:\"qiniu_Domain\";s:0:\"\";s:12:\"qiniu_Bucket\";s:0:\"\";}}', '2014-12-31 10:01:11');
 INSERT INTO `el_system_config` VALUES ('6914', 'pageKey', 'admin_Config_unionpay', 'a:6:{s:3:\"key\";a:3:{s:12:\"unionpay_key\";s:12:\"unionpay_key\";s:14:\"unionpay_merId\";s:14:\"unionpay_merId\";s:16:\"unionpay_merAbbr\";s:16:\"unionpay_merAbbr\";}s:8:\"key_name\";a:3:{s:12:\"unionpay_key\";s:12:\"商户密钥\";s:14:\"unionpay_merId\";s:8:\"商户ID\";s:16:\"unionpay_merAbbr\";s:12:\"商户名称\";}s:8:\"key_type\";a:3:{s:12:\"unionpay_key\";s:4:\"text\";s:14:\"unionpay_merId\";s:4:\"text\";s:16:\"unionpay_merAbbr\";s:4:\"text\";}s:11:\"key_default\";a:3:{s:12:\"unionpay_key\";s:0:\"\";s:14:\"unionpay_merId\";s:0:\"\";s:16:\"unionpay_merAbbr\";s:0:\"\";}s:9:\"key_tishi\";a:3:{s:12:\"unionpay_key\";s:0:\"\";s:14:\"unionpay_merId\";s:0:\"\";s:16:\"unionpay_merAbbr\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:12:\"unionpay_key\";s:0:\"\";s:14:\"unionpay_merId\";s:0:\"\";s:16:\"unionpay_merAbbr\";s:0:\"\";}}', '2014-11-04 15:08:05');
@@ -7203,8 +8040,8 @@ INSERT INTO `el_system_config` VALUES ('6979', 'pageKey', 'exam_AdminUserExam_in
 INSERT INTO `el_system_config` VALUES ('6980', 'searchPageKey', 'S_exam_AdminUserExam_index', 'a:5:{s:3:\"key\";a:7:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"email\";s:5:\"email\";s:3:\"sex\";s:3:\"sex\";s:10:\"user_group\";s:10:\"user_group\";s:13:\"user_category\";s:13:\"user_category\";s:5:\"ctime\";s:5:\"ctime\";}s:8:\"key_name\";a:7:{s:3:\"uid\";s:3:\"UID\";s:5:\"uname\";s:9:\"用户名\";s:5:\"email\";s:5:\"Email\";s:3:\"sex\";s:6:\"性别\";s:10:\"user_group\";s:9:\"用户组\";s:13:\"user_category\";s:6:\"标签\";s:5:\"ctime\";s:12:\"注册时间\";}s:8:\"key_type\";a:7:{s:3:\"uid\";s:4:\"text\";s:5:\"uname\";s:4:\"text\";s:5:\"email\";s:4:\"text\";s:3:\"sex\";s:5:\"radio\";s:10:\"user_group\";s:6:\"select\";s:13:\"user_category\";s:6:\"select\";s:5:\"ctime\";s:4:\"date\";}s:9:\"key_tishi\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}s:14:\"key_javascript\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"email\";s:0:\"\";s:3:\"sex\";s:0:\"\";s:10:\"user_group\";s:0:\"\";s:13:\"user_category\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}}', '2015-07-27 15:04:11');
 INSERT INTO `el_system_config` VALUES ('6981', 'pageKey', 'exam_AdminUserExam_postRecycle', 'a:4:{s:3:\"key\";a:12:{s:12:\"user_exam_id\";s:12:\"user_exam_id\";s:9:\"exam_name\";s:9:\"exam_name\";s:10:\"paper_name\";s:10:\"paper_name\";s:11:\"paper_point\";s:11:\"paper_point\";s:18:\"exam_passing_grade\";s:18:\"exam_passing_grade\";s:16:\"user_exam_number\";s:16:\"user_exam_number\";s:15:\"user_total_date\";s:15:\"user_total_date\";s:15:\"user_exam_score\";s:15:\"user_exam_score\";s:16:\"user_right_count\";s:16:\"user_right_count\";s:16:\"user_error_count\";s:16:\"user_error_count\";s:14:\"user_exam_time\";s:14:\"user_exam_time\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:12:{s:12:\"user_exam_id\";s:14:\"考试记录ID\";s:9:\"exam_name\";s:12:\"考试名称\";s:10:\"paper_name\";s:12:\"试卷名称\";s:11:\"paper_point\";s:12:\"试卷总分\";s:18:\"exam_passing_grade\";s:12:\"及格分数\";s:16:\"user_exam_number\";s:12:\"考试次数\";s:15:\"user_total_date\";s:18:\"考试所花时间\";s:15:\"user_exam_score\";s:12:\"考试得分\";s:16:\"user_right_count\";s:12:\"正确个数\";s:16:\"user_error_count\";s:12:\"错误个数\";s:14:\"user_exam_time\";s:12:\"交卷时间\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:12:{s:12:\"user_exam_id\";s:1:\"0\";s:9:\"exam_name\";s:1:\"0\";s:10:\"paper_name\";s:1:\"0\";s:11:\"paper_point\";s:1:\"0\";s:18:\"exam_passing_grade\";s:1:\"0\";s:16:\"user_exam_number\";s:1:\"0\";s:15:\"user_total_date\";s:1:\"0\";s:15:\"user_exam_score\";s:1:\"0\";s:16:\"user_right_count\";s:1:\"0\";s:16:\"user_error_count\";s:1:\"0\";s:14:\"user_exam_time\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:12:{s:12:\"user_exam_id\";s:0:\"\";s:9:\"exam_name\";s:0:\"\";s:10:\"paper_name\";s:0:\"\";s:11:\"paper_point\";s:0:\"\";s:18:\"exam_passing_grade\";s:0:\"\";s:16:\"user_exam_number\";s:0:\"\";s:15:\"user_total_date\";s:0:\"\";s:15:\"user_exam_score\";s:0:\"\";s:16:\"user_right_count\";s:0:\"\";s:16:\"user_error_count\";s:0:\"\";s:14:\"user_exam_time\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2015-07-27 15:05:49');
 INSERT INTO `el_system_config` VALUES ('6982', 'pageKey', 'exam_AdminPaper_recycle', 'a:4:{s:3:\"key\";a:11:{s:8:\"paper_id\";s:8:\"paper_id\";s:5:\"uname\";s:5:\"uname\";s:12:\"paper_status\";s:12:\"paper_status\";s:10:\"paper_name\";s:10:\"paper_name\";s:14:\"paper_describe\";s:14:\"paper_describe\";s:19:\"paper_category_name\";s:19:\"paper_category_name\";s:10:\"paper_type\";s:10:\"paper_type\";s:11:\"paper_point\";s:11:\"paper_point\";s:17:\"paper_update_date\";s:17:\"paper_update_date\";s:17:\"paper_insert_date\";s:17:\"paper_insert_date\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:11:{s:8:\"paper_id\";s:8:\"试卷ID\";s:5:\"uname\";s:9:\"创建人\";s:12:\"paper_status\";s:12:\"试卷状态\";s:10:\"paper_name\";s:12:\"试卷名称\";s:14:\"paper_describe\";s:12:\"试卷描述\";s:19:\"paper_category_name\";s:12:\"试卷分类\";s:10:\"paper_type\";s:12:\"试卷类型\";s:11:\"paper_point\";s:12:\"试卷分数\";s:17:\"paper_update_date\";s:24:\"最后一次修改时间\";s:17:\"paper_insert_date\";s:12:\"创建时间\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:11:{s:8:\"paper_id\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:12:\"paper_status\";s:1:\"0\";s:10:\"paper_name\";s:1:\"0\";s:14:\"paper_describe\";s:1:\"0\";s:19:\"paper_category_name\";s:1:\"0\";s:10:\"paper_type\";s:1:\"0\";s:11:\"paper_point\";s:1:\"0\";s:17:\"paper_update_date\";s:1:\"0\";s:17:\"paper_insert_date\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:11:{s:8:\"paper_id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:12:\"paper_status\";s:0:\"\";s:10:\"paper_name\";s:0:\"\";s:14:\"paper_describe\";s:0:\"\";s:19:\"paper_category_name\";s:0:\"\";s:10:\"paper_type\";s:0:\"\";s:11:\"paper_point\";s:0:\"\";s:17:\"paper_update_date\";s:0:\"\";s:17:\"paper_insert_date\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2015-07-27 15:51:00');
-INSERT INTO `el_system_config` VALUES ('7052', 'pageKey', 'live_Admin_create', 'a:6:{s:3:\"key\";a:10:{s:4:\"name\";s:4:\"name\";s:12:\"templatetype\";s:12:\"templatetype\";s:8:\"authtype\";s:8:\"authtype\";s:13:\"publisherpass\";s:13:\"publisherpass\";s:13:\"assistantpass\";s:13:\"assistantpass\";s:8:\"playpass\";s:8:\"playpass\";s:8:\"checkurl\";s:8:\"checkurl\";s:7:\"barrage\";s:7:\"barrage\";s:14:\"foreignpublish\";s:14:\"foreignpublish\";s:4:\"desc\";s:4:\"desc\";}s:8:\"key_name\";a:10:{s:4:\"name\";s:15:\"直播间名称\";s:12:\"templatetype\";s:15:\"直播间模板\";s:8:\"authtype\";s:18:\"学生密码设置\";s:13:\"publisherpass\";s:15:\"讲师端密码\";s:13:\"assistantpass\";s:15:\"助教端密码\";s:8:\"playpass\";s:15:\"学生端密码\";s:8:\"checkurl\";s:18:\"接口验证地址\";s:7:\"barrage\";s:18:\"是否开启弹幕\";s:14:\"foreignpublish\";s:27:\"是否开启第三方推流\";s:4:\"desc\";s:6:\"描述\";}s:8:\"key_type\";a:10:{s:4:\"name\";s:4:\"text\";s:12:\"templatetype\";s:5:\"radio\";s:8:\"authtype\";s:6:\"select\";s:13:\"publisherpass\";s:4:\"text\";s:13:\"assistantpass\";s:4:\"text\";s:8:\"playpass\";s:4:\"text\";s:8:\"checkurl\";s:4:\"text\";s:7:\"barrage\";s:5:\"radio\";s:14:\"foreignpublish\";s:5:\"radio\";s:4:\"desc\";s:6:\"editor\";}s:11:\"key_default\";a:10:{s:4:\"name\";s:0:\"\";s:12:\"templatetype\";s:0:\"\";s:8:\"authtype\";s:0:\"\";s:13:\"publisherpass\";s:0:\"\";s:13:\"assistantpass\";s:0:\"\";s:8:\"playpass\";s:0:\"\";s:8:\"checkurl\";s:0:\"\";s:7:\"barrage\";s:0:\"\";s:14:\"foreignpublish\";s:0:\"\";s:4:\"desc\";s:0:\"\";}s:9:\"key_tishi\";a:10:{s:4:\"name\";s:0:\"\";s:12:\"templatetype\";s:0:\"\";s:8:\"authtype\";s:0:\"\";s:13:\"publisherpass\";s:0:\"\";s:13:\"assistantpass\";s:0:\"\";s:8:\"playpass\";s:18:\"密码验证填写\";s:8:\"checkurl\";s:18:\"接口验证填写\";s:7:\"barrage\";s:0:\"\";s:14:\"foreignpublish\";s:0:\"\";s:4:\"desc\";s:0:\"\";}s:14:\"key_javascript\";a:10:{s:4:\"name\";s:0:\"\";s:12:\"templatetype\";s:0:\"\";s:8:\"authtype\";s:0:\"\";s:13:\"publisherpass\";s:0:\"\";s:13:\"assistantpass\";s:0:\"\";s:8:\"playpass\";s:0:\"\";s:8:\"checkurl\";s:0:\"\";s:7:\"barrage\";s:0:\"\";s:14:\"foreignpublish\";s:0:\"\";s:4:\"desc\";s:0:\"\";}}', '2017-03-10 13:41:05');
-INSERT INTO `el_system_config` VALUES ('6996', 'pageKey', 'live_Admin_update', 'a:6:{s:3:\"key\";a:9:{s:2:\"id\";s:2:\"id\";s:4:\"name\";s:4:\"name\";s:8:\"authType\";s:8:\"authType\";s:13:\"publisherPass\";s:13:\"publisherPass\";s:13:\"assistantPass\";s:13:\"assistantPass\";s:8:\"playPass\";s:8:\"playPass\";s:8:\"checkUrl\";s:8:\"checkUrl\";s:7:\"barrage\";s:7:\"barrage\";s:4:\"desc\";s:4:\"desc\";}s:8:\"key_name\";a:9:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:15:\"直播间名称\";s:8:\"authType\";s:18:\"学生密码设置\";s:13:\"publisherPass\";s:15:\"讲师端密码\";s:13:\"assistantPass\";s:15:\"助教端密码\";s:8:\"playPass\";s:15:\"学生端密码\";s:8:\"checkUrl\";s:18:\"接口验证地址\";s:7:\"barrage\";s:18:\"是否开启弹幕\";s:4:\"desc\";s:6:\"描述\";}s:8:\"key_type\";a:9:{s:2:\"id\";s:6:\"hidden\";s:4:\"name\";s:4:\"text\";s:8:\"authType\";s:6:\"select\";s:13:\"publisherPass\";s:4:\"text\";s:13:\"assistantPass\";s:4:\"text\";s:8:\"playPass\";s:4:\"text\";s:8:\"checkUrl\";s:4:\"text\";s:7:\"barrage\";s:5:\"radio\";s:4:\"desc\";s:6:\"editor\";}s:11:\"key_default\";a:9:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:8:\"authType\";s:0:\"\";s:13:\"publisherPass\";s:0:\"\";s:13:\"assistantPass\";s:0:\"\";s:8:\"playPass\";s:0:\"\";s:8:\"checkUrl\";s:0:\"\";s:7:\"barrage\";s:0:\"\";s:4:\"desc\";s:0:\"\";}s:9:\"key_tishi\";a:9:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:8:\"authType\";s:0:\"\";s:13:\"publisherPass\";s:0:\"\";s:13:\"assistantPass\";s:0:\"\";s:8:\"playPass\";s:18:\"密码验证填写\";s:8:\"checkUrl\";s:18:\"接口验证填写\";s:7:\"barrage\";s:0:\"\";s:4:\"desc\";s:0:\"\";}s:14:\"key_javascript\";a:9:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:0:\"\";s:8:\"authType\";s:0:\"\";s:13:\"publisherPass\";s:0:\"\";s:13:\"assistantPass\";s:0:\"\";s:8:\"playPass\";s:0:\"\";s:8:\"checkUrl\";s:0:\"\";s:7:\"barrage\";s:0:\"\";s:4:\"desc\";s:0:\"\";}}', '2015-08-12 18:27:49');
+INSERT INTO `el_system_config` VALUES ('7095', 'pageKey', 'live_Admin_create', 'a:6:{s:3:\"key\";a:13:{s:6:\"roomid\";s:6:\"roomid\";s:8:\"roomname\";s:8:\"roomname\";s:8:\"password\";s:8:\"password\";s:7:\"room_ak\";s:7:\"room_ak\";s:9:\"yy_number\";s:9:\"yy_number\";s:14:\"speak_interval\";s:14:\"speak_interval\";s:5:\"onoff\";s:5:\"onoff\";s:8:\"viewtime\";s:8:\"viewtime\";s:10:\"viewstatus\";s:10:\"viewstatus\";s:8:\"is_guest\";s:8:\"is_guest\";s:15:\"sensitive_words\";s:15:\"sensitive_words\";s:6:\"is_say\";s:6:\"is_say\";s:11:\"studio_type\";s:11:\"studio_type\";}s:8:\"key_name\";a:13:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:15:\"直播间名称\";s:8:\"password\";s:15:\"直播间密码\";s:7:\"room_ak\";s:15:\"直播间简称\";s:9:\"yy_number\";s:11:\"YY房间号\";s:14:\"speak_interval\";s:15:\"发言间隔(s)\";s:5:\"onoff\";s:12:\"房间开关\";s:8:\"viewtime\";s:12:\"观看时间\";s:10:\"viewstatus\";s:18:\"是否限制观看\";s:8:\"is_guest\";s:21:\"游客是否能进入\";s:15:\"sensitive_words\";s:15:\"敏感词设定\";s:6:\"is_say\";s:12:\"能否发言\";s:11:\"studio_type\";s:12:\"直播方式\";}s:8:\"key_type\";a:13:{s:6:\"roomid\";s:6:\"hidden\";s:8:\"roomname\";s:4:\"text\";s:8:\"password\";s:4:\"text\";s:7:\"room_ak\";s:4:\"text\";s:9:\"yy_number\";s:4:\"text\";s:14:\"speak_interval\";s:4:\"text\";s:5:\"onoff\";s:5:\"radio\";s:8:\"viewtime\";s:4:\"text\";s:10:\"viewstatus\";s:5:\"radio\";s:8:\"is_guest\";s:5:\"radio\";s:15:\"sensitive_words\";s:4:\"text\";s:6:\"is_say\";s:5:\"radio\";s:11:\"studio_type\";s:5:\"radio\";}s:11:\"key_default\";a:13:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:0:\"\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}s:9:\"key_tishi\";a:13:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:12:\"单位分钟\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:19:\"多个词以|分开\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}s:14:\"key_javascript\";a:13:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:0:\"\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}}', '2017-04-14 17:28:44');
+INSERT INTO `el_system_config` VALUES ('7105', 'pageKey', 'live_Admin_update', 'a:6:{s:3:\"key\";a:14:{s:6:\"roomid\";s:6:\"roomid\";s:8:\"roomname\";s:8:\"roomname\";s:8:\"password\";s:8:\"password\";s:7:\"room_ak\";s:7:\"room_ak\";s:9:\"yy_number\";s:9:\"yy_number\";s:9:\"attach_id\";s:9:\"attach_id\";s:14:\"speak_interval\";s:14:\"speak_interval\";s:5:\"onoff\";s:5:\"onoff\";s:8:\"viewtime\";s:8:\"viewtime\";s:10:\"viewstatus\";s:10:\"viewstatus\";s:8:\"is_guest\";s:8:\"is_guest\";s:15:\"sensitive_words\";s:15:\"sensitive_words\";s:6:\"is_say\";s:6:\"is_say\";s:11:\"studio_type\";s:11:\"studio_type\";}s:8:\"key_name\";a:14:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:15:\"直播间名称\";s:8:\"password\";s:15:\"直播间密码\";s:7:\"room_ak\";s:15:\"直播间简称\";s:9:\"yy_number\";s:11:\"YY房间号\";s:9:\"attach_id\";s:12:\"视频名称\";s:14:\"speak_interval\";s:15:\"发言间隔(s)\";s:5:\"onoff\";s:12:\"房间开关\";s:8:\"viewtime\";s:12:\"观看时间\";s:10:\"viewstatus\";s:18:\"是否限制观看\";s:8:\"is_guest\";s:21:\"游客是否能进入\";s:15:\"sensitive_words\";s:15:\"敏感词设定\";s:6:\"is_say\";s:12:\"能否互动\";s:11:\"studio_type\";s:12:\"直播方式\";}s:8:\"key_type\";a:14:{s:6:\"roomid\";s:6:\"hidden\";s:8:\"roomname\";s:4:\"text\";s:8:\"password\";s:4:\"text\";s:7:\"room_ak\";s:4:\"text\";s:9:\"yy_number\";s:4:\"text\";s:9:\"attach_id\";s:6:\"select\";s:14:\"speak_interval\";s:4:\"text\";s:5:\"onoff\";s:5:\"radio\";s:8:\"viewtime\";s:4:\"text\";s:10:\"viewstatus\";s:5:\"radio\";s:8:\"is_guest\";s:5:\"radio\";s:15:\"sensitive_words\";s:4:\"text\";s:6:\"is_say\";s:5:\"radio\";s:11:\"studio_type\";s:5:\"radio\";}s:11:\"key_default\";a:14:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:9:\"attach_id\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:0:\"\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}s:9:\"key_tishi\";a:14:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:9:\"attach_id\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:12:\"单位分钟\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:19:\"多个词以|分开\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}s:14:\"key_javascript\";a:14:{s:6:\"roomid\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"password\";s:0:\"\";s:7:\"room_ak\";s:0:\"\";s:9:\"yy_number\";s:0:\"\";s:9:\"attach_id\";s:0:\"\";s:14:\"speak_interval\";s:0:\"\";s:5:\"onoff\";s:0:\"\";s:8:\"viewtime\";s:0:\"\";s:10:\"viewstatus\";s:0:\"\";s:8:\"is_guest\";s:0:\"\";s:15:\"sensitive_words\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:11:\"studio_type\";s:0:\"\";}}', '2017-04-19 16:17:14');
 INSERT INTO `el_system_config` VALUES ('6997', 'pageKey', 'exam_AdminExam_ExamDetil', 'a:4:{s:3:\"key\";a:8:{s:12:\"user_exam_id\";s:12:\"user_exam_id\";s:9:\"user_name\";s:9:\"user_name\";s:16:\"user_exam_number\";s:16:\"user_exam_number\";s:14:\"user_exam_time\";s:14:\"user_exam_time\";s:15:\"user_exam_score\";s:15:\"user_exam_score\";s:15:\"user_total_date\";s:15:\"user_total_date\";s:16:\"user_right_count\";s:16:\"user_right_count\";s:16:\"user_error_count\";s:16:\"user_error_count\";}s:8:\"key_name\";a:8:{s:12:\"user_exam_id\";s:8:\"考试ID\";s:9:\"user_name\";s:9:\"用户名\";s:16:\"user_exam_number\";s:12:\"考试次数\";s:14:\"user_exam_time\";s:12:\"交卷时间\";s:15:\"user_exam_score\";s:12:\"考试得分\";s:15:\"user_total_date\";s:18:\"考试所花时间\";s:16:\"user_right_count\";s:12:\"正确个数\";s:16:\"user_error_count\";s:12:\"错误个数\";}s:10:\"key_hidden\";a:8:{s:12:\"user_exam_id\";s:1:\"0\";s:9:\"user_name\";s:1:\"0\";s:16:\"user_exam_number\";s:1:\"0\";s:14:\"user_exam_time\";s:1:\"0\";s:15:\"user_exam_score\";s:1:\"0\";s:15:\"user_total_date\";s:1:\"0\";s:16:\"user_right_count\";s:1:\"0\";s:16:\"user_error_count\";s:1:\"0\";}s:14:\"key_javascript\";a:8:{s:12:\"user_exam_id\";s:0:\"\";s:9:\"user_name\";s:0:\"\";s:16:\"user_exam_number\";s:0:\"\";s:14:\"user_exam_time\";s:0:\"\";s:15:\"user_exam_score\";s:0:\"\";s:15:\"user_total_date\";s:0:\"\";s:16:\"user_right_count\";s:0:\"\";s:16:\"user_error_count\";s:0:\"\";}}', '2015-08-25 17:49:05');
 INSERT INTO `el_system_config` VALUES ('7000', 'pageKey', 'classroom_AdminOrder_course', 'a:4:{s:3:\"key\";a:8:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:12:\"teacher_name\";s:12:\"teacher_name\";s:11:\"course_name\";s:11:\"course_name\";s:12:\"course_price\";s:12:\"course_price\";s:9:\"teach_way\";s:9:\"teach_way\";s:6:\"is_del\";s:6:\"is_del\";s:5:\"ctime\";s:5:\"ctime\";}s:8:\"key_name\";a:8:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:6:\"用户\";s:12:\"teacher_name\";s:12:\"授课教师\";s:11:\"course_name\";s:12:\"课程名称\";s:12:\"course_price\";s:12:\"课程价格\";s:9:\"teach_way\";s:12:\"授课方式\";s:6:\"is_del\";s:12:\"是否删除\";s:5:\"ctime\";s:12:\"创建时间\";}s:10:\"key_hidden\";a:8:{s:2:\"id\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:12:\"teacher_name\";s:1:\"0\";s:11:\"course_name\";s:1:\"0\";s:12:\"course_price\";s:1:\"0\";s:9:\"teach_way\";s:1:\"0\";s:6:\"is_del\";s:1:\"0\";s:5:\"ctime\";s:1:\"0\";}s:14:\"key_javascript\";a:8:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:12:\"teacher_name\";s:0:\"\";s:11:\"course_name\";s:0:\"\";s:12:\"course_price\";s:0:\"\";s:9:\"teach_way\";s:0:\"\";s:6:\"is_del\";s:0:\"\";s:5:\"ctime\";s:0:\"\";}}', '2015-10-26 16:10:46');
 INSERT INTO `el_system_config` VALUES ('7018', 'pageKey', 'classroom_AdminConfig_aliyun', 'a:6:{s:3:\"key\";a:4:{s:13:\"ali_AccessKey\";s:13:\"ali_AccessKey\";s:13:\"ali_SecretKey\";s:13:\"ali_SecretKey\";s:10:\"ali_Domain\";s:10:\"ali_Domain\";s:10:\"ali_Bucket\";s:10:\"ali_Bucket\";}s:8:\"key_name\";a:4:{s:13:\"ali_AccessKey\";s:15:\"阿里AccessKey\";s:13:\"ali_SecretKey\";s:16:\"阿里SecretKey	\";s:10:\"ali_Domain\";s:12:\"阿里域名\";s:10:\"ali_Bucket\";s:12:\"阿里空间\";}s:8:\"key_type\";a:4:{s:13:\"ali_AccessKey\";s:4:\"text\";s:13:\"ali_SecretKey\";s:4:\"text\";s:10:\"ali_Domain\";s:4:\"text\";s:10:\"ali_Bucket\";s:4:\"text\";}s:11:\"key_default\";a:4:{s:13:\"ali_AccessKey\";s:0:\"\";s:13:\"ali_SecretKey\";s:0:\"\";s:10:\"ali_Domain\";s:0:\"\";s:10:\"ali_Bucket\";s:0:\"\";}s:9:\"key_tishi\";a:4:{s:13:\"ali_AccessKey\";s:0:\"\";s:13:\"ali_SecretKey\";s:0:\"\";s:10:\"ali_Domain\";s:0:\"\";s:10:\"ali_Bucket\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:13:\"ali_AccessKey\";s:0:\"\";s:13:\"ali_SecretKey\";s:0:\"\";s:10:\"ali_Domain\";s:0:\"\";s:10:\"ali_Bucket\";s:0:\"\";}}', '2015-12-27 23:13:56');
@@ -7212,6 +8049,29 @@ INSERT INTO `el_system_config` VALUES ('7017', 'pageKey', 'classroom_AdminConfig
 INSERT INTO `el_system_config` VALUES ('7038', 'pageKey', 'admin_Single_index', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:4:\"cate\";s:4:\"cate\";s:3:\"url\";s:3:\"url\";s:6:\"action\";s:6:\"action\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:2:\"ID\";s:5:\"title\";s:6:\"标题\";s:4:\"cate\";s:6:\"分类\";s:3:\"url\";s:3:\"URL\";s:6:\"action\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:5:\"title\";s:1:\"0\";s:4:\"cate\";s:1:\"0\";s:3:\"url\";s:1:\"0\";s:6:\"action\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"cate\";s:0:\"\";s:3:\"url\";s:0:\"\";s:6:\"action\";s:0:\"\";}}', '2016-03-06 20:16:52');
 INSERT INTO `el_system_config` VALUES ('7045', 'pageKey', 'admin_Single_add', 'a:6:{s:3:\"key\";a:5:{s:7:\"cate_id\";s:7:\"cate_id\";s:5:\"title\";s:5:\"title\";s:4:\"text\";s:4:\"text\";s:3:\"url\";s:3:\"url\";s:4:\"sort\";s:4:\"sort\";}s:8:\"key_name\";a:5:{s:7:\"cate_id\";s:6:\"分类\";s:5:\"title\";s:6:\"标题\";s:4:\"text\";s:6:\"内容\";s:3:\"url\";s:3:\"URL\";s:4:\"sort\";s:6:\"排序\";}s:8:\"key_type\";a:5:{s:7:\"cate_id\";s:6:\"select\";s:5:\"title\";s:4:\"text\";s:4:\"text\";s:6:\"editor\";s:3:\"url\";s:4:\"text\";s:4:\"sort\";s:4:\"text\";}s:11:\"key_default\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}s:9:\"key_tishi\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}s:14:\"key_javascript\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}}', '2016-03-07 16:22:36');
 INSERT INTO `el_system_config` VALUES ('7044', 'pageKey', 'admin_Single_edit', 'a:6:{s:3:\"key\";a:5:{s:7:\"cate_id\";s:7:\"cate_id\";s:5:\"title\";s:5:\"title\";s:4:\"text\";s:4:\"text\";s:3:\"url\";s:3:\"url\";s:4:\"sort\";s:4:\"sort\";}s:8:\"key_name\";a:5:{s:7:\"cate_id\";s:6:\"分类\";s:5:\"title\";s:6:\"标题\";s:4:\"text\";s:6:\"内容\";s:3:\"url\";s:3:\"URL\";s:4:\"sort\";s:6:\"排序\";}s:8:\"key_type\";a:5:{s:7:\"cate_id\";s:6:\"select\";s:5:\"title\";s:4:\"text\";s:4:\"text\";s:6:\"editor\";s:3:\"url\";s:4:\"text\";s:4:\"sort\";s:4:\"text\";}s:11:\"key_default\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}s:9:\"key_tishi\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}s:14:\"key_javascript\";a:5:{s:7:\"cate_id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"text\";s:0:\"\";s:3:\"url\";s:0:\"\";s:4:\"sort\";s:0:\"\";}}', '2016-03-07 16:21:25');
+INSERT INTO `el_system_config` VALUES ('7078', 'pageKey', 'live_Member_index', 'a:4:{s:3:\"key\";a:8:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"phone\";s:5:\"phone\";s:6:\"is_del\";s:6:\"is_del\";s:8:\"roomname\";s:8:\"roomname\";s:6:\"is_say\";s:6:\"is_say\";s:7:\"balance\";s:7:\"balance\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:8:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:5:\"phone\";s:12:\"手机号码\";s:6:\"is_del\";s:12:\"是否禁用\";s:8:\"roomname\";s:12:\"房间名称\";s:6:\"is_say\";s:15:\"是否被禁言\";s:7:\"balance\";s:12:\"账户余额\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:8:{s:3:\"uid\";s:1:\"1\";s:5:\"uname\";s:1:\"0\";s:5:\"phone\";s:1:\"0\";s:6:\"is_del\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:6:\"is_say\";s:1:\"0\";s:7:\"balance\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:8:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:6:\"is_del\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:7:\"balance\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-03-30 13:28:51');
+INSERT INTO `el_system_config` VALUES ('7065', 'pageKey', 'live_Member_update', 'a:6:{s:3:\"key\";a:7:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:5:\"phone\";s:5:\"phone\";s:6:\"is_del\";s:6:\"is_del\";s:6:\"roomid\";s:6:\"roomid\";s:6:\"is_say\";s:6:\"is_say\";s:7:\"balance\";s:7:\"balance\";}s:8:\"key_name\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:5:\"phone\";s:12:\"手机号码\";s:6:\"is_del\";s:12:\"是否禁用\";s:6:\"roomid\";s:8:\"房间id\";s:6:\"is_say\";s:12:\"是否禁言\";s:7:\"balance\";s:12:\"用户余额\";}s:8:\"key_type\";a:7:{s:3:\"uid\";s:6:\"hidden\";s:5:\"uname\";s:4:\"word\";s:5:\"phone\";s:4:\"text\";s:6:\"is_del\";s:5:\"radio\";s:6:\"roomid\";s:6:\"select\";s:6:\"is_say\";s:5:\"radio\";s:7:\"balance\";s:4:\"text\";}s:11:\"key_default\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:6:\"is_del\";s:0:\"\";s:6:\"roomid\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:7:\"balance\";s:0:\"\";}s:9:\"key_tishi\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:6:\"is_del\";s:0:\"\";s:6:\"roomid\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:7:\"balance\";s:0:\"\";}s:14:\"key_javascript\";a:7:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:5:\"phone\";s:0:\"\";s:6:\"is_del\";s:0:\"\";s:6:\"roomid\";s:0:\"\";s:6:\"is_say\";s:0:\"\";s:7:\"balance\";s:0:\"\";}}', '2017-03-30 10:03:19');
+INSERT INTO `el_system_config` VALUES ('7069', 'searchPageKey', 'S_live_Member_index', 'a:5:{s:3:\"key\";a:3:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:3:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:6:\"roomid\";s:9:\"房间号\";}s:8:\"key_type\";a:3:{s:3:\"uid\";s:6:\"hidden\";s:5:\"uname\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:9:\"key_tishi\";a:3:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-03-30 10:29:43');
+INSERT INTO `el_system_config` VALUES ('7072', 'pageKey', 'live_Service_index', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:4:\"code\";s:4:\"code\";s:8:\"roomname\";s:8:\"roomname\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:12:\"客服名称\";s:4:\"code\";s:8:\"QQ号码\";s:8:\"roomname\";s:12:\"房间名称\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:5:\"title\";s:1:\"0\";s:4:\"code\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-03-30 11:26:25');
+INSERT INTO `el_system_config` VALUES ('7073', 'searchPageKey', 'S_live_Service_index', 'a:5:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:4:\"code\";s:4:\"code\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:8:\"key_type\";a:4:{s:2:\"id\";s:6:\"hidden\";s:5:\"title\";s:4:\"text\";s:4:\"code\";s:4:\"text\";s:6:\"roomid\";s:4:\"text\";}s:9:\"key_tishi\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-03-30 11:29:38');
+INSERT INTO `el_system_config` VALUES ('7075', 'pageKey', 'live_Service_update', 'a:6:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:5:\"title\";s:5:\"title\";s:4:\"code\";s:4:\"code\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:12:\"客服名称\";s:4:\"code\";s:8:\"QQ号码\";s:6:\"roomid\";s:12:\"房间名称\";}s:8:\"key_type\";a:4:{s:2:\"id\";s:6:\"hidden\";s:5:\"title\";s:4:\"text\";s:4:\"code\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:11:\"key_default\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:9:\"key_tishi\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-03-30 13:05:16');
+INSERT INTO `el_system_config` VALUES ('7076', 'pageKey', 'live_Service_create', 'a:6:{s:3:\"key\";a:3:{s:5:\"title\";s:5:\"title\";s:4:\"code\";s:4:\"code\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:3:{s:5:\"title\";s:12:\"客服名称\";s:4:\"code\";s:8:\"QQ号码\";s:6:\"roomid\";s:9:\"房间号\";}s:8:\"key_type\";a:3:{s:5:\"title\";s:4:\"text\";s:4:\"code\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:11:\"key_default\";a:3:{s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:9:\"key_tishi\";a:3:{s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:5:\"title\";s:0:\"\";s:4:\"code\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-03-30 13:14:31');
+INSERT INTO `el_system_config` VALUES ('7080', 'pageKey', 'live_Count_index', 'a:4:{s:3:\"key\";a:7:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:7:\"touname\";s:7:\"touname\";s:4:\"time\";s:4:\"time\";s:8:\"roomname\";s:8:\"roomname\";s:7:\"content\";s:7:\"content\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:7:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"发言者\";s:7:\"touname\";s:9:\"接收人\";s:4:\"time\";s:12:\"发言时间\";s:8:\"roomname\";s:12:\"房间名称\";s:7:\"content\";s:6:\"内容\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:7:{s:2:\"id\";s:1:\"1\";s:5:\"uname\";s:1:\"0\";s:7:\"touname\";s:1:\"0\";s:4:\"time\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:7:\"content\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:7:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:7:\"touname\";s:0:\"\";s:4:\"time\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:7:\"content\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-04-07 10:41:51');
+INSERT INTO `el_system_config` VALUES ('7082', 'searchPageKey', 'S_live_Count_index', 'a:5:{s:3:\"key\";a:3:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"发言者\";s:6:\"roomid\";s:12:\"房间名称\";}s:8:\"key_type\";a:3:{s:2:\"id\";s:6:\"hidden\";s:5:\"uname\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:9:\"key_tishi\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-04-07 11:50:38');
+INSERT INTO `el_system_config` VALUES ('7083', 'pageKey', 'live_Count_redbag', 'a:4:{s:3:\"key\";a:7:{s:6:\"s_r_id\";s:6:\"s_r_id\";s:5:\"uname\";s:5:\"uname\";s:3:\"num\";s:3:\"num\";s:5:\"total\";s:5:\"total\";s:11:\"num_balance\";s:11:\"num_balance\";s:13:\"total_balance\";s:13:\"total_balance\";s:4:\"time\";s:4:\"time\";}s:8:\"key_name\";a:7:{s:6:\"s_r_id\";s:0:\"\";s:5:\"uname\";s:6:\"姓名\";s:3:\"num\";s:12:\"红包个数\";s:5:\"total\";s:12:\"红包金额\";s:11:\"num_balance\";s:18:\"红包剩余个数\";s:13:\"total_balance\";s:18:\"红包剩余金额\";s:4:\"time\";s:6:\"时间\";}s:10:\"key_hidden\";a:7:{s:6:\"s_r_id\";s:1:\"1\";s:5:\"uname\";s:1:\"0\";s:3:\"num\";s:1:\"0\";s:5:\"total\";s:1:\"0\";s:11:\"num_balance\";s:1:\"0\";s:13:\"total_balance\";s:1:\"0\";s:4:\"time\";s:1:\"0\";}s:14:\"key_javascript\";a:7:{s:6:\"s_r_id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:3:\"num\";s:0:\"\";s:5:\"total\";s:0:\"\";s:11:\"num_balance\";s:0:\"\";s:13:\"total_balance\";s:0:\"\";s:4:\"time\";s:0:\"\";}}', '2017-04-07 13:54:40');
+INSERT INTO `el_system_config` VALUES ('7084', 'searchPageKey', 'S_live_Count_redbag', 'a:5:{s:3:\"key\";a:1:{s:5:\"uname\";s:5:\"uname\";}s:8:\"key_name\";a:1:{s:5:\"uname\";s:6:\"姓名\";}s:8:\"key_type\";a:1:{s:5:\"uname\";s:4:\"text\";}s:9:\"key_tishi\";a:1:{s:5:\"uname\";s:0:\"\";}s:14:\"key_javascript\";a:1:{s:5:\"uname\";s:0:\"\";}}', '2017-04-07 13:55:22');
+INSERT INTO `el_system_config` VALUES ('7085', 'pageKey', 'live_Count_flowers', 'a:4:{s:3:\"key\";a:4:{s:3:\"uid\";s:3:\"uid\";s:5:\"uname\";s:5:\"uname\";s:10:\"todaycount\";s:10:\"todaycount\";s:10:\"monthcount\";s:10:\"monthcount\";}s:8:\"key_name\";a:4:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:6:\"老师\";s:10:\"todaycount\";s:9:\"今收数\";s:10:\"monthcount\";s:9:\"月收数\";}s:10:\"key_hidden\";a:4:{s:3:\"uid\";s:1:\"1\";s:5:\"uname\";s:1:\"0\";s:10:\"todaycount\";s:1:\"0\";s:10:\"monthcount\";s:1:\"0\";}s:14:\"key_javascript\";a:4:{s:3:\"uid\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:10:\"todaycount\";s:0:\"\";s:10:\"monthcount\";s:0:\"\";}}', '2017-04-07 16:51:03');
+INSERT INTO `el_system_config` VALUES ('7086', 'pageKey', 'live_Count_Illegal', 'a:4:{s:3:\"key\";a:7:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:7:\"touname\";s:7:\"touname\";s:4:\"time\";s:4:\"time\";s:8:\"roomname\";s:8:\"roomname\";s:7:\"content\";s:7:\"content\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:7:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"发言者\";s:7:\"touname\";s:9:\"接受者\";s:4:\"time\";s:6:\"时间\";s:8:\"roomname\";s:12:\"房间名称\";s:7:\"content\";s:6:\"内容\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:7:{s:2:\"id\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:7:\"touname\";s:1:\"0\";s:4:\"time\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:7:\"content\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:7:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:7:\"touname\";s:0:\"\";s:4:\"time\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:7:\"content\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-04-07 17:07:51');
+INSERT INTO `el_system_config` VALUES ('7087', 'searchPageKey', 'S_live_Count_Illegal', 'a:5:{s:3:\"key\";a:3:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:6:\"roomid\";s:6:\"房间\";}s:8:\"key_type\";a:3:{s:2:\"id\";s:6:\"hidden\";s:5:\"uname\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:9:\"key_tishi\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-04-07 17:08:22');
+INSERT INTO `el_system_config` VALUES ('7088', 'pageKey', 'live_Count_ipblack', 'a:4:{s:3:\"key\";a:6:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:2:\"ip\";s:2:\"ip\";s:8:\"makename\";s:8:\"makename\";s:5:\"mtime\";s:5:\"mtime\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:6:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:6:\"用户\";s:2:\"ip\";s:8:\"ip地址\";s:8:\"makename\";s:9:\"操作人\";s:5:\"mtime\";s:6:\"时间\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:6:{s:2:\"id\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:2:\"ip\";s:1:\"0\";s:8:\"makename\";s:1:\"0\";s:5:\"mtime\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:6:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:2:\"ip\";s:0:\"\";s:8:\"makename\";s:0:\"\";s:5:\"mtime\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-04-07 17:34:22');
+INSERT INTO `el_system_config` VALUES ('7089', 'searchPageKey', 'S_live_Count_ipblack', 'a:5:{s:3:\"key\";a:3:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:6:\"roomid\";s:6:\"roomid\";}s:8:\"key_name\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:6:\"roomid\";s:6:\"房间\";}s:8:\"key_type\";a:3:{s:2:\"id\";s:6:\"hidden\";s:5:\"uname\";s:4:\"text\";s:6:\"roomid\";s:6:\"select\";}s:9:\"key_tishi\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:6:\"roomid\";s:0:\"\";}}', '2017-04-08 09:50:10');
+INSERT INTO `el_system_config` VALUES ('7091', 'pageKey', 'live_Count_shield', 'a:4:{s:3:\"key\";a:5:{s:2:\"id\";s:2:\"id\";s:5:\"uname\";s:5:\"uname\";s:8:\"roomname\";s:8:\"roomname\";s:5:\"mtime\";s:5:\"mtime\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:9:\"用户名\";s:8:\"roomname\";s:12:\"房间名称\";s:5:\"mtime\";s:18:\"禁言到期时间\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:5:{s:2:\"id\";s:1:\"0\";s:5:\"uname\";s:1:\"0\";s:8:\"roomname\";s:1:\"0\";s:5:\"mtime\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"uname\";s:0:\"\";s:8:\"roomname\";s:0:\"\";s:5:\"mtime\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-04-08 10:57:43');
+INSERT INTO `el_system_config` VALUES ('7101', 'pageKey', 'live_Video_index', 'a:4:{s:3:\"key\";a:4:{s:2:\"id\";s:2:\"id\";s:9:\"videoname\";s:9:\"videoname\";s:4:\"time\";s:4:\"time\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:4:{s:2:\"id\";s:8:\"视频id\";s:9:\"videoname\";s:12:\"视频名称\";s:4:\"time\";s:18:\"视频上传时间\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:4:{s:2:\"id\";s:1:\"0\";s:9:\"videoname\";s:1:\"0\";s:4:\"time\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:4:{s:2:\"id\";s:0:\"\";s:9:\"videoname\";s:0:\"\";s:4:\"time\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-04-19 13:10:26');
+INSERT INTO `el_system_config` VALUES ('7104', 'pageKey', 'live_Video_update', 'a:6:{s:3:\"key\";a:3:{s:2:\"id\";s:2:\"id\";s:9:\"videoname\";s:9:\"videoname\";s:9:\"video_url\";s:9:\"video_url\";}s:8:\"key_name\";a:3:{s:2:\"id\";s:0:\"\";s:9:\"videoname\";s:12:\"视频名称\";s:9:\"video_url\";s:12:\"上传视频\";}s:8:\"key_type\";a:3:{s:2:\"id\";s:6:\"hidden\";s:9:\"videoname\";s:4:\"text\";s:9:\"video_url\";s:4:\"file\";}s:11:\"key_default\";a:3:{s:2:\"id\";s:0:\"\";s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}s:9:\"key_tishi\";a:3:{s:2:\"id\";s:0:\"\";s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}s:14:\"key_javascript\";a:3:{s:2:\"id\";s:0:\"\";s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}}', '2017-04-19 14:28:06');
+INSERT INTO `el_system_config` VALUES ('7102', 'pageKey', 'live_Video_create', 'a:6:{s:3:\"key\";a:2:{s:9:\"videoname\";s:9:\"videoname\";s:9:\"video_url\";s:9:\"video_url\";}s:8:\"key_name\";a:2:{s:9:\"videoname\";s:12:\"视频名称\";s:9:\"video_url\";s:12:\"上传视频\";}s:8:\"key_type\";a:2:{s:9:\"videoname\";s:4:\"text\";s:9:\"video_url\";s:4:\"file\";}s:11:\"key_default\";a:2:{s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}s:9:\"key_tishi\";a:2:{s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}s:14:\"key_javascript\";a:2:{s:9:\"videoname\";s:0:\"\";s:9:\"video_url\";s:0:\"\";}}', '2017-04-19 13:27:13');
+INSERT INTO `el_system_config` VALUES ('7119', 'pageKey', 'classroom_AdminTeacher_addTeachingCourse', 'a:6:{s:3:\"key\";a:4:{s:14:\"course_teacher\";s:14:\"course_teacher\";s:11:\"course_name\";s:11:\"course_name\";s:12:\"course_price\";s:12:\"course_price\";s:11:\"course_inro\";s:11:\"course_inro\";}s:8:\"key_name\";a:4:{s:14:\"course_teacher\";s:12:\"授课老师\";s:11:\"course_name\";s:12:\"课程名称\";s:12:\"course_price\";s:6:\"价格\";s:11:\"course_inro\";s:12:\"课程介绍\";}s:8:\"key_type\";a:4:{s:14:\"course_teacher\";s:7:\"teacher\";s:11:\"course_name\";s:4:\"text\";s:12:\"course_price\";s:4:\"text\";s:11:\"course_inro\";s:8:\"textarea\";}s:11:\"key_default\";a:4:{s:14:\"course_teacher\";s:0:\"\";s:11:\"course_name\";s:0:\"\";s:12:\"course_price\";s:0:\"\";s:11:\"course_inro\";s:0:\"\";}s:9:\"key_tishi\";a:4:{s:14:\"course_teacher\";s:0:\"\";s:11:\"course_name\";s:0:\"\";s:12:\"course_price\";s:0:\"\";s:11:\"course_inro\";s:0:\"\";}s:14:\"key_javascript\";a:4:{s:14:\"course_teacher\";s:0:\"\";s:11:\"course_name\";s:0:\"\";s:12:\"course_price\";s:0:\"\";s:11:\"course_inro\";s:0:\"\";}}', '2017-05-15 10:21:58');
+INSERT INTO `el_system_config` VALUES ('7121', 'pageKey', 'classroom_AdminTeacher_teachingindex', 'a:4:{s:3:\"key\";a:7:{s:2:\"id\";s:2:\"id\";s:9:\"course_id\";s:9:\"course_id\";s:11:\"course_name\";s:11:\"course_name\";s:14:\"course_teacher\";s:14:\"course_teacher\";s:12:\"course_price\";s:12:\"course_price\";s:11:\"course_inro\";s:11:\"course_inro\";s:8:\"DOACTION\";s:8:\"DOACTION\";}s:8:\"key_name\";a:7:{s:2:\"id\";s:0:\"\";s:9:\"course_id\";s:8:\"课程id\";s:11:\"course_name\";s:12:\"课程名称\";s:14:\"course_teacher\";s:6:\"讲师\";s:12:\"course_price\";s:6:\"价钱\";s:11:\"course_inro\";s:12:\"课程简介\";s:8:\"DOACTION\";s:6:\"操作\";}s:10:\"key_hidden\";a:7:{s:2:\"id\";s:1:\"1\";s:9:\"course_id\";s:1:\"0\";s:11:\"course_name\";s:1:\"0\";s:14:\"course_teacher\";s:1:\"0\";s:12:\"course_price\";s:1:\"0\";s:11:\"course_inro\";s:1:\"0\";s:8:\"DOACTION\";s:1:\"0\";}s:14:\"key_javascript\";a:7:{s:2:\"id\";s:0:\"\";s:9:\"course_id\";s:0:\"\";s:11:\"course_name\";s:0:\"\";s:14:\"course_teacher\";s:0:\"\";s:12:\"course_price\";s:0:\"\";s:11:\"course_inro\";s:0:\"\";s:8:\"DOACTION\";s:0:\"\";}}', '2017-05-15 11:15:46');
+INSERT INTO `el_system_config` VALUES ('7120', 'searchPageKey', 'S_classroom_AdminTeacher_teachingindex', 'a:5:{s:3:\"key\";a:1:{s:4:\"name\";s:4:\"name\";}s:8:\"key_name\";a:1:{s:4:\"name\";s:12:\"讲师姓名\";}s:8:\"key_type\";a:1:{s:4:\"name\";s:4:\"text\";}s:9:\"key_tishi\";a:1:{s:4:\"name\";s:0:\"\";}s:14:\"key_javascript\";a:1:{s:4:\"name\";s:0:\"\";}}', '2017-05-15 10:51:37');
 
 -- ----------------------------
 -- Table structure for `el_system_data`
@@ -7226,7 +8086,7 @@ CREATE TABLE `el_system_data` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `list_key` (`list`,`key`),
   KEY `list_id` (`list`,`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10418 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10485 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_system_data
@@ -7237,12 +8097,12 @@ INSERT INTO `el_system_data` VALUES ('680', 'permission', '25', 'a:1:{s:4:\"core
 INSERT INTO `el_system_data` VALUES ('10085', 'permission', '19', 'a:2:{s:4:\"core\";a:1:{s:5:\"admin\";a:2:{s:13:\"top_classroom\";s:1:\"1\";s:11:\"admin_login\";s:1:\"1\";}}s:9:\"classroom\";a:1:{s:5:\"admin\";a:16:{s:17:\"classroom_Suggest\";s:1:\"1\";s:16:\"classroom_Config\";s:1:\"1\";s:14:\"classroom_Card\";s:1:\"1\";s:18:\"classroom_Withdraw\";s:1:\"1\";s:15:\"classroom_Order\";s:1:\"1\";s:16:\"classroom_Learnc\";s:1:\"1\";s:15:\"classroom_Index\";s:1:\"1\";s:17:\"classroom_Teacher\";s:1:\"1\";s:17:\"classroom_LianZai\";s:1:\"1\";s:23:\"classroom_VideoCategory\";s:1:\"1\";s:15:\"classroom_Album\";s:1:\"1\";s:14:\"classroom_Note\";s:1:\"1\";s:18:\"classroom_Question\";s:1:\"1\";s:16:\"classroom_Review\";s:1:\"1\";s:17:\"classroom_Special\";s:1:\"1\";s:15:\"classroom_Video\";s:1:\"1\";}}}', '2014-11-25 09:54:52');
 INSERT INTO `el_system_data` VALUES ('2342', 'admin_Config', 'invite', 'a:2:{s:14:\"send_email_num\";s:1:\"3\";s:13:\"send_link_num\";s:1:\"3\";}', '2012-12-26 15:07:06');
 INSERT INTO `el_system_data` VALUES ('115', 'admin_Config', 'announcement', 'a:2:{s:7:\"is_open\";s:1:\"1\";s:7:\"content\";s:22:\"欢迎使用SociaxTeam\";}', '2012-03-26 03:06:29');
-INSERT INTO `el_system_data` VALUES ('10403', 'admin_Config', 'email', 'a:9:{s:14:\"email_sendtype\";s:4:\"smtp\";s:10:\"email_host\";s:0:\"\";s:9:\"email_ssl\";s:1:\"1\";s:10:\"email_port\";s:3:\"465\";s:13:\"email_account\";s:0:\"\";s:14:\"email_password\";s:0:\"\";s:17:\"email_sender_name\";s:0:\"\";s:18:\"email_sender_email\";s:0:\"\";s:10:\"email_test\";s:0:\"\";}', '2016-03-18 15:28:21');
-INSERT INTO `el_system_data` VALUES ('10373', 'admin_Config', 'attach', 'a:3:{s:16:\"attach_path_rule\";s:7:\"Y/md/H/\";s:15:\"attach_max_size\";s:4:\"1024\";s:22:\"attach_allow_extension\";s:55:\"gif,png,zip,rar,doc,xls,ppt,docx,xlsx,pptx,pdf,jpg,jpeg\";}', '2016-01-26 11:13:42');
+INSERT INTO `el_system_data` VALUES ('10425', 'admin_Config', 'email', 'a:9:{s:14:\"email_sendtype\";s:4:\"smtp\";s:10:\"email_host\";s:11:\"smtp.qq.com\";s:9:\"email_ssl\";s:1:\"1\";s:10:\"email_port\";s:3:\"465\";s:13:\"email_account\";s:17:\"1736334504@qq.com\";s:14:\"email_password\";s:16:\"jfcxmehnmtxrfbbj\";s:17:\"email_sender_name\";s:15:\"名师大课堂\";s:18:\"email_sender_email\";s:17:\"1736334504@qq.com\";s:10:\"email_test\";s:0:\"\";}', '2017-04-08 15:59:44');
+INSERT INTO `el_system_data` VALUES ('10444', 'admin_Config', 'attach', 'a:3:{s:16:\"attach_path_rule\";s:7:\"Y/md/H/\";s:15:\"attach_max_size\";s:4:\"1024\";s:22:\"attach_allow_extension\";s:67:\"gif,png,zip,rar,doc,xls,ppt,xlsx,pdf,jpg,jpeg,pptx,docx,flv,avi,mp4\";}', '2017-04-17 16:41:18');
 INSERT INTO `el_system_data` VALUES ('1470', 'permission', '99', 'a:1:{s:7:\"support\";a:2:{s:6:\"normal\";a:1:{s:20:\"support_viewfeedback\";s:1:\"1\";}s:5:\"admin\";a:2:{s:25:\"support_setfeedbackstatus\";s:1:\"1\";s:6:\"manage\";s:1:\"1\";}}}', '2012-07-24 14:23:59');
 INSERT INTO `el_system_data` VALUES ('1471', 'permission', '100', 'a:1:{s:7:\"support\";a:1:{s:5:\"admin\";a:8:{s:15:\"support_viewlog\";s:1:\"1\";s:21:\"support_updateversion\";s:1:\"1\";s:19:\"support_viewversion\";s:1:\"1\";s:14:\"support_submit\";s:1:\"1\";s:16:\"support_deldraft\";s:1:\"1\";s:14:\"support_update\";s:1:\"1\";s:6:\"manage\";s:1:\"1\";s:14:\"support_create\";s:1:\"1\";}}}', '2012-07-24 14:23:59');
-INSERT INTO `el_system_data` VALUES ('10417', 'admin_Config', 'site', 'a:23:{s:11:\"site_closed\";s:1:\"1\";s:9:\"site_name\";s:16:\" 名师大课堂\";s:11:\"site_slogan\";s:16:\" 名师大课堂\";s:20:\"site_header_keywords\";s:182:\"在线教育系统,在线教育平台,在线教育网站,网络教学系统,在线教育解决方案,直播系统,点播系统,在线考试,在线教育app,在线预约,在线约课,\";s:23:\"site_header_description\";s:0:\"\";s:12:\"site_company\";s:0:\"\";s:11:\"site_footer\";s:65:\"Copyright 2015 Seition All Rights Reserved | 粤ICP备16004612号\";s:6:\"attach\";s:0:\"\";s:14:\"site_logo_head\";s:3:\"175\";s:14:\"site_logo_foot\";s:3:\"176\";s:7:\"site_qq\";s:10:\"3132698449\";s:11:\"site_qrcode\";s:3:\"174\";s:18:\"site_closed_reason\";s:30:\"抱歉，本站暂停访问。\";s:10:\"sys_domain\";s:0:\"\";s:12:\"sys_nickname\";s:25:\"管理员,超级管理员\";s:7:\"sys_tel\";s:0:\"\";s:9:\"sys_email\";s:16:\"server@vroro.com\";s:9:\"home_page\";s:1:\"0\";s:15:\"site_theme_name\";s:4:\"stv1\";s:11:\"sys_version\";s:8:\"20151012\";s:17:\"site_online_count\";s:1:\"1\";s:15:\"site_rewrite_on\";s:1:\"0\";s:19:\"site_analytics_code\";s:392:\"PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KdmFyIF9iZGhtUHJvdG9jb2wgPSAoKCJodHRwczoiID09IGRvY3VtZW50LmxvY2F0aW9uLnByb3RvY29sKSA/ICIgaHR0cHM6Ly8iIDogIiBodHRwOi8vIik7DQpkb2N1bWVudC53cml0ZSh1bmVzY2FwZSgiJTNDc2NyaXB0IHNyYz0nIiArIF9iZGhtUHJvdG9jb2wgKyAiaG0uYmFpZHUuY29tL2guanMlM0Y5ZWZhNWU2Yjk4MmE4MTVhOTc3MDBkOGU3ODEyOWIxNicgdHlwZT0ndGV4dC9qYXZhc2NyaXB0JyUzRSUzQy9zY3JpcHQlM0UiKSk7DQo8L3NjcmlwdD4=\";}', '2017-03-16 10:00:35');
-INSERT INTO `el_system_data` VALUES ('10388', 'admin_Config', 'register', 'a:17:{s:13:\"register_type\";s:4:\"open\";s:12:\"email_suffix\";s:0:\"\";s:7:\"captcha\";s:1:\"1\";s:14:\"register_audit\";s:1:\"0\";s:11:\"need_active\";s:1:\"0\";s:10:\"photo_open\";s:1:\"0\";s:10:\"need_photo\";s:1:\"1\";s:8:\"tag_open\";s:1:\"0\";s:7:\"tag_num\";s:1:\"5\";s:15:\"interester_open\";s:1:\"0\";s:15:\"interester_rule\";a:2:{i:0;s:4:\"area\";i:1;s:3:\"tag\";}s:19:\"avoidSubmitByReturn\";s:0:\"\";s:20:\"interester_recommend\";s:0:\"\";s:14:\"default_follow\";s:0:\"\";s:11:\"each_follow\";s:0:\"\";s:18:\"default_user_group\";a:1:{i:0;s:1:\"2\";}s:13:\"welcome_email\";s:1:\"0\";}', '2016-03-07 14:10:14');
+INSERT INTO `el_system_data` VALUES ('10427', 'admin_Config', 'site', 'a:23:{s:11:\"site_closed\";s:1:\"1\";s:9:\"site_name\";s:15:\"名师大课堂\";s:11:\"site_slogan\";s:15:\"名师大课堂\";s:20:\"site_header_keywords\";s:182:\"在线教育系统,在线教育平台,在线教育网站,网络教学系统,在线教育解决方案,直播系统,点播系统,在线考试,在线教育app,在线预约,在线约课,\";s:23:\"site_header_description\";s:0:\"\";s:12:\"site_company\";s:0:\"\";s:11:\"site_footer\";s:65:\"Copyright 2015 Seition All Rights Reserved | 粤ICP备16004612号\";s:6:\"attach\";s:0:\"\";s:14:\"site_logo_head\";s:3:\"175\";s:14:\"site_logo_foot\";s:3:\"176\";s:7:\"site_qq\";s:9:\"692990451\";s:11:\"site_qrcode\";s:3:\"174\";s:18:\"site_closed_reason\";s:30:\"抱歉，本站暂停访问。\";s:10:\"sys_domain\";s:0:\"\";s:12:\"sys_nickname\";s:25:\"管理员,超级管理员\";s:7:\"sys_tel\";s:0:\"\";s:9:\"sys_email\";s:16:\"server@vroro.com\";s:9:\"home_page\";s:1:\"0\";s:15:\"site_theme_name\";s:4:\"stv1\";s:11:\"sys_version\";s:8:\"20151012\";s:17:\"site_online_count\";s:1:\"1\";s:15:\"site_rewrite_on\";s:1:\"0\";s:19:\"site_analytics_code\";s:392:\"PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KdmFyIF9iZGhtUHJvdG9jb2wgPSAoKCJodHRwczoiID09IGRvY3VtZW50LmxvY2F0aW9uLnByb3RvY29sKSA/ICIgaHR0cHM6Ly8iIDogIiBodHRwOi8vIik7DQpkb2N1bWVudC53cml0ZSh1bmVzY2FwZSgiJTNDc2NyaXB0IHNyYz0nIiArIF9iZGhtUHJvdG9jb2wgKyAiaG0uYmFpZHUuY29tL2guanMlM0Y5ZWZhNWU2Yjk4MmE4MTVhOTc3MDBkOGU3ODEyOWIxNicgdHlwZT0ndGV4dC9qYXZhc2NyaXB0JyUzRSUzQy9zY3JpcHQlM0UiKSk7DQo8L3NjcmlwdD4=\";}', '2017-04-10 17:09:37');
+INSERT INTO `el_system_data` VALUES ('10418', 'admin_Config', 'register', 'a:17:{s:13:\"register_type\";s:4:\"open\";s:12:\"email_suffix\";s:0:\"\";s:7:\"captcha\";s:1:\"1\";s:14:\"register_audit\";s:1:\"0\";s:11:\"need_active\";s:1:\"0\";s:10:\"photo_open\";s:1:\"0\";s:10:\"need_photo\";s:1:\"1\";s:8:\"tag_open\";s:1:\"0\";s:7:\"tag_num\";s:1:\"5\";s:15:\"interester_open\";s:1:\"0\";s:15:\"interester_rule\";a:2:{i:0;s:4:\"area\";i:1;s:3:\"tag\";}s:19:\"avoidSubmitByReturn\";s:0:\"\";s:20:\"interester_recommend\";s:0:\"\";s:14:\"default_follow\";s:0:\"\";s:11:\"each_follow\";s:0:\"\";s:18:\"default_user_group\";a:1:{i:0;s:2:\"13\";}s:13:\"welcome_email\";s:1:\"0\";}', '2017-04-05 09:31:06');
 INSERT INTO `el_system_data` VALUES ('10406', 'login', 'sina_wb_akey', 's:0:\"\";', '2016-03-18 15:30:36');
 INSERT INTO `el_system_data` VALUES ('10355', 'admin_Config', 'audit', 'a:1:{s:4:\"open\";s:1:\"1\";}', '2015-12-19 11:19:15');
 INSERT INTO `el_system_data` VALUES ('141', 'dict', 'nihao', 'a:2:{s:4:\"name\";s:6:\"你好\";s:5:\"value\";s:12:\"你好吗？\";}', '2012-04-13 11:48:39');
@@ -7253,9 +8113,9 @@ INSERT INTO `el_system_data` VALUES ('455', 'deFeedSet', '', 'a:6:{i:0;s:4:\"pos
 INSERT INTO `el_system_data` VALUES ('1165', 'creditType', 'experience', 'a:2:{s:10:\"CreditType\";s:10:\"experience\";s:10:\"CreditName\";s:6:\"经验\";}', '2012-07-18 08:32:06');
 INSERT INTO `el_system_data` VALUES ('1179', 'creditType', 'gold', 'a:2:{s:10:\"CreditType\";s:4:\"gold\";s:10:\"CreditName\";s:6:\"财富\";}', '2012-07-18 13:20:30');
 INSERT INTO `el_system_data` VALUES ('698', 'admin_Config', 'nav', 'a:11:{s:9:\"navi_name\";s:3:\"123\";s:6:\"attach\";s:0:\"\";s:8:\"app_name\";s:0:\"\";s:3:\"url\";s:3:\"123\";s:6:\"target\";s:7:\"appoint\";s:6:\"status\";s:7:\"appoint\";s:8:\"position\";s:0:\"\";s:5:\"guest\";s:7:\"appoint\";s:11:\"is_app_navi\";s:7:\"appoint\";s:9:\"parent_id\";s:3:\"123\";s:10:\"order_sort\";s:3:\"123\";}', '2012-06-15 11:38:13');
-INSERT INTO `el_system_data` VALUES ('10313', 'permission', '1', 'a:2:{s:4:\"core\";a:1:{s:5:\"admin\";a:11:{s:11:\"admin_login\";s:1:\"1\";s:9:\"top_index\";s:1:\"1\";s:10:\"top_system\";s:1:\"1\";s:8:\"top_user\";s:1:\"1\";s:11:\"top_content\";s:1:\"1\";s:8:\"top_task\";s:1:\"1\";s:8:\"top_apps\";s:1:\"1\";s:11:\"top_extends\";s:1:\"1\";s:13:\"top_classroom\";s:1:\"1\";s:8:\"top_live\";s:1:\"1\";s:8:\"top_exam\";s:1:\"1\";}}s:9:\"classroom\";a:1:{s:5:\"admin\";a:16:{s:17:\"classroom_Suggest\";s:1:\"1\";s:17:\"classroom_Teacher\";s:1:\"1\";s:15:\"classroom_Index\";s:1:\"1\";s:16:\"classroom_Config\";s:1:\"1\";s:14:\"classroom_Card\";s:1:\"1\";s:18:\"classroom_Withdraw\";s:1:\"1\";s:14:\"classroom_Note\";s:1:\"1\";s:18:\"classroom_Question\";s:1:\"1\";s:16:\"classroom_Review\";s:1:\"1\";s:17:\"classroom_Special\";s:1:\"1\";s:15:\"classroom_Video\";s:1:\"1\";s:15:\"classroom_Album\";s:1:\"1\";s:23:\"classroom_VideoCategory\";s:1:\"1\";s:17:\"classroom_LianZai\";s:1:\"1\";s:16:\"classroom_Learnc\";s:1:\"1\";s:15:\"classroom_Order\";s:1:\"1\";}}}', '2015-08-12 18:16:55');
+INSERT INTO `el_system_data` VALUES ('10483', 'permission', '1', 'a:2:{s:4:\"core\";a:2:{s:6:\"normal\";a:1:{s:12:\"send_message\";s:1:\"1\";}s:5:\"admin\";a:11:{s:11:\"admin_login\";s:1:\"1\";s:9:\"top_index\";s:1:\"1\";s:10:\"top_system\";s:1:\"1\";s:8:\"top_user\";s:1:\"1\";s:11:\"top_content\";s:1:\"1\";s:8:\"top_task\";s:1:\"1\";s:8:\"top_apps\";s:1:\"1\";s:11:\"top_extends\";s:1:\"1\";s:13:\"top_classroom\";s:1:\"1\";s:8:\"top_live\";s:1:\"1\";s:8:\"top_exam\";s:1:\"1\";}}s:9:\"classroom\";a:1:{s:5:\"admin\";a:16:{s:17:\"classroom_Suggest\";s:1:\"1\";s:17:\"classroom_Teacher\";s:1:\"1\";s:15:\"classroom_Index\";s:1:\"1\";s:16:\"classroom_Config\";s:1:\"1\";s:14:\"classroom_Card\";s:1:\"1\";s:18:\"classroom_Withdraw\";s:1:\"1\";s:14:\"classroom_Note\";s:1:\"1\";s:18:\"classroom_Question\";s:1:\"1\";s:16:\"classroom_Review\";s:1:\"1\";s:17:\"classroom_Special\";s:1:\"1\";s:15:\"classroom_Video\";s:1:\"1\";s:15:\"classroom_Album\";s:1:\"1\";s:23:\"classroom_VideoCategory\";s:1:\"1\";s:17:\"classroom_LianZai\";s:1:\"1\";s:16:\"classroom_Learnc\";s:1:\"1\";s:15:\"classroom_Order\";s:1:\"1\";}}}', '2017-04-20 14:53:17');
 INSERT INTO `el_system_data` VALUES ('10354', 'keyword_replaceConfig', '', 's:14:\"hhhh,hhhh,hhhh\";', '2015-12-19 11:19:15');
-INSERT INTO `el_system_data` VALUES ('10404', 'classroom_AdminConfig', 'qiniuyun', 'a:4:{s:15:\"qiniu_AccessKey\";s:0:\"\";s:15:\"qiniu_SecretKey\";s:0:\"\";s:12:\"qiniu_Domain\";s:0:\"\";s:12:\"qiniu_Bucket\";s:0:\"\";}', '2016-03-18 15:29:24');
+INSERT INTO `el_system_data` VALUES ('10429', 'classroom_AdminConfig', 'qiniuyun', 'a:4:{s:15:\"qiniu_AccessKey\";s:40:\"BsOS1N9pwZ-bZgtyNaqxesFbKKDxe9Iib7O8lLY3\";s:15:\"qiniu_SecretKey\";s:40:\"Yj0WUhZLc0kKgYU0TwmXsYCulaOMNrqJPRU_zlam\";s:12:\"qiniu_Domain\";s:26:\" oofm70tkn.bkt.clouddn.com\";s:12:\"qiniu_Bucket\";s:8:\"testroom\";}', '2017-04-15 11:45:49');
 INSERT INTO `el_system_data` VALUES ('9892', 'permission', '18', 'a:2:{s:4:\"core\";a:2:{s:6:\"normal\";a:1:{s:9:\"feed_post\";s:1:\"1\";}s:5:\"admin\";a:4:{s:13:\"top_classroom\";s:1:\"1\";s:11:\"top_extends\";s:1:\"1\";s:11:\"comment_del\";s:1:\"1\";s:11:\"admin_login\";s:1:\"1\";}}s:9:\"classroom\";a:1:{s:5:\"admin\";a:9:{s:17:\"classroom_LianZai\";s:1:\"1\";s:17:\"classroom_Suggest\";s:1:\"1\";s:23:\"classroom_VideoCategory\";s:1:\"1\";s:15:\"classroom_Album\";s:1:\"1\";s:15:\"classroom_Video\";s:1:\"1\";s:14:\"classroom_Note\";s:1:\"1\";s:18:\"classroom_Question\";s:1:\"1\";s:16:\"classroom_Review\";s:1:\"1\";s:17:\"classroom_Special\";s:1:\"1\";}}}', '2014-07-14 14:36:35');
 INSERT INTO `el_system_data` VALUES ('10108', 'permission', '2', 'a:3:{s:4:\"core\";a:2:{s:6:\"normal\";a:10:{s:9:\"feed_post\";s:1:\"1\";s:11:\"invite_user\";s:1:\"1\";s:12:\"send_message\";s:1:\"1\";s:11:\"search_info\";s:1:\"1\";s:11:\"comment_del\";s:1:\"1\";s:8:\"feed_del\";s:1:\"1\";s:12:\"feed_comment\";s:1:\"1\";s:9:\"read_data\";s:1:\"1\";s:11:\"feed_report\";s:1:\"1\";s:10:\"feed_share\";s:1:\"1\";}s:5:\"admin\";a:3:{s:11:\"comment_del\";s:1:\"1\";s:11:\"message_del\";s:1:\"1\";s:8:\"feed_del\";s:1:\"1\";}}s:5:\"weiba\";a:1:{s:6:\"normal\";a:6:{s:10:\"weiba_post\";s:1:\"1\";s:11:\"weiba_reply\";s:1:\"1\";s:9:\"weiba_del\";s:1:\"1\";s:15:\"weiba_del_reply\";s:1:\"1\";s:10:\"weiba_edit\";s:1:\"1\";s:18:\"weiba_apply_manage\";s:1:\"1\";}}s:7:\"channel\";a:1:{s:5:\"admin\";a:1:{s:17:\"channel_recommend\";s:1:\"1\";}}}', '2014-12-14 21:18:43');
 INSERT INTO `el_system_data` VALUES ('10415', 'permission', '4', 'a:1:{s:4:\"core\";a:1:{s:6:\"normal\";a:1:{s:12:\"send_message\";s:1:\"1\";}}}', '2017-03-15 15:49:26');
@@ -7384,7 +8244,7 @@ INSERT INTO `el_system_data` VALUES ('3596', 'update', 'version', 's:10:\"201305
 INSERT INTO `el_system_data` VALUES ('9742', 'admin_Config', 'attachimage', 'a:3:{s:15:\"attach_max_size\";s:1:\"1\";s:22:\"attach_allow_extension\";s:16:\"jpeg,jpg,gif,png\";s:10:\"auto_thumb\";s:1:\"0\";}', '2013-08-06 01:16:54');
 INSERT INTO `el_system_data` VALUES ('9757', 'classroom_AdminSpecial', 'addspecial', 'a:5:{s:5:\"sc_id\";s:1:\"1\";s:5:\"title\";s:0:\"\";s:10:\"foldername\";s:0:\"\";s:4:\"sort\";s:2:\"50\";s:5:\"intro\";s:0:\"\";}', '2014-06-13 22:48:52');
 INSERT INTO `el_system_data` VALUES ('9759', 'channel_Admin', 'index', 'a:3:{s:8:\"is_audit\";s:1:\"1\";s:16:\"default_category\";s:1:\"1\";s:9:\"show_type\";s:1:\"0\";}', '2014-06-14 15:00:59');
-INSERT INTO `el_system_data` VALUES ('10375', 'classroom_AdminConfig', 'basic', 'a:10:{s:11:\"upload_room\";s:1:\"1\";s:10:\"master_uid\";s:1:\"1\";s:12:\"vip_discount\";s:1:\"8\";s:19:\"master_vip_discount\";s:1:\"0\";s:16:\"withdraw_basenum\";s:3:\"100\";s:16:\"rechange_basenum\";s:1:\"1\";s:16:\"rechange_default\";s:25:\"10\r\n20\r\n50\r\n100\r\n200\r\n500\";s:9:\"vip_price\";s:2:\"10\";s:14:\"vip_year_price\";s:3:\"100\";s:15:\"video_free_time\";s:2:\"10\";}', '2016-02-16 13:04:27');
+INSERT INTO `el_system_data` VALUES ('10431', 'classroom_AdminConfig', 'basic', 'a:10:{s:11:\"upload_room\";s:1:\"0\";s:10:\"master_uid\";s:1:\"1\";s:12:\"vip_discount\";s:1:\"8\";s:19:\"master_vip_discount\";s:1:\"0\";s:16:\"withdraw_basenum\";s:3:\"100\";s:16:\"rechange_basenum\";s:1:\"1\";s:16:\"rechange_default\";s:25:\"10\r\n20\r\n50\r\n100\r\n200\r\n500\";s:9:\"vip_price\";s:2:\"10\";s:14:\"vip_year_price\";s:3:\"100\";s:15:\"video_free_time\";s:2:\"10\";}', '2017-04-15 11:46:59');
 INSERT INTO `el_system_data` VALUES ('9880', 'classroom_AdminConfig', 'page', 'a:7:{s:10:\"home_ipurl\";s:0:\"\";s:9:\"home_aurl\";s:0:\"\";s:14:\"video_list_num\";s:2:\"12\";s:14:\"album_list_num\";s:2:\"12\";s:18:\"album_list_tag_num\";s:2:\"30\";s:9:\"foot_html\";s:253:\"<p>Copyright © 2012 高教网 All Rights Reserved  |  京ICP备12005338号  |  京ICP证120201号  |  京公网安备110108008476</p>\r\n<p>北京育智兴邦教育科技有限公司  咨询热线：(手机用户免收长途费)：400-890-0005</p>\";s:6:\"qqlist\";s:71:\"2807747150 客服竹篮\r\n947618600 客服佳佳\r\n806927353 万能老师\";}', '2014-07-12 13:36:02');
 INSERT INTO `el_system_data` VALUES ('10412', 'login', 'bindemail', 'i:0;', '2016-03-18 15:30:36');
 INSERT INTO `el_system_data` VALUES ('10401', 'admin_Config', 'alipay', 'a:3:{s:14:\"alipay_partner\";s:0:\"\";s:12:\"seller_email\";s:0:\"\";s:10:\"alipay_key\";s:0:\"\";}', '2016-03-18 15:28:01');
@@ -7393,31 +8253,32 @@ INSERT INTO `el_system_data` VALUES ('10096', 'login', 'alipay', 's:0:\"\";', '2
 INSERT INTO `el_system_data` VALUES ('10314', 'classroom_AdminConfig', 'other', 'a:4:{s:15:\"qiniu_AccessKey\";s:40:\"kKWkc0m9QeR6kksVpdgDi9EzNjr4FF7AtkGf9cv2\";s:15:\"qiniu_SecretKey\";s:40:\"LQe0IFt6uSDDTraVYZIfV4AzRCsREF31zsI4rB1_\";s:12:\"qiniu_Domain\";s:18:\"chuyou.qiniudn.com\";s:12:\"qiniu_Bucket\";s:6:\"chuyou\";}', '2015-08-19 15:30:14');
 INSERT INTO `el_system_data` VALUES ('10400', 'admin_Config', 'unionpay', 'a:3:{s:12:\"unionpay_key\";s:0:\"\";s:14:\"unionpay_merId\";s:0:\"\";s:16:\"unionpay_merAbbr\";s:0:\"\";}', '2016-03-18 15:27:54');
 INSERT INTO `el_system_data` VALUES ('10414', 'admin_nav', 'top', 'a:0:{}', '2017-03-02 11:51:10');
-INSERT INTO `el_system_data` VALUES ('10288', 'group', 'createGroup', 's:1:\"1\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10289', 'group', 'createAudit', 's:1:\"0\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10290', 'group', 'createMaxGroup', 's:3:\"100\";', '2015-07-24 19:08:37');
+INSERT INTO `el_system_data` VALUES ('10464', 'group', 'createGroup', 's:1:\"1\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10465', 'group', 'createAudit', 's:1:\"1\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10466', 'group', 'createMaxGroup', 's:3:\"100\";', '2017-04-20 11:12:46');
 INSERT INTO `el_system_data` VALUES ('10155', 'group', 'hotTags', 's:14:\"aaa|bbb|测试\";', '2013-04-24 16:39:27');
-INSERT INTO `el_system_data` VALUES ('10291', 'group', 'joinMaxGroup', 's:2:\"10\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10292', 'group', 'weibo', 's:1:\"1\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10293', 'group', 'discussion', 's:1:\"1\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10294', 'group', 'uploadFile', 's:1:\"1\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10295', 'group', 'simpleFileSize', 's:2:\"10\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10296', 'group', 'spaceSize', 's:2:\"20\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10297', 'group', 'uploadFileType', 's:23:\"jpg|gif|png|bmp|txt|php\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10298', 'group', 'editSubmit', 's:1:\"1\";', '2015-07-24 19:08:37');
-INSERT INTO `el_system_data` VALUES ('10164', 'group', 'open_invite', 's:1:\"0\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10165', 'group', 'close_invite', 's:1:\"1\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10166', 'group', 'openWeibo', 's:1:\"1\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10167', 'group', 'openBlog', 's:1:\"0\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10168', 'group', 'openUploadFile', 's:1:\"0\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10169', 'group', 'whoUploadFile', 's:1:\"3\";', '2013-04-25 09:59:29');
-INSERT INTO `el_system_data` VALUES ('10170', 'group', 'whoDownloadFile', 's:1:\"3\";', '2013-04-25 09:59:29');
+INSERT INTO `el_system_data` VALUES ('10467', 'group', 'joinMaxGroup', 's:2:\"10\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10468', 'group', 'weibo', 's:1:\"0\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10469', 'group', 'discussion', 's:1:\"0\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10470', 'group', 'uploadFile', 's:1:\"0\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10471', 'group', 'simpleFileSize', 's:2:\"10\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10472', 'group', 'spaceSize', 's:2:\"20\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10473', 'group', 'uploadFileType', 's:23:\"jpg|gif|png|bmp|txt|php\";', '2017-04-20 11:12:46');
+INSERT INTO `el_system_data` VALUES ('10482', 'group', 'editSubmit', 's:1:\"1\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10475', 'group', 'open_invite', 's:1:\"0\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10476', 'group', 'close_invite', 's:1:\"1\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10477', 'group', 'openWeibo', 's:1:\"0\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10478', 'group', 'openBlog', 's:1:\"0\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10479', 'group', 'openUploadFile', 's:1:\"0\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10480', 'group', 'whoUploadFile', 's:1:\"3\";', '2017-04-20 11:12:59');
+INSERT INTO `el_system_data` VALUES ('10481', 'group', 'whoDownloadFile', 's:1:\"3\";', '2017-04-20 11:12:59');
 INSERT INTO `el_system_data` VALUES ('10306', 'event', 'canCreate', 's:1:\"1\";', '2011-01-20 15:19:10');
 INSERT INTO `el_system_data` VALUES ('10307', 'event', 'credit', 's:1:\"0\";', '2011-01-20 15:19:10');
 INSERT INTO `el_system_data` VALUES ('10308', 'event', 'credit_type', 's:10:\"experience\";', '2011-01-20 15:19:10');
 INSERT INTO `el_system_data` VALUES ('10309', 'event', 'limittime', 's:1:\"0\";', '2011-01-20 15:19:10');
 INSERT INTO `el_system_data` VALUES ('10310', 'event', 'version_number', 's:5:\"3.0.20130214\";', '2013-02-14 10:00:00');
 INSERT INTO `el_system_data` VALUES ('10305', 'event', 'limitpage', 's:2:\"10\";', '2011-01-20 15:19:10');
+INSERT INTO `el_system_data` VALUES ('10484', 'permission', '13', 'a:1:{s:4:\"core\";a:1:{s:6:\"normal\";a:1:{s:12:\"send_message\";s:1:\"1\";}}}', '2017-04-20 14:53:43');
 
 -- ----------------------------
 -- Table structure for `el_system_update`
@@ -7446,11 +8307,18 @@ CREATE TABLE `el_tag` (
   `name` varchar(255) NOT NULL COMMENT '标签名',
   PRIMARY KEY (`tag_id`),
   UNIQUE KEY `tag_name` (`name`)
-) ENGINE=MyISAM AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=175 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_tag
 -- ----------------------------
+INSERT INTO `el_tag` VALUES ('168', '阿德');
+INSERT INTO `el_tag` VALUES ('169', '订单');
+INSERT INTO `el_tag` VALUES ('170', '啊啊啊');
+INSERT INTO `el_tag` VALUES ('171', '阿斯达');
+INSERT INTO `el_tag` VALUES ('172', '第一集');
+INSERT INTO `el_tag` VALUES ('173', '第二季');
+INSERT INTO `el_tag` VALUES ('174', '小学一年级');
 
 -- ----------------------------
 -- Table structure for `el_tips`
@@ -7535,17 +8403,19 @@ CREATE TABLE `el_user` (
   `phone_activate` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '手机激活状态',
   `roomid` char(10) DEFAULT NULL COMMENT '房间id',
   `is_say` char(1) DEFAULT '1' COMMENT '是否能发言(0:否;1:是)',
+  `flowers` int(10) DEFAULT '0' COMMENT '用户鲜花数量',
   PRIMARY KEY (`uid`),
   UNIQUE KEY `email` (`email`),
   KEY `login` (`login`),
   KEY `uname` (`uname`)
-) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user
 -- ----------------------------
-INSERT INTO `el_user` VALUES ('1', 'admin@qq.com', 'ac7658caa3d02f15a6df78a17d974b4a', '85565', '管理员', 'admin@qq.com', '', '1', '北京市 北京市 海淀区', '1', '1', '1', '1458285964', '1', '', '', '110000', '110100', '110108', '1', 'zh-cn', 'PRC', '0', 'G', '', '', '1489826639', '4', '1458285964', '管理员 guanliyuan', '', '1458285964', '0', '0', '0', '0', '0', '0', '0', '0', null, '1');
-INSERT INTO `el_user` VALUES ('38', '1736334504@qq.com', '90fe6f49eff27ae3f1b75edca1715f71', '55867', 'hejing', '1736334504@qq.com', '', '1', null, '1', '1', '1', '1489563728', '1', null, '', '0', '0', '0', '127.0.0.1', 'zh-cn', 'PRC', '0', 'H', null, null, '1489803179', '0', '0', 'hejing', null, null, null, '0', '0', '0', '0', '0', '0', '0', '8E3FF7150F', '1');
+INSERT INTO `el_user` VALUES ('1', 'admin@qq.com', 'ac7658caa3d02f15a6df78a17d974b4a', '85565', '管理员', 'admin@qq.com', '', '1', '北京市 北京市 海淀区', '1', '1', '1', '1458285964', '1', '', '', '110000', '110100', '110108', '1', 'zh-cn', 'PRC', '0', 'G', '', '', '1494812488', '4', '1458285964', '管理员 guanliyuan', '', '1458285964', '0', '0', '0', '0', '0', '0', '0', '0', null, '1', '0');
+INSERT INTO `el_user` VALUES ('2', '13686500236', '77271c49837c8bf7644bf195f51f05e3', '79003', 'hahaha', null, '13686500236', '0', '辽宁省 大连市 中山区', '1', '1', '1', '1491809851', '1', null, '', '210000', '210200', '210202', '183.11.28.37', 'zh-cn', 'PRC', '0', 'L', 'asd', 'asd', '1492505387', '0', '0', 'hahaha', null, null, null, '0', '0', '0', '0', '0', '0', '0', '8E3FF7150F', '1', '0');
+INSERT INTO `el_user` VALUES ('3', '18719278494', 'cc7789e685e98192263ab3d748c251a1', '35728', 'hejing', null, '18719278494', '1', '河北省 唐山市 路南区', '1', '1', '1', '1492492644', '1', null, '', '130000', '130200', '130202', '127.0.0.1', 'zh-cn', 'PRC', '0', 'H', 'asd', '学生', '1493954676', '0', '0', 'hejing', null, null, null, '0', '0', '0', '0', '0', '0', '0', '8E3FF7150F', '1', '0');
 
 -- ----------------------------
 -- Table structure for `el_user_app`
@@ -7597,13 +8467,266 @@ CREATE TABLE `el_user_data` (
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '前当时间戳',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user-key` (`uid`,`key`)
-) ENGINE=MyISAM AUTO_INCREMENT=2921 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user_data
 -- ----------------------------
-INSERT INTO `el_user_data` VALUES ('2919', '1', 'check_connum', '1', '2017-03-08 11:58:10');
-INSERT INTO `el_user_data` VALUES ('2920', '1', 'check_totalnum', '2', '2017-03-16 13:38:37');
+INSERT INTO `el_user_data` VALUES ('2919', '1', 'check_connum', '2', '2017-04-15 10:22:56');
+INSERT INTO `el_user_data` VALUES ('2920', '1', 'check_totalnum', '7', '2017-04-20 11:16:34');
+INSERT INTO `el_user_data` VALUES ('3163', '38', 'weibo_count', '0', '2017-04-10 14:20:09');
+INSERT INTO `el_user_data` VALUES ('3162', '38', 'feed_count', '0', '2017-04-10 14:20:09');
+INSERT INTO `el_user_data` VALUES ('2926', '41', 'weibo_count', '0', '2017-03-30 14:25:50');
+INSERT INTO `el_user_data` VALUES ('2925', '41', 'feed_count', '0', '2017-03-30 14:25:50');
+INSERT INTO `el_user_data` VALUES ('2927', '41', 'favorite_count', '0', '2017-03-30 14:25:50');
+INSERT INTO `el_user_data` VALUES ('2928', '41', 'following_count', '0', '2017-03-30 14:25:50');
+INSERT INTO `el_user_data` VALUES ('2929', '41', 'follower_count', '0', '2017-03-30 14:25:50');
+INSERT INTO `el_user_data` VALUES ('2930', '43', 'feed_count', '0', '2017-04-05 13:16:36');
+INSERT INTO `el_user_data` VALUES ('2931', '43', 'weibo_count', '0', '2017-04-05 13:16:36');
+INSERT INTO `el_user_data` VALUES ('2932', '43', 'favorite_count', '0', '2017-04-05 13:16:36');
+INSERT INTO `el_user_data` VALUES ('2933', '43', 'following_count', '0', '2017-04-05 13:16:36');
+INSERT INTO `el_user_data` VALUES ('2934', '43', 'follower_count', '0', '2017-04-05 13:16:36');
+INSERT INTO `el_user_data` VALUES ('2935', '44', 'feed_count', '0', '2017-04-05 13:59:17');
+INSERT INTO `el_user_data` VALUES ('2936', '44', 'weibo_count', '0', '2017-04-05 13:59:17');
+INSERT INTO `el_user_data` VALUES ('2937', '44', 'favorite_count', '0', '2017-04-05 13:59:17');
+INSERT INTO `el_user_data` VALUES ('2938', '44', 'following_count', '0', '2017-04-05 13:59:17');
+INSERT INTO `el_user_data` VALUES ('2939', '44', 'follower_count', '0', '2017-04-05 13:59:17');
+INSERT INTO `el_user_data` VALUES ('2940', '45', 'feed_count', '0', '2017-04-05 14:01:47');
+INSERT INTO `el_user_data` VALUES ('2941', '45', 'weibo_count', '0', '2017-04-05 14:01:47');
+INSERT INTO `el_user_data` VALUES ('2942', '45', 'favorite_count', '0', '2017-04-05 14:01:47');
+INSERT INTO `el_user_data` VALUES ('2943', '45', 'following_count', '0', '2017-04-05 14:01:47');
+INSERT INTO `el_user_data` VALUES ('2944', '45', 'follower_count', '0', '2017-04-05 14:01:47');
+INSERT INTO `el_user_data` VALUES ('2945', '46', 'feed_count', '0', '2017-04-05 15:13:11');
+INSERT INTO `el_user_data` VALUES ('2946', '46', 'weibo_count', '0', '2017-04-05 15:13:11');
+INSERT INTO `el_user_data` VALUES ('2947', '46', 'favorite_count', '0', '2017-04-05 15:13:11');
+INSERT INTO `el_user_data` VALUES ('2948', '46', 'following_count', '0', '2017-04-05 15:13:11');
+INSERT INTO `el_user_data` VALUES ('2949', '46', 'follower_count', '0', '2017-04-05 15:13:11');
+INSERT INTO `el_user_data` VALUES ('2950', '48', 'feed_count', '0', '2017-04-05 15:29:38');
+INSERT INTO `el_user_data` VALUES ('2951', '48', 'weibo_count', '0', '2017-04-05 15:29:38');
+INSERT INTO `el_user_data` VALUES ('2952', '48', 'favorite_count', '0', '2017-04-05 15:29:38');
+INSERT INTO `el_user_data` VALUES ('2953', '48', 'following_count', '0', '2017-04-05 15:29:38');
+INSERT INTO `el_user_data` VALUES ('2954', '48', 'follower_count', '0', '2017-04-05 15:29:38');
+INSERT INTO `el_user_data` VALUES ('2955', '47', 'feed_count', '0', '2017-04-05 15:29:44');
+INSERT INTO `el_user_data` VALUES ('2956', '47', 'weibo_count', '0', '2017-04-05 15:29:44');
+INSERT INTO `el_user_data` VALUES ('2957', '47', 'favorite_count', '0', '2017-04-05 15:29:44');
+INSERT INTO `el_user_data` VALUES ('2958', '47', 'following_count', '0', '2017-04-05 15:29:44');
+INSERT INTO `el_user_data` VALUES ('2959', '47', 'follower_count', '0', '2017-04-05 15:29:44');
+INSERT INTO `el_user_data` VALUES ('2960', '50', 'feed_count', '0', '2017-04-05 15:35:53');
+INSERT INTO `el_user_data` VALUES ('2961', '50', 'weibo_count', '0', '2017-04-05 15:35:53');
+INSERT INTO `el_user_data` VALUES ('2962', '50', 'favorite_count', '0', '2017-04-05 15:35:53');
+INSERT INTO `el_user_data` VALUES ('2963', '50', 'following_count', '0', '2017-04-05 15:35:53');
+INSERT INTO `el_user_data` VALUES ('2964', '50', 'follower_count', '0', '2017-04-05 15:35:53');
+INSERT INTO `el_user_data` VALUES ('2965', '49', 'feed_count', '0', '2017-04-05 15:36:01');
+INSERT INTO `el_user_data` VALUES ('2966', '49', 'weibo_count', '0', '2017-04-05 15:36:01');
+INSERT INTO `el_user_data` VALUES ('2967', '49', 'favorite_count', '0', '2017-04-05 15:36:01');
+INSERT INTO `el_user_data` VALUES ('2968', '49', 'following_count', '0', '2017-04-05 15:36:01');
+INSERT INTO `el_user_data` VALUES ('2969', '49', 'follower_count', '0', '2017-04-05 15:36:01');
+INSERT INTO `el_user_data` VALUES ('2970', '52', 'feed_count', '0', '2017-04-05 16:09:08');
+INSERT INTO `el_user_data` VALUES ('2971', '52', 'weibo_count', '0', '2017-04-05 16:09:08');
+INSERT INTO `el_user_data` VALUES ('2972', '52', 'favorite_count', '0', '2017-04-05 16:09:08');
+INSERT INTO `el_user_data` VALUES ('2973', '52', 'following_count', '0', '2017-04-05 16:09:08');
+INSERT INTO `el_user_data` VALUES ('2974', '52', 'follower_count', '0', '2017-04-05 16:09:08');
+INSERT INTO `el_user_data` VALUES ('2975', '51', 'feed_count', '0', '2017-04-05 16:09:13');
+INSERT INTO `el_user_data` VALUES ('2976', '51', 'weibo_count', '0', '2017-04-05 16:09:13');
+INSERT INTO `el_user_data` VALUES ('2977', '51', 'favorite_count', '0', '2017-04-05 16:09:13');
+INSERT INTO `el_user_data` VALUES ('2978', '51', 'following_count', '0', '2017-04-05 16:09:13');
+INSERT INTO `el_user_data` VALUES ('2979', '51', 'follower_count', '0', '2017-04-05 16:09:13');
+INSERT INTO `el_user_data` VALUES ('2980', '53', 'feed_count', '0', '2017-04-05 16:15:58');
+INSERT INTO `el_user_data` VALUES ('2981', '53', 'weibo_count', '0', '2017-04-05 16:15:58');
+INSERT INTO `el_user_data` VALUES ('2982', '53', 'favorite_count', '0', '2017-04-05 16:15:58');
+INSERT INTO `el_user_data` VALUES ('2983', '53', 'following_count', '0', '2017-04-05 16:15:58');
+INSERT INTO `el_user_data` VALUES ('2984', '53', 'follower_count', '0', '2017-04-05 16:15:58');
+INSERT INTO `el_user_data` VALUES ('2985', '54', 'feed_count', '0', '2017-04-05 16:23:41');
+INSERT INTO `el_user_data` VALUES ('2986', '54', 'weibo_count', '0', '2017-04-05 16:23:41');
+INSERT INTO `el_user_data` VALUES ('2987', '54', 'favorite_count', '0', '2017-04-05 16:23:41');
+INSERT INTO `el_user_data` VALUES ('2988', '54', 'following_count', '0', '2017-04-05 16:23:41');
+INSERT INTO `el_user_data` VALUES ('2989', '54', 'follower_count', '0', '2017-04-05 16:23:41');
+INSERT INTO `el_user_data` VALUES ('2990', '55', 'feed_count', '0', '2017-04-05 16:32:39');
+INSERT INTO `el_user_data` VALUES ('2991', '55', 'weibo_count', '0', '2017-04-05 16:32:39');
+INSERT INTO `el_user_data` VALUES ('2992', '55', 'favorite_count', '0', '2017-04-05 16:32:39');
+INSERT INTO `el_user_data` VALUES ('2993', '55', 'following_count', '0', '2017-04-05 16:32:39');
+INSERT INTO `el_user_data` VALUES ('2994', '55', 'follower_count', '0', '2017-04-05 16:32:39');
+INSERT INTO `el_user_data` VALUES ('2995', '56', 'feed_count', '0', '2017-04-05 16:42:12');
+INSERT INTO `el_user_data` VALUES ('2996', '56', 'weibo_count', '0', '2017-04-05 16:42:12');
+INSERT INTO `el_user_data` VALUES ('2997', '56', 'favorite_count', '0', '2017-04-05 16:42:12');
+INSERT INTO `el_user_data` VALUES ('2998', '56', 'following_count', '0', '2017-04-05 16:42:12');
+INSERT INTO `el_user_data` VALUES ('2999', '56', 'follower_count', '0', '2017-04-05 16:42:12');
+INSERT INTO `el_user_data` VALUES ('3000', '57', 'feed_count', '0', '2017-04-05 16:56:43');
+INSERT INTO `el_user_data` VALUES ('3001', '57', 'weibo_count', '0', '2017-04-05 16:56:43');
+INSERT INTO `el_user_data` VALUES ('3002', '57', 'favorite_count', '0', '2017-04-05 16:56:43');
+INSERT INTO `el_user_data` VALUES ('3003', '57', 'following_count', '0', '2017-04-05 16:56:43');
+INSERT INTO `el_user_data` VALUES ('3004', '57', 'follower_count', '0', '2017-04-05 16:56:43');
+INSERT INTO `el_user_data` VALUES ('3005', '58', 'feed_count', '0', '2017-04-05 17:06:56');
+INSERT INTO `el_user_data` VALUES ('3006', '58', 'weibo_count', '0', '2017-04-05 17:06:56');
+INSERT INTO `el_user_data` VALUES ('3007', '58', 'favorite_count', '0', '2017-04-05 17:06:56');
+INSERT INTO `el_user_data` VALUES ('3008', '58', 'following_count', '0', '2017-04-05 17:06:56');
+INSERT INTO `el_user_data` VALUES ('3009', '58', 'follower_count', '0', '2017-04-05 17:06:56');
+INSERT INTO `el_user_data` VALUES ('3010', '59', 'feed_count', '0', '2017-04-06 13:43:14');
+INSERT INTO `el_user_data` VALUES ('3011', '59', 'weibo_count', '0', '2017-04-06 13:43:14');
+INSERT INTO `el_user_data` VALUES ('3012', '59', 'favorite_count', '0', '2017-04-06 13:43:14');
+INSERT INTO `el_user_data` VALUES ('3013', '59', 'following_count', '0', '2017-04-06 13:43:14');
+INSERT INTO `el_user_data` VALUES ('3014', '59', 'follower_count', '0', '2017-04-06 13:43:14');
+INSERT INTO `el_user_data` VALUES ('3015', '60', 'feed_count', '0', '2017-04-06 13:46:46');
+INSERT INTO `el_user_data` VALUES ('3016', '60', 'weibo_count', '0', '2017-04-06 13:46:46');
+INSERT INTO `el_user_data` VALUES ('3017', '60', 'favorite_count', '0', '2017-04-06 13:46:46');
+INSERT INTO `el_user_data` VALUES ('3018', '60', 'following_count', '0', '2017-04-06 13:46:46');
+INSERT INTO `el_user_data` VALUES ('3019', '60', 'follower_count', '0', '2017-04-06 13:46:46');
+INSERT INTO `el_user_data` VALUES ('3020', '61', 'feed_count', '0', '2017-04-06 13:49:06');
+INSERT INTO `el_user_data` VALUES ('3021', '61', 'weibo_count', '0', '2017-04-06 13:49:06');
+INSERT INTO `el_user_data` VALUES ('3022', '61', 'favorite_count', '0', '2017-04-06 13:49:06');
+INSERT INTO `el_user_data` VALUES ('3023', '61', 'following_count', '0', '2017-04-06 13:49:06');
+INSERT INTO `el_user_data` VALUES ('3024', '61', 'follower_count', '0', '2017-04-06 13:49:06');
+INSERT INTO `el_user_data` VALUES ('3025', '62', 'feed_count', '0', '2017-04-06 13:55:00');
+INSERT INTO `el_user_data` VALUES ('3026', '62', 'weibo_count', '0', '2017-04-06 13:55:00');
+INSERT INTO `el_user_data` VALUES ('3027', '62', 'favorite_count', '0', '2017-04-06 13:55:00');
+INSERT INTO `el_user_data` VALUES ('3028', '62', 'following_count', '0', '2017-04-06 13:55:00');
+INSERT INTO `el_user_data` VALUES ('3029', '62', 'follower_count', '0', '2017-04-06 13:55:00');
+INSERT INTO `el_user_data` VALUES ('3030', '63', 'feed_count', '0', '2017-04-06 14:02:22');
+INSERT INTO `el_user_data` VALUES ('3031', '63', 'weibo_count', '0', '2017-04-06 14:02:22');
+INSERT INTO `el_user_data` VALUES ('3032', '63', 'favorite_count', '0', '2017-04-06 14:02:22');
+INSERT INTO `el_user_data` VALUES ('3033', '63', 'following_count', '0', '2017-04-06 14:02:22');
+INSERT INTO `el_user_data` VALUES ('3034', '63', 'follower_count', '0', '2017-04-06 14:02:22');
+INSERT INTO `el_user_data` VALUES ('3035', '64', 'feed_count', '0', '2017-04-06 14:06:48');
+INSERT INTO `el_user_data` VALUES ('3036', '64', 'weibo_count', '0', '2017-04-06 14:06:48');
+INSERT INTO `el_user_data` VALUES ('3037', '64', 'favorite_count', '0', '2017-04-06 14:06:48');
+INSERT INTO `el_user_data` VALUES ('3038', '64', 'following_count', '0', '2017-04-06 14:06:48');
+INSERT INTO `el_user_data` VALUES ('3039', '64', 'follower_count', '0', '2017-04-06 14:06:48');
+INSERT INTO `el_user_data` VALUES ('3040', '65', 'feed_count', '0', '2017-04-06 14:08:32');
+INSERT INTO `el_user_data` VALUES ('3041', '65', 'weibo_count', '0', '2017-04-06 14:08:32');
+INSERT INTO `el_user_data` VALUES ('3042', '65', 'favorite_count', '0', '2017-04-06 14:08:32');
+INSERT INTO `el_user_data` VALUES ('3043', '65', 'following_count', '0', '2017-04-06 14:08:32');
+INSERT INTO `el_user_data` VALUES ('3044', '65', 'follower_count', '0', '2017-04-06 14:08:32');
+INSERT INTO `el_user_data` VALUES ('3045', '66', 'feed_count', '0', '2017-04-06 14:14:58');
+INSERT INTO `el_user_data` VALUES ('3046', '66', 'weibo_count', '0', '2017-04-06 14:14:58');
+INSERT INTO `el_user_data` VALUES ('3047', '66', 'favorite_count', '0', '2017-04-06 14:14:58');
+INSERT INTO `el_user_data` VALUES ('3048', '66', 'following_count', '0', '2017-04-06 14:14:58');
+INSERT INTO `el_user_data` VALUES ('3049', '66', 'follower_count', '0', '2017-04-06 14:14:58');
+INSERT INTO `el_user_data` VALUES ('3050', '67', 'feed_count', '0', '2017-04-06 14:16:06');
+INSERT INTO `el_user_data` VALUES ('3051', '67', 'weibo_count', '0', '2017-04-06 14:16:06');
+INSERT INTO `el_user_data` VALUES ('3052', '67', 'favorite_count', '0', '2017-04-06 14:16:06');
+INSERT INTO `el_user_data` VALUES ('3053', '67', 'following_count', '0', '2017-04-06 14:16:06');
+INSERT INTO `el_user_data` VALUES ('3054', '67', 'follower_count', '0', '2017-04-06 14:16:06');
+INSERT INTO `el_user_data` VALUES ('3055', '68', 'feed_count', '0', '2017-04-06 14:24:51');
+INSERT INTO `el_user_data` VALUES ('3056', '68', 'weibo_count', '0', '2017-04-06 14:24:51');
+INSERT INTO `el_user_data` VALUES ('3057', '68', 'favorite_count', '0', '2017-04-06 14:24:51');
+INSERT INTO `el_user_data` VALUES ('3058', '68', 'following_count', '0', '2017-04-06 14:24:51');
+INSERT INTO `el_user_data` VALUES ('3059', '68', 'follower_count', '0', '2017-04-06 14:24:51');
+INSERT INTO `el_user_data` VALUES ('3060', '69', 'feed_count', '0', '2017-04-06 14:27:14');
+INSERT INTO `el_user_data` VALUES ('3061', '69', 'weibo_count', '0', '2017-04-06 14:27:14');
+INSERT INTO `el_user_data` VALUES ('3062', '69', 'favorite_count', '0', '2017-04-06 14:27:14');
+INSERT INTO `el_user_data` VALUES ('3063', '69', 'following_count', '0', '2017-04-06 14:27:14');
+INSERT INTO `el_user_data` VALUES ('3064', '69', 'follower_count', '0', '2017-04-06 14:27:14');
+INSERT INTO `el_user_data` VALUES ('3065', '70', 'feed_count', '0', '2017-04-06 14:47:15');
+INSERT INTO `el_user_data` VALUES ('3066', '70', 'weibo_count', '0', '2017-04-06 14:47:15');
+INSERT INTO `el_user_data` VALUES ('3067', '70', 'favorite_count', '0', '2017-04-06 14:47:15');
+INSERT INTO `el_user_data` VALUES ('3068', '70', 'following_count', '0', '2017-04-06 14:47:15');
+INSERT INTO `el_user_data` VALUES ('3069', '70', 'follower_count', '0', '2017-04-06 14:47:15');
+INSERT INTO `el_user_data` VALUES ('3070', '71', 'feed_count', '0', '2017-04-06 14:50:46');
+INSERT INTO `el_user_data` VALUES ('3071', '71', 'weibo_count', '0', '2017-04-06 14:50:46');
+INSERT INTO `el_user_data` VALUES ('3072', '71', 'favorite_count', '0', '2017-04-06 14:50:46');
+INSERT INTO `el_user_data` VALUES ('3073', '71', 'following_count', '0', '2017-04-06 14:50:46');
+INSERT INTO `el_user_data` VALUES ('3074', '71', 'follower_count', '0', '2017-04-06 14:50:46');
+INSERT INTO `el_user_data` VALUES ('3075', '72', 'feed_count', '0', '2017-04-06 14:57:59');
+INSERT INTO `el_user_data` VALUES ('3076', '72', 'weibo_count', '0', '2017-04-06 14:57:59');
+INSERT INTO `el_user_data` VALUES ('3077', '72', 'favorite_count', '0', '2017-04-06 14:57:59');
+INSERT INTO `el_user_data` VALUES ('3078', '72', 'following_count', '0', '2017-04-06 14:57:59');
+INSERT INTO `el_user_data` VALUES ('3079', '72', 'follower_count', '0', '2017-04-06 14:57:59');
+INSERT INTO `el_user_data` VALUES ('3080', '73', 'feed_count', '0', '2017-04-06 15:19:19');
+INSERT INTO `el_user_data` VALUES ('3081', '73', 'weibo_count', '0', '2017-04-06 15:19:19');
+INSERT INTO `el_user_data` VALUES ('3082', '73', 'favorite_count', '0', '2017-04-06 15:19:19');
+INSERT INTO `el_user_data` VALUES ('3083', '73', 'following_count', '0', '2017-04-06 15:19:19');
+INSERT INTO `el_user_data` VALUES ('3084', '73', 'follower_count', '0', '2017-04-06 15:19:19');
+INSERT INTO `el_user_data` VALUES ('3085', '74', 'feed_count', '0', '2017-04-06 15:24:42');
+INSERT INTO `el_user_data` VALUES ('3086', '74', 'weibo_count', '0', '2017-04-06 15:24:42');
+INSERT INTO `el_user_data` VALUES ('3087', '74', 'favorite_count', '0', '2017-04-06 15:24:42');
+INSERT INTO `el_user_data` VALUES ('3088', '74', 'following_count', '0', '2017-04-06 15:24:42');
+INSERT INTO `el_user_data` VALUES ('3089', '74', 'follower_count', '0', '2017-04-06 15:24:42');
+INSERT INTO `el_user_data` VALUES ('3090', '75', 'feed_count', '0', '2017-04-06 15:32:08');
+INSERT INTO `el_user_data` VALUES ('3091', '75', 'weibo_count', '0', '2017-04-06 15:32:08');
+INSERT INTO `el_user_data` VALUES ('3092', '75', 'favorite_count', '0', '2017-04-06 15:32:08');
+INSERT INTO `el_user_data` VALUES ('3093', '75', 'following_count', '0', '2017-04-06 15:32:08');
+INSERT INTO `el_user_data` VALUES ('3094', '75', 'follower_count', '0', '2017-04-06 15:32:08');
+INSERT INTO `el_user_data` VALUES ('3095', '76', 'feed_count', '0', '2017-04-06 15:47:50');
+INSERT INTO `el_user_data` VALUES ('3096', '76', 'weibo_count', '0', '2017-04-06 15:47:50');
+INSERT INTO `el_user_data` VALUES ('3097', '76', 'favorite_count', '0', '2017-04-06 15:47:50');
+INSERT INTO `el_user_data` VALUES ('3098', '76', 'following_count', '0', '2017-04-06 15:47:50');
+INSERT INTO `el_user_data` VALUES ('3099', '76', 'follower_count', '0', '2017-04-06 15:47:50');
+INSERT INTO `el_user_data` VALUES ('3100', '77', 'feed_count', '0', '2017-04-06 15:53:39');
+INSERT INTO `el_user_data` VALUES ('3101', '77', 'weibo_count', '0', '2017-04-06 15:53:39');
+INSERT INTO `el_user_data` VALUES ('3102', '77', 'favorite_count', '0', '2017-04-06 15:53:39');
+INSERT INTO `el_user_data` VALUES ('3103', '77', 'following_count', '0', '2017-04-06 15:53:39');
+INSERT INTO `el_user_data` VALUES ('3104', '77', 'follower_count', '0', '2017-04-06 15:53:39');
+INSERT INTO `el_user_data` VALUES ('3105', '78', 'feed_count', '0', '2017-04-06 15:58:32');
+INSERT INTO `el_user_data` VALUES ('3106', '78', 'weibo_count', '0', '2017-04-06 15:58:32');
+INSERT INTO `el_user_data` VALUES ('3107', '78', 'favorite_count', '0', '2017-04-06 15:58:32');
+INSERT INTO `el_user_data` VALUES ('3108', '78', 'following_count', '0', '2017-04-06 15:58:32');
+INSERT INTO `el_user_data` VALUES ('3109', '78', 'follower_count', '0', '2017-04-06 15:58:32');
+INSERT INTO `el_user_data` VALUES ('3110', '79', 'feed_count', '0', '2017-04-06 16:01:25');
+INSERT INTO `el_user_data` VALUES ('3111', '79', 'weibo_count', '0', '2017-04-06 16:01:25');
+INSERT INTO `el_user_data` VALUES ('3112', '79', 'favorite_count', '0', '2017-04-06 16:01:25');
+INSERT INTO `el_user_data` VALUES ('3113', '79', 'following_count', '0', '2017-04-06 16:01:25');
+INSERT INTO `el_user_data` VALUES ('3114', '79', 'follower_count', '0', '2017-04-06 16:01:25');
+INSERT INTO `el_user_data` VALUES ('3115', '80', 'feed_count', '0', '2017-04-06 16:09:45');
+INSERT INTO `el_user_data` VALUES ('3116', '80', 'weibo_count', '0', '2017-04-06 16:09:45');
+INSERT INTO `el_user_data` VALUES ('3117', '80', 'favorite_count', '0', '2017-04-06 16:09:45');
+INSERT INTO `el_user_data` VALUES ('3118', '80', 'following_count', '0', '2017-04-06 16:09:45');
+INSERT INTO `el_user_data` VALUES ('3119', '80', 'follower_count', '0', '2017-04-06 16:09:45');
+INSERT INTO `el_user_data` VALUES ('3120', '81', 'feed_count', '0', '2017-04-06 16:10:40');
+INSERT INTO `el_user_data` VALUES ('3121', '81', 'weibo_count', '0', '2017-04-06 16:10:40');
+INSERT INTO `el_user_data` VALUES ('3122', '81', 'favorite_count', '0', '2017-04-06 16:10:40');
+INSERT INTO `el_user_data` VALUES ('3123', '81', 'following_count', '0', '2017-04-06 16:10:40');
+INSERT INTO `el_user_data` VALUES ('3124', '81', 'follower_count', '0', '2017-04-06 16:10:40');
+INSERT INTO `el_user_data` VALUES ('3125', '82', 'feed_count', '0', '2017-04-06 16:25:21');
+INSERT INTO `el_user_data` VALUES ('3126', '82', 'weibo_count', '0', '2017-04-06 16:25:21');
+INSERT INTO `el_user_data` VALUES ('3127', '82', 'favorite_count', '0', '2017-04-06 16:25:21');
+INSERT INTO `el_user_data` VALUES ('3128', '82', 'following_count', '0', '2017-04-06 16:25:21');
+INSERT INTO `el_user_data` VALUES ('3129', '82', 'follower_count', '0', '2017-04-06 16:25:21');
+INSERT INTO `el_user_data` VALUES ('3130', '83', 'feed_count', '0', '2017-04-06 16:31:12');
+INSERT INTO `el_user_data` VALUES ('3131', '83', 'weibo_count', '0', '2017-04-06 16:31:12');
+INSERT INTO `el_user_data` VALUES ('3132', '83', 'favorite_count', '0', '2017-04-06 16:31:12');
+INSERT INTO `el_user_data` VALUES ('3133', '83', 'following_count', '0', '2017-04-06 16:31:12');
+INSERT INTO `el_user_data` VALUES ('3134', '83', 'follower_count', '0', '2017-04-06 16:31:12');
+INSERT INTO `el_user_data` VALUES ('3135', '85', 'feed_count', '0', '2017-04-07 10:54:34');
+INSERT INTO `el_user_data` VALUES ('3136', '85', 'weibo_count', '0', '2017-04-07 10:54:34');
+INSERT INTO `el_user_data` VALUES ('3137', '85', 'favorite_count', '0', '2017-04-07 10:54:34');
+INSERT INTO `el_user_data` VALUES ('3138', '85', 'following_count', '0', '2017-04-07 10:54:34');
+INSERT INTO `el_user_data` VALUES ('3139', '85', 'follower_count', '0', '2017-04-07 10:54:34');
+INSERT INTO `el_user_data` VALUES ('3140', '84', 'feed_count', '0', '2017-04-07 10:54:40');
+INSERT INTO `el_user_data` VALUES ('3141', '84', 'weibo_count', '0', '2017-04-07 10:54:40');
+INSERT INTO `el_user_data` VALUES ('3142', '84', 'favorite_count', '0', '2017-04-07 10:54:40');
+INSERT INTO `el_user_data` VALUES ('3143', '84', 'following_count', '0', '2017-04-07 10:54:40');
+INSERT INTO `el_user_data` VALUES ('3144', '84', 'follower_count', '0', '2017-04-07 10:54:40');
+INSERT INTO `el_user_data` VALUES ('3145', '87', 'feed_count', '0', '2017-04-07 14:03:13');
+INSERT INTO `el_user_data` VALUES ('3146', '87', 'weibo_count', '0', '2017-04-07 14:03:13');
+INSERT INTO `el_user_data` VALUES ('3147', '87', 'favorite_count', '0', '2017-04-07 14:03:13');
+INSERT INTO `el_user_data` VALUES ('3148', '87', 'following_count', '0', '2017-04-07 14:03:13');
+INSERT INTO `el_user_data` VALUES ('3149', '87', 'follower_count', '0', '2017-04-07 14:03:13');
+INSERT INTO `el_user_data` VALUES ('3150', '86', 'feed_count', '0', '2017-04-07 14:03:20');
+INSERT INTO `el_user_data` VALUES ('3151', '86', 'weibo_count', '0', '2017-04-07 14:03:20');
+INSERT INTO `el_user_data` VALUES ('3152', '86', 'favorite_count', '0', '2017-04-07 14:03:20');
+INSERT INTO `el_user_data` VALUES ('3153', '86', 'following_count', '0', '2017-04-07 14:03:20');
+INSERT INTO `el_user_data` VALUES ('3154', '86', 'follower_count', '0', '2017-04-07 14:03:20');
+INSERT INTO `el_user_data` VALUES ('3158', '88', 'weibo_count', '0', '2017-04-08 11:18:03');
+INSERT INTO `el_user_data` VALUES ('3157', '88', 'feed_count', '0', '2017-04-08 11:18:03');
+INSERT INTO `el_user_data` VALUES ('3159', '88', 'favorite_count', '0', '2017-04-08 11:18:03');
+INSERT INTO `el_user_data` VALUES ('3160', '88', 'following_count', '0', '2017-04-08 11:18:03');
+INSERT INTO `el_user_data` VALUES ('3161', '88', 'follower_count', '0', '2017-04-08 11:18:03');
+INSERT INTO `el_user_data` VALUES ('3164', '38', 'favorite_count', '0', '2017-04-10 14:20:09');
+INSERT INTO `el_user_data` VALUES ('3165', '38', 'following_count', '0', '2017-04-10 14:20:09');
+INSERT INTO `el_user_data` VALUES ('3166', '38', 'follower_count', '0', '2017-04-10 14:20:09');
+INSERT INTO `el_user_data` VALUES ('3167', '42', 'feed_count', '0', '2017-04-10 14:20:16');
+INSERT INTO `el_user_data` VALUES ('3168', '42', 'weibo_count', '0', '2017-04-10 14:20:16');
+INSERT INTO `el_user_data` VALUES ('3169', '42', 'favorite_count', '0', '2017-04-10 14:20:16');
+INSERT INTO `el_user_data` VALUES ('3170', '42', 'following_count', '0', '2017-04-10 14:20:16');
+INSERT INTO `el_user_data` VALUES ('3171', '42', 'follower_count', '0', '2017-04-10 14:20:16');
+INSERT INTO `el_user_data` VALUES ('3172', '2', 'check_connum', '1', '2017-04-10 17:30:58');
+INSERT INTO `el_user_data` VALUES ('3173', '2', 'check_totalnum', '1', '2017-04-10 17:30:58');
+INSERT INTO `el_user_data` VALUES ('3174', '3', 'check_connum', '1', '2017-04-19 17:02:52');
+INSERT INTO `el_user_data` VALUES ('3175', '3', 'check_totalnum', '2', '2017-05-05 11:29:20');
+INSERT INTO `el_user_data` VALUES ('3176', '1', 'following_count', '1', '2017-04-19 17:24:40');
+INSERT INTO `el_user_data` VALUES ('3177', '3', 'follower_count', '1', '2017-04-19 17:24:40');
+INSERT INTO `el_user_data` VALUES ('3178', '3', 'new_folower_count', '1', '2017-04-19 17:24:40');
+INSERT INTO `el_user_data` VALUES ('3179', '1', 'unread_comment', '1', '2017-04-20 14:34:01');
 
 -- ----------------------------
 -- Table structure for `el_user_follow`
@@ -7618,11 +8741,13 @@ CREATE TABLE `el_user_follow` (
   PRIMARY KEY (`follow_id`),
   UNIQUE KEY `uid-fid` (`uid`,`fid`),
   UNIQUE KEY `fid-uid` (`fid`,`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=460 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=462 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user_follow
 -- ----------------------------
+INSERT INTO `el_user_follow` VALUES ('460', '3', '1', '', '1492593812');
+INSERT INTO `el_user_follow` VALUES ('461', '1', '3', '', '1492593880');
 
 -- ----------------------------
 -- Table structure for `el_user_follow_group`
@@ -7671,14 +8796,15 @@ CREATE TABLE `el_user_group` (
   `app_name` varchar(20) NOT NULL DEFAULT 'public' COMMENT '应用名称',
   `is_authenticate` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否为认证组',
   PRIMARY KEY (`user_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user_group
 -- ----------------------------
 INSERT INTO `el_user_group` VALUES ('1', '管理员', '1436771027', 'v_05.png', '0', 'public', '0');
-INSERT INTO `el_user_group` VALUES ('2', '正常用户', '1489564047', 'v_02.png', '0', 'public', '0');
+INSERT INTO `el_user_group` VALUES ('2', '直播间管理员', '1491803052', 'v_04.png', '0', 'public', '0');
 INSERT INTO `el_user_group` VALUES ('3', '教师认证', '1441593652', 'v_07.png', '0', 'public', '1');
+INSERT INTO `el_user_group` VALUES ('13', '正常用户', '1490855065', 'v_02.png', '0', 'public', '0');
 INSERT INTO `el_user_group` VALUES ('14', '游客', '1489564088', 'v_01.gif', '0', 'public', '0');
 
 -- ----------------------------
@@ -7692,13 +8818,15 @@ CREATE TABLE `el_user_group_link` (
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`),
   KEY `user_group_id` (`user_group_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1084 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=1143 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user_group_link
 -- ----------------------------
 INSERT INTO `el_user_group_link` VALUES ('1', '1', '1');
-INSERT INTO `el_user_group_link` VALUES ('1083', '38', '1');
+INSERT INTO `el_user_group_link` VALUES ('1139', '2', '13');
+INSERT INTO `el_user_group_link` VALUES ('1141', '2', '3');
+INSERT INTO `el_user_group_link` VALUES ('1142', '3', '13');
 
 -- ----------------------------
 -- Table structure for `el_user_official`
@@ -7829,11 +8957,13 @@ CREATE TABLE `el_user_verified` (
   `other_data` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_user_verified
 -- ----------------------------
+INSERT INTO `el_user_verified` VALUES ('80', '0', '3', '6', '', 'asdasd', '450210233654123655', '13686500236', '阿斯达', '-1', '|407|', '帅', '', '', '', '', '');
+INSERT INTO `el_user_verified` VALUES ('81', '2', '3', '6', '', '零星', '450213522102365412', '13686500236', 'asdad', '1', '|408|', 'asdad', '', '', '', '', '');
 
 -- ----------------------------
 -- Table structure for `el_user_verified_category`
@@ -7851,6 +8981,24 @@ CREATE TABLE `el_user_verified_category` (
 -- Records of el_user_verified_category
 -- ----------------------------
 INSERT INTO `el_user_verified_category` VALUES ('6', '教师资格认证', '3', '0');
+
+-- ----------------------------
+-- Table structure for `el_videolist`
+-- ----------------------------
+DROP TABLE IF EXISTS `el_videolist`;
+CREATE TABLE `el_videolist` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `videoname` varchar(100) DEFAULT NULL COMMENT '视频名称',
+  `video_url` varchar(100) DEFAULT NULL COMMENT '视频地址',
+  `time` int(11) DEFAULT NULL COMMENT '上传时间',
+  `attach_id` int(10) DEFAULT NULL COMMENT '附件id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of el_videolist
+-- ----------------------------
+INSERT INTO `el_videolist` VALUES ('7', '但愿人长久第一节', '/data/upload/2017/0419/15/58f717834fe92.flv', '1492588421', '441');
 
 -- ----------------------------
 -- Table structure for `el_x_article`
@@ -7891,7 +9039,7 @@ CREATE TABLE `el_x_logs` (
   `isAdmin` tinyint(2) NOT NULL COMMENT '是否是管理员日志',
   `keyword` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '模板变量值',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=743 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=839 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_x_logs
@@ -7900,6 +9048,60 @@ INSERT INTO `el_x_logs` VALUES ('739', '1', '管理员', 'admin', 'config', 'edi
 INSERT INTO `el_x_logs` VALUES ('740', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E5889BE5BBBAE79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1489124465', '1', 0xE5889BE5BBBAE79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
 INSERT INTO `el_x_logs` VALUES ('741', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E7AB99E782B9E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1489626786', '1', 0xE7AB99E782B9E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
 INSERT INTO `el_x_logs` VALUES ('742', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E7AB99E782B9E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1489629635', '1', 0xE7AB99E782B9E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('755', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31383A22E4BFAEE694B9E4BC9AE59198E4BFA1E681AF223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1490839399', '1', 0xE4BFAEE694B9E4BC9AE59198E4BFA1E681AF20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('756', '1', '管理员', 'admin', 'config', 'editSearchPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BC9AE59198E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=saveSearchConfig', '1490840727', '1', 0xE4BC9AE59198E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('757', '1', '管理员', 'admin', 'config', 'editSearchPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BC9AE59198E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=saveSearchConfig', '1490840881', '1', 0xE4BC9AE59198E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('758', '1', '管理员', 'admin', 'config', 'editSearchPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BC9AE59198E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=saveSearchConfig', '1490840940', '1', 0xE4BC9AE59198E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('759', '1', '管理员', 'admin', 'config', 'editSearchPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BC9AE59198E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=saveSearchConfig', '1490840983', '1', 0xE4BC9AE59198E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('790', '1', '管理员', 'admin', 'config', 'editDetail', '183.11.28.37', 0x613A323A7B733A343A226E616D65223B733A31323A22E7AB99E782B9E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1491815360', '1', 0xE7AB99E782B9E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('791', '1', '管理员', 'admin', 'config', 'editDetail', '183.11.28.37', 0x613A323A7B733A343A226E616D65223B733A31323A22E7AB99E782B9E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1491815377', '1', 0xE7AB99E782B9E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('792', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E4BFAEE694B9E79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492160174', '1', 0xE4BFAEE694B9E79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('793', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E5889BE5BBBAE79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492160325', '1', 0xE5889BE5BBBAE79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('794', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E4BFAEE694B9E79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492162104', '1', 0xE4BFAEE694B9E79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('795', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E5889BE5BBBAE79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492162124', '1', 0xE5889BE5BBBAE79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('796', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32343A22E4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492224546', '1', 0xE4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('797', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A33333A22E4BA91E8AFBEE5A082202D20E4B883E7899BE4BA91E5AD98E582A8E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492227949', '1', 0xE4BA91E8AFBEE5A082202D20E4B883E7899BE4BA91E5AD98E582A8E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('798', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32343A22E4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492227965', '1', 0xE4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('799', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32343A22E4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492228019', '1', 0xE4BA91E8AFBEE5A082202D20E59FBAE69CACE8AEBEE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('800', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492235799', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('801', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492235827', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('802', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492235847', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('803', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492235873', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('804', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492235883', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('805', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492236164', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('806', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492237127', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('807', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492237165', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('808', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492417465', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('809', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492417653', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('810', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492418392', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('811', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492418417', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('812', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492418445', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('813', '1', '管理员', 'admin', 'config', 'editDetail', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E99984E4BBB6E9858DE7BDAE223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE223B7D, '/index.php?app=admin&mod=Index&act=saveConfigData', '1492418478', '1', 0xE99984E4BBB6E9858DE7BDAE20E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E8AFA6E7BB86E695B0E68DAE);
+INSERT INTO `el_x_logs` VALUES ('814', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E8A786E9A291E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492509111', '1', 0xE8A786E9A291E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('815', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E8A786E9A291E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492509513', '1', 0xE8A786E9A291E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('816', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8A786E9A291223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492509838', '1', 0xE6B7BBE58AA0E8A786E9A29120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('817', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8A786E9A291223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492510468', '1', 0xE6B7BBE58AA0E8A786E9A29120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('818', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E8A786E9A291E58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492578626', '1', 0xE8A786E9A291E58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('819', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8A786E9A291223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492579633', '1', 0xE6B7BBE58AA0E8A786E9A29120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('820', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BFAEE694B9E8A786E9A291223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492582015', '1', 0xE4BFAEE694B9E8A786E9A29120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('821', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E4BFAEE694B9E8A786E9A291223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492583286', '1', 0xE4BFAEE694B9E8A786E9A29120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('822', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31353A22E4BFAEE694B9E79BB4E692ADE997B4223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1492589834', '1', 0xE4BFAEE694B9E79BB4E692ADE997B420E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('823', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32323A22E7BC96E8BE91E8AEB2E5B8882DE5AD99E99D99E680A1223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494640491', '1', 0xE7BC96E8BE91E8AEB2E5B8882DE5AD99E99D99E680A120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('824', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32323A22E7BC96E8BE91E8AEB2E5B8882DE5AD99E99D99E680A1223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494640725', '1', 0xE7BC96E8BE91E8AEB2E5B8882DE5AD99E99D99E680A120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('825', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494655392', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('826', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494655556', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('827', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494655730', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('828', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494655754', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('829', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494656025', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('830', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494663138', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('831', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31323A22E6B7BBE58AA0E8AEB2E5B888223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494663180', '1', 0xE6B7BBE58AA0E8AEB2E5B88820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('832', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31383A22E68E88E8AFBEE8AFBEE7A88BE58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494668136', '1', 0xE68E88E8AFBEE8AFBEE7A88BE58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('833', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32363A22E7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B31223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494813418', '1', 0xE7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B3120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('834', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32363A22E7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B31223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494813457', '1', 0xE7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B3120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('835', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32363A22E7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B31223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494813490', '1', 0xE7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B3120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('836', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A32363A22E7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B31223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494814918', '1', 0xE7BC96E8BE91E8AFBEE7A88B2DE59CA8E7BABFE8AFBEE7A88B3120E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('837', '1', '管理员', 'admin', 'config', 'editSearchPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31383A22E68E88E8AFBEE8AFBEE7A88BE58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=saveSearchConfig', '1494816697', '1', 0xE68E88E8AFBEE8AFBEE7A88BE58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
+INSERT INTO `el_x_logs` VALUES ('838', '1', '管理员', 'admin', 'config', 'editPagekey', '127.0.0.1', 0x613A323A7B733A343A226E616D65223B733A31383A22E68E88E8AFBEE8AFBEE7A88BE58897E8A1A8223B733A323A226B31223B733A33303A22E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE223B7D, '/index.php?app=admin&mod=Index&act=savePageConfig', '1494818146', '1', 0xE68E88E8AFBEE8AFBEE7A88BE58897E8A1A820E4BF9DE5AD98E4BFAEE694B9E7BC96E8BE91E9A1B5E99DA2E9858DE7BDAE);
 
 -- ----------------------------
 -- Table structure for `el_zy_album`
@@ -7930,11 +9132,12 @@ CREATE TABLE `el_zy_album` (
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`),
   KEY `album_category` (`album_category`)
-) ENGINE=MyISAM AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_album
 -- ----------------------------
+INSERT INTO `el_zy_album` VALUES ('1', '1', '18', ',18,', '一年级数学上册', '适合一年级全体同学暑假提前预学，和基础薄弱同学秋季同步复习。', '454', '1', '0', '小学一年级', ',174,', '0', '0', '0', '0.0', '0', '0', '1493616345', '1506144347', '1494652363', '1494653153');
 
 -- ----------------------------
 -- Table structure for `el_zy_album_video_link`
@@ -7945,11 +9148,13 @@ CREATE TABLE `el_zy_album_video_link` (
   `album_id` int(11) NOT NULL COMMENT '专辑ID',
   `video_id` int(11) NOT NULL COMMENT '课程ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_album_video_link
 -- ----------------------------
+INSERT INTO `el_zy_album_video_link` VALUES ('4', '1', '2');
+INSERT INTO `el_zy_album_video_link` VALUES ('3', '1', '1');
 
 -- ----------------------------
 -- Table structure for `el_zy_bcard`
@@ -8011,11 +9216,14 @@ CREATE TABLE `el_zy_comment` (
   `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '删除状态，0否1是',
   `ctime` int(11) NOT NULL COMMENT '时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_comment
 -- ----------------------------
+INSERT INTO `el_zy_comment` VALUES ('1', '1', '0', '108', null, 'group_topic', '0', '0', '', '阿诗丹顿店', '0', '0', '1492669990');
+INSERT INTO `el_zy_comment` VALUES ('2', '3', '1', '108', null, 'group_topic', '1', '0', '', '回复@管理员 ：hahahah', '1', '0', '1492670041');
+INSERT INTO `el_zy_comment` VALUES ('3', '1', '0', '108', null, 'group_topic', '0', '0', '', '顶顶顶顶', '0', '0', '1492670691');
 
 -- ----------------------------
 -- Table structure for `el_zy_learncoin`
@@ -8030,13 +9238,16 @@ CREATE TABLE `el_zy_learncoin` (
   `vip_expire` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'VIP到期时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid` (`uid`)
-) ENGINE=MyISAM AUTO_INCREMENT=614 DEFAULT CHARSET=utf8 COMMENT='用户学币';
+) ENGINE=MyISAM AUTO_INCREMENT=666 DEFAULT CHARSET=utf8 COMMENT='用户学币';
 
 -- ----------------------------
 -- Records of el_zy_learncoin
 -- ----------------------------
 INSERT INTO `el_zy_learncoin` VALUES ('612', '1', '0.00', '0.00', '0', '0');
-INSERT INTO `el_zy_learncoin` VALUES ('613', '38', '0.00', '0.00', '0', '0');
+INSERT INTO `el_zy_learncoin` VALUES ('614', '39', '14.69', '0.00', '0', '0');
+INSERT INTO `el_zy_learncoin` VALUES ('615', '40', '0.00', '0.00', '0', '0');
+INSERT INTO `el_zy_learncoin` VALUES ('664', '2', '0.00', '0.00', '0', '0');
+INSERT INTO `el_zy_learncoin` VALUES ('665', '3', '0.00', '0.00', '0', '0');
 
 -- ----------------------------
 -- Table structure for `el_zy_learncoin_flow`
@@ -8070,7 +9281,7 @@ CREATE TABLE `el_zy_loginsync` (
   `oauth_token` varchar(255) NOT NULL,
   `oauth_token_secret` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_loginsync
@@ -8170,7 +9381,7 @@ CREATE TABLE `el_zy_order_course` (
   `ctime` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_order_course
@@ -8221,7 +9432,7 @@ CREATE TABLE `el_zy_recharge` (
   `pay_order` varchar(255) NOT NULL DEFAULT '' COMMENT '支付的订单号',
   `pay_type` varchar(255) NOT NULL DEFAULT '' COMMENT '支付方式',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10308 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10310 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_recharge
@@ -8265,11 +9476,16 @@ CREATE TABLE `el_zy_subject_category` (
   `title` varchar(200) DEFAULT NULL,
   `sort` int(10) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`zy_subject_category_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_subject_category
 -- ----------------------------
+INSERT INTO `el_zy_subject_category` VALUES ('1', '0', '初一语文', '1');
+INSERT INTO `el_zy_subject_category` VALUES ('2', '0', '初一数学', '2');
+INSERT INTO `el_zy_subject_category` VALUES ('3', '0', '初一英语', '3');
+INSERT INTO `el_zy_subject_category` VALUES ('4', '0', '一年级数学', '4');
+INSERT INTO `el_zy_subject_category` VALUES ('5', '0', '一年级语文', '5');
 
 -- ----------------------------
 -- Table structure for `el_zy_suggest`
@@ -8314,11 +9530,12 @@ CREATE TABLE `el_zy_teacher` (
   `is_del` int(11) DEFAULT '0' COMMENT '是否删除0否，1是',
   `ctime` int(100) DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_teacher
 -- ----------------------------
+INSERT INTO `el_zy_teacher` VALUES ('1', '2', '孙静怡', null, '10', '生动', '孙静怡高级教师，硕士毕业，曾两次获得“优秀教师”称号，有多年小学数学授课经验。', '447', '高级教师', '硕士', '华东师范大学', '1', '深圳宝安', '灵活', null, '0', '0', '0', '0', '0', '1494641521');
 
 -- ----------------------------
 -- Table structure for `el_zy_teacher_course`
@@ -8329,15 +9546,17 @@ CREATE TABLE `el_zy_teacher_course` (
   `course_name` varchar(200) DEFAULT NULL,
   `course_teacher` int(11) DEFAULT NULL,
   `course_price` float DEFAULT NULL,
-  `course_inro` text NOT NULL COMMENT '课程介绍',
+  `course_inro` text COMMENT '课程介绍',
   `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除,1代表已删除',
   `ctime` int(11) DEFAULT NULL,
   PRIMARY KEY (`course_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_teacher_course
 -- ----------------------------
+INSERT INTO `el_zy_teacher_course` VALUES ('1', '在线课程1', '1', '50', '嘻嘻嘻嘻嘻嘻信息网', '0', '1494815435');
+INSERT INTO `el_zy_teacher_course` VALUES ('2', '线上课程2', '1', '60', '啊实打实大师大师的', '0', '1494815473');
 
 -- ----------------------------
 -- Table structure for `el_zy_teacher_review`
@@ -8356,7 +9575,7 @@ CREATE TABLE `el_zy_teacher_review` (
   `is_del` int(11) DEFAULT '0' COMMENT '当值为1的时候被删除',
   `ctime` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_teacher_review
@@ -8372,7 +9591,7 @@ CREATE TABLE `el_zy_teacher_schedule` (
   `title` varchar(200) DEFAULT NULL COMMENT '名称',
   `ctime` int(11) DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_teacher_schedule
@@ -8426,7 +9645,7 @@ CREATE TABLE `el_zy_uphonecode` (
   `code` int(11) NOT NULL COMMENT '验证码',
   `stime` int(11) NOT NULL COMMENT '发送时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_uphonecode
@@ -8442,11 +9661,13 @@ CREATE TABLE `el_zy_user_visitor` (
   `fuid` int(10) NOT NULL COMMENT '被访问者uid',
   `ctime` int(20) NOT NULL COMMENT '访问时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_user_visitor
 -- ----------------------------
+INSERT INTO `el_zy_user_visitor` VALUES ('1', '3', '1', '1493954891');
+INSERT INTO `el_zy_user_visitor` VALUES ('2', '1', '3', '1492660300');
 
 -- ----------------------------
 -- Table structure for `el_zy_video`
@@ -8459,7 +9680,7 @@ CREATE TABLE `el_zy_video` (
   `video_category` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '视频分类id',
   `fullcategorypath` varchar(50) DEFAULT NULL COMMENT '视频分类全路径',
   `video_intro` text NOT NULL COMMENT '课程简介',
-  `video_address` varchar(225) NOT NULL,
+  `video_address` varchar(225) DEFAULT NULL,
   `cover` int(10) NOT NULL DEFAULT '0' COMMENT '封面id',
   `teacher_id` int(10) DEFAULT '0' COMMENT '讲师id',
   `videofile_ids` int(10) NOT NULL DEFAULT '0' COMMENT '课程附件id',
@@ -8488,11 +9709,13 @@ CREATE TABLE `el_zy_video` (
   `ctime` int(10) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `utime` int(10) NOT NULL DEFAULT '0' COMMENT '最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=293 DEFAULT CHARSET=utf8 COMMENT='课程表';
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='课程表';
 
 -- ----------------------------
 -- Records of el_zy_video
 -- ----------------------------
+INSERT INTO `el_zy_video` VALUES ('1', '1', '小学一年级数学上册第一集', '4', ',1,4,', '适合一年级全体同学暑假提前预学，和基础薄弱同学秋季同步复习。', 'http://www.educationonline.com/data/upload/2017/0513/11/591681e13383f.flv', '450', '1', '0', '第一集', ',172,', '0', '0.00', '0.00', '0.00', '0', '0', '0', '1.00', '', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1494560907', '1514519309', '1494647339', '1494647339');
+INSERT INTO `el_zy_video` VALUES ('2', '1', '小学一年级数学上册第一集', '4', ',1,4,', '适合一年级全体同学暑假提前预学，和基础薄弱同学秋季同步复习。', 'http://www.educationonline.com/data/upload/2017/0513/13/591694ca464b4.flv', '452', '1', '0', '第二季', ',173,', '0', '0.00', '0.00', '0.00', '0', '0', '0', '1.00', '', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1493701720', '1513832921', '1494652129', '1494652129');
 
 -- ----------------------------
 -- Table structure for `el_zy_video_category`
@@ -8505,11 +9728,29 @@ CREATE TABLE `el_zy_video_category` (
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '分类类型 1:课程分类，2:点播分类',
   PRIMARY KEY (`zy_video_category_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=443 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_video_category
 -- ----------------------------
+INSERT INTO `el_zy_video_category` VALUES ('1', '0', '小学课程', '1', '1');
+INSERT INTO `el_zy_video_category` VALUES ('2', '0', '初中课程', '2', '1');
+INSERT INTO `el_zy_video_category` VALUES ('3', '0', '高中课程', '3', '1');
+INSERT INTO `el_zy_video_category` VALUES ('4', '1', '一年级', '1', '1');
+INSERT INTO `el_zy_video_category` VALUES ('5', '1', '二年级', '2', '1');
+INSERT INTO `el_zy_video_category` VALUES ('6', '1', '三年级', '3', '1');
+INSERT INTO `el_zy_video_category` VALUES ('7', '1', '四年级', '4', '1');
+INSERT INTO `el_zy_video_category` VALUES ('8', '1', '五年级', '5', '1');
+INSERT INTO `el_zy_video_category` VALUES ('9', '1', '六年级', '6', '1');
+INSERT INTO `el_zy_video_category` VALUES ('10', '2', '初一', '1', '1');
+INSERT INTO `el_zy_video_category` VALUES ('11', '2', '初二', '2', '1');
+INSERT INTO `el_zy_video_category` VALUES ('12', '2', '初三', '3', '1');
+INSERT INTO `el_zy_video_category` VALUES ('13', '3', '高一', '1', '1');
+INSERT INTO `el_zy_video_category` VALUES ('14', '3', '高二', '2', '1');
+INSERT INTO `el_zy_video_category` VALUES ('15', '3', '高三', '3', '1');
+INSERT INTO `el_zy_video_category` VALUES ('16', '0', '高中精选专辑', '4', '2');
+INSERT INTO `el_zy_video_category` VALUES ('17', '0', '初中精选专辑', '5', '2');
+INSERT INTO `el_zy_video_category` VALUES ('18', '0', '小学精选专辑', '6', '2');
 
 -- ----------------------------
 -- Table structure for `el_zy_video_merge`
@@ -8563,7 +9804,7 @@ CREATE TABLE `el_zy_wenda` (
   `tag_id` varchar(225) DEFAULT NULL COMMENT '标签id,多个用逗号分割',
   `ctime` int(11) NOT NULL COMMENT '发布时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_wenda
@@ -8585,7 +9826,7 @@ CREATE TABLE `el_zy_wenda_comment` (
   `is_del` int(1) NOT NULL DEFAULT '0' COMMENT '是否删除0否：1是',
   `ctime` int(20) NOT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_wenda_comment
@@ -8600,7 +9841,7 @@ CREATE TABLE `el_zy_wenda_praise` (
   `uid` int(10) NOT NULL COMMENT '用户uid',
   `comment_id` int(10) NOT NULL COMMENT '评论id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of el_zy_wenda_praise

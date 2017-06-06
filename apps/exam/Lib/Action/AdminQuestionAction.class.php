@@ -1,4 +1,5 @@
 <?php
+header("Content-Type:text/html;charset=utf-8");
 /**
  * 考试系统(题库)后台配置
  * 1.题库管理 - 目前支持1级分类
@@ -75,6 +76,10 @@ class AdminQuestionAction extends AdministratorAction
 		$data['question_content'] 		= $post['question_content']; 
 		$data['question_qsn_guide'] 	= $post['question_qsn_guide'] ? $post['question_qsn_guide'] : "暂无解析！" ; 
 		$data['question_admin']         = $this->mid;
+		//如果是填空题
+		if($data['question_type'] == 3) {
+			$data['question_option_count'] = $post['wan_count'];
+		}
 		$question_id = intval($post['question_id']);
 		if($question_id > 0){
 			$data['question_update_date'] = time();
@@ -257,13 +262,15 @@ class AdminQuestionAction extends AdministratorAction
 		$data->setOutputEncoding('UTF-8');
 		$data->read($filename);
 		error_reporting(E_ALL ^ E_NOTICE);
+		// echo '<pre>';
+		// print_r($data->sheets);exit;
 		//循环获取excel中的值
 		for ($i = 1; $i <= $data->sheets[0]['numRows']; $i++) {
-			if($i>2){
-				$category=explode("-", $data->sheets[0]['cells'][$i][1]);	
+			if($i>1){
+				// $category=explode("-", $data->sheets[0]['cells'][$i][1]);	
+				$category=$data->sheets[0]['cells'][$i];	
 				$question_category=$category[1];
-				$type=explode("-",$data->sheets[0]['cells'][$i][2]);
-				$question_type=$type[1];
+				$question_type=$category[2];
 				$question_point=$data->sheets[0]['cells'][$i][3];
 				$question_option_count=$data->sheets[0]['cells'][$i][4];
 				$question_content=$data->sheets[0]['cells'][$i][5];

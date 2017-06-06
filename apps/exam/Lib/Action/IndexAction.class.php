@@ -107,6 +107,7 @@ class IndexAction extends Action {
             $this->error('参数错误');
         }
         $paper_list=M("ex_exam_paper")->where("exam_paper_exam=".$exam_id)->findALl();
+        
         $paper_id=0;
         if(count($paper_list)==1){
             $paper_id=$paper_list[0]["exam_paper_paper"];
@@ -134,7 +135,7 @@ class IndexAction extends Action {
         $this->assign('question_type',$question_type);
         $this->assign('begin_time',time());
         $this->assign('sum',count($data["question_list"]));
-         $this->display();
+        $this->display();
     }
     public function doExam(){
         $user_id=$this->uid;

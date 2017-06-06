@@ -75,7 +75,7 @@ function checkForm(){
         ui.error("交卷时间已过!");
         return false;
       }else{
-        $("#time").val(0);
+        //$("#time").val(0);
         var sum=$("#sum").val();
         for(var i=1;i<=sum;i++){
           var user_question="";
@@ -93,7 +93,11 @@ function checkForm(){
             });
             user_question=user_question.substring(0,user_question.length-1);
           }else if(question_type==3){
-            user_question=$("input[name='user_question"+i+"']").val();
+            var els=$("input[name='user_question"+i+"']");
+            for (var i = 0, j = els.length; i < j; i++){
+              user_question += els[i].value+',';              
+            }
+            user_question=user_question.substring(0,user_question.length-1);
           }
           //判断用户答案是否正确
           if(user_question==zq_answer){

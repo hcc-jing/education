@@ -102,12 +102,13 @@ class TeacherAction extends CommonAction{
     public function view(){
         $id   = intval($_GET['id']);
         $data = $this->teacher->getTeacherInfo($id);
+
         //查询用户性别信息
         $sexinfo = M ('user') -> field('sex') -> where ("uid = '{$data["uid"]}'") -> find();
         $data["teacher_schedule"] = explode(",",$data["teacher_schedule"]);
         $data['sex'] = $sexinfo['sex'] ? $sexinfo['sex'] : '';
         //教师课程
-        $teacher_course=M("zy_teacher_course")->where("course_teacher=".$data['uid'])->findALL();
+        $teacher_course=M("zy_teacher_course")->where("course_teacher=".$data['id']." and is_del = 0")->findALL();
         $data["course_count"] = count($teacher_course);
         foreach ($teacher_course as $key => $value) {
             $teacher_review=M('zy_teacher_review')->where("course_id=".$value["course_id"])->field('star')->findAll();
@@ -149,7 +150,11 @@ class TeacherAction extends CommonAction{
                 }
             }
         }
+        $teach_way = $data['teach_way'];
+        // echo '<pre>';
+        // print_r($data);exit;
         $this->assign('teacher_level',$teacher_level);
+        $this->assign('teach_way',$teach_way);
         $this->assign('teacher_course',$teacher_course);
         $this->assign('recTeacher',$recTeacher);
         $this->assign('recClass',$recClass);

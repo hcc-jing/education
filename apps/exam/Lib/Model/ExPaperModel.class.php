@@ -36,6 +36,7 @@ class ExPaperModel extends Model{
         $uid=$this->uid;
         $questiontype=explode(",",$question_type);
         $count=0;
+        $paper_point=0;
         foreach ($questiontype as $key => $value) {
             $val=explode("-",$value);
             $question_type=$val[0];
@@ -52,6 +53,11 @@ class ExPaperModel extends Model{
                         "paper_content_update_date"=>time(),
                         "paper_content_insert_date"=>time(),
                     );
+                    //试题分数
+                    $paper_point += $v["question_point"];
+                    $arr['paper_point'] = $paper_point;
+                    //更新试卷的分数
+                    M('ex_paper')->where('paper_id = '.$paper_id)->data($arr)->save();
                     $result = M('ex_paper_content')->data($data)->add();
                     if($result){
                         $count++;
@@ -68,6 +74,11 @@ class ExPaperModel extends Model{
                         "paper_content_update_date"=>time(),
                         "paper_content_insert_date"=>time(),
                     );
+                    //试题分数
+                    $paper_point += $question_list[0]["question_point"];
+                    $arr['paper_point'] = $paper_point;
+                    //更新试卷的分数
+                    M('ex_paper')->where('paper_id = '.$paper_id)->data($arr)->save();
                     $result = M('ex_paper_content')->data($data)->add();
                     if($result)$count++;
                 }else{
@@ -89,6 +100,11 @@ class ExPaperModel extends Model{
                             "paper_content_update_date"=>time(),
                             "paper_content_insert_date"=>time(),
                         );
+                        //试题分数
+                        $paper_point += $question_list[$random]["question_point"];
+                        $arr['paper_point'] = $paper_point;
+                        //更新试卷的分数
+                        M('ex_paper')->where('paper_id = '.$paper_id)->data($arr)->save();
                         $result = M('ex_paper_content')->data($data)->add();
                         if($result){
                             $count++;
@@ -97,6 +113,9 @@ class ExPaperModel extends Model{
                 } 
             }
         }
+        //更新试卷的题数
+        $asd['paper_question_count'] = $count;
+        M('ex_paper')->where('paper_id = '.$paper_id)->data($asd)->save();
         return $count;
     }	
 }

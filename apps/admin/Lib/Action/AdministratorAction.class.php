@@ -184,7 +184,6 @@ class AdministratorAction extends Action {
 
         //页面Key配置保存的值
         $this->_assignPageKeyData($detailData);
-
         $this->display(THEME_PATH.'/admin_config.html');
     }
 

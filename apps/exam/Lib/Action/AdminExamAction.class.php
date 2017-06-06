@@ -61,6 +61,7 @@ class AdminExamAction extends AdministratorAction
     public function doAddExam(){
         $post = $_POST;
         $data["exam_name"]=$post["exam_name"];
+        $paper_id=explode('-',$post["paper_ids"]);
         $data["exam_describe"]=$post["exam_describe"];
         $data["exam_categoryid"]=$post["exam_categoryid"];
         $data["exam_status"]=$post["exam_status"];

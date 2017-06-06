@@ -68,9 +68,10 @@
                 <div class="form-item">
                 	<select id="teach_way">
                 	  <option value="0">请选择授课方式</option>
-                    <option value="1">在线授课</option>
-                    <option value="2">线下授课</option>
-                    <option value="3">线上/线下均可</option>
+                      <if condition="$teach_way eq 1"><option value="1">在线授课</option>
+                        <elseif condition="$teach_way eq 2"/><option value="2">线下授课</option>
+                        <else/><option value="3">线上/线下均可</option>
+                      </if>
                 	</select>
                 </div>
                 <div class="form-item"><a class="btn" onclick="charge();" href="javascript:void(0);">我要约课</a></div>
@@ -190,7 +191,7 @@
                 </div>
             </div>
             <div class="content-sider w340">
-                <div class="sider-tit">一周授课时间</div>
+                <!-- <div class="sider-tit">一周授课时间</div>
 				<div class="weekday">
                 	<table width="100%" border="0">
                         
@@ -211,7 +212,7 @@
                         </tr>
                         </foreach>
                     </table>
-				</div>
+				</div> -->
                 <div class="sider-tit">课程推荐</div>
                 <ul class="sider-class">
                     <volist name="recClass" id="vo">

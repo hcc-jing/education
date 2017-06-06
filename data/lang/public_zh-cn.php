@@ -650,6 +650,7 @@ return array(
 'PUBLIC_PERMISSION_GROUP_CONFIGURATION'=>'权限组配置',
 'PUBLIC_MODSAVE_FILES'=>'分割存储:stringText',
 'PUBLIC_USER_FILSE'=>'用户选择:selectUser',
+'PUBLIC_TEACHER_FILSE'=>'讲师选择:selectTeacher',
 'PUBLIC_DEPARENT_FILES'=>'部门选择:department',
 'PUBLIC_IMAGE_FILES'=>'图片上传:input_image',
 'PUBLIC_EDITOR_FILES'=>'编辑器',

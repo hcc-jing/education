@@ -2,8 +2,9 @@
 class ExQuestionModel extends Model{
     var $tableName = 'ex_question q';
     public function QuestionList(){
-    	$_data=$this->join(C('DB_PREFIX')."ex_question_category ec ON q.question_category=ec.question_category_id")->join("{$tp}ex_question_type qt ON q.question_type=qt.question_type_id")->field("question_id,question_content,question_point,question_category_name,question_type_title")->findALL();
-		return $_data;
+    	$_data=$this->join(C('DB_PREFIX')."ex_question_category ec ON q.question_category=ec.question_category_id")->join(C('DB_PREFIX')."ex_question_type qt ON q.question_type=qt.question_type_id")->field("question_id,question_content,question_point,question_category_name,question_type_title")->findALL();
+		//return $this->getLastSql();
+        return $_data;
     }
     public function getPaperQuestion($paper_id){
         $_data=M("ex_paper_content pc")->join(C('DB_PREFIX')."ex_question eq ON pc.paper_content_questionid=eq.question_id")->where("paper_content_paperid=".$paper_id)->field("paper_content_id,paper_content_paperid,question_id,question_content,question_category,question_type,paper_content_point")->order("paper_content_item asc")->findALL();

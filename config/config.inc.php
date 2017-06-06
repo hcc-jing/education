@@ -11,4 +11,4 @@
   'SECURE_CODE' => '1663058b7871fc427a',
   'COOKIE_PREFIX' => 'el_',
 ); 
- ?>
+?>

@@ -162,6 +162,7 @@
 			</dl>
 			
 			<div class="page_btm">
+				 <input type="hidden" value="1" name="wan_count">
 		         <input type="submit" class="btn_b" value="保存">
 		    </div>
     	</div>
@@ -234,6 +235,10 @@
 			var question_type     = _this.find('select[name="question_type"]').val();
 			var question_content  = E.getData();
 			var opt               = _this.find('input[name="opt"]').val();
+			var wan_count         = $('#box_answer>li').length;
+			if(wan_count>0) {
+				$("input[name='wan_count']").val(wan_count);
+			}
 			if(question_category == '0'){
 				ui.error("请选择试题分类");
 				return false;
